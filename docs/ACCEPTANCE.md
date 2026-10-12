@@ -40,7 +40,7 @@ Application checks below are pending unless explicitly marked. Record actual met
 
 ## Delivery
 
-- [ ] Public repository opens while signed out.
+- [x] Public repository opens while signed out (GitHub public metadata HTTP200,2026-10-12 02:46 UTC; public-access.json).
 - [ ] Public live URL opens while signed out and matches the reviewed revision.
 - [ ] README has reproducible setup, real links, actual capabilities and limitations.
 - [ ] Repository/history/log review finds no exposed credentials or private account media.
@@ -54,4 +54,4 @@ Application checks below are pending unless explicitly marked. Record actual met
 
 Keep a compact table: check ID; test method; expected observable behavior; actual result; source commit; deployment revision; artifact/source; remaining issue. Store selected review evidence under docs/verification/ rather than relying on ignored transient browser reports. Stop broad testing once the required gates pass; retest changed behavior when fixing a concrete defect.
 
-D2 accepted 2026-10-12 01:35 UTC; documentary gate only. R1 remains incomplete under the explicit research exception. All deployed product, rendered design and recording checks remain pending.
+D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit research exception. Local implementation, rendered review/repairs and bounded mocked/HTTP/browser checks now exist; see STATUS and docs/verification. Full deployed-product acceptance remains pending because integrated publication failed twice; current public access reaches only version1's sample shell. The walkthrough is unrecorded. Unqualified creation/result checks above are deliberately not checked on the strength of samples or local mocks.

@@ -2,12 +2,12 @@
 
 A focused creative studio for the 8x assignment. Explore a prompt direction, compose a shot, retain its inputs, and inspect related work.
 
-**Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The first public shell remains live while the integrated deployment is prepared. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
+**Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The full application works locally. The first public shell remains live because two integrated publishes failed in the hosting migration runner; Cloudflare sign-in is the next deployment prerequisite. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
 
 - [Live application](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
 - [Public source](https://github.com/Arhaan2/higgsfield-rebuild)
 - [Current evidence and phase status](docs/STATUS.md)
-- Camera-on walkthrough: **not recorded**.
+- Camera-on walkthrough: **not recorded**; [4:30 preparation script](docs/WALKTHROUGH-SCRIPT.md).
 
 ## Product choices
 
@@ -17,7 +17,7 @@ The user explicitly allowed implementation with the documented research gaps unv
 
 ## Current verification
 
-The first public shell is source `6d5a576832f7704feade88d7f483ab402b924d0c`, Sites version 1. Build and TypeScript checks pass. An unauthenticated HTTP request and browser navigation reach the labeled sample. Its actual 14.996667-second clip plays. Direct browser retrieval downloads an 11,342,355-byte MP4 with the source checksum; the ordinary click's download event timed out and remains unverified. No real AI generation or full editor/data-flow verification is included in this checkpoint.
+The first public shell is source `6d5a576832f7704feade88d7f483ab402b924d0c`, Sites version 1. Build and TypeScript checks pass. An unauthenticated HTTP request and browser navigation reach the labeled sample. Its actual 14.996667-second clip plays. Direct browser retrieval downloads an 11,342,355-byte MP4 with the source checksum; the ordinary click's download event timed out and remains unverified. The integrated editor/data path is verified locally, not on this public shell. Two integrated publish attempts failed; see [deployment evidence](docs/verification/deployment.md) and the prepared [direct Cloudflare route](docs/DEPLOY-CLOUDFLARE.md). No real AI generation is claimed.
 
 ## Run locally
 
@@ -45,7 +45,7 @@ node --import ./tests/server/register.mjs --test tests/server/*.test.mjs
 node src/client/checks/studio-state.mjs
 ```
 
-The 22 server checks use isolated SQLite and mocked R2/provider calls; 11 client-state checks use mocked APIs. They do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
+The 22 server checks use isolated SQLite and mocked R2/provider calls; 27 client-state checks use mocked APIs. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md). They do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
 
 `APP_ORIGIN` must exactly match the browser origin. `LIVE_GENERATION_ENABLED=false` and `GENERATION_BUDGET_USD=0` are the defaults. `FAL_KEY` is optional and server-only; a key alone does not enable generation. D1's separate budget policy also defaults to no allowance. Do not put populated secrets in tracked files or chat.
 

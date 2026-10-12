@@ -1,46 +1,44 @@
 # Current status
 
-**Phase 0 is verified. Phase 1 advances by explicit user research exception; gaps remain unverified. Phase 2 is accepted. Phase 3 is in progress. Spending remains disabled.**
+**Not all phases are complete.** Phase0 is verified, Phase1 advances by the user's research exception, and Phase2 is accepted. Phase3's integrated application works locally, but its full public deployment and real-generation gate remain unresolved. Spending is disabled with a zero allowance.
 
-Checkpoint UTC: 2026-10-12T02:30:00Z. Local date: 11 October 2026, America/Los_Angeles.
+Checkpoint:2026-10-12T02:47:00Z. Deadline:2026-10-12T23:04:00Z / Monday4:04p.m.Pacific; approximately20h17m remain. Target readiness remains2p.m.Pacific.
 
-- Deadline: 2026-10-12T23:04:00Z / 12 October 4:04 p.m. Pacific. Target readiness: 2 p.m. Pacific. Approximately 20h34m remain at this checkpoint.
-- Public repository: https://github.com/Arhaan2/higgsfield-rebuild. Previously verified public source baseline: `d3d110a71750ba92af2fd7cb3469fa57e24b82ce`, unauthenticated commit access HTTP 200. This research checkpoint is identified by its accompanying Git commit; current push/public-access verification is reported by the coordinator after publication.
-- C0: coordinator and separate CLI specialists verified. Native children and worktrees remain unverified and unused for production. Root `CAPTURE-TEST.md` records actual canaries and limitations.
-- Reviewer and backend initial reports finished, with full prompt/final exact-match capture accepted. Follow-up reviewer session `01a12da8-61fa-73b1-a23f-a477de7cb6a4` finished. Root verified the full prompt/final, visually confirmed both findings, and corrected warning chronology and screenshot-error attribution. Acceptance is recorded in docs/agents/ASSIGNMENTS.md.
-- Current root session: `01a12d62-f5bc-7650-8eb5-7b04e1496548`, actual model `gpt-6-astra`. Its current final response cannot be captured until emitted.
-- Apple Design: coordinator and reviewer read `/Users/arhaan/.codex/skills/apple-design/SKILL.md`. Accepted direction and rendered desktop/mobile review recorded in docs/verification/design-review.md; root verified focused repairs.
-- User signed in and explicitly kept spending disabled. Approved credit/dollar cap is **zero**. One displayed-free image completed; account balance remained 10 credits. Review found that a pre-submit fallback warning was already visible and missed by the coordinator; the request was not guaranteed free and the usage ledger was unverified. Further fallback-capable submissions are blocked.
-- Hosting: Sites first public shell deployed: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site . D1/R2 bindings configured; data-path checks pending. FAL_KEY absent and generation allowance remains zero. Earlier Vercel 403 no longer blocks the chosen hosting route.
-- Walkthrough: not recorded. Public deployment checks and real camera-on recording remain future requirements.
-
-| Phase | State | Actual evidence / missing prerequisite |
+| Phase | State | Actual evidence / remaining requirement |
 | --- | --- | --- |
-| 0 | complete | Public remote, C0, logged CLI delegation, installed skill and bounded access preflight verified. Missing service access remains explicit. |
-| 1 | advanced_by_exception | User explicitly allowed design/implementation with unresolved research flows; R1 is not an evidence pass. |
-| 2 | complete | Accepted Apple Design specification, scope, capabilities and contracts; all three prompt/final captures verified exactly. |
-| 3 | in_progress | First public shell deployed from 6d5a576. Integrated editor/server works locally; 11 real local HTTP checks, 22 server checks and browser upload/save/reload passed. Review-driven client repairs and public integration deployment are being finalized. V3 remains pending. |
-| 4 | pending_V3 | Image task, library and reuse implementation are present, but no real connected image→video loop has passed. |
-| 5 | independent_work_done | Apple Design implementation and rendered desktop/mobile review performed. Focused visual repairs verified; complete interaction-state acceptance remains pending. |
-| 6 | partial | Local HTTP/browser and mocked server/client checks run. Independent review found three client defects; repair regressions pass at specialist checkpoint, root acceptance pending. Current-deployment and real-provider acceptance remain pending. |
-| 7 | preparation_only | Public links exist and a truthful walkthrough script is prepared. Final deployed checks and camera-on recording remain pending. |
+| 0 | complete | Public remote, independent capture canaries, captured CLI specialist route, installed skill and access preflight verified. |
+| 1 | advanced_by_exception | User “im allowing it” permits implementation with disclosed gaps. R1 is not an evidence pass. |
+| 2 | complete | Accepted scope, Apple Design direction, capabilities, contracts and exclusive ownership; full specialist captures verified. |
+| 3 | partial | Integrated Explore/Studio/Library, validated private uploads and saved drafts work locally. Full public releases2/3 failed in hosted migration. No real generated video; V3 pending. |
+| 4 | pending_V3 | Image task, reuse, presets and Library are implemented; real connected image→video acceptance not run. |
+| 5 | partial | Rendered desktop/mobile review and focused repairs verified. Complete interaction-state/reduced-preference acceptance remains pending. |
+| 6 | partial | 22 server and27 client mocked checks,11 real local HTTP checks, local browser flows, TypeScript/build and direct deployment dry run pass. Hosted data-path and real-provider acceptance remain pending. |
+| 7 | preparation_only | Public source/shell links and truthful4:30 script exist. Full release checks and actual camera-on recording are outstanding. |
 
-## This checkpoint
+## Product and deployment
 
-[Research synthesis](RECON.md) and [flow inventory](recon/flows.md) distinguish completed, observed and blocked states. Screenshots 04–36 supplement original signed-out 01–03; number 15 was not saved. The actual generated WebP is retained with its checksum and displayed-rendition limitation. There is no generated video.
+- Public source: https://github.com/Arhaan2/higgsfield-rebuild . Integrated source and authentic incremental logs pushed through e9d66bb7d8f5c83e656afdbffc423779c4d9a9b7 before this documentary checkpoint. Subsequent checkpoint commit contains these current notes.
+- Public URL: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site . **Still version1, source6d5a576**, a sample shell. Versions2/3 failed with `incomplete input: SQLITE_ERROR`. The official database overview returned zero user tables after each. Do not describe the full editor/data path as publicly deployed.
+- The formatting-only migration experiment preserved all guards in isolated checks but did not fix publication; current build code returns to the original packaging. Applied source migration and journal remain unchanged. Exact attempts and hashes: docs/verification/deployment.md.
+- Direct Cloudflare authentication check: not authenticated. No resources created. The current Worker build passed Wrangler's dry run (42 additional modules;906.78KiB upload,261.51KiB gzip). This is packaging evidence, not deployment. Prepared procedure: docs/DEPLOY-CLOUDFLARE.md.
+- Anonymous access check at02:46 UTC: current public shell HTTP200; GitHub API HTTP200 and public=true. Evidence: docs/verification/public-access.json. Current source intentionally contains more functionality than the live shell.
 
-Verified outcomes: user-operated sign-in; project/folder and Canvas prompt reload; free Frog image/result/library reload; image-to-motion draft handoff; reference-image draft reload; preset-to-form actions; existing film and Academy lesson playback. Native original-resolution Download was not verified.
+## Accepted local evidence
 
-Automatic approval review rejected the Genjutsu Free submission because free-queue exhaustion can fall back to paid credits. No video submission or alternate route followed. The original bottle fixture upload stopped at a new media agreement; no acceptance or completed upload is claimed.
+Real local D1/R2 HTTP checks cover independent guests, revision conflicts, JPEG retention/idempotency, invalid-image rejection, private byte ranges/download hash, cross-guest404, reference persistence, and zero-budget rejection with no job. Browser checks cover upload, save/reload, Library reopening, details focus/Escape and320/390/1440px widths. Prepared clip playback and direct browser retrieval were verified on the original public shell; the ordinary-click download event timed out and is not claimed passed.
 
-New source changes are research documents, selected evidence, assigned reviewer contract/report, and automatically produced capture/provenance only. Root alone commits and pushes. The selected Vinext scaffold now exists and passes build/typecheck; this does not establish creation-flow completion.
+Independent integration review found IR01–IR03. Root inspected repairs, independently reran27 client checks/TypeScript, and reproduced2,501-character inactive-prompt preservation after reload in the actual browser. Independent rendered review found R01–R03; root verified the repaired reference picker, portrait thumbnails and reference navigation. Reports retain their original findings; acceptance and exact capture checks are in docs/agents/ASSIGNMENTS.md. No active specialist remains.
 
 ## Exact next actions
 
-**Coordinator:** accept and independently verify the client repairs; publish the integrated zero-spend application; verify real hosted D1/R2 guest isolation, save/reload, upload and downloads. Keep the tested source, public deployment, README and evidence aligned. Continue independent delivery preparation; V3 does not pass from these checks.
+**Arhaan:** run `cd /Users/arhaan/Desktop/higgsfield-rebuild && npx wrangler login`, complete Cloudflare browser sign-in, then report “signed in.” The pending request is for missing deployment access, not routine phase approval or spending authorization. Keep credentials out of chat.
 
-**Arhaan:** no routine phase approval is needed. Before real generation, privately configure FAL_KEY and explicitly authorize a bounded provider allowance. The existing zero-spend choice remains in force; no new billable request is made. After the deployed rehearsal state is ready, make a real camera-on walkthrough under five minutes and provide an accessible link. The prepared script is docs/WALKTHROUGH-SCRIPT.md, not a recording.
+**Coordinator after sign-in:** verify the actual account and resource collisions, configure the reviewed Worker with real DB/BUCKET IDs, apply the unchanged migration through Wrangler, publish and run hosted HTTP/browser checks. Do not replace guards or create runtime migration endpoints to work around the failed host.
 
-**Research exception:** “im allowing it” authorized implementation with documented research gaps. It did not complete R1, approve spending or accept the original Higgsfield media agreement. If closing that original flow is desired, accept its retained rights/terms/screening agreement personally or specifically authorize that action. Existing screenshots and limitations remain in RECON.
+**Later:** privately configure FAL_KEY and explicitly authorize a bounded provider allowance before any real generation. Current zero-spend choice remains in force. Then complete V3 and subsequent connected-flow gates. Arhaan must make a camera-on recording under five minutes and supply an accessible link; docs/WALKTHROUGH-SCRIPT.md is preparation only.
 
-The current root final cannot be captured until it is emitted. Its subsequent raw-log/provenance update requires final inspection, commit and push after the agent stops.
+## Research and capture boundaries
+
+The research exception did not approve spending or accept the original Higgsfield upload agreement. The displayed-free Frog image completed, but the coordinator missed a pre-submit paid-fallback warning; billing was not independently verified. Automatic approval review rejected the later Genjutsu Free video submission because fallback could spend credits. No alternate submission followed. The original bottle fixture upload agreement remains unaccepted. Details and screenshots remain in RECON and recon/flows.md.
+
+C0 supports the coordinator and separate CLI specialists. Native children/worktrees remain unverified and unused for production. All completed specialists' full prompts/finals have exact automatic-log matches. The read-only source audit passes23 sessions. Current root session01a12d62-f5bc-7650-8eb5-7b04e1496548, actual modelgpt-6-astra: its current final response cannot be captured until emitted. Inspect, commit and push that genuine final log/provenance update after the agent stops.

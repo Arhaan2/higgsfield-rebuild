@@ -1,36 +1,27 @@
-# Submission and walkthrough plan
+# Submission preparation — incomplete
 
-**All submission links and the recording are currently pending.** Update this document from real output; never invent URLs, a recording, completion, or hiring results.
+The public source and sample shell exist. The full application is implemented and tested locally, but integrated deployment failed in the Sites migration runner. No real generated-video acceptance or camera-on recording is complete. Do not present this as a finished submission.
 
-## Final links
+## Verified links
 
-- Live application: NOT DEPLOYED
-- Public repository: NOT CREATED / NOT VERIFIED
-- Walkthrough: NOT RECORDED
-- Source commit / deployed revision: NOT RECORDED
-- Recording duration and camera check: NOT VERIFIED
+- Live sample shell: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site
+- Public repository: https://github.com/Arhaan2/higgsfield-rebuild
+- Walkthrough: **NOT RECORDED**
+- Current public revision:6d5a576832f7704feade88d7f483ab402b924d0c, Sites version1.
+- Integrated candidate revisions88b273a ande9d66bb are in Git history; Sites versions2/3 failed and are not live.
+- Anonymous access at2026-10-12T02:46:05Z: shell HTTP200; public repository HTTP200. See verification/public-access.json.
 
-## README to produce before handoff
+## Remaining delivery work
 
-Explain the user problem and concrete observation; what the product does; the improvement and why; actual architecture and run instructions; environment variables with no secrets; real integrations versus samples/simulations; verified checks; material omissions; research and log locations; live/repository/walkthrough links. Keep claims consistent with the deployed build.
+1. Arhaan signs in with `npx wrangler login`; coordinator verifies account, deploys the reviewed Worker with real D1/R2 bindings and runs hosted acceptance checks. See DEPLOY-CLOUDFLARE.md.
+2. Real generation needs private FAL_KEY configuration and an explicitly authorized cap. Spending remains disabled; samples and mocked tests do not satisfy V3/P4.
+3. Use WALKTHROUGH-SCRIPT.md for a truthful4:30 rehearsal. Arhaan must record with camera visible, remain below five minutes and provide an accessible URL. Update the script if live-generation evidence is later obtained.
+4. Verify the actual recording's access, camera and duration; then verify final application/repository access and source/deployment alignment again. A script is not a recording.
 
-## Recording plan: target 4 minutes 30 seconds
+## Field placement
 
-| Time | Demonstration |
-| --- | --- |
-| 0:00–0:20 | Introduce the live application and creative task. |
-| 0:20–0:55 | Show one original-product observation and the chosen improvement. |
-| 0:55–2:30 | Demonstrate inputs, meaningful settings, submission and result handling. |
-| 2:30–3:15 | Show variation, history/reuse and download. |
-| 3:15–3:55 | Open the public repo, real capture evidence and incremental history. |
-| 3:55–4:30 | Explain the principal tradeoff, actual limitations and next improvement. |
+After full release verification, place the real recording URL in the walkthrough field. The links field should label the actual live application and public repository separately. Current links can be copied from above, but the live link currently denotes the sample shell only. No walkthrough URL has been invented and no external application has been submitted.
 
-Arhaan must make the real camera-on recording. The agent prepares an accurate script and reproducible sample state after seeing the finished product. If a live generation is pending, show its status and explicitly identify an earlier completed result when demonstrating output behavior. Never imply that an earlier sample came from a new request.
+## Capture closure
 
-## Final closure
-
-Check live/repository/video access as an external viewer. Confirm the public deployment matches the tested source. Put the video URL in the walkthrough field and labeled live/repository URLs in the links field. Prepare that exact submission text only after the links exist.
-
-The assignment's final submission action remains with Arhaan unless he explicitly authorizes the agent to submit. Repository creation and incremental code pushes are already authorized as part of this build plan; do not ask again for them.
-
-After the agent's final response is logged, Arhaan should inspect, commit and push the remaining .agent-logs/ update from the actual project terminal. Have Codex give commands tailored to the real repo/branch. This avoids the final-response-after-last-commit gap. Do not keep opening unnecessary agent turns afterward.
+All completed specialist prompts/finals were automatically captured and verified. The active coordinator's final response will be logged only after emission. Run the coordinator's actual-root inspection, verification, conditional commit and push commands after it stops; do not rewrite or squash earlier capture. Final source/log closure remains pending until those commands actually run.

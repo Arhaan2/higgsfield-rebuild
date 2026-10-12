@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-12T02:46:05.953Z",
+  "mode": "No owner authentication or cookies sent",
+  "app": {
+    "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site",
+    "status": 200,
+    "title": "Frame Studio · Higgsfield rebuild",
+    "scope": "Existing version1 shell only; integrated releases2/3 failed"
+  },
+  "repository": {
+    "url": "https://github.com/Arhaan2/higgsfield-rebuild",
+    "status": 200,
+    "public": true,
+    "defaultBranch": "main"
+  }
+}
