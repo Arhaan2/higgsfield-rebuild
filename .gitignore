@@ -34,6 +34,7 @@ Thumbs.db
 !/build/connector-preview-worker.mjs
 !/build/sites-vite-plugin.LICENSE
 !/build/sites-vite-plugin.ts
+!/build/migration-transport.mjs
 !/build/sites-worker.ts
 /.vinext/
 /.wrangler/

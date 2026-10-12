@@ -71,4 +71,6 @@ Both read-only reviews finished; full prompt and final matches were independentl
 
 ## Repair acceptance — 2026-10-12 02:31 UTC
 
+After a hosted migration failure, Backend task p3-migration-review-001 owns only docs/verification/migration-review.md under handoff13. Root owns all implementation and packaging repairs; source migrations stay immutable.
+
 Frontend repair task completed in session01a12dec-e271-79b2-8fac-144da7f16fa2. Root verified full prompt/final exact capture, inspected the three fixes and adjacent continuation guards, independently ran all27 client checks and TypeScript successfully, and reproduced over-limit inactive-prompt retention in the actual local browser. The old2,501-character draft now survives reload with its invalid state intact while the valid active video draft stays saved. All authored paths match the contract and return to root. Server admission ordering supporting conclusive errors was inspected. No backend/schema change or live provider test occurred. The original review reports remain unmodified historical findings.
