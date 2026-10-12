@@ -2,7 +2,7 @@
 
 **The integrated studio is deployed and its zero-spend hosted flows pass. Not all assignment phases are complete.** Real provider acceptance, required research output chains and Arhaan's actual camera-on walkthrough remain outstanding. Total authorized spending is **$0**.
 
-Checkpoint: 2026-10-12, after the 18:51 UTC deployment and hosted review. Deadline: **2026-10-12 23:04 UTC / Monday 4:04 p.m. Pacific**. Preserve the remaining time for the actual recording and its public-access check.
+Checkpoint: 2026-10-12T19:14:05.986043+00:00. Deadline: **2026-10-12 23:04 UTC / Monday 4:04 p.m. Pacific**. Preserve the remaining time for the actual recording and its public-access check.
 
 | Phase | State | Evidence / remaining requirement |
 | --- | --- | --- |
@@ -42,6 +42,8 @@ The prior 138 controlled checks (36 server,58 Studio,29 actions,15 Library) and 
 
 ## Capture and ownership
 
-Only the coordinator owns Git/deployment/shared interfaces. Reviewer handoff27 is complete; all paths have returned to root and no specialist is active. No backend/frontend repair was needed for the deployed path. No native child/worktree production capture was used.
+Only the coordinator owns Git/deployment/shared interfaces. Reviewer handoffs27/28 are complete; all paths have returned to root and no specialist is active. No backend/frontend repair was needed for the deployed path. No native child/worktree production capture was used.
 
-Latest audit: **37 sessions exactly match full source transcripts**, including all coordinator/production specialists; **two automatic client suggestion sessions match genuine native hook journals only**, with unavailable full transcripts. Their unmodified journals and hashes are preserved; no raw log was edited. See capture/verification-deployed.json and capture/native-journal-continuation.json. The active coordinator final remains future capture.
+Latest audit: **38 sessions exactly match full source transcripts**, including all coordinator/production specialists; **two automatic client suggestion sessions match genuine native hook journals only**, with unavailable full transcripts. Their unmodified journals and hashes are preserved; no raw log was edited. See capture/verification-delivery-final.json and capture/native-journal-continuation.json. The active coordinator final remains future capture.
+
+Final [package review](verification/final-release.md) independently passes public access, ten served asset hashes, unchanged product fingerprints, disabled policy, genuine screenshots and truthful submission materials. Root has verified its complete final capture after Stop. The verdict is scoped package acceptance; full assignment/Q6/S7 remain incomplete. Final anonymous root check is verification/deployed-public-final.json.

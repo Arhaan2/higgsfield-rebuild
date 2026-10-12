@@ -12,9 +12,9 @@ The application builds to a Cloudflare Worker with DB and BUCKET bindings. Direc
 
 ## Historical user-owned activation prerequisite — resolved
 
-Cloudflare login is complete. Enable R2 in the authenticated account's Cloudflare dashboard, completing any billing details or terms personally, and report only “R2 enabled.” The R2 API returned error10042 requiring enablement. This authorizes no generation spending; all generation policy remains disabled.
+At the earlier checkpoint, Cloudflare login was complete but R2 returned error10042. Arhaan needed to personally enable R2 and report “R2 enabled.” That action is now resolved by the user and the successful availability check above. It authorized no generation spending.
 
-The user subsequently reaffirmed **$0 total spending** while choosing R2. A fresh check still returned10042. [Cloudflare's setup guide](https://developers.cloudflare.com/r2/get-started/) requires subscription checkout for activation. [R2 pricing](https://developers.cloudflare.com/r2/pricing/) includes10 GB-month Standard storage,1 million Class A and10 million Class B operations monthly; usage above these amounts is billed. Do not represent the free allowance as a hard $0 spending cap, activate paid upgrades, or approve overage charges. No billing settings were changed. Activation remains a user-owned prerequisite.
+The user subsequently reaffirmed **$0 total spending** while choosing R2. A fresh check still returned10042. [Cloudflare's setup guide](https://developers.cloudflare.com/r2/get-started/) requires subscription checkout for activation. [R2 pricing](https://developers.cloudflare.com/r2/pricing/) includes10 GB-month Standard storage,1 million Class A and10 million Class B operations monthly; usage above these amounts is billed. Do not represent the free allowance as a hard $0 spending cap, activate paid upgrades, or approve overage charges. No billing settings were changed. Activation was a user-owned prerequisite, subsequently completed as recorded above.
 
 ## Actual remote state — 2026-10-12 03:04 UTC
 

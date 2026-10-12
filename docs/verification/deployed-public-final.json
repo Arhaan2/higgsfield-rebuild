@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-12T19:11:54.685Z",
+  "kind": "Anonymous requests; no cookies or owner credentials",
+  "sourceHeadAtCheck": "5391fd615c01b7cdd2dfcf650bb5de1926ddec1f",
+  "deployedSource": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+  "workerVersion": "cbe42062-203d-462c-949e-0d4bd380beac",
+  "checks": [
+    {
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/",
+      "status": 200,
+      "bytes": 26255,
+      "sha256": "a73148ae177646069956888fc9034e3c086d8186e96715d00fa3d1232b35d176"
+    },
+    {
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/studio?sample=dune-study",
+      "status": 200,
+      "bytes": 12309,
+      "sha256": "26b2448c05a93465fba4cdda9f6d08c68de7a3154f12fc5b2f3c95facec0a2d2"
+    },
+    {
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/library",
+      "status": 200,
+      "bytes": 13451,
+      "sha256": "58eded9a79c87a4b0da24696849ad276f591ea6767f6e05cd73093bbe19f2a70"
+    }
+  ],
+  "liveGeneration": {
+    "enabled": false,
+    "reason": "disabled",
+    "budgetLimitMicroUsd": 0,
+    "remainingMicroUsd": 0
+  },
+  "publicMain": "5391fd615c01b7cdd2dfcf650bb5de1926ddec1f",
+  "publicRepositoryStatus": 200,
+  "remaining": "Actual camera-on recording and real provider acceptance not supplied; future evidence/capture commits may follow without product changes"
+}

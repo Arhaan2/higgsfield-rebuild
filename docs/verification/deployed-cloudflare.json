@@ -77,7 +77,9 @@
     "triggers": 10,
     "foreignKeyViolations": [],
     "budgetPolicyRows": 0,
-    "migrationReplayed": false
+    "migrationReplayed": false,
+    "schemaExactlyMatchesPreviouslyVerifiedSource": true,
+    "canonicalSchemaSha256": "3b5a9267743e35f788e8cd9aae29362249112f30def91d54de86eff0512af261"
   },
   "bucket": {
     "name": "higgsfield-rebuild",
