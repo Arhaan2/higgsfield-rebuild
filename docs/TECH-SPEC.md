@@ -1,54 +1,33 @@
-# Technical starting specification
+# Accepted technical contract v1
 
-**Proposal only.** Phase 2 resolves actual providers, runtime, API schemas, path ownership and persistence. No endpoint or environment name below is a claim about an existing application.
+Coordinator decision, 2026-10-12 01:35 UTC. Specification accepted; runtime verification pending. Adopt [architecture](architecture/decision.md) and [API contract](architecture/api-contract.md) with the explicit amendments below. Shared source types in `src/contracts/studio.ts` are authoritative once scaffolded.
 
-## Architecture boundary
+## Stack and location
 
-Use one familiar full-stack TypeScript/React codebase. Add the minimum durable database and media storage needed for the promised behavior. Prefer services the user already has authorized access to. Confirm current official integration documentation and hosting constraints. Keep provider credentials server-side. Document the selected stack and versions in this file, then maintain one lockfile and one root owner for dependencies.
+Use the actual Sites Vinext starter: React 19.2.6, Vinext 1.0.0-beta.5, Next-compatible routes, TypeScript 5.9.3, Drizzle 0.45.2, Vite 8.0.13 and Wrangler 4.92.0; npm lockfile owns the dependency graph. Node 24.18.0/npm 11.16.0 are present. Install/build still must be verified.
 
-The browser collects a draft and displays state. Server routes validate it, enforce visitor ownership and usage limits, persist jobs and assets, and talk to the generation provider. A provider adapter isolates the external API. Do not build a general multi-provider framework before one integration works.
+The application lives at the **existing repository root**, not the architect's proposed `sites/studio/`. The official empty-directory setup was prepared under ignored `.cache/vinext-seed`; root merges its files while preserving capture, docs, Git and existing configuration. This honors the user's fixed capture destination. No nested repository or worktree. Keep the supplied `sites()` integration and platform auth helper.
 
-## Domain objects
+Sites project `appgprj_6acc37cbdaf081918ff0bfcc27e4020b` was created once, persisted in `.openai/hosting.json`, and public access was explicitly configured (revision 2). Expected URL: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site . **No deployment exists yet.** The existing public GitHub origin remains authoritative; Sites source synchronization uses its credential directly without replacing that origin. Provision logical D1 `DB` and private R2 `BUCKET` through Sites.
 
-| Object | Minimum information | Important behavior |
-| --- | --- | --- |
-| Project | ID, visitor/owner, title, timestamps | Groups related assets and variations |
-| Asset | ID, owner/project, media kind, durable location, metadata, source job if generated | Uploaded references and generated outputs remain distinct |
-| GenerationJob | ID, owner/project, immutable draft snapshot, logical request ID, provider job/reference, status, output IDs, timestamps, safe error detail | Can be resumed/reconciled across page reloads |
-| Preset | ID, title, preview/source attribution, operation, supported settings | Populates a real draft; does not promise unsupported controls |
+## Interfaces and behavior
 
-A request snapshot includes actual prompt, selected provider/model, supported settings and input asset references. The result can display that snapshot and reuse it. Do not mutate an old completed job when the user creates a variation.
+Adopt the documented guest cookie, Origin checks, request bounds, owner predicates, revision conflicts, raw JPEG/PNG uploads, immutable snapshots, request keys, admission limits, unknown-submission handling and transfer recovery. The server must validate each boundary. No provider request is allowed in this implementation session.
 
-## Shared contract to finalize
+Amendments: each Draft and Snapshot also has `parentAssetId: string | null`, validated as an owned or public sample asset, so a revision retains its source. Asset adds title, optional poster and attribution for presentation. Root publishes exact types and validation schemas before workers start. Preset IDs are validated against root's catalog. Samples are immutable root-authored catalog entries with files under `public/samples/`; they may use same-origin static media/download URLs and do not require R2 seeding. Private media remains in R2. Samples have no invented generation metadata. The displayed still and clip are distinct works, not a claimed image-to-video pair.
 
-Agree request validation, response/error structure, supported capabilities and state transitions before parallel implementation. Root owns the shared types and the capability matrix. A useful provider contract can submit a job, retrieve its status/result, and cancel only where genuinely supported. Record when the provider cannot offer a requested behavior.
+Retain drafts server-side in D1. Guest access lasts at most 30 days on this browser; cookie loss/expiry loses access. A browser recovery buffer may supplement server saves but never establishes Saved status. Library lists actual projects. Reuse fills a draft, never silently submits or alters an existing result.
 
-Do not assume fixed durations, resolutions, reference counts, end-frame support, character consistency or cancellation. Populate controls from the capabilities actually implemented. Every visible selection must map to a real validated request.
+## Live-generation policy
 
-## Uploads and ownership
+Exact proposed environment names are adopted: `APP_ORIGIN`, `LIVE_GENERATION_ENABLED`, `GENERATION_BUDGET_USD`, `FAL_KEY`. Flag false, environment cap zero and D1 policy absent/zero all deny new generation. A key alone cannot enable it. Endpoints are `fal-ai/flux/schnell` and `fal-ai/kling-video/v2.5-turbo/pro/image-to-video` with the strict fixed payloads in the architecture contract. Reservations are conservative admission limits, not billed-price claims. No cap is authorized today.
 
-Validate file type, size and required metadata server-side; use a narrow, documented supported input set. Make uploads visible as a preview, preserve the selected reference on recoverable errors, and use internal asset IDs in application requests. Verify ownership when an asset/job is accessed. A public sample project is separate from private guest work. Avoid arbitrary server-side fetching of caller-provided URLs; prefer owned uploads and validated provider output locations.
+The adapter is request-driven: closing all browser tabs pauses reconciliation. Unknown POST outcomes retain the reservation and never auto-resubmit. Provider success is not app success until retained media exists. Separate transfer retry must never regenerate. Provider compatibility, billing and real results require future authorized deployed checks.
 
-## Generation lifecycle
+## Ownership
 
-Persist a logical request before provider submission. Choose clear UI states that reflect the real backend, such as submitting, accepted/pending, running, succeeded and failed. Preserve an explicit unknown outcome when submission or polling is inconclusive. A timeout is not automatically a failed generation.
+Root owns shared contracts/catalog, layout, manifests/lockfiles, build/config/env, public media, migration generation/application, integration, capture, commits and deployment. Backend is explicitly assigned `src/server/**`, `app/api/**`, `tests/server/**` and **`db/schema.ts`**; root retains `db/index.ts` and `drizzle/**`. Frontend owns `components/studio/**`, `src/client/**`, `app/page.tsx`, `app/studio/**`, `app/library/**`. Designer owns `app/globals.css` and `styles/**` only, consuming the agreed class contract. Each receives a complete handoff before coding. No concurrent edits across these boundaries.
 
-Use provider idempotency/reconciliation features where documented. If submission outcome is uncertain, retain the logical request, attempt supported lookup/reconciliation, and prevent an automatic second paid operation. Explain the unresolved state honestly if the API cannot determine it. A user-requested new attempt after a confirmed failure creates a new logical operation; reusing the same key must not accidentally resurrect a failed request.
+## Verification and honest gates
 
-Persist completed outputs in a durable way compatible with the provider's terms and URL lifetime. Make refresh restore the correct job/result. Do not report invented percentage progress or claim cancellation when only local polling stopped.
-
-## Budget and guest access
-
-No paid amount is authorized by this kit. Resolve the user's cap and provider access before billable requests. Track costs/estimates and usage limits on the server; client counters alone are insufficient. Record the chosen enforcement policy, including how in-flight jobs count against the cap. When live generation is disabled or exhausted, keep the labeled sample project inspectable and explain the limitation.
-
-## Testing boundary
-
-Write only meaningful checks for actual risks: request validation, ownership, duplicate/uncertain submission, retained drafts, refresh persistence and the critical browser journey. Use isolated disposable data for simulated failures. Test the required real provider operations in the public deployment within the approved budget. Reuse independently inspectable evidence on the unchanged build; another paid run requires an uncovered behavior, a relevant change or a concrete remaining uncertainty. Test API mocks are useful for controlled behavior but do not prove real generation.
-
-## Deployment
-
-Create the first public deployment once the Phase 3 scaffold runs. Verify access without the creator's authentication and reload a deep route. Record the source commit and deployed revision so tests point to the actual submitted build. Keep environment setup, migrations and deploy commands reproducible. Recheck affected live behavior after material deployment changes.
-
-## Architecture decisions to fill in Phase 2
-
-Runtime and package manager; actual framework/versions; provider/model IDs and current documentation; credential presence without values; cost and cap; database/media persistence; guest identity and authorization; public host; request/job contracts; capability matrix; exact agent-owned paths; required success/failure verification.
+Build/typecheck and targeted tests cover ownership, Origin, upload validation, atomic budget/storage admission, duplicate/unknown submission, and range delivery. Browser checks cover sample labels, save/reload, invalid upload recovery, reuse, playback/download and responsive keyboard behavior. Mocked provider tests are labeled as such. V3 remains pending without a real deployed generation; public access and D1/R2 behavior are not inferred from Site registration.

@@ -1,5 +1,17 @@
 # Active Phase 0/1 assignments
 
+## Phase 2 — accepted, user research exception approved
+
+Capture: same verified independent CLI route; no native children/worktrees. User explicitly allowed implementation with R1 gaps unverified. Zero spend unchanged. Root owns decisions, app/contracts/config/dependencies, Git and Sites calls. CLI CWD remains the original capture root.
+
+| Task | Role | Exclusive writable paths | Contract |
+| --- | --- | --- | --- |
+| p2-design-001 | Designer | `docs/design/**` | handoffs/04-design-direction.txt |
+| p2-architecture-001 | Backend | `docs/architecture/**` | handoffs/05-architecture-decision.txt |
+| p2-scope-001 | Researcher | `docs/recon/scope-recommendation.md` | handoffs/06-scope-decision.txt |
+
+Earlier assignments below are complete. Only root accepts evidence and commits. Workers may not delegate or write application source during decision tasks.
+
 Coordinator owns scope, capture, git, setup, status/decisions and the sole Higgsfield browser session. Researcher responsibilities are retained by the coordinator for authentication continuity: `docs/recon/flows.md`, `docs/recon/screenshots/**`, and synthesis in `docs/RECON.md`.
 
 Separate logged CLI sessions are the verified delegation route. Canary `cli-delegation-canary-001` passed on 2026-10-12 UTC. Native collaboration children remain prohibited for production until independently verified. No worktrees are in use. Workers must not delegate or change ownership.
@@ -26,3 +38,7 @@ Task `p1-evidence-reconciliation-002`: Reviewer exclusively owns `docs/recon/che
 Reviewer session `01a12da8-61fa-73b1-a23f-a477de7cb6a4` exited 0 and authored only its assigned report. Its complete task prompt and final YAML exactly occur in the automatically created log; the source-level audit `docs/capture/verification-research-2026-10-12.json` passes all 13 sessions. Root visually inspected screenshots 11 and 26 and confirmed both findings. Root corrected IF01/RECON/DECISIONS/STATUS to acknowledge that the fallback warning was visible before the image request and missed; no claim of guaranteed-free billing remains. VR01 now distinguishes the reported transient preview error from screenshot 26, which does not show it. I02 links the later upload/reference outcomes, and STATUS includes current results. The reviewer report remains the original pre-correction judgment, not retroactively edited.
 
 Accepted deliverable: documentary reconciliation and evidence corrections, **not an R1 pass**. Root independently decoded all 35 screenshots and the retained WebP, added a screenshot index, and ran a clean non-log whitespace check. No product tests, deployment or recording are claimed. No specialists remain active.
+
+## Coordinator acceptance — 2026-10-12 01:35 UTC
+
+All three Phase 2 CLI specialists returned complete documentary deliverables. Root read the outputs, confirmed exclusive authored paths, verified full prompt/final exact matches and the 16-session source audit in `docs/capture/verification-design-2026-10-12.json`. Accepted direction/tokens, bounded scope and architecture with explicit TECH-SPEC amendments. No runtime or rendered review is inferred. Ownership returned to root; all Phase 2 workers finished.

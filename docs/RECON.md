@@ -1,6 +1,6 @@
 # Product investigation checkpoint
 
-**R1 is pending. Capture/setup passed; application code has not begun.** Coordinator synthesis on 2026-10-12 UTC, based on actual signed-in interaction in [the live inventory](recon/flows.md), screenshots and one genuine free image. The earlier [independent coverage review](recon/coverage-review.md) establishes the broad requirements; its 00:29 checkpoint predates most of these interactions. Boundary inspection is not a completed generation flow.
+**R1 remains incomplete by evidence; the user explicitly allowed design/implementation under a research exception at the 01:21 UTC checkpoint. Capture/setup passed.** Coordinator synthesis on 2026-10-12 UTC, based on actual signed-in interaction in [the live inventory](recon/flows.md), screenshots and one genuine free image. The earlier [independent coverage review](recon/coverage-review.md) establishes the broad requirements; its 00:29 checkpoint predates most of these interactions. Boundary inspection is not a completed generation flow.
 
 ## What actually completed
 
@@ -52,7 +52,7 @@ Omit specialist studios, model training, bulk ads, layered/3D/node editors, soci
 ## Exact unresolved actions
 
 - **Spending stays disabled**, as the user requested. Do not submit another request with a possible credit fallback. Completing paid original-product outputs would require a future explicit change to that constraint; none has been given.
-- **Research decision pending:** the coordinator asked whether application implementation must remain gated or may proceed under an explicit exception while named output/external-flow gaps stay unverified. No response has been received. This is a material assignment-requirement change, not routine phase approval.
+- **Research decision pending:** the coordinator asked whether application implementation must remain gated or may proceed under an explicit exception while named output/external-flow gaps stay unverified. The user replied “im allowing it”; this exception permits implementation but does not relabel the research outcomes complete.
 - **Upload agreement pending:** an original geometric bottle fixture reached a separate media-upload agreement. The user must accept it in the retained browser tab or explicitly authorize its acceptance. It includes rights/likeness, Terms of Use and automated-screening acknowledgements. Nothing has been accepted on their behalf.
 - Later implementation requires privately configured provider/storage access and working hosting authentication; the documented cap remains zero. The public deployment checks and real camera-on recording are still required.
 

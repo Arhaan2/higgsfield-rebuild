@@ -1,15 +1,15 @@
-# Acceptance checklist — not yet executed
+# Acceptance checklist — current evidence
 
-All checks below are pending. Record actual method, environment, source/deployment revision, date and result. A plan, screenshot of a form, or teammate assertion is not proof that a backend operation completed.
+Application checks below are pending unless explicitly marked. Record actual method, environment, source/deployment revision, date and result. A plan, screenshot of a form, or teammate assertion is not proof that a backend operation completed.
 
 ## Capture and research
 
 - [ ] Official first-message process followed in the actual coding environment.
-- [ ] Two real independent-session canaries captured automatically.
-- [ ] Root CAPTURE-TEST.md created from genuine evidence; raw logs tracked incrementally.
-- [ ] Delegation and any worktree capture destinations verified before production use.
+- [x] Two real independent-session canaries captured automatically. See CAPTURE-TEST.md.
+- [x] Root CAPTURE-TEST.md created from genuine evidence; raw logs tracked incrementally.
+- [x] Independent CLI delegation verified before production; native children/worktrees unused.
 - [ ] Required signed-in research completed; unresolved flows explicitly addressed.
-- [ ] Actual Apple Design skill discovered, read and used in design decisions.
+- [x] Actual Apple Design skill discovered, read and used in accepted D2 design decisions.
 
 ## Core deployed product
 
@@ -53,3 +53,5 @@ All checks below are pending. Record actual method, environment, source/deployme
 ## Evidence record
 
 Keep a compact table: check ID; test method; expected observable behavior; actual result; source commit; deployment revision; artifact/source; remaining issue. Store selected review evidence under docs/verification/ rather than relying on ignored transient browser reports. Stop broad testing once the required gates pass; retest changed behavior when fixing a concrete defect.
+
+D2 accepted 2026-10-12 01:35 UTC; documentary gate only. R1 remains incomplete under the explicit research exception. All deployed product, rendered design and recording checks remain pending.

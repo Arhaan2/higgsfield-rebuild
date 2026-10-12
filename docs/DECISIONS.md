@@ -1,5 +1,14 @@
 # Decision record
 
+## 2026-10-12 01:35 UTC — D2 accepted; original repository retained
+
+Root reviewed the three Phase 2 reports and their actual evidence. Full prompts and finals exactly match automatic logs; source audit matches all 16 sessions. Adopt the charcoal/brass Frame Studio direction and Vinext/D1/R2 architecture, with explicit root-location, parent-lineage and static-sample amendments in TECH-SPEC. The official starter is merged from an ignored empty staging directory to preserve the user-required capture root. Sites project registration and public audience succeeded; deploy/build/data operations remain untested. Zero spending remains authoritative. Three prompt presets and Dune study sample media are the bounded implementation scope; real image/video generation remains a required unresolved gate.
+
+## 2026-10-12 01:21 UTC — user-authorized research exception
+
+The user replied “im allowing it” to the explicit request to proceed with design/implementation while named research gaps stay unverified. R1 advances by user exception, not an evidence pass. This does not authorize spending, accept the separate media-upload terms, waive later real-generation acceptance, or satisfy the walkthrough. Cap remains zero. Continue independent implementation, deployment and verification; V3 stays pending until a real authorized deployed generation succeeds.
+
+
 Keep this short. Every new entry names the evidence, choice, tradeoff, owner and date.
 
 ## Initial direction approved by the user

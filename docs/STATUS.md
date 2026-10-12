@@ -1,25 +1,25 @@
 # Current status
 
-**Phase 0 setup is verified. Phase 1 research remains incomplete. There is no application or deployment.**
+**Phase 0 is verified. Phase 1 advances by explicit user research exception; gaps remain unverified. Phase 2 is accepted. Phase 3 is starting. Spending remains disabled.**
 
-Checkpoint UTC: 2026-10-12T01:14:37Z. Local date: 11 October 2026, America/Los_Angeles.
+Checkpoint UTC: 2026-10-12T01:35:00Z. Local date: 11 October 2026, America/Los_Angeles.
 
-- Deadline: 2026-10-12T23:04:00Z / 12 October 4:04 p.m. Pacific. Target readiness: 2 p.m. Pacific. Approximately 21h49m remain at this checkpoint.
-- Public repository: https://github.com/Arhaan2/higgsfield-rebuild. Previously verified public source baseline: `e1a116d`, unauthenticated commit access HTTP 200. This research checkpoint is identified by its accompanying Git commit; current push/public-access verification is reported by the coordinator after publication.
+- Deadline: 2026-10-12T23:04:00Z / 12 October 4:04 p.m. Pacific. Target readiness: 2 p.m. Pacific. Approximately 21h29m remain at this checkpoint.
+- Public repository: https://github.com/Arhaan2/higgsfield-rebuild. Previously verified public source baseline: `d3d110a71750ba92af2fd7cb3469fa57e24b82ce`, unauthenticated commit access HTTP 200. This research checkpoint is identified by its accompanying Git commit; current push/public-access verification is reported by the coordinator after publication.
 - C0: coordinator and separate CLI specialists verified. Native children and worktrees remain unverified and unused for production. Root `CAPTURE-TEST.md` records actual canaries and limitations.
 - Reviewer and backend initial reports finished, with full prompt/final exact-match capture accepted. Follow-up reviewer session `01a12da8-61fa-73b1-a23f-a477de7cb6a4` finished. Root verified the full prompt/final, visually confirmed both findings, and corrected warning chronology and screenshot-error attribution. Acceptance is recorded in docs/agents/ASSIGNMENTS.md.
 - Current root session: `01a12d62-f5bc-7650-8eb5-7b04e1496548`, actual model `gpt-6-astra`. Its current final response cannot be captured until emitted.
 - Apple Design: coordinator and reviewer read `/Users/arhaan/.codex/skills/apple-design/SKILL.md`. Research-backed guidance recorded; no rendered implementation review claimed.
 - User signed in and explicitly kept spending disabled. Approved credit/dollar cap is **zero**. One displayed-free image completed; account balance remained 10 credits. Review found that a pre-submit fallback warning was already visible and missed by the coordinator; the request was not guaranteed free and the usage ledger was unverified. Further fallback-capable submissions are blocked.
-- Hosting/provider/storage: read-only Vercel identity request returned HTTP 403; no verified deploy access. Provider/storage credentials absent in bounded checks. No infrastructure provisioned.
+- Hosting: Sites project created and public audience configured; no live deployment yet. D1/R2 logical bindings selected. FAL_KEY absent and generation allowance remains zero. Earlier Vercel 403 no longer blocks the chosen hosting route.
 - Walkthrough: not recorded. Public deployment checks and real camera-on recording remain future requirements.
 
 | Phase | State | Actual evidence / missing prerequisite |
 | --- | --- | --- |
 | 0 | complete | Public remote, C0, logged CLI delegation, installed skill and bounded access preflight verified. Missing service access remains explicit. |
-| 1 | in_progress | Broad signed-in inventory, one genuine image, draft/result/project reload and public playback. Required paid/external/output branches unresolved; R1 unpassed. |
-| 2 | not_started | No accepted stack, design or shared application contracts; depends on R1 or an explicit documented user exception. |
-| 3 | not_started | No application/deployment or real deployed image-to-video. |
+| 1 | advanced_by_exception | User explicitly allowed design/implementation with unresolved research flows; R1 is not an evidence pass. |
+| 2 | complete | Accepted Apple Design specification, scope, capabilities and contracts; all three prompt/final captures verified exactly. |
+| 3 | in_progress | Sites registered with public audience. Root scaffolding agreed stack; build/deployment and real-generation V3 still pending. |
 | 4 | not_started | Connected build generation loop absent. |
 | 5 | not_started | No implementation to polish/review. |
 | 6 | not_started | No application checks run. Capture had nine isolated tests pass earlier; final checkpoint source audit matched 13 sessions; all three specialist finals are captured. Current root final remains un-emitted. |
@@ -40,11 +40,11 @@ New source changes are research documents, selected evidence, assigned reviewer 
 **Arhaan — pending decisions already requested:**
 
 1. Accept the Higgsfield media-upload agreement in the retained browser tab, or explicitly authorize acceptance for the original geometric bottle fixture. This concerns rights/likeness, Terms of Use and automated-screening acknowledgements; no generation or spending is included.
-2. Decide whether to retain the required research gate or explicitly allow implementation with the documented paid/external flow gaps unverified. The zero spending cap remains unchanged either way. No answer has arrived, so implementation remains gated. This is a material requirement decision under AGENTS.md / WORKFLOW R1, not routine phase approval.
+2. Decide whether to retain the required research gate or explicitly allow implementation with the documented paid/external flow gaps unverified. The zero spending cap remains unchanged either way. User replied “im allowing it”; design and implementation may proceed under the exception. This is a material requirement decision under AGENTS.md / WORKFLOW R1, not routine phase approval.
 
-**Coordinator:** independent review and corrections are complete; capture audit passes. Commit/push this evidence checkpoint and verify public source access. Continue application phases only when their actual prerequisites pass or the user explicitly changes the affected requirement.
+**Coordinator:** D2 is accepted; commit its evidence, scaffold at the existing root, publish shared source contracts, and delegate exclusive implementation paths. Verify an early public shell, then integrated zero-spend functionality. Real generation and V3 remain pending.
 
-**Later external dependencies:** restore hosting authentication and privately configure the selected durable storage/provider when chosen. Live demo generation additionally needs an explicit permitted allowance; current authorization remains zero. Never paste credentials in chat.
+**Later external dependency:** privately configure FAL_KEY and explicitly authorize a bounded provider allowance before real generation can run. Current zero-spend choice is respected; no spending request is repeated now. Camera-on recording remains Arhaan's action after the deploy is ready.
 
 ## Time reserved for delivery
 
