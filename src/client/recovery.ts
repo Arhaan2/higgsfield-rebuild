@@ -1,4 +1,10 @@
+import { z } from "zod";
 import { draftSchema, emptyDraft, type Draft, type Operation } from "@/src/contracts/studio";
+// Recovery holds editable input, including prompts that cannot yet pass API validation.
+const recoveryDraftSchema = z.discriminatedUnion("operation", [
+  draftSchema.options[0].extend({ prompt: z.string() }),
+  draftSchema.options[1].extend({ prompt: z.string() }),
+]);
 export type EditorBuffer = { title: string; operation: Operation; drafts: Record<Operation, Draft> };
 export type PendingSubmission = { projectId: string; requestKey: string; draftRevision: number };
 export type CreateAttempt = { id: string; title: string; draft: Draft };
@@ -17,7 +23,7 @@ export function readRecovery(key: string): Recovery | null {
     if (!raw) return null;
     const value = JSON.parse(raw) as Recovery;
     if (value.expiresAt <= Date.now() || !["text_to_image", "image_to_video"].includes(value.buffer.operation) || typeof value.buffer.title !== "string") return null;
-    if (!draftSchema.safeParse(value.buffer.drafts.text_to_image).success || !draftSchema.safeParse(value.buffer.drafts.image_to_video).success) return null;
+    if (!recoveryDraftSchema.safeParse(value.buffer.drafts.text_to_image).success || !recoveryDraftSchema.safeParse(value.buffer.drafts.image_to_video).success) return null;
     return value;
   } catch { return null; }
 }

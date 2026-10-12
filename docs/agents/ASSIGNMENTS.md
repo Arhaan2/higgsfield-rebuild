@@ -64,3 +64,11 @@ All three Phase 3 specialists finished and their full prompts/finals exactly mat
 Active Reviewer p3-integration-review-001 exclusively owns docs/verification/integration-review.md under handoff10. All app/source paths are root-owned for integration; reviewer is read-only on them.
 
 Designer p3-rendered-design-review-001 exclusively owns docs/verification/design-review.md under handoff11. Source/CSS and browser remain root-owned.
+
+## Review acceptance and repair ownership — 2026-10-12 02:24 UTC
+
+Both read-only reviews finished; full prompt and final matches were independently verified against their automatic logs. Root accepts the findings, not a release pass. Review paths return to root. Frontend task p3-client-repairs-001 exclusively owns src/client/recovery.ts, src/client/use-studio.ts, src/client/checks/studio-state.mjs and src/client/repair-notes.md under handoff12. Root owns all other paths, including concurrent visual repairs. No schema change, live generation or spending is authorized.
+
+## Repair acceptance — 2026-10-12 02:31 UTC
+
+Frontend repair task completed in session01a12dec-e271-79b2-8fac-144da7f16fa2. Root verified full prompt/final exact capture, inspected the three fixes and adjacent continuation guards, independently ran all27 client checks and TypeScript successfully, and reproduced over-limit inactive-prompt retention in the actual local browser. The old2,501-character draft now survives reload with its invalid state intact while the valid active video draft stays saved. All authored paths match the contract and return to root. Server admission ordering supporting conclusive errors was inspected. No backend/schema change or live provider test occurred. The original review reports remain unmodified historical findings.

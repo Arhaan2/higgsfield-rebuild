@@ -50,6 +50,16 @@ export function useStudio() {
   const loadedRef = useRef(false);
   const loadFailedRef = useRef(false);
   const recoveryWarning = useRef(false);
+  // Async work belongs to the shot/session in which it started, even during a copy's creation.
+  const contextEpoch = useRef(0);
+  const invalidateContext = useCallback(() => {
+    contextEpoch.current++;
+    savingPromise.current = null; setSaving(false);
+    submittingRef.current = false; setSubmitting(false);
+    uploadingRef.current = false; setUploading(false); uploadAttempt.current = null;
+    setPendingFile(null); setUploadError("");
+    jobRequests.current.clear(); pollAfter.current.clear(); setJobBusy(null); setJobError("");
+  }, []);
 
   const persist = useCallback(() => {
     if (expiredRef.current || !loadedRef.current) return false;
@@ -76,6 +86,8 @@ export function useStudio() {
   const save = useCallback(async (): Promise<Project | null> => {
     if (savingPromise.current) return savingPromise.current;
     if (expiredRef.current || conflictRef.current) return null;
+    const epoch = contextEpoch.current;
+    const currentContext = () => contextEpoch.current === epoch && !expiredRef.current;
     const operation = async () => {
       setSaving(true); setError("");
       const current = bufferRef.current;
@@ -85,10 +97,13 @@ export function useStudio() {
       try {
         let saved = projectRef.current;
         if (!saved) {
-          const guest = await api.guest(); rememberSession(guest.expiresAt);
+          const guest = await api.guest();
+          if (!currentContext()) return null;
+          rememberSession(guest.expiresAt);
           createAttempt.current ||= { id: crypto.randomUUID(), title: current.title.trim(), draft: { ...draft } };
           persist();
           saved = await api.createProject(createAttempt.current);
+          if (!currentContext()) return null;
           const previousKey = keyRef.current;
           keyRef.current = saved.id; acceptProject(saved);
           persist(); removeRecovery(previousKey);
@@ -97,14 +112,15 @@ export function useStudio() {
         }
         if (acknowledgedSignature(saved) !== signature(current)) {
           saved = await api.saveProject(saved.id, { expectedRevision: saved.revision, title: current.title.trim(), draft });
+          if (!currentContext()) return null;
           acceptProject(saved);
         }
         persist(); return saved;
-      } catch (cause) { handleError(cause); persist(); return null; }
-      finally { setSaving(false); }
+      } catch (cause) { if (currentContext()) { handleError(cause); persist(); } return null; }
+      finally { if (contextEpoch.current === epoch) setSaving(false); }
     };
     const promise = operation(); savingPromise.current = promise;
-    try { return await promise; } finally { savingPromise.current = null; }
+    try { return await promise; } finally { if (savingPromise.current === promise) savingPromise.current = null; }
   }, [acceptProject, handleError, persist]);
 
   const hasWork = useCallback(() => {
@@ -115,10 +131,11 @@ export function useStudio() {
     if (loadFailedRef.current) return true;
     if (uploadingRef.current) { setError("Wait for the start-frame upload to finish before leaving this shot."); return false; }
     if (!hasWork()) return true;
+    const epoch = contextEpoch.current;
     // Save the current snapshot; if typing continued during the request, acknowledge that newer snapshot too.
     for (let attempt = 0; attempt < 5; attempt++) {
       if (projectRef.current && signature(bufferRef.current) === ackRef.current) return true;
-      if (!await save()) return false;
+      if (!await save() || contextEpoch.current !== epoch) return false;
     }
     setError("Your newest edits are still unsaved. Pause typing, then save before leaving."); return false;
   }, [hasWork, save]);
@@ -186,7 +203,9 @@ export function useStudio() {
   useEffect(() => {
     if (!referenceId || assets.some(asset => asset.id === referenceId) || SAMPLE_ASSETS.some(asset => asset.id === referenceId)) return;
     let alive = true;
-    void api.asset(referenceId).then(asset => { if (alive) setAssets(current => [...current.filter(item => item.id !== asset.id), asset]); }).catch(() => { if (alive) setUploadError("Start frame unavailable — choose it again. Your prompt is preserved."); });
+    const epoch = contextEpoch.current;
+    const currentContext = () => alive && contextEpoch.current === epoch && !expiredRef.current;
+    void api.asset(referenceId).then(asset => { if (currentContext()) setAssets(current => [...current.filter(item => item.id !== asset.id), asset]); }).catch(() => { if (currentContext()) setUploadError("Start frame unavailable — choose it again. Your prompt is preserved."); });
     return () => { alive = false; };
   }, [referenceId, assets]);
 
@@ -195,31 +214,38 @@ export function useStudio() {
     setUploadError(""); setPendingFile(file);
     if (!["image/jpeg", "image/png"].includes(file.type) || !/\.(jpe?g|png)$/i.test(file.name)) { setUploadError("Choose a JPG or PNG image. Your previous start frame is unchanged."); return; }
     if (file.size > (capabilities?.upload.maxBytes ?? UPLOAD_LIMIT)) { setUploadError("Choose an image under 5 MB. Your previous start frame is unchanged."); return; }
+    const epoch = contextEpoch.current;
+    const currentContext = () => contextEpoch.current === epoch && !expiredRef.current;
     uploadingRef.current = true; setUploading(true);
     try {
       const bitmap = await createImageBitmap(file).catch(() => { throw new Error("This image could not be opened. Choose a valid JPG or PNG."); });
       const valid = bitmap.width >= 256 && bitmap.height >= 256 && bitmap.width <= 4096 && bitmap.height <= 4096 && bitmap.width * bitmap.height <= 16_000_000;
       bitmap.close();
+      if (!currentContext()) return;
       if (!valid) throw new Error("Use an image from 256 to 4,096 pixels on each side, up to 16 megapixels.");
-      const saved = await save(); if (!saved) { setUploadError("The draft must be saved before upload. Resolve the save error above, then try this upload again."); return; }
+      const saved = await save(); if (!currentContext()) return;
+      if (!saved) { setUploadError("The draft must be saved before upload. Resolve the save error above, then try this upload again."); return; }
       if (uploadAttempt.current?.file !== file) uploadAttempt.current = { id: crypto.randomUUID(), file };
       const asset = await api.upload(saved.id, uploadAttempt.current.id, file);
+      if (!currentContext() || projectRef.current?.id !== saved.id) return;
       setAssets(current => [...current.filter(item => item.id !== asset.id), asset]); setSelectedId(asset.id);
       edit(current => ({ ...current, operation: "image_to_video", drafts: { ...current.drafts, image_to_video: { ...current.drafts.image_to_video, operation: "image_to_video", startAssetId: asset.id } } }));
       setPendingFile(null); uploadAttempt.current = null;
       await save();
-    } catch (cause) { setUploadError(errorMessage(cause)); if (cause instanceof StudioApiError && cause.status === 401) handleError(cause); }
-    finally { uploadingRef.current = false; setUploading(false); }
+    } catch (cause) { if (currentContext()) { setUploadError(errorMessage(cause)); if (cause instanceof StudioApiError && cause.status === 401) handleError(cause); } }
+    finally { if (contextEpoch.current === epoch) { uploadingRef.current = false; setUploading(false); } }
   }
   function switchMode(operation: Operation) { edit(current => ({ ...current, operation })); }
   function updatePrompt(prompt: string) { edit(current => ({ ...current, drafts: { ...current.drafts, [current.operation]: { ...current.drafts[current.operation], prompt } } })); }
   async function forkDraft(draft: Draft) {
-    if (!await beforeNavigate()) return;
+    const epoch = contextEpoch.current;
+    if (!await beforeNavigate() || contextEpoch.current !== epoch) return;
     edit(current => ({ ...current, operation: draft.operation, drafts: { ...current.drafts, [draft.operation]: draft } }));
     setNotice("Ready to revise. The original asset and its prompt are unchanged.");
     await save();
   }
   async function saveSeparate() {
+    invalidateContext();
     projectRef.current = null; setProject(null); ackRef.current = null; setAcknowledged(null); createAttempt.current = null;
     conflictRef.current = false; setConflict(false); pendingRef.current = null; setPending(null);
     keyRef.current = "new"; window.history.replaceState(null, "", "/studio");
@@ -228,6 +254,7 @@ export function useStudio() {
     await save();
   }
   async function restartSession() {
+    invalidateContext();
     clearRecovery(); expiredRef.current = false; setExpired(false); conflictRef.current = false; setConflict(false);
     projectRef.current = null; setProject(null); ackRef.current = null; setAcknowledged(null); createAttempt.current = null;
     pendingRef.current = null; setPending(null); setAssets([]); setJobs([]); setSelectedId(null); keyRef.current = "new";
@@ -236,19 +263,24 @@ export function useStudio() {
     setNotice("Your text is kept in a new draft. Private start frames from the previous session must be uploaded again."); await save();
   }
   async function refreshJob(job: Job, transfer = false) {
-    if (jobRequests.current.has(job.id)) return;
+    if (expiredRef.current || projectRef.current?.id !== job.projectId || jobRequests.current.has(job.id)) return;
+    const epoch = contextEpoch.current;
+    const currentContext = () => contextEpoch.current === epoch && !expiredRef.current && projectRef.current?.id === job.projectId;
     jobRequests.current.add(job.id);
     setJobBusy(job.id); setJobError("");
     try {
       const next = await (transfer ? api.retryTransfer(job.id) : api.refresh(job.id));
+      if (!currentContext() || next.projectId !== job.projectId || next.id !== job.id) return;
       pollAfter.current.set(next.id, next.nextPollAfterMs || 0);
       setJobs(current => current.map(item => item.id === next.id ? next : item));
       if (next.status === "succeeded") {
-        const detail = await api.project(next.projectId); setAssets(detail.assets.sort((a, b) => a.createdAt.localeCompare(b.createdAt))); setJobs(detail.jobs.sort((a, b) => a.createdAt.localeCompare(b.createdAt)));
+        const detail = await api.project(next.projectId);
+        if (!currentContext() || detail.project.id !== job.projectId) return;
+        setAssets(detail.assets.sort((a, b) => a.createdAt.localeCompare(b.createdAt))); setJobs(detail.jobs.sort((a, b) => a.createdAt.localeCompare(b.createdAt)));
         setSelectedId(next.outputAssetIds[0] || null); setNotice("Your result is ready to inspect.");
       }
-    } catch (cause) { setJobError(`Status could not be refreshed. The last confirmed state is unchanged. ${errorMessage(cause)}`); }
-    finally { jobRequests.current.delete(job.id); setJobBusy(null); }
+    } catch (cause) { if (currentContext()) setJobError(`Status could not be refreshed. The last confirmed state is unchanged. ${errorMessage(cause)}`); }
+    finally { if (contextEpoch.current === epoch) { jobRequests.current.delete(job.id); setJobBusy(current => current === job.id ? null : current); } }
   }
   useEffect(() => {
     const job = jobs.find(item => activeJob(item) && item.status !== "transfer_failed" && (item.status !== "submission_unknown" || item.error?.recovery === "refresh"));
@@ -268,22 +300,30 @@ export function useStudio() {
     if (submittingRef.current || expiredRef.current) return;
     if (!pendingRef.current && (!capabilities?.liveGeneration.enabled || capabilities.liveGeneration.remainingMicroUsd <= 0)) return;
     if (!pendingRef.current && jobs.some(activeJob)) return;
+    const epoch = contextEpoch.current;
+    const currentContext = () => contextEpoch.current === epoch && !expiredRef.current;
     submittingRef.current = true; setSubmitting(true); setJobError("");
     try {
       if (!pendingRef.current) {
-        if (!await beforeNavigate()) return;
+        if (!await beforeNavigate() || !currentContext()) return;
         const saved = projectRef.current; if (!saved) return;
         pendingRef.current = { projectId: saved.id, requestKey: crypto.randomUUID(), draftRevision: saved.revision };
         setPending(pendingRef.current); persist();
       }
       const request = pendingRef.current;
-      if (!persist()) throw new Error("Browser recovery storage is unavailable. The request has not been sent; enable browser storage before trying again.");
+      if (!persist()) throw new Error("Browser recovery storage is unavailable. This attempt did not contact the server. Enable browser storage before retrying this same request.");
       const job = await api.submit(request.projectId, { requestKey: request.requestKey, draftRevision: request.draftRevision });
+      if (!currentContext() || projectRef.current?.id !== request.projectId) return;
+      if (job.projectId !== request.projectId || job.requestKey !== request.requestKey) throw new Error("The original request could not be confirmed. Check the original request again.");
       setJobs(current => [...current.filter(item => item.id !== job.id), job]); pendingRef.current = null; setPending(null); persist();
     } catch (cause) {
-      if (cause instanceof StudioApiError && cause.status >= 400 && cause.status < 500 && !["INVALID_RESPONSE", "REQUEST_KEY_CONFLICT"].includes(cause.code)) { pendingRef.current = null; setPending(null); persist(); }
+      if (!currentContext()) return;
+      // These admission errors occur only after the server's existing-key lookup.
+      // Rate limits, authentication failures, malformed replies, and unknown errors
+      // cannot establish the outcome of an earlier attempt; keep its identity.
+      if (cause instanceof StudioApiError && ["LIVE_DISABLED", "BUDGET_ZERO", "BUDGET_EXHAUSTED", "REVISION_CONFLICT", "INPUT_REQUIRED"].includes(cause.code)) { pendingRef.current = null; setPending(null); persist(); }
       setJobError(errorMessage(cause));
-    } finally { submittingRef.current = false; setSubmitting(false); }
+    } finally { if (contextEpoch.current === epoch) { submittingRef.current = false; setSubmitting(false); } }
   }
   return { buffer, project, assets, jobs, selectedId, setSelectedId, sampleCollection, loading, loadError, error, notice, conflict, expired, saving, uploading, uploadError, pendingFile, capabilities, capabilityError, submitting, pending, jobError, jobBusy,
     dirty: (!!project || buffer.title !== "Untitled shot" || Object.values(buffer.drafts).some(item => !!item.prompt || (item.operation === "image_to_video" && !!item.startAssetId))) && signature(buffer) !== acknowledged, saved: !!project && signature(buffer) === acknowledged,
