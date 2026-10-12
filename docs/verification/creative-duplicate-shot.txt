@@ -1,0 +1,12 @@
+PASS text_to_image: only independent ID, bounded title and saved draft enter frozen payload
+PASS image_to_video: only independent ID, bounded title and saved draft enter frozen payload
+PASS 80-unit title boundary never splits a surrogate pair, including repeated copies
+PASS invalid source, draft or reused/invalid UUID is rejected before persistence
+PASS dedicated durable entry restores exact ID/payload and leaves Studio recovery untouched
+PASS blocked reads/writes and silent storage drops are failures, never successful recovery
+PASS malformed recovery or an alternate unfinished attempt cannot be silently overwritten
+PASS failed acknowledgement cleanup keeps the recoverable attempt
+PASS isolated real API: text_to_image copy retains same-owner reference, zero outputs/jobs, null preference, independent edits/reload
+PASS isolated real API: image_to_video copy retains same-owner reference, zero outputs/jobs, null preference, independent edits/reload
+PASS isolated real API: lost acknowledgement replay succeeds at quota 20 with same frozen ID/payload after original edit
+11 duplicate helper/API checks passed; isolated SQLite and mock storage; no browser/provider/network calls.

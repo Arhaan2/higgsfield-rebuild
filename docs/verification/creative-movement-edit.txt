@@ -1,0 +1,14 @@
+PASS replacement changes only the motion prompt and preserves exact before text
+PASS latest buffer supplies before text even when the rendered proposal was older
+PASS valid guarded undo restores Unicode multiline and whitespace exactly
+PASS stale undo cannot discard typing after replacement
+PASS startAssetId change rejects the old context
+PASS parentAssetId change rejects the old context
+PASS presetId change rejects the old context
+PASS project changes reject old-context replacement
+PASS inactive motion text cannot be changed from an image task
+PASS 2500 Unicode code points are accepted without truncation
+PASS over-limit replacement leaves the exact buffer intact
+PASS oversized latest original cannot be replaced with text that would make Undo impossible
+
+12 movement integration checks passed.

@@ -1,0 +1,77 @@
+task_id: "creative-camera-study"
+role: "Camera study implementer and independent reviewer"
+status: partial
+summary: "Preview implemented; 18 controlled checks pass. Urgent integration blocker: latest prompt-direction test fails because root's synchronous guard still permits replacing an oversized original. Reduced-motion CSS override also remains missing. Actual model: gpt-6-astra."
+changed_files:
+  - "components/studio/CameraStudyPreview.tsx"
+  - "src/client/checks/camera-study.mjs"
+  - "docs/verification/creative-camera-study.md"
+  - "docs/verification/creative-independent-review.md"
+capture:
+  session_id: "01a131d1-f3f9-7b63-b5b4-9d387b86ed77"
+  log_path: ".agent-logs/2026-10-12_20-33-26_01a131d1-f3f9-7b63-b5b4-9d387b86ed77.md"
+  coverage_status: unresolved
+evidence:
+  - claim: "Full actual prompt verified before production edits."
+    method: "Compared source user response_item against automatic log."
+    observed_result: "Exact 3,441-character match; source confirms original cwd, CLI 0.162.0-alpha.17.2 and model gpt-6-astra. Final coverage awaits Stop."
+    artifact_or_source: "/Users/arhaan/.codex/sessions/2026/10/12/rollout-2026-10-12T13-33-25-01a131d1-f3f9-7b63-b5b4-9d387b86ed77.jsonl"
+  - claim: "Preview lifecycle and state behavior exercised from actual component source."
+    method: "Installed TypeScript transpilation and controlled VM hooks, timers, image events and media queries."
+    observed_result: "18 checks passed, including replay without remount/refetch, cleanup, stale events and reduced-motion changes."
+    artifact_or_source: "src/client/checks/camera-study.mjs"
+  - claim: "Independent review identified an incomplete Undo repair."
+    method: "Source review and execution of B's updated component/root harness."
+    observed_result: "B's visible guard passes; stale-prop oversized-original case fails at prompt-directions.mjs:272."
+    artifact_or_source: "docs/verification/creative-independent-review.md"
+verification:
+  - check: "Camera-study harness"
+    result: pass
+    detail: "18 checks; no browser or network."
+  - check: "TypeScript --noEmit --incremental false"
+    result: pass
+    detail: "Exit 0 with B's catalog/component available."
+  - check: "Focused ESLint"
+    result: pass
+    detail: "Zero errors; one intentional direct-img advisory remains."
+  - check: "Library controller harness"
+    result: pass
+    detail: "Latest execution: 48 checks."
+  - check: "Duplicate helper/API harness"
+    result: pass
+    detail: "11 checks using isolated SQLite and mock storage; no external provider calls."
+  - check: "Movement edit harness"
+    result: pass
+    detail: "Earlier standalone execution: 11 checks."
+  - check: "Updated prompt-direction harness"
+    result: fail
+    detail: "21 cases pass before stale-prop oversized-original assertion fails; current.prompt length needs root guard."
+  - check: "Reduced-motion CSS source review"
+    result: fail
+    detail: "styles/studio.css:345 lacks camera-study-image transform:none!important override."
+  - check: "Browser, layout, native focus and integrated persistence"
+    result: not_run
+    detail: "Browser ownership remained with root."
+decisions_and_tradeoffs:
+  - "Applied installed apple-design skill; explicit Play/Stop/Replay, bounded movement, honest labeling and still reduced-motion feedback."
+  - "Same image node and URL retained through playback; independent five-second timer handles completion."
+  - "Scoped CSS recommendations are in creative-camera-study.md; root owns clipping, cover geometry and reduced-motion override."
+  - "No capture edits, children, worktrees, installs, schema changes, spending, commits, pushes or deployment."
+  - "Research remains unresolved under the authorized historical exception."
+unverified_claims:
+  - "Actual browser image decoding, clipping and animation smoothness."
+  - "Final response capture until root verifies after Stop."
+blockers:
+  - dependency: "Latest-original length guard"
+    owner: "Root"
+    exact_required_action: "Reject oversized current.prompt inside src/client/movement-edit.ts before replacement; rerun prompt-directions and movement-edit checks."
+    independent_work_remaining: ""
+  - dependency: "Preview CSS and browser acceptance"
+    owner: "Root"
+    exact_required_action: "Add scoped reduced-motion transform override; verify clipping, controls, close/pagehide and preference changes in browser."
+    independent_work_remaining: ""
+  - dependency: "Final capture verification"
+    owner: "Root"
+    exact_required_action: "After Stop, verify this complete final response in the automatic session log against genuine source."
+    independent_work_remaining: ""
+next_dependency: "Root resolves integration findings, independently accepts or drops the optional preview, and verifies final capture."

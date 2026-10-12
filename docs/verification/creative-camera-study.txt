@@ -1,0 +1,19 @@
+PASS missing and non-image references cannot play or substitute a sample
+PASS load, ready and error are distinct; exact disclosure is persistent
+PASS cached completion is recognized without requiring a later load event
+PASS removing then restoring the same reference requires its new image node to load
+PASS one five-second run completes without animationend; replay preserves node and URL
+PASS Stop cancels immediately, resets framing and allows explicit Replay
+PASS pan is enlarged and bounded; locked study has no animation and ends after five seconds
+PASS context, task, direction, reference identity and close invalidate runs and late timers
+PASS unchanged parent props do not interrupt a running study
+PASS new reference URL requires a new load; old handler and old currentSrc events are ignored
+PASS page hiding cancels and showing the page never resumes automatically
+PASS hidden document refuses a saved click handler
+PASS initial reduced motion remains still with disabled Play and an explanation
+PASS live reduced-motion changes cancel playback; turning it off requires a new Play
+PASS synchronous preference guard closes the change-event race
+PASS image error during playback cancels and disables further play
+PASS unavailable animation API never leaves playback running
+PASS unmount cleans timers, animation and both listeners; late callbacks do nothing
+18 camera-study checks passed. Controlled source harness; no browser, network, provider, draft, asset or job writes.

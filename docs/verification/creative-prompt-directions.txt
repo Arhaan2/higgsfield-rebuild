@@ -1,0 +1,24 @@
+PASS catalog contains only the three agreed deterministic direction ideas
+PASS code-point counting preserves astral characters and counts newlines without trimming
+PASS discarded undo history does not revive when text returns to the applied value
+PASS native disclosure starts collapsed, labels are explicit, and preview receives active reference and closed state
+PASS opening, all selections, and proposal edits do not mutate the draft or call its callback
+PASS explicit replacement uses exactly the displayed editable wording and changes only the active movement prompt
+PASS Undo restores Unicode, CRLF, multiline, blank and whitespace-only originals exactly
+PASS replacement captures latest callback buffer before text, even when rendered prompt prop is stale
+PASS typing invalidates Undo permanently, including a return to the replacement text
+PASS atomic expected-current guard rejects an edit after render without losing it
+PASS a newer replacement supersedes the earlier undo record
+PASS replacing identical text creates no new undo history
+PASS title changes preserve the open helper, proposal, and valid Undo
+PASS startAssetId context changes reset local state and reject old callbacks
+PASS parentAssetId context changes reset local state and reject old callbacks
+PASS presetId context changes reset local state and reject old callbacks
+PASS task unmount and return start collapsed with no old Undo
+PASS project identity changes reset local state
+PASS exactly 2500 code points apply and undo; 2501 remain visible and never reach callback
+PASS rejected apply keeps proposal and current draft intact with explicit feedback
+PASS oversize original remains intact until it can be replaced with a valid exact Undo
+PASS root rejects an oversized latest original even when its prompt prop has not rendered yet
+
+22 prompt-direction checks passed. Controlled React/editor boundary; browser and persistence acceptance remain with root.

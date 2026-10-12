@@ -1,0 +1,30 @@
+PASS saved, motion mode, same reference preserves exact movement and focuses; originals immutable
+PASS saved, motion mode, different reference preserves exact movement and focuses; originals immutable
+PASS saved, image mode, same reference preserves exact movement and focuses; originals immutable
+PASS saved, image mode, different reference preserves exact movement and focuses; originals immutable
+PASS unsaved, motion mode, same reference preserves exact movement and focuses; originals immutable
+PASS unsaved, motion mode, different reference preserves exact movement and focuses; originals immutable
+PASS unsaved, image mode, same reference preserves exact movement and focuses; originals immutable
+PASS unsaved, image mode, different reference preserves exact movement and focuses; originals immutable
+PASS different reference initializes only an empty movement prompt from existing preset
+PASS details same reference invokes explicit shared callback, closes and requests focus
+PASS details different reference invokes explicit shared callback, closes and requests focus
+PASS sample details retains separate suggested-prompt behavior and dedicated attribution row
+PASS queued status text has live semantics without polling timestamps or actions
+PASS running status text has live semantics without polling timestamps or actions
+PASS storing status text has live semantics without polling timestamps or actions
+PASS failed status text has live semantics without polling timestamps or actions
+PASS transfer_failed status text has live semantics without polling timestamps or actions
+PASS typing during reference-action save remains exact
+PASS old selected job yields to successfully uploaded reference
+PASS succeeded inspection: successful upload selects reference, no fake output while pending
+PASS succeeded inspection: failed upload preserves selection, no fake output while pending
+PASS queued inspection: successful upload selects reference, no fake output while pending
+PASS queued inspection: failed upload preserves selection, no fake output while pending
+PASS failed inspection: successful upload selects reference, no fake output while pending
+PASS failed inspection: failed upload preserves selection, no fake output while pending
+PASS transfer_failed inspection: successful upload selects reference, no fake output while pending
+PASS transfer_failed inspection: failed upload preserves selection, no fake output while pending
+PASS explicit preference acknowledges after PATCH, preserves unsaved text, and actual Library component uses saved preference
+PASS preference error exposes explicit retry; prepared sample has no preference action
+29 action checks passed; mock React/API, no browser/provider calls.

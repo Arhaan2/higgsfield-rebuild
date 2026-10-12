@@ -4,9 +4,12 @@ import { ArrowRight, Check, Download, ImageIcon, Info, Plus, RefreshCw, Save, Sp
 import { AppShell } from "./AppShell";
 import { AssetDetails } from "./AssetDetails";
 import { AssetMedia, Attribution, mediaFacts } from "./AssetMedia";
+import { MotionDirections } from "./MotionDirections";
 import { activeJob, useStudio } from "@/src/client/use-studio";
 import { referenceAction } from "@/src/client/reference-action";
 import { createShotBrief, downloadShotBrief } from "@/src/client/shot-brief";
+import { movementContextKey, replaceMovementText } from "@/src/client/movement-edit";
+import type { PromptReplacement } from "@/src/client/prompt-directions";
 import { PRESETS, SAMPLE_ASSETS } from "@/src/catalog/samples";
 import { type Asset, type Draft, type Job } from "@/src/contracts/studio";
 
@@ -33,6 +36,9 @@ export function StudioView() {
   const [exportStatus, setExportStatus] = useState("");
   const [exportError, setExportError] = useState(false);
   const draft = studio.buffer.drafts[studio.buffer.operation];
+  const movementContext = movementContextKey(studio.project?.id ?? null, studio.buffer);
+  const savedSpacingDiffers = studio.saved && !!studio.project
+    && (studio.buffer.title !== studio.project.title || draft.prompt !== studio.project.draft.prompt);
   const allAssets = [...SAMPLE_ASSETS, ...studio.assets];
   const inspectableJobs = [...studio.jobs, ...studio.sourceJobs];
   const selected = allAssets.find(asset => asset.id === studio.selectedId);
@@ -78,6 +84,16 @@ export function StudioView() {
       setExportStatus("The shot brief could not be downloaded. Your draft is unchanged. Try exporting again.");
     }
   }
+  function replacePrompt(text: string, expectedContextKey: string, expectedCurrentPrompt?: string): PromptReplacement | null {
+    if (studio.loading || studio.expired || studio.conflict) return null;
+    let replacement: PromptReplacement | null = null;
+    studio.edit(current => {
+      const result = replaceMovementText(current, studio.project?.id ?? null, text, expectedContextKey, expectedCurrentPrompt);
+      replacement = result.replacement;
+      return result.buffer;
+    });
+    return replacement;
+  }
   return <AppShell active="studio" beforeNavigate={studio.beforeNavigate}>
     <header className="page-header"><div><p className="eyebrow">One shot, visible iterations</p><h1 className="page-title">Studio</h1><p className="page-subtitle">Shape a frame. Give it direction.</p></div><div className="header-actions"><span className={`badge ${canGenerate ? "badge-live" : "badge-muted"}`}>{canGenerate ? "Live generation available" : "Live generation off"}</span>{inspected && !studio.loading && !studio.loadError && <a className="button button-ghost studio-preview-jump" href="#selected-output" onClick={() => outputStage.current?.focus({ preventScroll: true })}>{inspected.source === "upload" || inspected.id === reference?.id ? "View reference" : inspected.source === "sample" ? "View sample" : "View result"} <ArrowRight aria-hidden="true" /></a>}<a className="button button-secondary" href="/studio"><Plus aria-hidden="true" /> New shot</a></div></header>
     {studio.loading ? <div className="empty-state" role="status">Opening your studio…</div> : studio.loadError ? <div className="notice notice-error" role="alert"><p>{studio.loadError}</p><button className="button button-secondary" onClick={() => window.location.reload()}><RefreshCw aria-hidden="true" /> Retry</button><a className="button button-ghost" href="/library">Open Library</a></div> : <>
@@ -95,10 +111,11 @@ export function StudioView() {
             </div><p className="field-help" id="upload-rules">JPG or PNG · up to 5 MB · 256–4,096 px per side · up to 16 MP</p><p className={studio.uploadError ? "error-text" : "field-help"} id="upload-status" hidden={!studio.uploading && !studio.uploadError} role={studio.uploadError ? "alert" : "status"}>{studio.uploading ? "Uploading start frame… Your previous reference stays until this succeeds." : studio.uploadError}</p>{studio.pendingFile && studio.uploadError && <button className="button button-secondary" disabled={studio.uploading} onClick={() => void studio.upload(studio.pendingFile!)}>Try upload again</button>}
           </div>}
           <div className="field-group"><label className="field-label" htmlFor="shot-prompt">{draft.operation === "text_to_image" ? "Image prompt" : "Describe the movement"}</label><textarea ref={promptInput} className="prompt-input" id="shot-prompt" rows={7} value={draft.prompt} aria-describedby="prompt-help prompt-count" aria-invalid={[...draft.prompt].length > 2500} placeholder={draft.operation === "text_to_image" ? "A scene, a light, a feeling…" : "A slow push forward, warm light shifting across the frame…"} onChange={event => studio.updatePrompt(event.target.value)} /><p className="field-help" id="prompt-help">{draft.operation === "text_to_image" ? "Describe the subject, composition, lighting, and mood." : "Describe subject movement and camera direction in words."}</p><p className={[...draft.prompt].length > 2500 ? "error-text" : "field-help"} id="prompt-count">{[...draft.prompt].length.toLocaleString()} / 2,500 characters</p></div>
+          {draft.operation === "image_to_video" && <MotionDirections key={movementContext} prompt={draft.prompt} contextKey={movementContext} reference={reference} disabled={studio.expired || studio.conflict || studio.uploading} onReplacePrompt={replacePrompt} />}
           <div className="model-facts"><p><strong>{draft.operation === "text_to_image" ? "FLUX Schnell" : "Kling 2.5 Turbo Pro"}</strong></p><p>{draft.operation === "text_to_image" ? "One image · 1280 × 720" : "5-second video · start-frame animation"}</p></div>
           <div className="composer-actions"><button className={`button ${canGenerate ? "button-primary" : "button-secondary"}`} disabled={!generationReady || studio.submitting || studio.uploading || studio.expired || studio.conflict} aria-describedby="generation-reason" onClick={() => void studio.submit()}><Sparkles aria-hidden="true" />{studio.submitting ? "Submitting…" : draft.operation === "text_to_image" ? "Generate image" : "Generate 5-second video"}</button><p className="field-help" id="generation-reason">{!canGenerate ? unavailableReason : studio.jobs.some(activeJob) || studio.pending ? "Resolve the current request before generating another version. Edits apply to the next version." : !draft.prompt.trim() ? "Add a prompt to prepare your request." : draft.operation === "image_to_video" && !reference ? "Choose a start frame to prepare your video." : "Uses the saved draft and the workspace’s authorized generation allowance."}</p>
             {studio.capabilityError && <div className="notice notice-warning"><p>Live status is unavailable. Generation stays disabled.</p><button className="button button-ghost" onClick={() => void studio.retryCapabilities()}>Check availability</button></div>}
-            <button className={`button ${canGenerate ? "button-secondary" : "button-primary"}`} disabled={studio.saving || studio.uploading || studio.expired || studio.conflict || studio.saved} onClick={() => void studio.save()}>{studio.saved ? <Check aria-hidden="true" /> : <Save aria-hidden="true" />}{studio.saving ? "Saving…" : studio.saved ? "Draft saved" : "Save draft"}</button><p className="save-status" data-state={studio.saved ? "saved" : studio.error ? "error" : "unsaved"} role="status">{studio.saving ? "Waiting for save confirmation…" : studio.saved ? "Saved in this browser for up to 30 days." : studio.dirty ? "Unsaved changes — save before closing this page." : "Your shot is ready for an idea."}</p>
+            <button className={`button ${canGenerate ? "button-secondary" : "button-primary"}`} disabled={studio.saving || studio.uploading || studio.expired || studio.conflict || studio.saved} onClick={() => void studio.save()}>{studio.saved ? <Check aria-hidden="true" /> : <Save aria-hidden="true" />}{studio.saving ? "Saving…" : studio.saved ? savedSpacingDiffers ? "Saved text · spacing differs" : "Draft saved" : "Save draft"}</button><p className="save-status" data-state={studio.saved ? "saved" : studio.error ? "error" : "unsaved"} role="status">{studio.saving ? "Waiting for save confirmation…" : studio.saved ? savedSpacingDiffers ? "Saved text omits outer whitespace. Export keeps the exact text shown here." : "Saved in this browser for up to 30 days." : studio.dirty ? "Unsaved changes — save before closing this page." : "Your shot is ready for an idea."}</p>
             <button type="button" className="button button-secondary shot-brief-action" onClick={exportBrief} aria-describedby="shot-brief-help"><Download aria-hidden="true" /> Export shot brief</button><p className="field-help" id="shot-brief-help">Download a Markdown brief with your current prompt, settings, and start-frame details. Includes unsaved edits.</p><p className={exportError ? "error-text" : "field-help"} role={exportError ? "alert" : "status"} aria-atomic="true">{exportStatus}</p>
           </div>
         </section>

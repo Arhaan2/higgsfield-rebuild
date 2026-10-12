@@ -1,0 +1,53 @@
+PASS P4-03: partial failure retains links/loaded card, exposes unavailable state and retries only failed detail
+PASS P4-03: failed retry preserves other previews and remains recoverable
+PASS P4-03: detail expiry clears all private cards immediately, ignores another pending success
+PASS P4-03: stale preview retry expiry cannot erase newer Library load
+PASS P4-03: list expiry removes existing private previews and failed status
+PASS P4-03: unmounted Library ignores delayed detail and expiry
+PASS preset-only motion drafts render the real catalog start frame and zero generated versions
+PASS current detail controls preferred retained output, retained fallback, title and draft
+PASS current detail start frame supersedes stale list; text and frameless drafts stay empty
+PASS external start frame requests only its ID and never becomes this shot’s generated count
+PASS missing or unavailable references preserve mixed successes and recover through targeted retry
+PASS mismatched details or non-image/mismatched reference responses remain recoverable
+PASS reference expiry clears private cards immediately and ignores pending sibling reference
+PASS stale reference success or expiry cannot overwrite a newer Library load
+PASS unmounted or superseded detail never starts an external reference request
+PASS local query finds three saved-project fixtures by title and prompt, ignoring case/outer whitespace
+PASS operation filter and both sorts compose with search and use updatedAt, not createdAt
+PASS query never mutates the source array or projects, including when no filter is active
+PASS page reconciliation retains newer detail revisions and timestamps, deduplicates, and drops absent IDs on refresh
+PASS toolbar labels native controls and keeps actions outside card anchors
+PASS typing, filtering, sorting and reset issue no extra list/detail requests or preview loading
+PASS no-match count/reset restores search, type and sort while prepared collection stays visible
+PASS newer details update title/prompt/filter/order during a pending search without refetching
+PASS successful newer project data remains searchable when its external thumbnail fails
+PASS retrying a failed detail moves an edited shot in recent order and updates prompt search
+PASS empty, loading, failed list and expired session each remain distinct from no matches
+PASS partial preview failure coexists with local no-match state and retry does not reset the query
+PASS paginated no-match is scoped to loaded shots; load-more includes matches without duplicate cards
+PASS an empty loaded page with a next cursor never claims the Library is empty
+PASS a failed next-page request keeps query and load-more boundary without claiming no matches
+PASS expiry while filtered clears private cards, toolbar and pending pagination while keeping prepared samples
+PASS duplicate text_to_image: sibling button, validated saved payload, original intact, new empty card and explicit Open copy
+PASS duplicate image_to_video: sibling button, validated saved payload, original intact, new empty card and explicit Open copy
+PASS duplicate synchronous double-click has one source validation and one POST; recovery exists before POST
+PASS lost acknowledgement and reload wait for explicit retry, then reuse exact UUID/payload despite source edits
+PASS duplicate network failure preserves exact attempt and source for explicit retry
+PASS duplicate quota failure preserves exact attempt and source for explicit retry
+PASS duplicate service failure preserves exact attempt and source for explicit retry
+PASS duplicate source expiry clears cards/recovery/private copy state without guest rotation
+PASS duplicate create expiry clears cards/recovery/private copy state without guest rotation
+PASS initial duplicate source 404 or ID mismatch never posts
+PASS recovered duplicate source 404 or ID mismatch never posts
+PASS late POST acknowledgement or error after preview expiry cannot resurrect copy, recovery, or private media
+PASS unmount during source validation sends no POST; unmount during POST preserves durable recovery and has zero late state writes
+PASS denied, full, corrupt or silently dropping durable storage forbids initial and retried POST
+PASS acknowledgement cleanup failure exposes Open copy and local-only Finish confirmation without enabling another POST
+PASS acknowledgement with mismatched project ID stays recoverable and never adds a wrong card
+PASS copy acknowledgement preserves active query and source; Open copy remains visible if the copy is filtered out
+PASS expired list on reload clears dedicated pending copy without reading private draft into UI or automatically posting
+PASS synchronous list reload blocks stale duplicate callback and list failure keeps copy action visibly disabled
+PASS missing initial source cannot clear an unrelated attempt that appeared while its access request was pending
+PASS second pointer click cannot navigate a shifted card or create another copy after acknowledgement
+52 Library checks passed; mock hooks/JSX and pure queries only; no browser or saved-server acceptance.

@@ -1,0 +1,52 @@
+task_id: "creative-directions"
+role: "Motion directions specialist"
+status: partial
+summary: "Component implemented. Urgent integration gap: root must reject an oversized latest original before replacement. 21 checks pass; the added race regression fails."
+changed_files:
+  - "components/studio/MotionDirections.tsx"
+  - "src/client/prompt-directions.ts"
+  - "src/client/checks/prompt-directions.mjs"
+  - "docs/verification/creative-directions.md"
+capture:
+  session_id: "01a131d1-ea75-7da1-b828-f5ff57c591e4"
+  log_path: ".agent-logs/2026-10-12_20-33-24_01a131d1-ea75-7da1-b828-f5ff57c591e4.md"
+  coverage_status: unresolved
+evidence:
+  - claim: "Full actual assignment verified in genuine source and automatic capture before production edits."
+    method: "Compared source user message, assignment file, and automatic log."
+    observed_result: "Exact match; actual model gpt-6-astra. Final response awaits post-Stop verification."
+    artifact_or_source: "/Users/arhaan/.codex/sessions/2026/10/12/rollout-2026-10-12T13-33-23-01a131d1-ea75-7da1-b828-f5ff57c591e4.jsonl"
+  - claim: "Controlled component behavior and root callback integration verified."
+    method: "Executed actual component, StudioView callback, and movement helper with controlled React/editor fixtures."
+    observed_result: "21 passing cases; one reproduced root-owned limit race."
+    artifact_or_source: "src/client/checks/prompt-directions.mjs"
+verification:
+  - check: "Prompt direction checks"
+    result: fail
+    detail: "21 pass. Case 22 fails: an unrendered 2,501-code-point original is replaced although Undo cannot restore it."
+  - check: "TypeScript with C preview present"
+    result: pass
+    detail: "node node_modules/typescript/bin/tsc --noEmit --incremental false; exit 0."
+  - check: "Targeted ESLint"
+    result: pass
+    detail: "Assigned component, helper, and check file; exit 0."
+  - check: "Browser, keyboard, playback, reload, export, and persistence"
+    result: not_run
+    detail: "Reserved for root; no browser used."
+decisions_and_tradeoffs:
+  - "Applied installed apple-design guidance: native collapsed disclosure, clear choices, editable preview wording, explicit replacement, guarded Undo."
+  - "Selection and proposal editing do not mutate drafts; callback supplies latest before text."
+  - "Undo permanently invalidates after observed typing, context/task resets, or superseding replacement."
+  - "Visible oversized originals and proposals are blocked without truncation."
+  - "CSS hooks and recommendations are documented. Retain native markers, focus outlines, 2.75rem targets, wrapping labels, and stacked actions. No styles edited."
+  - "No provider calls, spending, installs, shared-file edits, children, worktrees, commits, pushes, or deployment."
+unverified_claims:
+  - "Research remains unresolved under the historical exception."
+  - "Final-response capture requires root verification after Stop."
+  - "Edits entirely hidden between identical prompt props cannot be observed by this component."
+blockers:
+  - dependency: "Latest-original length guard in src/client/movement-edit.ts"
+    owner: "Root coordinator"
+    exact_required_action: "Reject when [...current.prompt].length > 2500, preserving the buffer. Rerun prompt-directions.mjs and root movement checks."
+    independent_work_remaining: "None within assigned implementation paths."
+next_dependency: "Root resolves the reproduced guard gap, completes integrated browser acceptance, and verifies final capture after Stop."

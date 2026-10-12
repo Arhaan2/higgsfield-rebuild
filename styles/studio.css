@@ -165,6 +165,11 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1px;
 .library-summary { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem .75rem; }
 .library-summary > p { min-inline-size: 0; overflow-wrap: anywhere; }
 .library-pagination { display: grid; justify-items: start; gap: .75rem; margin-block-start: 1.25rem; }
+.library-shot-item { display: flex; flex-direction: column; gap: .625rem; min-inline-size: 0; }
+.library-shot-item > .shot-card { flex: 1; }
+.library-shot-actions > .button { inline-size: 100%; }
+.library-duplicate-notice, .library-duplicate-actions { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
+.library-duplicate-notice > div:first-child { flex: 1 1 18rem; min-inline-size: 0; }
 
 .studio-grid { display: grid; grid-template-columns: minmax(0, var(--composer-width)) minmax(0, 1fr); align-items: start; gap: var(--layout-gap); }
 .composer { display: flex; flex-direction: column; gap: 1.5rem; min-inline-size: 0; padding: 1.25rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--surface); }
@@ -202,6 +207,29 @@ legend.field-label { margin-block-end: .5rem; }
 .composer-actions { display: grid; gap: .75rem; }
 .composer-actions > .button { inline-size: 100%; }
 .composer-actions > .button-primary { min-block-size: 3rem; border-radius: .75rem; }
+.motion-directions { min-inline-size: 0; border: 1px solid var(--control-border); border-radius: .75rem; background: var(--surface); }
+.motion-directions-summary { min-block-size: 2.75rem; padding: .75rem; color: var(--text); cursor: pointer; font-size: .875rem; font-weight: 600; line-height: 1.5; }
+.motion-directions-summary::marker { color: var(--accent); }
+.motion-directions[open] > summary { border-block-end: 1px solid var(--border); }
+.motion-directions-content { display: grid; gap: 1rem; min-inline-size: 0; padding: .875rem; }
+.motion-directions-options { display: grid; gap: .5rem; min-inline-size: 0; margin: 0; padding: 0; border: 0; }
+.motion-directions-options legend { margin-block-end: .5rem; }
+.motion-direction-option { display: flex; align-items: center; gap: .625rem; min-block-size: 2.75rem; padding: .625rem; border: 1px solid var(--control-border); border-radius: .625rem; background: var(--surface-raised); font-size: .875rem; line-height: 1.4; cursor: pointer; }
+.motion-direction-option:has(input:checked) { border-color: var(--accent); background: var(--surface-hover); }
+.motion-direction-option:has(input:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; }
+.motion-direction-option input { flex: 0 0 auto; inline-size: 1rem; block-size: 1rem; accent-color: var(--accent); }
+.motion-directions-proposal { min-block-size: 8rem; }
+.motion-directions-actions { display: grid; gap: .5rem; }
+.motion-directions-actions .button { inline-size: 100%; }
+.camera-study { display: grid; gap: .75rem; min-inline-size: 0; padding-block-start: .875rem; border-block-start: 1px solid var(--border); }
+.camera-study[hidden] { display: none; }
+.camera-study-heading { display: grid; gap: .375rem; }
+.camera-study-heading h4 { font-size: .875rem; font-weight: 600; line-height: 1.45; }
+.camera-study-frame { position: relative; display: grid; place-items: center; aspect-ratio: 16 / 10; overflow: hidden; isolation: isolate; border-radius: .5rem; background: var(--media-bg); }
+.camera-study-image { position: absolute; inset: 0; display: block; inline-size: 100%; block-size: 100%; object-fit: cover; transform-origin: center; pointer-events: none; }
+.camera-study-placeholder { padding: .75rem; color: var(--text-secondary); font-size: .8125rem; text-align: center; }
+.camera-study-controls { display: flex; flex-wrap: wrap; gap: .5rem; }
+.camera-study-controls > .button { flex: 1 1 5rem; }
 .save-status { min-block-size: 1.25rem; color: var(--text-secondary); font-size: .8125rem; line-height: 1.5385; overflow-wrap: anywhere; }
 .save-status[data-state="saved"] { color: var(--success); }
 .save-status[data-state="error"] { color: var(--danger); }
@@ -315,6 +343,7 @@ dialog.asset-dialog::backdrop { background: var(--scrim); }
   @media (max-width: 47.999rem) { .side-nav > nav { background: rgb(23 25 27 / 94%); backdrop-filter: blur(16px); } }
 }
 @media (prefers-reduced-motion: reduce) {
+  .camera-study-image { transform: none !important; }
   *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
   :where(.button, .nav-link, .preset-action, .version-card, .asset-dialog) { transform: none; }
 }
