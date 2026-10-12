@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-12T04:48:57.026707+00:00",
+  "base": "5bd4a39e28f0fa1d582a3070b1cdd348e43401f8",
+  "product_candidate": "b32b03e7f867fa78b4c075890b76a9d41d736287",
+  "changed_text_files": 37,
+  "binary_files_skipped": 4,
+  "patterns": [
+    "private_key",
+    "github",
+    "aws",
+    "openai",
+    "google",
+    "slack",
+    "jwt"
+  ],
+  "matches": [],
+  "limits": "Bounded heuristic of changed UTF-8 text from audit baseline, including current untracked reports/capture. Does not prove absence or inspect binary media. Prior reachable-history audit remains attributed.",
+  "root_final_capture": "Not yet emitted; future capture closure remains pending.",
+  "capture_audit": {
+    "checked_at": "2026-10-12T04:50:03.881163+00:00",
+    "sessions": 36,
+    "all_source_exact": true,
+    "specialist_full_prompts_and_finals_exact": true
+  },
+  "independent_checks": {
+    "server": 36,
+    "studio": 58,
+    "reference_action": 29,
+    "library": 15,
+    "total": 138,
+    "baseline": 104,
+    "added": 34
+  },
+  "source_unchanged_after_candidate": "b32b03e7f867fa78b4c075890b76a9d41d736287"
+}

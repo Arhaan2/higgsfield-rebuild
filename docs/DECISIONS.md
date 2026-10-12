@@ -1,5 +1,11 @@
 # Decision record
 
+## 2026-10-12 04:48 UTC — deployment first, no billing assumption
+
+User requested the prepared direct Cloudflare route under unchanged $0 total spending. Fresh reads confirm R2 disabled (10042), Worker absent (10007), and the existing D1 schema intact with zero generation allowance; do not replay its migration. Activation/terms remain user-owned. Continue only independent authorized repairs while this concrete resource dependency persists.
+
+Candidate b32b03e repairs the three named findings. Preference is explicit and revisioned, separate from draft saving; inspection itself remains local. Selected retained assets control stage media after upload. Library uses the saved draft start frame only when no retained asset exists and never counts it as generated. Root browser observations and independent 138-check review accept the bounded behavior. No real generation or deployment is implied; recording waits for a prepared public demonstration.
+
 ## 2026-10-12 04:01 UTC — local review complete, release withheld
 
 Root accepts the independent 104-check result within its mocked/source/rendered limits. The public Studio remains unavailable and no application-generated result or camera-on recording exists; do not advance Q6 or S7. Product candidate aab567a is pushed to main. The final style repair makes reference metadata wrap beneath its thumbnail under enlarged text, preserving the existing identity and normal layouts. Original failed reviews remain historical evidence; a narrow independent follow-up records the repaired layout, corrected screenshot label and public source alignment. No new provider or hosting spending is authorized.

@@ -6,7 +6,7 @@ A focused creative studio for the 8x assignment. Explore a prompt direction, com
 
 - [Live sample shell](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
 - [Public source](https://github.com/Arhaan2/higgsfield-rebuild)
-- [Current evidence and phase status](docs/STATUS.md)
+- [Current evidence index](docs/verification/INDEX.md) and [phase status](docs/STATUS.md)
 - Camera-on walkthrough: **not recorded**; [4:30 preparation script](docs/WALKTHROUGH-SCRIPT.md).
 
 ## Product choices
@@ -36,7 +36,7 @@ npm run build
 node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_cute_daredevil.sql
 ```
 
-Do not replay an applied migration or alter migration history. D1 has seven tables and ten guards; no positive budget policy is seeded. Local and hosted state are separate. Sites applies hosted migrations during publication.
+Do not replay an applied migration or alter migration history. D1 has seven tables and ten guards; no positive budget policy is seeded. Local and hosted state are separate. The direct Cloudflare database already has its initial migration applied; the deployment route reuses it without replay. Older Sites publishing attempts failed their migration runner.
 
 ```sh
 npx tsc --noEmit
@@ -47,13 +47,13 @@ node src/client/checks/library-state.mjs
 node src/client/checks/reference-action.mjs
 ```
 
-The 36 server checks use isolated SQLite and mocked R2/provider calls; 44 Studio, 6 Library and 18 reference-action checks use mocked APIs/hooks. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md) and [Phase 3 continuation](docs/verification/phase3-continuation.md). The continuation verifies ordinary sample/private download clicks and repairs a stale save notice. These checks do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
+The controlled suite now contains 36 server checks using isolated SQLite and mocked R2/provider calls, plus 58 Studio, 15 Library and 29 reference-action checks using mocked APIs/hooks. The 34 added checks cover explicit preferences, upload selection and start-frame previews; the original 104-check result remains attributed to its prior revision. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md) and [Phase 3 continuation](docs/verification/phase3-continuation.md). The continuation verifies ordinary sample/private download clicks and repairs a stale save notice. These checks do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
 
 `APP_ORIGIN` must exactly match the browser origin. `LIVE_GENERATION_ENABLED=false` and `GENERATION_BUDGET_USD=0` are the defaults. `FAL_KEY` is optional and server-only; a key alone does not enable generation. D1's separate budget policy also defaults to no allowance. Do not put populated secrets in tracked files or chat.
 
 ## Scope and limitations
 
-The implementation target includes validated JPEG/PNG start frames, same-browser guest drafts, immutable media, connected reuse and two fixed fal models: FLUX schnell images and Kling 2.5 Turbo Pro five-second videos. Provider submission/retrieval, billing, and real deployed generation remain unverified and require private provider configuration plus explicit bounded authorization. Unknown submission outcomes must not auto-resubmit. Request-driven reconciliation pauses when every browser tab closes.
+The implementation target includes validated JPEG/PNG start frames, same-browser guest drafts, immutable media, connected reuse and two fixed fal models: FLUX schnell images and Kling 2.5 Turbo Pro five-second videos. Provider submission/retrieval, billing, and real deployed generation remain unverified. Total authorized spending is $0. Keep generation disabled unless an authorized genuinely no-cost path is verified; no paid allowance is assumed or requested. Unknown submission outcomes must not auto-resubmit. Request-driven reconciliation pauses when every browser tab closes.
 
 Guests are private per browser cookie, with access for up to 30 days; this is not cross-device account synchronization. There is no billing UI, collaboration suite, node editor, or broad Higgsfield feature/model parity.
 
@@ -70,3 +70,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py
 [Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. Final public access, the actual creation-path gate, and Arhaan's camera-on walkthrough under five minutes remain delivery requirements.
 
 Phase 4–6 local review repaired failure-storage reservations, cross-shot metadata, Library preview recovery and movement-text preservation. [Integration evidence](docs/verification/phase456-integration.md) separates actual browser/HTTP checks from [isolated UI fixtures](docs/verification/state-fixture-guide.md). The public Studio deep link still returns404; release acceptance remains pending. The [independent release review](docs/verification/phase-6.md) passes all 104 controlled local checks but withholds release acceptance; its [narrow follow-up](docs/verification/phase56-followup.md) records the final layout and public-source rechecks. All generation spending stays disabled.
+
+Submission checkpoint (2026-10-12 04:45 UTC): integrated product candidate `b32b03e7f867fa78b4c075890b76a9d41d736287` adds explicit **Make preferred version** persistence, selects the newly uploaded reference correctly after inspecting an old job, and gives saved preset-only shots a Library start-frame thumbnail. [Actual local browser evidence](docs/verification/submission-local-browser.md) covers preference/reload and preset reopening. [Current resource checks](docs/verification/submission-resource-preflight.json) still find R2 disabled and no direct Worker; fresh public Studio and Library return 404. The public URL above is therefore still a sample shell. The hosted demonstration and camera-on recording are not ready.
+
+The [independent continuation review](docs/verification/submission-review.md) reproduces all **138 controlled checks** on b32b03e and accepts the three repairs within their stated limits. It confirms public source alignment while retaining the release block. Native accessibility/physical-phone checks, actual provider generation and the camera-on recording remain unrun.

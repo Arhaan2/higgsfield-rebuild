@@ -35,3 +35,7 @@ Root owns shared contracts/catalog, layout, manifests/lockfiles, build/config/en
 ## Verification and honest gates
 
 Build/typecheck and targeted tests cover ownership, Origin, upload validation, atomic budget/storage admission, duplicate/unknown submission, and range delivery. Browser checks cover sample labels, save/reload, invalid upload recovery, reuse, playback/download and responsive keyboard behavior. Mocked provider tests are labeled as such. V3 remains pending without a real deployed generation; public access and D1/R2 behavior are not inferred from Site registration.
+
+## Explicit preference and preview continuation
+
+Candidate b32b03e connects the existing preferredAssetId PATCH contract to an explicit frontend action. The request carries only expectedRevision/preferredAssetId; preference and draft writes serialize to preserve revision ordering, and acknowledgements never replace the editable buffer. Inspecting a version remains local. On upload, the selected retained asset controls stage media; job-only selection represents requests without retained output. Library resolves preferred/current retained assets first, then an assetless motion draft's owner-scoped/public start frame. It never counts that fallback as a generated version. Backend/schema and generation policy are unchanged.

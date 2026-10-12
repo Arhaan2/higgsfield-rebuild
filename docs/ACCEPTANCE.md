@@ -69,3 +69,12 @@ D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit resea
 | Real image/video loop and recording | not_run |$0generation allowance, no fullpublicdeployment, actual walkthrough absent. |
 
 Independent phase-5/phase-6 reports now record 104 passing controlled checks and a fail/blocked release verdict. The enlarged-text layout and public-source alignment follow-up is in verification/phase56-followup.md. Historical review failures remain in their original reports, with repairs tracked separately. The complete public Studio, actual provider outputs, native accessibility contexts and actual recording remain unresolved.
+
+## Submission reconciliation
+
+- The user-supplied external audit reproduced all 104 prior checks on 5bd4a39. It did not pass integrated deployment, generation, recording or final capture closure.
+- The preceding coordinator final response has since been verified from genuine source and committed in 2394c92. This active turn's future final remains pending; the final-response checkbox stays unchecked.
+- Original guide bytes and two real canaries are preserved. The first source message supplied a file attachment reference rather than the full inline guide, so the formal first-message item remains unresolved; successful later capture does not retroactively change the original message.
+- Required signed-in real output chains remain unverified under the explicit research exception and zero-spend constraint. No new provider check occurred.
+- Current source repairs and actual local browser observations are in verification/INDEX.md. The independent continuation review records their bounded acceptance. Public Studio/Library are still 404; none of the unqualified deployed criteria above are checked from localhost or mocked tests.
+- Existing credential/history review found no known matching text secrets within its documented limits. It was a bounded scan, not proof that every binary or media asset is free of private material; retain that limitation.

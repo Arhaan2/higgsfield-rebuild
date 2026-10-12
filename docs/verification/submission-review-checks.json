@@ -1,0 +1,389 @@
+{
+  "task_id": "submission-repair-review-001",
+  "reviewer_session": "01a12e6c-a616-7122-b93b-24226a36007f",
+  "recorded_model": "gpt-6-astra",
+  "candidate": "b32b03e7f867fa78b4c075890b76a9d41d736287",
+  "diff_base": "2394c92026108296b5e64171db6bd19400fa6016",
+  "capture": {
+    "log_path": ".agent-logs/2026-10-12_04-43-56_01a12e6c-a616-7122-b93b-24226a36007f.md",
+    "prompt_result": "pass",
+    "comparison": "Full 3,901-character assignment equals automatic log prompt after trimming surrounding whitespace; also matches handoff26.",
+    "raw_capture_edited": false,
+    "final_coverage": "unresolved; root must compare full final after Stop"
+  },
+  "immutable": {
+    "checked_at": "2026-10-12T04:46:36.701262+00:00",
+    "candidate": "b32b03e7f867fa78b4c075890b76a9d41d736287",
+    "files": [
+      {
+        "path": "src/client/use-studio.ts",
+        "sha256": "2c7cac8c6b96bf6612ef5eadf08c32dc459eb29080742a79af9e678766db3684",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "src/client/api.ts",
+        "sha256": "d5f6cb6b10ddd20ee0d547ceaac30bdf15668a7aafb732aef88355b95eb38139",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "components/studio/StudioView.tsx",
+        "sha256": "4c7e2bab6f22c8c09e241aaeacd22a22cdcfbb7047674b94fbda5399a5ce3d31",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "components/studio/LibraryView.tsx",
+        "sha256": "3b18e8bdfad4f5fc204408f4d1e0e6a4fa977dd512feb750d7f42a3b1f2f0f1d",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "src/client/checks/studio-state.mjs",
+        "sha256": "dfb784ca4dc42696c422390581084e168297dc86e6da804e7da4ce73ff29bbe3",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "src/client/checks/reference-action.mjs",
+        "sha256": "03b205f71d1472015af6d1a7a18b7cb10fc5f3022378f61ca793a5f0e324bb04",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "src/client/checks/library-state.mjs",
+        "sha256": "3641840b3248872e26d5e045f2f5cd1e0ba4b70ed793833c1bad54430664cc74",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "src/server/api.ts",
+        "sha256": "b3be27b2ce1b98feb75545a264ca889fe43634a297e2da08898063735a3c2ce8",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "src/server/store.ts",
+        "sha256": "5e4f6eded75cb629579692571c84caf4a8ac2386a76e62121f087272ae2e3dd7",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/server/backend.test.mjs",
+        "sha256": "e3e823f614ad9a9f829535d4ceb3ddeefc1f3089169e1449fac4ff7af07728ee",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/server/creative-loop.test.mjs",
+        "sha256": "00feaaf2be561f50e49cfeffcfc77a19ef87f1cdad599a17b7b7ff9a4d70ef91",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/server/failure-reservation.test.mjs",
+        "sha256": "047b586203bef1285f4ab446c487e8406bd62bc70b5deed641efbd8dc1b09e21",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/server/transfer.test.mjs",
+        "sha256": "9b87a9421315b49b4fda03fc41e29cf115ce12e36beee050a7c1b0efdf2dca51",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/server/harness.mjs",
+        "sha256": "eae233c4fefd1a7bb1c86b3fd67a59767fc82c17be0ff9a4a6978e3d8914ff19",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/server/register.mjs",
+        "sha256": "caad8a9369178c033ee1c5bf7e7105cb72015c175befe9d6e1c76b33d55381e3",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "tests/visual/fixture-studio.tsx",
+        "sha256": "742e4bd1e25ddba9303935ce26193efbaaae5df0f5fcea9f80043cf74f6a6fea",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-studio-selection.md",
+        "sha256": "4a32f7594cf4a724f56cccdd8de90800b5a4428296cb5bc46b585151e403df99",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-library-startframe.md",
+        "sha256": "182cf2155d4b44326647f0c43f4f1bcb05e11feb1edaaa7722ccbde87cf2a732",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-local-browser.md",
+        "sha256": "ddd55915881604c55417af583b0922534a2d99a15362fe37a4884c9d40e2dcac",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-build.txt",
+        "sha256": "a359b61f3ca0f1d5b832606bf4ce8db9dc860256a3a5c27edcdbef0b1a6db0da",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-resource-preflight.json",
+        "sha256": "333c1b1b6b267fa7949ad87117e2aa78ab67ecf18915da86ec357dc934146d2f",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-public-preflight.json",
+        "sha256": "c82240d6f113c4c992df1220b3b806943a7081b93af96ba1ce8a03a134f04e8b",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-sites-preflight.json",
+        "sha256": "f68ff6c1259fa48bea0465b9032050f941ea07a68cf6915dff92517c3ae61307",
+        "working_equals_candidate": true
+      },
+      {
+        "path": "docs/verification/submission-preferred-reloaded.png",
+        "sha256": "195881a44554a024323de82eb32bc0ac99005b468191aae0a2dc8111b30948b1",
+        "working_equals_candidate": true,
+        "actual_encoding": "JPEG",
+        "dimensions": [
+          320,
+          1000
+        ],
+        "dimension_method": "sips -g pixelWidth -g pixelHeight -g format"
+      },
+      {
+        "path": "docs/verification/submission-preset-library.png",
+        "sha256": "48dd7afa3a298d552b8dbdede2bd646d2b681584091e6631ceb7a838f39ab4a8",
+        "working_equals_candidate": true,
+        "actual_encoding": "JPEG",
+        "dimensions": [
+          320,
+          1000
+        ],
+        "dimension_method": "sips -g pixelWidth -g pixelHeight -g format"
+      },
+      {
+        "path": "docs/verification/INDEX.md",
+        "sha256": "519e8b62995a46ebf4ef05f3ea1247fc2afea91c9c44bc1909264d53a604abfe",
+        "working_equals_candidate": true
+      }
+    ],
+    "tracked_changes_from_candidate": [
+      "README.md",
+      "docs/ACCEPTANCE.md",
+      "docs/STATUS.md",
+      "docs/SUBMISSION.md",
+      "docs/WALKTHROUGH-SCRIPT.md",
+      "docs/agents/ASSIGNMENTS.md"
+    ],
+    "server_changes_from_external_baseline": []
+  },
+  "baseline": {
+    "candidate": "5bd4a39e28f0fa1d582a3070b1cdd348e43401f8",
+    "count": 104,
+    "attribution": "User-supplied external audit; not independently rerun on the old commit during this review.",
+    "counts": {
+      "server": 36,
+      "studio": 44,
+      "action": 18,
+      "library": 6
+    }
+  },
+  "controlled_checks": [
+    {
+      "command": "node src/client/checks/studio-state.mjs",
+      "result": "pass",
+      "exit_code": 0,
+      "count": 58,
+      "baseline": 44,
+      "added": 14,
+      "output": "PASS sample inspection creates no private guest/project\nPASS save response does not overwrite later typing or announce Saved\nPASS subsequent acknowledged save marks current buffer saved\nPASS both task drafts persist in browser recovery\nPASS revision conflict retains current edits and blocks departure\nPASS failed save prevents navigation and retains current text\nPASS expired session clears stale persistent recovery but keeps in-memory text\nPASS failed reference upload retains prior reference and retry file\nPASS ambiguous submission replays same request key/revision even after edits and zero-cap change\nPASS server property reordering and trimming do not cause false unsaved state\nPASS ambiguous project creation replays original identity/content after reload then saves new edits\nPASS SN01: restored new shot, edited title/prompt and JPG save clear stale recovery notice\nPASS SN02: pending save preserves newer edits and unsaved recovery notice (new shot)\nPASS SN02: pending save preserves newer edits and unsaved recovery notice (existing shot)\nPASS SN03: storage warning arriving during save survives acknowledgement\nPASS SN04: result notice arriving during save survives acknowledgement\nPASS IR01: invalid inactive prompt and saved active prompt survive reload; API limits remain\nPASS IR02: lost acknowledgement then 429 and inconclusive errors retain identity across reload\nPASS IR02: conclusive admission rejection releases pending request without automatic retry\nPASS IR03: deferred refresh ignored after conflict-copy\nPASS IR03: deferred detail ignored after conflict-copy\nPASS IR03: deferred error ignored after conflict-copy\nPASS IR03: deferred refresh ignored after session-replacement\nPASS IR03: deferred detail ignored after session-replacement\nPASS IR03: deferred error ignored after session-replacement\nPASS IR03 adjacent: stale save success cannot alter replacement session\nPASS IR03 adjacent: stale save error cannot alter replacement session\nPASS IR03 adjacent: stale submit success cannot alter replacement session\nPASS IR03 adjacent: stale submit error cannot alter replacement session\nPASS IR03 adjacent: stale upload success cannot alter replacement session\nPASS IR03 adjacent: stale upload error cannot alter replacement session\nPASS IR03: late refresh cleanup cannot clear the replacement shot refresh indicator\nPASS P4-02: resolves immutable external source jobs and recursive parent without poll/list contamination or loops\nPASS P4-02: stale external asset success ignored after session replacement\nPASS P4-02: stale external asset expiry ignored after session replacement\nPASS P4-02: stale external job success ignored after session replacement\nPASS P4-02: stale external job expiry ignored after session replacement\nPASS P4-02: current metadata expiry clears private assets/jobs; late success cannot restore them\nPASS P4-02: unavailable metadata retains known assets, selection and edited draft without retry loop\nPASS P4-02: arbitrary recorded parent resolves independently of active start frame\nPASS P4-02: copy clears metadata and rejects old source-job response while same-owner references resolve again\nPASS P4-02: source-job response must match requested ID and owning asset project\nPASS P4-02: API job retrieval is an encoded owner-session GET with no-store\nPASS P4-02: refreshing own result retains resolved external provenance without changing edited text\nPASS SS01: explicit preference uses preference-only PATCH\nPASS SS02: preference acknowledgement preserves newer and inactive typing, restores preference and dirty drafts after reload\nPASS SS03: pending draft save precedes preference PATCH, later typing stays dirty\nPASS SS04: draft save waits for preference and captures latest typing; duplicate preference does not write\nPASS SS05: preference network failure retains selection/drafts/confirmed preference; explicit retry succeeds\nPASS SS06: preference REVISION_CONFLICT preserves text and uses existing recovery path\nPASS SS06: preference GUEST_REQUIRED preserves text and uses existing recovery path\nPASS SS07: stale preference success ignored after saveSeparate\nPASS SS07: stale preference expiry ignored after saveSeparate\nPASS SS07: stale preference success ignored after restartSession\nPASS SS07: stale preference expiry ignored after restartSession\nPASS SS08: samples, foreign assets and missing assets cannot become preferences; inspection makes no writes\nPASS SS09: wrong preference/revision acknowledgements never claim success\nPASS SS10: navigation awaits preference acknowledgement and failed acknowledgement blocks departure\n58 client-state checks passed; mocked API, no browser/provider calls.\n"
+    },
+    {
+      "command": "node src/client/checks/reference-action.mjs",
+      "result": "pass",
+      "exit_code": 0,
+      "count": 29,
+      "baseline": 18,
+      "added": 11,
+      "output": "PASS saved, motion mode, same reference preserves exact movement and focuses; originals immutable\nPASS saved, motion mode, different reference preserves exact movement and focuses; originals immutable\nPASS saved, image mode, same reference preserves exact movement and focuses; originals immutable\nPASS saved, image mode, different reference preserves exact movement and focuses; originals immutable\nPASS unsaved, motion mode, same reference preserves exact movement and focuses; originals immutable\nPASS unsaved, motion mode, different reference preserves exact movement and focuses; originals immutable\nPASS unsaved, image mode, same reference preserves exact movement and focuses; originals immutable\nPASS unsaved, image mode, different reference preserves exact movement and focuses; originals immutable\nPASS different reference initializes only an empty movement prompt from existing preset\nPASS details same reference invokes explicit shared callback, closes and requests focus\nPASS details different reference invokes explicit shared callback, closes and requests focus\nPASS sample details retains separate suggested-prompt behavior and dedicated attribution row\nPASS queued status text has live semantics without polling timestamps or actions\nPASS running status text has live semantics without polling timestamps or actions\nPASS storing status text has live semantics without polling timestamps or actions\nPASS failed status text has live semantics without polling timestamps or actions\nPASS transfer_failed status text has live semantics without polling timestamps or actions\nPASS typing during reference-action save remains exact\nPASS old selected job yields to successfully uploaded reference\nPASS succeeded inspection: successful upload selects reference, no fake output while pending\nPASS succeeded inspection: failed upload preserves selection, no fake output while pending\nPASS queued inspection: successful upload selects reference, no fake output while pending\nPASS queued inspection: failed upload preserves selection, no fake output while pending\nPASS failed inspection: successful upload selects reference, no fake output while pending\nPASS failed inspection: failed upload preserves selection, no fake output while pending\nPASS transfer_failed inspection: successful upload selects reference, no fake output while pending\nPASS transfer_failed inspection: failed upload preserves selection, no fake output while pending\nPASS explicit preference acknowledges after PATCH, preserves unsaved text, and actual Library component uses saved preference\nPASS preference error exposes explicit retry; prepared sample has no preference action\n29 action checks passed; mock React/API, no browser/provider calls.\n"
+    },
+    {
+      "command": "node src/client/checks/library-state.mjs",
+      "result": "pass",
+      "exit_code": 0,
+      "count": 15,
+      "baseline": 6,
+      "added": 9,
+      "output": "PASS P4-03: partial failure retains links/loaded card, exposes unavailable state and retries only failed detail\nPASS P4-03: failed retry preserves other previews and remains recoverable\nPASS P4-03: detail expiry clears all private cards immediately, ignores another pending success\nPASS P4-03: stale preview retry expiry cannot erase newer Library load\nPASS P4-03: list expiry removes existing private previews and failed status\nPASS P4-03: unmounted Library ignores delayed detail and expiry\nPASS preset-only motion drafts render the real catalog start frame and zero generated versions\nPASS current detail controls preferred retained output, retained fallback, title and draft\nPASS current detail start frame supersedes stale list; text and frameless drafts stay empty\nPASS external start frame requests only its ID and never becomes this shot\u2019s generated count\nPASS missing or unavailable references preserve mixed successes and recover through targeted retry\nPASS mismatched details or non-image/mismatched reference responses remain recoverable\nPASS reference expiry clears private cards immediately and ignores pending sibling reference\nPASS stale reference success or expiry cannot overwrite a newer Library load\nPASS unmounted or superseded detail never starts an external reference request\n15 Library checks passed; mock hooks/JSX only.\n"
+    },
+    {
+      "command": "node --import ./tests/server/register.mjs --test tests/server/*.test.mjs",
+      "result": "pass",
+      "exit_code": 0,
+      "count": 36,
+      "baseline": 36,
+      "added": 0,
+      "output": "\u2714 Origin is configured, mandatory, and checked before session creation; opaque cookie stores only its hash (25.480042ms)\n\u2714 Guest CRUD persists revisions and rejects foreign project/asset/reuse; same-owner cross-project reuse is allowed (18.131958ms)\n\u2714 Binary validation rejects MIME lies, missing EOI, compressed and oversize bodies before R2; raw chunk limit counts actual bytes (10.613292ms)\n\u2714 Upload idempotency, uncertain R2 write reconciliation, and immutable first-write preserve accounting (23.049834ms)\n\u2714 Range, HEAD, conditional requests, and disposition return retained bytes without foreign access (14.211792ms)\n\u2714 All zero/disabled policy combinations create no jobs, no reservations, and no provider calls (8.347083ms)\n\u2714 Concurrent identical requests submit once; ambiguous outcome remains held and never resubmits, even after lease expiry (3.893791ms)\n\u2714 Concurrent admission at last budget unit allows one guest; held storage slots are atomic (4.805042ms)\n\u2714 Output and authenticated queue URLs reject host/path tricks (0.240042ms)\n\u2714 Mocked FLUX completion retains one immutable output; transfer retry reconciles a lost R2 acknowledgement without regeneration (5.968958ms)\n\u2714 An expired poll lease cannot overwrite the successor completed result (4.059791ms)\n\u2714 Unsafe result host fails transfer while retaining job identity and blocking a second active operation (3.542417ms)\n\u2714 A stale submitting lease becomes unknown; late acknowledgement cannot overwrite it or trigger another POST (2.765666ms)\n\u2714 PNG structural/CRC validation accepts the original fixture and rejects corrupted chunks and animation markers (3.335083ms)\n\u2714 Kling sample input comes only from the configured origin/catalog after enablement, with frozen five-second settings (3.260416ms)\n\u2714 Owner checks precede zero-budget response on a new foreign job request (1.989333ms)\n\u2714 Fixed rate buckets deny extra writes atomically and expire without deleting saved work (10.24ms)\n\u2714 Unknown JSON keys, compressed JSON, unsafe revisions, and oversized bodies fail without changing the draft (2.50825ms)\n\u2714 Mocked creative loop retains generated-image bytes, cross-project lineage, old jobs and downloads through video reuse (81.38875ms)\n\u2714 P4-01: confirmed failures without output must leave room to retry while preserving jobs and counted spend (8.450834ms)\n\u2714 Confirmed failure releases only its storage; history, owner boundaries, idempotency and spend caps survive (42.347459ms)\n\u2714 Unknown POST and unavailable status retain storage and monetary holds (6.802292ms)\n\u2714 result failure holds storage through retry, including contradictory provider status (7.651709ms)\n\u2714 transfer failure holds storage through retry, including contradictory provider status (20.732708ms)\n\u2714 Stale confirmed failure cannot release storage after expired (9.846667ms)\n\u2714 Stale confirmed failure cannot release storage after queued (5.311375ms)\n\u2714 Stale confirmed failure cannot release storage after running (3.263417ms)\n\u2714 Stale confirmed failure cannot release storage after submission_unknown (3.639333ms)\n\u2714 Stale confirmed failure cannot release storage after transfer_failed (3.2525ms)\n\u2714 Stale confirmed failure cannot release storage after succeeded (5.015375ms)\n\u2714 Stale failure cannot release storage while a successor still owns the active poll lease (4.170291ms)\n\u2714 A failed terminal write rolls back the storage release; later refresh can complete both (3.826583ms)\n\u2714 Streamed MP4 transfer counts bytes, validates container, and reconciles exactly one retained object (71.705458ms)\n\u2714 Transfer rejects oversized/unknown-size video and MIME mismatch without writing R2 (5.600584ms)\n\u2714 Bounded image transfer rejects excess actual bytes even when content-length is omitted (10.344375ms)\n\u2714 Image transfer rejects malformed bytes before any R2 write (4.200625ms)\n\u2139 tests 36\n\u2139 suites 0\n\u2139 pass 36\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 657.852875\n"
+    }
+  ],
+  "repairs": [
+    {
+      "id": "SR-01",
+      "name": "Explicit durable preferred version",
+      "result": "pass",
+      "evidence": "Source review, 58 Studio and 29 action checks; root's actual localhost upload preference/reload narrative.",
+      "limit": "Mock API for generated-version scenarios; no hosted persistence or real generated version proof."
+    },
+    {
+      "id": "SR-02",
+      "name": "Old selected job yields to successful new upload",
+      "result": "pass",
+      "evidence": "Actual component/hook mock regression and succeeded/queued/failed/transfer_failed success/failure matrix; selected asset is stage authority.",
+      "limit": "No actual browser old-provider-job reproduction; absent outputs are controlled test cases."
+    },
+    {
+      "id": "SR-03",
+      "name": "Preset-only Library start-frame preview",
+      "result": "pass",
+      "evidence": "15 Library checks; independently viewed root's 320x1000 Library capture showing A slow reveal thumbnail and zero generated versions.",
+      "limit": "Root owns actual browser actions and reopening; external reference ownership checked via server source/existing controlled tests."
+    }
+  ],
+  "public_http": {
+    "authentication": "none",
+    "initial_attempt": "All four requests failed DNS in restricted sandbox before HTTP; authorized outside-sandbox retry succeeded.",
+    "requests": [
+      {
+        "name": "home",
+        "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+        "status": 200,
+        "checked_at": "2026-10-12T04:44:59.676010+00:00",
+        "body_sha256": "9c50ccc62d085a323858fa4c98fe5286cf8e2bcc4fb9373c0af5cda8c6d84b30",
+        "date": "Mon, 12 Oct 2026 04:44:59 GMT",
+        "final_url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+        "sample_shell_marker": true,
+        "body_excerpt": "<!DOCTYPE html><html lang=\"en\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"stylesheet\" href=\"/_next/static/css/index.COf-lAUo.css\" data-rsc-css-href=\"/_next/static/css/index.COf-lAUo.css\" data-precedence=\"vite-rsc/importer-resources\"/>"
+      },
+      {
+        "name": "studio",
+        "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study",
+        "status": 404,
+        "checked_at": "2026-10-12T04:44:59.789977+00:00",
+        "body_sha256": "6acf3c539abc7f5f292b1bfff00306015e00c5ae5f5ff203d6a0673039e9c229",
+        "date": "Mon, 12 Oct 2026 04:44:59 GMT",
+        "final_url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study"
+      },
+      {
+        "name": "library",
+        "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/library",
+        "status": 404,
+        "checked_at": "2026-10-12T04:44:59.774085+00:00",
+        "body_sha256": "fe514520454726ce086d79db39f997433810819f0905fb9d5805a0b2db5ab0c2",
+        "date": "Mon, 12 Oct 2026 04:44:59 GMT",
+        "final_url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/library"
+      },
+      {
+        "name": "main",
+        "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+        "status": 200,
+        "checked_at": "2026-10-12T04:44:59.133404+00:00",
+        "body_sha256": "da7d431ae38a50c5855d3803436ac5a6a96534c2c39636934357785ceade986e",
+        "date": "Mon, 12 Oct 2026 04:44:59 GMT",
+        "final_url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+        "revision": "b32b03e7f867fa78b4c075890b76a9d41d736287"
+      }
+    ]
+  },
+  "deployment_metadata": {
+    "attribution": "Root's committed read-only Sites preflight, not a new reviewer authenticated request.",
+    "source": "docs/verification/submission-sites-preflight.json",
+    "live": {
+      "version": 1,
+      "source": "6d5a576832f7704feade88d7f483ab402b924d0c",
+      "deployment_id": "appgdep_6acc3b777bf88191aed554b79b0d67e3"
+    },
+    "failed": [
+      {
+        "version": 2,
+        "source": "88b273a4cadfb57d080df1d6f1fd915ed7b756ba"
+      },
+      {
+        "version": 3,
+        "source": "e9d66bb7d8f5c83e656afdbffc423779c4d9a9b7"
+      }
+    ]
+  },
+  "resource_preflight": {
+    "attribution": "Root; docs/verification/submission-resource-preflight.json; no reviewer account/provider call.",
+    "r2_error": 10042,
+    "worker_error": 10007,
+    "tables": 7,
+    "guards": 10,
+    "foreign_key_violations": 0,
+    "budget_policy_rows": 0,
+    "migration_replayed": false
+  },
+  "build": {
+    "result": "pass",
+    "method": "Reuse root's TypeScript and production build evidence because source/config/tests are unchanged; reviewer did not rebuild.",
+    "sources": [
+      "docs/agents/ASSIGNMENTS.md at candidate, 04:43 UTC acceptance",
+      "docs/verification/submission-build.txt"
+    ]
+  },
+  "screenshots": [
+    {
+      "path": "docs/verification/submission-preferred-reloaded.png",
+      "viewed": true,
+      "observation": "Studio top viewport, saved-draft-restored notice, Phase 3 recovery check title, start-frame thumbnail, live generation off. Preferred button and saved movement prompt are below captured viewport; this image alone does not prove preference confirmation or persistence."
+    },
+    {
+      "path": "docs/verification/submission-preset-library.png",
+      "viewed": true,
+      "observation": "A slow reveal card with dune image and Motion draft \u00b7 0 generated versions; live generation off. Root's narrative supplies decoded src and reopening observations."
+    }
+  ],
+  "release": {
+    "result": "fail",
+    "verdict": "blocked",
+    "reason": "Public Studio and Library return 404; reviewed source is not integrated public deployment."
+  },
+  "not_run": [
+    "Hosted integrated upload/save/reload/preference/Library/ownership/playback/download acceptance",
+    "Real provider generation and video loop; generation remains disabled with zero allowance",
+    "Native accessibility/OS preferences/screen reader/physical phone",
+    "Actual camera-on recording access/duration/visibility",
+    "Independent repeat of full historical capture/security audit",
+    "This reviewer and coordinator future final capture closure"
+  ],
+  "limits": [
+    "R1 remains explicit exception; no research waiver.",
+    "35 source-matching sessions and prior bounded security evidence remain attributed to root; no new full audit claim.",
+    "R2 activation question is pending and is not billing/overage approval.",
+    "No implementation edit, browser automation, child agent, install, Git mutation, publishing, migration, provider or billing request."
+  ],
+  "important_new_product_findings": [],
+  "total": {
+    "passed": 138,
+    "baseline": 104,
+    "added": 34,
+    "boundary": "Client mocks and isolated SQLite/mock storage/provider; no live/provider or hosted proof."
+  },
+  "final_scope_check": {
+    "checked_at": "2026-10-12T04:48:40.031974+00:00",
+    "product_source_tests_configuration_unchanged": true,
+    "tracked_concurrent_root_changes": [
+      "README.md",
+      "docs/ACCEPTANCE.md",
+      "docs/DECISIONS.md",
+      "docs/STATUS.md",
+      "docs/SUBMISSION.md",
+      "docs/TECH-SPEC.md",
+      "docs/WALKTHROUGH-SCRIPT.md",
+      "docs/agents/ASSIGNMENTS.md",
+      "docs/verification/INDEX.md",
+      "docs/verification/submission-local-browser.md"
+    ],
+    "evidence_documents_changed_after_initial_fingerprints": [
+      "docs/verification/submission-local-browser.md",
+      "docs/verification/INDEX.md"
+    ],
+    "additional_untracked_root_evidence_excluded": [
+      "docs/verification/submission-preference-final-desktop.png",
+      "docs/verification/submission-preference-final-mobile.png",
+      "docs/verification/submission-preference-layout.json"
+    ],
+    "note": "Initial immutable fingerprints remain accurate at their recorded time. Later coordinator narrative/index edits and new screenshot/layout evidence are outside this candidate review."
+  }
+}

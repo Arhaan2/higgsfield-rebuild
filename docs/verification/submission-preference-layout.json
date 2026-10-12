@@ -1,0 +1,20 @@
+{
+  "method": "Coordinator measured actual rendered DOM, rather than assuming resize request applied.",
+  "mobile": {
+    "button": {
+      "height": 44,
+      "width": 254
+    },
+    "help": "Your preferred version opens first in Studio and Library. Draft edits are saved separately.",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  "desktop": {
+    "button": {
+      "height": 44,
+      "width": 142.9453125
+    },
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+}

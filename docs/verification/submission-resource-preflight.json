@@ -23,5 +23,12 @@
     "reason": "Wrangler treated a bare UUID as a database name; retry used explicit verified DB binding"
   },
   "remaining_dependency": "User-owned R2 activation; no authorization to accept billing or overages.",
-  "raw_schema_sha256": "583d31ed3e267ab96f8da1b2546f885a95794e3af0dea2175133c474da72889a"
+  "raw_schema_sha256": "583d31ed3e267ab96f8da1b2546f885a95794e3af0dea2175133c474da72889a",
+  "final_r2_recheck": {
+    "recorded_at": "2026-10-12T04:50:49.023012+00:00",
+    "command": "wrangler r2 bucket list",
+    "exit_code": 1,
+    "api_error_code": 10042,
+    "result": "R2 still requires user-owned activation; no billing or resource change performed"
+  }
 }

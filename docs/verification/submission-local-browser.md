@@ -13,3 +13,9 @@ Followed Explore → A slow reveal / Use prompt. A new saved shot was created at
 ## Limits
 
 The old-selected-job followed by upload finding is covered by the specialist's controlled component regression; no real provider job exists for an actual browser reproduction. Anonymous hosted entry, Studio/Library, upload/save/reload/reopening, ownership, sample playback and downloads must still run on the integrated public Worker after R2 is available. Previous local upload/download evidence is not relabeled as a new hosted check. Native accessibility preferences and physical phone remain unrun.
+
+## Final committed-control layout — 2026-10-12T04:46:47.422668+00:00
+
+Against the committed b32b03e product, root reopened the preferred upload with its final explanatory help. Actual DOM measurements: 320px viewport/document with a 254×44px preference control; 1440px viewport/document with a 142.9453125×44px control. The view remained within the document width. Root viewed the final desktop screenshot; the control sits beside the other media actions and its help explains separate draft saving. Files: submission-preference-layout.json and submission-preference-final-mobile.jpg / submission-preference-final-desktop.jpg. This is a bounded local rendering check, not native preference or physical-phone coverage. Temporary viewport override was reset.
+
+The earlier two candidate captures preserve their original .png filenames but contain JPEG bytes, as the Reviewer identified. The initial preference capture crops the button below the viewport and does not establish confirmation by itself. The later full mobile and desktop JPEG captures show the final controls; the actual click/reload observations remain attributed to root.
