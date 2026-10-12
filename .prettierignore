@@ -1,0 +1,8 @@
+# Do not transform authentic capture evidence.
+.agent-logs/
+CAPTURE-TEST.md
+node_modules/
+.next/
+dist/
+build/
+coverage/

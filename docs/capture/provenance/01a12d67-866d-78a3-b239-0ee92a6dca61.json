@@ -1,0 +1,28 @@
+{
+  "source_path": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T16-58-41-01a12d67-866d-78a3-b239-0ee92a6dca61.jsonl",
+  "source_format": "Codex 0.160.0 rollout JSONL",
+  "extraction": "Automatic source transcript extraction; not a retroactive hook event",
+  "session_id": "01a12d67-866d-78a3-b239-0ee92a6dca61",
+  "source_originator": "Codex Desktop",
+  "source_session_start": "2026-10-11T23:58:41.785Z",
+  "entries": [
+    {
+      "type": "PROMPT",
+      "turn_id": "01a12d67-86bb-7d20-a42b-cf6da66ac1ef",
+      "source_line": 9,
+      "source_item_id": "msg_01a12d67-8baf-73d1-b875-d03e050bf3bb",
+      "timestamp": "2026-10-11T23:58:43.119Z",
+      "text_sha256": "884bc2ec60c7fa08fd427e9c6feed6bcd2aca8587efc3ab24738f9051cda8dab"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a12d67-86bb-7d20-a42b-cf6da66ac1ef",
+      "source_line": 12,
+      "source_item_id": "msg_0550f6bb8e1503fa016acc22b53440819985274df199ac3558",
+      "timestamp": "2026-10-11T23:58:45.474Z",
+      "text_sha256": "cb02cad574bc794b4bfd6785d53afabb816dd4c2adcbbd1103559d4f82d913b7"
+    }
+  ],
+  "exported_at": "2026-10-12T00:06:08.079Z",
+  "published_path": ".agent-logs/2026-10-11_23-58-43_01a12d67-866d-78a3-b239-0ee92a6dca61.md"
+}

@@ -1,0 +1,28 @@
+# Local secrets. Commit only the example, never populated credentials.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+
+# Dependencies and generated output; adjust to the selected stack.
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+.cache/
+.tmp/
+test-results/
+playwright-report/
+*.log
+
+# Local operating-system metadata.
+.DS_Store
+Thumbs.db
+
+# Required assignment evidence must remain tracked, including raw log files.
+!/.agent-logs/
+!/.agent-logs/**

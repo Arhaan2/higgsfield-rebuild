@@ -1,0 +1,24 @@
+# Phase 0 — Set up the real repository and verified capture
+
+You are the lead Codex engineer for Arhaan Aggarwal's 8x Software Engineer assignment. Build a convincing Higgsfield-inspired creative studio, with authentic evidence of your process. The user has chosen this plan, a public GitHub repository, the installed Apple Design skill, and well-defined subagents. You own integration and delivery. This phase is repository/capture administration and access preparation, not application implementation.
+
+## Prerequisite and context
+
+The full current prompt from https://8x-internal.com/p/8x-agent-capture-setup must already have been the first message in this fresh coding session. If it was not, explain the required fresh-session correction and prepare the exact next action. This kit is not a substitute for the official prompt. Do not claim the first-message rule was met by reading this file later.
+
+Read AGENTS.md, START-HERE.md, docs/PROJECT-BRIEF.md, docs/WORKFLOW.md, docs/STATUS.md, and docs/agents/TEAM.md. Inspect existing files and git state before modifying anything. The extracted starter folder can become the project repository; preserve any existing unrelated work. Use a dedicated root and verify the actual clock.
+
+## Execute
+
+1. Identify the installed Codex client/version, actual model, supported automatic capture mechanism and project root. Use current official documentation when needed. Inspect actual hooks/session features rather than inventing configuration. Install the mechanism required by the official guide; complete any supported trust/configuration steps. Never print secrets or capture reasoning/tool traffic.
+2. Run the official canary with the identifier `CAPTURE TEST — 8x assignment, Arhaan Aggarwal`. Verify the actual raw prompt and full final response appear automatically with UTC time, actual model and real session identity. Repeat in a genuinely separate session without reinstalling. Test with supported automation or request only the precise user session action the installed client requires. Do not substitute a second turn in the same session.
+3. Verify capture of a controlled delegated canary before production delegation. Inspect the child's real prompt/final response and destination. If worktrees will be used, verify their logs end up in this repository. Do not manually reconstruct child transcripts. If the client cannot capture children, resolve a supported logged delegation path while independent coordinator work continues.
+4. Create root CAPTURE-TEST.md from real results using the unexecuted template as a structure. Include actual tool/model, mechanism, configuration paths, log paths, distinct session evidence, failures and child coverage. Preserve the original raw logs. Ensure .agent-logs/ is tracked and excluded from formatters. The kit intentionally contains no log placeholders or passed capture report.
+5. Verify local GitHub authentication without printing tokens. The intended repository is Arhaan2/higgsfield-rebuild, public. Confirm the account and inspect any name collision. Initialize this dedicated folder if needed, create/connect the authorized public repository using available supported tools, and preserve existing history. Do not overwrite an existing remote or claim a guessed URL. Resolve an account collision precisely if necessary.
+6. Locate the user's actual installed Apple Design skill by its advertised catalog and installed skill files. Read the real instructions and required references; record its exact name/path in docs/STATUS.md and docs/DESIGN-BRIEF.md. Do not install an unrelated substitute. A missing skill blocks design acceptance, while eligible independent setup/research continues.
+7. Preflight the available browser, Higgsfield account access, runtime/package manager, hosting/deployment access, durable storage and generation provider. Record credential presence only, never values. No paid amount is authorized yet: live generation defaults disabled, budget zero. Surface the exact provider/credit/budget dependency early; continue independent work. Do not scaffold the application or purchase services.
+8. Update docs/STATUS.md with actual evidence, repository URL, capture and child coverage, skill resolution and outstanding dependencies. Commit setup documents and real logs available so far; push and verify public repository access. Preserve incremental development history throughout later phases.
+
+## Exit and handoff
+
+Repository setup is complete only when the actual remote and capture canaries are verified. Report completed versus blocked items separately. A self-authored template or teammate assertion is not proof. Record a precise next task, then continue to Phase 1 when its prerequisites hold. Do not ask for routine approval. Application code requires both capture and signed-in reconnaissance gates; production workers also require verified delegated capture.

@@ -1,0 +1,76 @@
+{
+  "source_path": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-03-46-01a12d6c-2d28-70a2-b4cc-6093d93c13aa.jsonl",
+  "source_format": "Codex 0.160.0 rollout JSONL",
+  "extraction": "Automatic source transcript extraction; not a retroactive hook event",
+  "session_id": "01a12d6c-2d28-70a2-b4cc-6093d93c13aa",
+  "source_originator": "Codex Desktop",
+  "source_session_start": "2026-10-12T00:03:46.610Z",
+  "entries": [
+    {
+      "type": "PROMPT",
+      "turn_id": "01a12d6c-2e82-7720-aefa-85d2eea36bfe",
+      "source_line": 10,
+      "source_item_id": "fco_01a12d6c-2e87-7eb2-ac4d-aec8256d49a5",
+      "timestamp": "2026-10-12T00:03:48.501Z",
+      "text_sha256": "99dfd9cea4b796a9f4b839cc8f72f7d8b573322030de1b9a89eadd5f8d4aa280"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a12d6c-2e82-7720-aefa-85d2eea36bfe",
+      "source_line": 15,
+      "source_item_id": "msg_019df85a71a3d026016acc23e6a9b087d09d2a85afe63bb0cd",
+      "timestamp": "2026-10-12T00:03:50.891Z",
+      "text_sha256": "c24b2b04f4582d5f6be2d00e9c5c20ef442f899af645778f664f3cbee68fbd8b"
+    },
+    {
+      "type": "PROMPT",
+      "turn_id": "01a12d6e-87cb-7df2-ab94-a0d96ba0a83d",
+      "source_line": 22,
+      "source_item_id": "fco_01a12d6e-87d4-7be0-b79d-f9dfb3ad74a1",
+      "timestamp": "2026-10-12T00:06:20.933Z",
+      "text_sha256": "884bc2ec60c7fa08fd427e9c6feed6bcd2aca8587efc3ab24738f9051cda8dab"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a12d6e-87cb-7df2-ab94-a0d96ba0a83d",
+      "source_line": 25,
+      "source_item_id": "msg_019df85a71a3d026016acc2480f20c87d0b1f9c9a50a0f7409",
+      "timestamp": "2026-10-12T00:06:25.259Z",
+      "text_sha256": "cb02cad574bc794b4bfd6785d53afabb816dd4c2adcbbd1103559d4f82d913b7"
+    },
+    {
+      "type": "PROMPT",
+      "turn_id": "01a12d6f-a336-7933-883b-b54d54e6a247",
+      "source_line": 32,
+      "source_item_id": "fco_01a12d6f-a33f-79c0-8d9a-0a207fec62a2",
+      "timestamp": "2026-10-12T00:07:33.467Z",
+      "text_sha256": "884bc2ec60c7fa08fd427e9c6feed6bcd2aca8587efc3ab24738f9051cda8dab"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a12d6f-a336-7933-883b-b54d54e6a247",
+      "source_line": 35,
+      "source_item_id": "msg_019df85a71a3d026016acc24c82c9c87d0be2bdaf9deaaf8c0",
+      "timestamp": "2026-10-12T00:07:36.463Z",
+      "text_sha256": "cb02cad574bc794b4bfd6785d53afabb816dd4c2adcbbd1103559d4f82d913b7"
+    },
+    {
+      "type": "PROMPT",
+      "turn_id": "01a12d70-5f6c-71c1-86a1-c8231f787276",
+      "source_line": 42,
+      "source_item_id": "fco_01a12d70-5f79-7871-b9d8-4d49d27e0be2",
+      "timestamp": "2026-10-12T00:08:21.646Z",
+      "text_sha256": "884bc2ec60c7fa08fd427e9c6feed6bcd2aca8587efc3ab24738f9051cda8dab"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a12d70-5f6c-71c1-86a1-c8231f787276",
+      "source_line": 45,
+      "source_item_id": "msg_019df85a71a3d026016acc24f7ac1487d0973eecf0302c0324",
+      "timestamp": "2026-10-12T00:08:23.957Z",
+      "text_sha256": "cb02cad574bc794b4bfd6785d53afabb816dd4c2adcbbd1103559d4f82d913b7"
+    }
+  ],
+  "exported_at": "2026-10-12T00:08:24.398Z",
+  "published_path": ".agent-logs/2026-10-12_00-03-48_01a12d6c-2d28-70a2-b4cc-6093d93c13aa.md"
+}

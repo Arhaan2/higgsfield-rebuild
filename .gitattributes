@@ -1,0 +1,14 @@
+* text=auto eol=lf
+
+# Preserve raw capture bytes; do not apply line-ending conversion.
+/.agent-logs/** -text
+
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.webp -text
+*.gif -text
+*.mp4 -text
+*.webm -text
+*.pdf -text
+*.zip -text
