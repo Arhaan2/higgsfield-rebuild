@@ -1,8 +1,10 @@
 # Direct Cloudflare deployment preparation
 
-**Final sprint published successfully on 2026-10-12 at 19:56 UTC.** Use https://higgsfield-rebuild.arhaan2.workers.dev. Exact source **0899d59108b1e92d8f1760d328ee90c643343f33** is Worker version **58a7f60d-5b7b-4508-b1b3-da2fe9784766**, tag `0899d59`. Root reused the existing Worker, D1 and private R2; built and inspected a dry run before publishing. **No migration replay or provisioning.**
+**Creative workflow published 2026-10-12 at 20:52 UTC.** Public https://higgsfield-rebuild.arhaan2.workers.dev, source **c89cde214b64739b179991d02686c4edcbea0655**, Worker **ffdcad33-1b55-44c7-bf6f-a09fa1162a68**, tag `c89cde2`. Root built, reviewed a dry run, then reused the existing Worker/D1/private R2. No provisioning or migration replay.
 
-Actual bindings: DB = 3eb2d881-1c6d-4d61-8ff8-de5c711c5562; BUCKET = higgsfield-rebuild; APP_ORIGIN = https://higgsfield-rebuild.arhaan2.workers.dev; LIVE_GENERATION_ENABLED=false; GENERATION_BUDGET_USD=0; no provider-secret binding. Current [version metadata](verification/final-sprint-cloudflare.json), [publish output](verification/final-sprint-publish.txt), [fresh 11 hosted checks](verification/final-sprint-http.json). Independent [public feature review](verification/final-sprint-public-review.md) and coordinator [upload completion](verification/final-sprint-public-upload.md) record actual browser acceptance and unrun cases.
+DB `3eb2d881-1c6d-4d61-8ff8-de5c711c5562`, BUCKET `higgsfield-rebuild`, APP_ORIGIN exact public URL, LIVE_GENERATION_ENABLED=false, GENERATION_BUDGET_USD=0; no provider-secret binding. [Metadata](verification/creative-cloudflare.json), [publish](verification/creative-publish.txt), [dry run](verification/creative-dry-run.txt), [11 fresh hosted checks](verification/creative-http.json), [actual public workflow](verification/creative-public.md). [Official Wrangler command reference](https://developers.cloudflare.com/workers/wrangler/commands/) rechecked for this release.
+
+Prior final-sprint source0899d59/version58a7f60d-5b7b-4508-b1b3-da2fe9784766 remains historical; its verification files retain that boundary.
 
 The previous release was source f271258 / version cbe42062-203d-462c-949e-0d4bd380beac; its attributed [browser evidence](verification/deployed-browser.md) and 20 independent checks remain historical. The following setup history is retained for reproducibility.
 

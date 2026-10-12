@@ -1,6 +1,23 @@
 # Current evidence index
 
-Current public release: https://higgsfield-rebuild.arhaan2.workers.dev, source **0899d59108b1e92d8f1760d328ee90c643343f33**, Worker **58a7f60d-5b7b-4508-b1b3-da2fe9784766**. Generation disabled, all allowances zero.
+Creative release https://higgsfield-rebuild.arhaan2.workers.dev: source **c89cde214b64739b179991d02686c4edcbea0655**, Worker **ffdcad33-1b55-44c7-bf6f-a09fa1162a68**. Generation disabled, allowance0.
+
+| Evidence | Actual result / boundary |
+| --- | --- |
+| [Metadata](creative-cloudflare.json), [publish](creative-publish.txt), [dry run](creative-dry-run.txt) | Exact reviewed source; existing resources, no migrations/provisioning/provider binding. |
+| [Local workflow](creative-local.md), [public workflow](creative-public.md) | Actual saved copies/reference, independent originals, study, guarded Undo, save/reload, keyboard/390px and downloaded briefs. |
+| [Downloaded public brief](creative-public-copy-brief.md), [byte/content inspection](creative-public-download.json) | Exact99-code-point saved movement and reference facts, no private media URLs. |
+| [Independent integration review](creative-integration-review.md) | Both findings resolved;104 focused reruns plus click-detail matrix pass; actual root browser evidence independently inspected. |
+| [Build](creative-build.txt), [server](creative-server.txt), [Studio](creative-studio-state.txt), [Library](creative-library-state.txt), [reference](creative-reference-action.txt), [export](creative-shot-brief.txt), [duplicate](creative-duplicate-shot.txt), [directions](creative-prompt-directions.txt), [camera](creative-camera-study.txt), [movement](creative-movement-edit.txt) | TypeScript/build and264 fresh controlled checks pass; no provider calls. |
+| [Hosted HTTP](creative-http.json) | All11 pass, run once on this release; dirty flag refers to evidence files. |
+| [Capture audit](../capture/verification-creative-integration.json) |52sessions,48 full-source matches and4 exact journal-only suggestion sessions. Completed A/B/C finals exact; root final future. |
+| [Product equality](creative-source-equality.json) | Later evidence commits preserve all product/config/test/script files from deployed source. |
+
+Research, real generation, physical/native accessibility contexts and actual camera-on recording remain open as detailed in [STATUS](../STATUS.md).
+
+# Previous final-sprint evidence
+
+Previous release: https://higgsfield-rebuild.arhaan2.workers.dev, source **0899d59108b1e92d8f1760d328ee90c643343f33**, Worker **58a7f60d-5b7b-4508-b1b3-da2fe9784766**. Generation disabled, all allowances zero.
 
 | Final sprint evidence | Actual result / boundary |
 | --- | --- |

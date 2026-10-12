@@ -49,7 +49,7 @@ Application checks below are pending unless explicitly marked. Record actual met
 - [x] Public live URL opens while signed out and matches the reviewed revision.
 - [x] README has reproducible setup, real links, actual capabilities and limitations.
 - [ ] Repository/history/log review finds no exposed credentials or private account media.
-- [x] Raw logs remain automatic and incremental, without rewritten entries. Two suggestion sessions have journal-only proof; full-source coverage is not claimed for them.
+- [x] Raw logs remain automatic and incremental, without rewritten entries. Four suggestion sessions have journal-only proof; full-source coverage is not claimed for them.
 - [ ] Final-response capture closure is complete after the agent stops.
 - [ ] Actual walkthrough has Arhaan's camera on and duration below five minutes.
 - [ ] Walkthrough link is accessible to a reviewer.
@@ -105,3 +105,20 @@ Hosted browser acceptance includes explicit preferred-version persistence, prese
 - [ ] Actual camera-on recording and reviewer access/duration verification.
 
 Sources: verification/final-sprint-local.md, final-sprint-local-downloads.json, final-sprint-http.json and final-sprint-cloudflare.json. These checks do not change historical provider/research/process acceptance.
+
+## Additional creative sprint — deployed source `c89cde2`
+
+Worker `ffdcad33-1b55-44c7-bf6f-a09fa1162a68`,2026-10-12 20:52UTC. [Local](verification/creative-local.md), [independent repair review](verification/creative-integration-review.md), [public workflow](verification/creative-public.md), [11 hosted checks](verification/creative-http.json).
+
+- [x] Saved image and motion duplication; new identity, frozen retry and zero output history (local browser plus isolated API).
+- [x] Actual public original remains unchanged after editing/saving/reloading its copy; source-owned uploaded reference survives.
+- [x] Copy acknowledgement stays in Library, Open copy is explicit; physical double-click repair retested locally.
+- [x] Editable direction selection leaves draft unchanged; explicit replacement and valid exact Undo work; later typing disables stale Undo.
+- [x] Public local camera study completes; Play/Stop/Replay work with actual draft reference. No AI-result claim or mutation path.
+- [x] Public exact saved brief downloaded and inspected; existing query controls and390px keyboard layout pass.
+- [x] Fresh TypeScript/build and264 controlled checks;11 actual hosted checks run once on this release.
+- [x] Reduced-motion/reference/context/close/pagehide/unmount cases pass controlled tests; CSS still fallback reviewed.
+- [ ] Native OS preference changes, physical touch device and screen reader verified.
+- [ ] Actual AI generation and camera-on recording acceptance.
+
+Failure/expiry/quota/lost-ack tests remain controlled evidence, not browser injections. Multi-tab attempt storage is not claimed atomic. All completed specialist full prompts/finals match actual source; current root final remains future capture. Historical broad generation/research checkboxes above stay open.

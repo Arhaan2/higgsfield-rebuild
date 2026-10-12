@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1f6f6ca7-cd82-4df5-b624-e9d549234577",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "author_email": "arhaanaggarwal@gmail.com",
+    "annotations": {
+      "workers/message": "Source f271258fd0d4fece10229dfd74c89dfd5bcf275f...",
+      "workers/triggered_by": "upload"
+    },
+    "versions": [
+      {
+        "version_id": "cbe42062-203d-462c-949e-0d4bd380beac",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-12T18:51:42.950748Z"
+  },
+  {
+    "id": "f491b63a-9745-49cf-84cd-be9bdb7ed485",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "author_email": "arhaanaggarwal@gmail.com",
+    "annotations": {
+      "workers/message": "Source 0899d59108b1e92d8f1760d328ee90c643343f33; shot brief export and Library query; generation disabled cap zero",
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "58a7f60d-5b7b-4508-b1b3-da2fe9784766",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-12T19:56:04.643236Z"
+  },
+  {
+    "id": "037b2580-5088-4319-9288-d4ebfeb99d5b",
+    "source": "wrangler",
+    "strategy": "percentage",
+    "author_email": "arhaanaggarwal@gmail.com",
+    "annotations": {
+      "workers/message": "Creative workflow source c89cde214b64739b179991d02686c4edcbea0655; zero generation budget",
+      "workers/triggered_by": "deployment"
+    },
+    "versions": [
+      {
+        "version_id": "ffdcad33-1b55-44c7-bf6f-a09fa1162a68",
+        "percentage": 100
+      }
+    ],
+    "created_on": "2026-10-12T20:52:07.173271Z"
+  }
+]

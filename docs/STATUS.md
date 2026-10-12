@@ -1,43 +1,38 @@
 # Current status
 
-## Additional creative sprint — local integration accepted 2026-10-12 20:49 UTC
+**The additional creative workflow is deployed and verified within its zero-generation scope.** Actual AI generation and Arhaan's camera-on recording remain unverified. Authorized spending remains **$0**. Assignment deadline 2026-10-12 23:04 UTC / 4:04 p.m. Pacific.
 
-Original main/origin e247684 was synchronized; only main, no PRs. Setup/capture checkpoint63ef67e is pushed. Three verified CLI specialists returned their work; their actual full prompts/finals match native logs and full source. Root repaired the oversized-original Undo race and a real-browser shifted-card double-click issue, added reduced-motion CSS and integrated the collapsed helper/local study. All **264 controlled checks**, TypeScript and production build pass freshly. Local browser verified real uploaded-reference duplication, independent original/copy prompts, exact Undo and stale-Undo protection, save/reload/export, Play/Stop/Replay/reset and keyboard/390px fit. See [local evidence](verification/creative-local.md). Independent repair review passed104 rerun cases plus an activation matrix, corroborated the recorded browser double-click result, and requested no further changes; no code ownership remains delegated.
-
-Existing client/Node unchanged; capture setup not repeated. Four automatic suggestion sessions retain journal-only proof, with missing full sources disclosed. No native children/worktrees, provider calls, spending, new infrastructure, dependencies or migrations. Next: commit/push the accepted product, deploy through the existing Worker, run hosted checks once and verify the public workflow. Feature freeze21:20UTC; public verification21:45UTC; recording handoff21:55UTC. Prior release checkpoint follows.
-
-**Frame Studio's final sprint is deployed. Real AI generation and Arhaan's camera-on recording remain unverified.** Total authorized spending remains **$0**. Deadline: **2026-10-12 23:04 UTC / 4:04 p.m. Pacific**.
-
-Checkpoint: 2026-10-12 20:12 UTC. Feature freeze was set at 20:50 UTC and deployment cutoff at 21:35 UTC; implemented scope shipped early, protecting more than the required 50-minute recording buffer.
+Checkpoint: 2026-10-12 21:11 UTC. Product froze/deployed before 21:20; public verification completed before 21:45, leaving the recording window intact.
 
 ## Current release
 
-- Live application: https://higgsfield-rebuild.arhaan2.workers.dev
+- Live: https://higgsfield-rebuild.arhaan2.workers.dev
 - Public source: https://github.com/Arhaan2/higgsfield-rebuild, main.
-- Deployed product: **0899d59108b1e92d8f1760d328ee90c643343f33**, pushed and matched to origin/main before deployment. Only main exists; no PRs were found.
-- Worker version: **58a7f60d-5b7b-4508-b1b3-da2fe9784766**, tag `0899d59`, created 2026-10-12T19:56:03.610348Z. See [metadata](verification/final-sprint-cloudflare.json). Later documentation/capture commits may follow with verified product equality.
-- Existing D1 and private R2 reused, exact APP_ORIGIN, generation false, budget 0, no provider key. No schema/dependency changes, migration replay, infrastructure upgrade or billing change. The initial D1 migration still lacks a normal ledger; baseline it before any future migration.
+- Deployed product: **c89cde214b64739b179991d02686c4edcbea0655**, pushed and matched to origin/main before deployment.
+- Worker: **ffdcad33-1b55-44c7-bf6f-a09fa1162a68**, tag `c89cde2`, created 2026-10-12T20:52:06.296238Z. [Metadata](verification/creative-cloudflare.json), [publish](verification/creative-publish.txt). Later documentation/capture commits preserve product equality.
+- Existing D1/private R2 and exact APP_ORIGIN reused; generation false, budget 0, no provider binding. No dependencies, schema changes, migration replay, new infrastructure or billing changes. Initial D1 migration still needs explicit ledger baselining before any future migration.
 
-## Final sprint phases
+## Completed phases
 
-| Phase | Actual status and evidence |
+| Phase | Actual outcome |
 | --- | --- |
-| 0: synchronization/capture | Complete. Original workspace preserved; authenticated Arhaan2 confirmed, origin fetched, no newer branches/PRs. Updated Codex 0.162 capture revalidated with two independent canaries and 11 unit checks. |
-| 1: bounded features | Complete. Export current shot brief with exact saved/unsaved text and reference facts; Library title/prompt search, task filter, recent/title sort, count/reset and distinct no-match state. Header preview jump and enabled Save hierarchy added. |
-| 2: integration/local verification | Complete in tested scope. Fresh TypeScript/build and **180 controlled checks** pass (36 server, 58 Studio, 31 Library, 29 reference, 26 export). Actual local browser verified three saved shots, upload/preference/save/reload/reopen, search/filter/sort/reset/edit ordering, actual Markdown/image downloads, keyboard focus and 390px/desktop layout. [Local evidence](verification/final-sprint-local.md). |
-| 3: public release | Product committed/pushed/deployed. **11 fresh hosted HTTP checks pass** on the new Worker. Independent public review passed exercised export/Library/layout/keyboard cases; root completed upload/preference/reload/reopen and byte-identical download. [Public review](verification/final-sprint-public-review.md), [upload completion](verification/final-sprint-public-upload.md), [hosted checks](verification/final-sprint-http.json). The new prepared-clip inspection case remains unrun after automatic rejection. |
-| 4: recording/submission | Updated **4:25 script** prepared. Actual recording, reviewer-access check, duration and visible-camera verification remain outstanding. External assignment submission is not authorized. |
+| Refresh/capture | Original workspace preserved. Authenticated Arhaan2, fetched e247684, only main and no PRs. Same client/Node, no repeated setup. Setup checkpoint 63ef67e pushed. |
+| Implementation | Library Duplicate saved shot with frozen durable attempt/explicit retry; editable three-direction helper with exact guarded Undo; optional five-second local reference study with explicit Play/Stop/Replay. Original controls preserved. |
+| Integration/review | Root repaired latest-buffer oversized-original Undo race and browser-observed shifted-card double-click navigation; added reduced-motion CSS and precise saved-spacing wording. Independent reviewer accepted repairs after 104 focused reruns and a click-detail matrix. [Review](verification/creative-integration-review.md). |
+| Local acceptance | Fresh TypeScript/build and **264 controlled checks pass**: 36 server, 58 Studio, 52 Library, 29 reference, 26 export, 11 duplicate, 22 directions, 18 camera, 12 movement. Actual browser image/motion copies, uploaded reference, original independence, exact/stale Undo, playback, save/reload/export, keyboard/390 px passed. [Local evidence](verification/creative-local.md). |
+| Public release | Reviewed main product deployed; **11 hosted HTTP checks pass**, run once on this Worker. Actual public saved motion copy, reference, study, Undo, save/reload, independent original, search/filter/sort, real downloaded brief and 390 px keyboard fit pass. [Public evidence](verification/creative-public.md). |
+| Recording | Updated **4:25 script** ready. Actual recording/access/duration/camera verification awaits Arhaan's real URL. No external assignment submission performed. |
 
 ## Capture and ownership
 
-Root owns integration/styles/shared contracts/Git/deployment. Specialists in handoffs 29–32 completed their assigned work and returned ownership. Their full prompt/final captures match actual source transcripts, including the fresh public reviewer. Root checked actual evidence and completed the remaining public upload flow. Native children/worktrees remain unverified and unused.
+Three separately verified CLI specialists completed implementation; C resumed for independent repair review. Full actual prompts/finals match source: A 1/1, B 1/1, C 2/2. Root owns final integration/Git/deploy and checked evidence independently. Native children/worktrees remain unverified and unused. [Audit](capture/verification-creative-integration.json), [capture operation](capture/README.md).
 
-The current audit has 48 sessions: 45 source-verifiable (including the active root prompt) and three client-suggestion sessions with exact native-journal proof but missing full transcripts. No raw entry was changed. The exporter now defers to the native writer when the updated Desktop client emits hooks, avoiding two writers per session. See [final audit](capture/verification-final-sprint-final.json) and [capture operation](capture/README.md). Current root final remains future capture.
+Current audit 52 sessions: 48 full-source-verifiable and 4 automatic client-suggestion sessions with exact native-journal proof but missing full transcripts. Raw entries are automatic and unchanged. The previous root final is committed; this turn's final can only be captured after emission and must be committed/pushed afterward.
 
-## Historical requirements still open
+## Remaining limits
 
-Implementation advanced under the user's explicit research exception. Required signed-in original-product output chains and the formal full-guide first-message item remain unresolved; neither is retrospectively marked passed. The displayed-free original image attempt warned of a paid fallback; billing was not independently verified, and automatic review rejected later video submission. No bypass/retry changed that constraint.
+Required signed-in original-product output chains and the formal full-guide first-message item remain unresolved under the user's historical implementation exception. Research is not retrospectively marked passed. Real uploaded-image→video and connected prompt→image→video generation, provider accounting/history and generated-result playback/download remain unrun. Prepared footage and local camera studies do not satisfy generation acceptance.
 
-Real uploaded-image→video and connected prompt→image→video provider acceptance, generated-version history, real provider accounting and actual result downloads remain unrun with generation disabled. Prepared media and uploads are explicitly labeled and do not satisfy those gates. Native accessibility preferences, screen reader, physical phone and new 200% zoom checks remain unrun; earlier scoped evidence stays attributed. R2 included usage is not an account-wide hard spending cap.
+Physical phone/touch, real OS accessibility preferences and screen reader remain unrun; controlled reduced-motion/reset/failure checks pass. Lost acknowledgement/expiry/quota use controlled and isolated API evidence. Multi-tab localStorage attempts are not claimed atomic. Guests remain private to the same browser for up to 30 days. R2 included usage is not an account-wide hard spending cap.
 
-Next: Arhaan records the ready walkthrough and supplies its reviewer-accessible URL. After the coordinator's final is emitted, inspect/verify/commit/push that last authentic capture append.
+Next: Arhaan records with camera visible using [WALKTHROUGH-SCRIPT](WALKTHROUGH-SCRIPT.md) and supplies the real reviewer-accessible URL. After this coordinator final, inspect/verify/commit/push its authentic capture append using the provided commands.

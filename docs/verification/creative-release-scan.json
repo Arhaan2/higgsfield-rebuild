@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-12T21:13:25.008287+00:00",
+  "scope": "Full staged UTF-8 release documentation/evidence blobs only; known credential patterns. No values output. Does not prove all secrets/private media absent.",
+  "checked_files": [
+    "README.md",
+    "docs/ACCEPTANCE.md",
+    "docs/DEPLOY-CLOUDFLARE.md",
+    "docs/STATUS.md",
+    "docs/SUBMISSION.md",
+    "docs/WALKTHROUGH-SCRIPT.md",
+    "docs/agents/ASSIGNMENTS.md",
+    "docs/capture/README.md",
+    "docs/capture/verification-creative-final.json",
+    "docs/verification/INDEX.md",
+    "docs/verification/creative-cloudflare.json",
+    "docs/verification/creative-deployments.json",
+    "docs/verification/creative-http.json",
+    "docs/verification/creative-public-copy-brief.md",
+    "docs/verification/creative-public-download.json",
+    "docs/verification/creative-public.md",
+    "docs/verification/creative-publish.txt",
+    "docs/verification/creative-source-equality.json"
+  ],
+  "skipped_binary": [
+    "docs/verification/creative-public-library.jpg",
+    "docs/verification/creative-public-mobile.jpg"
+  ],
+  "matches": []
+}

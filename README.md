@@ -1,6 +1,6 @@
 # Frame Studio · Higgsfield rebuild
 
-A focused creative studio for the 8x assignment. Explore a prompt direction, compose a shot, retain its inputs, find saved work, and take an exact shot brief with you.
+A focused creative studio for the 8x assignment. Explore a prompt direction, compose a shot, retain its inputs, preserve an original, try a different camera direction, and take an exact shot brief with you.
 
 **The integrated application is public:** Explore, Studio, Library, private uploads and saved guest drafts run on Cloudflare Workers, D1 and private R2. Live generation remains disabled with every allowance at zero. Real AI generation and the actual camera-on walkthrough are still unverified.
 
@@ -17,13 +17,15 @@ The user explicitly allowed implementation with the documented research gaps unv
 
 ## Current verification
 
-Published source **0899d59108b1e92d8f1760d328ee90c643343f33** is Cloudflare version **58a7f60d-5b7b-4508-b1b3-da2fe9784766**, deployed 2026-10-12 at 19:56 UTC. [Version metadata](docs/verification/final-sprint-cloudflare.json) confirms the existing D1/private R2, exact origin, generation disabled and zero budget. No migration was replayed. Later documentation/capture commits preserve this product source.
+Published source **c89cde214b64739b179991d02686c4edcbea0655** is Cloudflare version **ffdcad33-1b55-44c7-bf6f-a09fa1162a68**, deployed 2026-10-12 at 20:52 UTC. [Version metadata](docs/verification/creative-cloudflare.json) confirms existing D1/private R2, exact origin, generation disabled and zero budget. No migration, provisioning or dependency changes. Later evidence/capture commits preserve this product source.
 
-The final sprint adds **Export shot brief** (readable local Markdown with exact current text, requested settings, draft-reference facts and explicit saved/unsaved state) and **Library search, task filter and sort**. Exports include unsaved edits without saving or generating; media downloads remain separate and private media links are omitted. Library searches saved title/prompt locally, keeps prepared samples separate, and labels any unloaded-page boundary. Save is the primary available draft action when generation is off; the header jumps directly to the inspected reference/sample/result.
+**Duplicate saved shot** preserves an original while creating a new saved draft with the same inputs and reference, zero generated history and no preferred output. Frozen creation identity and dedicated recovery support explicit retry without silently rotating the guest. The collapsed **Camera direction ideas** offers three editable writing suggestions, explicit replacement and guarded exact Undo. The optional **Camera study · 5 seconds** moves the actual reference locally, with Play/Stop/Replay and reduced-motion handling; it is not an AI-generated video.
 
-Fresh TypeScript and production build pass, along with **180 controlled checks** (36 server, 58 Studio, 31 Library, 29 reference, 26 export), **11 real hosted HTTP checks**, and 11 capture unit checks. Actual local browser checks cover the new exports/search/filter/sort, three saved shots, upload/save/reload/preference/reopen, image-download bytes, keyboard focus and 390px layouts. [Local sprint evidence](docs/verification/final-sprint-local.md) and [hosted HTTP results](docs/verification/final-sprint-http.json) retain exact scope. Independent public review passed the exercised export/Library/keyboard/layout cases; root then completed public upload/preference/reload/reopen and byte-identical download. [Public review](docs/verification/final-sprint-public-review.md) and [upload completion](docs/verification/final-sprint-public-upload.md) preserve separate ownership and unrun cases. Real generation remains unverified.
+Existing exact Markdown brief export, Library search/filter/sort, preview jump and primary Save action remain available. Save now explains when normalized saved text differs from visible outer whitespace; Export retains the exact visible draft.
 
-![Public Studio with preferred upload, visible focus and generation disabled](docs/verification/final-sprint-public-upload-desktop.jpg)
+Fresh TypeScript/build and **264 controlled checks** pass (36 server,58 Studio,52 Library,29 reference,26 export,11 duplicate,22 directions,18 camera,12 movement). All **11 hosted HTTP checks** pass on this release. [Local acceptance](docs/verification/creative-local.md), [independent repair review](docs/verification/creative-integration-review.md) and [actual public workflow](docs/verification/creative-public.md) record original/copy independence, uploaded-reference persistence, playback, exact/stale Undo, save/reload, keyboard/390 px and actual downloaded brief content. Failure injections remain controlled evidence; real generation remains unverified.
+
+![Public original and saved variation](docs/verification/creative-public-library.jpg)
 
 The earlier Sites URL remains a historical sample shell; its failed integrated deployments are preserved in [deployment history](docs/verification/deployment.md). Use the Workers URL above for evaluation.
 
@@ -54,6 +56,10 @@ node src/client/checks/studio-state.mjs
 node src/client/checks/library-state.mjs
 node src/client/checks/reference-action.mjs
 node src/client/checks/shot-brief.mjs
+node src/client/checks/duplicate-shot.mjs
+node src/client/checks/prompt-directions.mjs
+node src/client/checks/camera-study.mjs
+node src/client/checks/movement-edit.mjs
 ```
 
 Controlled checks use isolated SQLite and mocked provider/R2 or client APIs; they do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs actual zero-spend HTTP checks and creates isolated guest test records. It refuses to continue if generation policy is enabled or has a nonzero cap. [Historical local evidence](docs/verification/local-browser.md) and [earlier repair review](docs/verification/submission-review.md) retain their original source boundaries.
@@ -78,4 +84,4 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py
 
 [Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. The actual creation-path gate and Arhaan's camera-on walkthrough under five minutes remain delivery requirements. Public integrated entry and data paths now pass. The previous [138-check repair review](docs/verification/submission-review.md) covers durable preferences, new-upload selection and preset-only previews. Native accessibility preferences and physical-phone checks remain unrun.
 
-The current capture audit distinguishes full-source coordinator/specialist records from **three** automatic client-suggestion sessions with exact native-journal matches but unavailable full transcripts. Updated Codex 0.162 capture was revalidated with two genuine independent canaries. See [capture documentation](docs/capture/README.md). No raw log was rewritten. The current coordinator final can only be captured after emission and must be committed afterward.
+The current capture audit distinguishes full-source coordinator/specialist records from **four** automatic client-suggestion sessions with exact native-journal matches but unavailable full transcripts. Updated Codex 0.162 capture was revalidated with two genuine independent canaries. See [capture documentation](docs/capture/README.md). No raw log was rewritten. The current coordinator final can only be captured after emission and must be committed afterward.

@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-10-12T21:07:55.132219+00:00",
+  "actual_download": "/Users/arhaan/Downloads/shot-brief-public-retained-dune-pan.md",
+  "bytes": 1797,
+  "sha256": "120a313e22ff80161c3f8f69e21cf281838cbb9e127c9424352d87d73a27caee",
+  "exact_prompt": "Slowly pan from left to right across the amber dunes.\nKeep the café-warm light and a level horizon.",
+  "prompt_codepoints": 99,
+  "saved_revision": 2,
+  "reference_facts": "user upload dune-light.jpg,1600×2397,187464bytes",
+  "private_media_urls_present": false
+}
