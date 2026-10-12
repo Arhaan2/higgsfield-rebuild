@@ -2,6 +2,8 @@
 
 **Not all phases are complete.** Phase0 is verified, Phase1 advances by the user's research exception, and Phase2 is accepted. Phase3's integrated application works locally, but its full public deployment and real-generation gate remain unresolved. Spending is disabled with a zero allowance.
 
+Latest user constraint: proceed with R2 without spending money. Treat the total authorized spend as **$0**, including hosting setup; do not activate a paid upgrade, authorize overages or enable AI generation. A fresh R2 API check still returned10042 (R2 not enabled). Cloudflare documents subscription checkout even for the included free allowance, with usage above that allowance billed. This is not a provider-enforced $0 plan. Activation remains user-owned; no billing action was performed.
+
 Checkpoint:2026-10-12T03:06:00Z. Deadline:2026-10-12T23:04:00Z / Monday4:04p.m.Pacific; approximately19h58m remain. Target readiness remains2p.m.Pacific.
 
 | Phase | State | Actual evidence / remaining requirement |
@@ -35,7 +37,7 @@ Independent integration review found IR01–IR03. Root inspected repairs, indepe
 
 **Coordinator after R2 enablement:** inspect bucket collisions, create the private assignment bucket, configure the reviewed Worker with the existing verified D1 and bucket, publish and run hosted HTTP/browser checks. **Do not reapply the initial migration:** it is already applied. Before future schema changes, establish a migration ledger and baseline this application explicitly. Do not replace guards or create runtime migration endpoints.
 
-**Later:** privately configure FAL_KEY and explicitly authorize a bounded provider allowance before any real generation. Current zero-spend choice remains in force. Then complete V3 and subsequent connected-flow gates. Arhaan must make a camera-on recording under five minutes and supply an accessible link; docs/WALKTHROUGH-SCRIPT.md is preparation only.
+**Generation gate:** the user reaffirmed no spending; keep FAL calls and paid generation disabled. V3 and the real connected-flow gates remain unverified unless an authorized genuinely no-cost provider path becomes available or the user explicitly changes the budget. Do not ask for a paid allowance as routine continuation. Arhaan must make a camera-on recording under five minutes and supply an accessible link; docs/WALKTHROUGH-SCRIPT.md is preparation only.
 
 ## Research and capture boundaries
 

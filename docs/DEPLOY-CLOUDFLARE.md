@@ -8,6 +8,8 @@ The application builds to a Cloudflare Worker with DB and BUCKET bindings. Direc
 
 Cloudflare login is complete. Enable R2 in the authenticated account's Cloudflare dashboard, completing any billing details or terms personally, and report only “R2 enabled.” The R2 API returned error10042 requiring enablement. This authorizes no generation spending; all generation policy remains disabled.
 
+The user subsequently reaffirmed **$0 total spending** while choosing R2. A fresh check still returned10042. [Cloudflare's setup guide](https://developers.cloudflare.com/r2/get-started/) requires subscription checkout for activation. [R2 pricing](https://developers.cloudflare.com/r2/pricing/) includes10 GB-month Standard storage,1 million Class A and10 million Class B operations monthly; usage above these amounts is billed. Do not represent the free allowance as a hard $0 spending cap, activate paid upgrades, or approve overage charges. No billing settings were changed. Activation remains a user-owned prerequisite.
+
 ## Actual remote state — 2026-10-12 03:04 UTC
 
 - One authenticated account verified; existing unrelated D1 preserved. `higgsfield-rebuild` Worker name absent; official subdomain API returned `arhaan2`, giving intended origin `https://higgsfield-rebuild.arhaan2.workers.dev` (not published yet).
