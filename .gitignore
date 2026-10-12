@@ -26,3 +26,20 @@ Thumbs.db
 # Required assignment evidence must remain tracked, including raw log files.
 !/.agent-logs/
 !/.agent-logs/**
+
+# Sites build integration sources and local runtime state.
+!/build/
+/build/*
+!/build/connector-preview-plugin.mjs
+!/build/connector-preview-worker.mjs
+!/build/sites-vite-plugin.LICENSE
+!/build/sites-vite-plugin.ts
+!/build/sites-worker.ts
+/.vinext/
+/.wrangler/
+/.sites-runtime/
+/outputs/
+/work/
+/.dev.vars*
+*.tsbuildinfo
+next-env.d.ts

@@ -1,0 +1,10 @@
+import { SAMPLE_ASSETS } from "@/src/catalog/samples";
+export default function Page() {
+  const clip = SAMPLE_ASSETS[1];
+  return <main style={{minHeight:"100vh",background:"#101112",color:"#f3efe6",padding:"clamp(20px,5vw,72px)",fontFamily:"-apple-system,BlinkMacSystemFont,sans-serif"}}>
+    <header style={{display:"flex",justifyContent:"space-between",gap:24,borderBottom:"1px solid #343739",paddingBottom:24}}><b>◒ &nbsp; FRAME STUDIO</b><span style={{color:"#d5ad76"}}>Live generation off</span></header>
+    <div style={{maxWidth:1180,margin:"48px auto"}}><p style={{color:"#a6a7a2",letterSpacing:3,fontSize:12}}>HIGGSFIELD REBUILD / FIRST DEPLOYMENT</p><h1 style={{fontSize:"clamp(36px,6vw,76px)",letterSpacing:"-.05em",lineHeight:1.05,margin:"20px 0"}}>One idea.<br/>One cinematic shot.</h1><p style={{maxWidth:560,color:"#a6a7a2",lineHeight:1.6}}>The studio is taking shape. Inspect the prepared Dune flight sample while draft editing and uploads are being connected.</p>
+    <section style={{marginTop:32,background:"#17191b",padding:20,borderRadius:18}}><div style={{display:"flex",justifyContent:"space-between",gap:16,marginBottom:16}}><b>Dune flight</b><span style={{color:"#d5ad76"}}>Prepared sample</span></div><video controls preload="metadata" playsInline poster={clip.posterUrl!} src={clip.mediaUrl} style={{width:"100%",maxHeight:"55vh",background:"#08090a",borderRadius:12}} aria-label="Prepared Dune flight sample"/><p style={{color:"#a6a7a2",fontSize:13}}>Independent stock footage by Lukas Rodriguez. Not generated from a prompt in this app.</p><a href={clip.downloadUrl} download={clip.fileName} style={{display:"inline-block",padding:"12px 20px",background:"#d5ad76",color:"#111213",borderRadius:10,textDecoration:"none",fontWeight:600}}>Download sample</a> <a href={clip.attribution!.url!} style={{color:"#a6a7a2",padding:12}}>View source</a></section>
+    <footer style={{display:"flex",flexWrap:"wrap",gap:24,marginTop:24,fontSize:13,color:"#a6a7a2"}}><span>Spending disabled · $0 allowance</span><a href="https://github.com/Arhaan2/higgsfield-rebuild" style={{color:"inherit"}}>Source & build evidence ↗</a></footer></div>
+  </main>;
+}

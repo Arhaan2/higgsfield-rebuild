@@ -1,0 +1,25 @@
+[
+  {
+    "file": "public/samples/dune-flight.mp4",
+    "bytes": 11342355,
+    "sha256": "356a6ef6192ae00b955b82755c7c07cb6ff767da79995e574925e7c2a64e633e"
+  },
+  {
+    "file": "public/samples/dune-flight.jpg",
+    "bytes": 46127,
+    "sha256": "40d867982efaeef3b103a27a1cf8a30b700dd713eaa034c0e89ea94835a01ff5",
+    "size": [
+      1260,
+      709
+    ]
+  },
+  {
+    "file": "public/samples/dune-light.jpg",
+    "bytes": 187464,
+    "sha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a",
+    "size": [
+      1600,
+      2397
+    ]
+  }
+]
