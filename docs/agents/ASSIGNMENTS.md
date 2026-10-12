@@ -113,3 +113,7 @@ Root verified full prompt/final exact capture and the source audit for session01
 At03:42UTC, backend and draft-action Frontend finished; root verified exact full final capture for both and read their reports. Those paths return to root. P4-provenance Frontend still owns its hook/API/Library/check paths. Root integrates inspectable sourceJobs only into asset inspection/reuse, not active-job/version lists, and truthful missing-generated-metadata copy. The delayed-save regression remains pending until hook ownership returns.
 
 P4-provenance Frontend finished; full final exact capture verified. Root read its report and accepted ownership back. Root integrated supplemental sourceJobs lookups, source-aware missing-metadata copy/reuse guard, and the function-resolved reference draft after beforeNavigate to address the failing delayed-save regression. All implementation specialists are finished. Independent verification follows.
+
+## Independent Phase 5/6 verification
+
+Candidate source f46769f is committed locally; push follows the credential/history check. Reviewer p56-independent-verification-001 owns only docs/verification/phase-5.md, phase-6.md, release-review-checks.json and release-capture-audit.json under handoff22. All product paths are root-owned/read-only during this review. Browser remains root-owned; reviewer may run bounded tests and anonymous public HTTP. No implementation specialist remains active.

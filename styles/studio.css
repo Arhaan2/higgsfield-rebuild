@@ -188,7 +188,7 @@ legend.field-label { margin-block-end: .5rem; }
 .upload-zone[data-dragging="true"] { border-style: solid; border-color: var(--accent); }
 .upload-zone input[type="file"] { max-inline-size: 100%; min-inline-size: 0; min-block-size: 2.75rem; color: var(--text-secondary); font-size: .8125rem; }
 .upload-zone input::file-selector-button { min-block-size: 2.75rem; margin-inline-end: .5rem; padding: .625rem .75rem; border: 1px solid var(--control-border); border-radius: .625rem; background: var(--surface); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; }
-.reference-preview { display: grid; grid-template-columns: 5rem minmax(0, 1fr); align-items: start; gap: .75rem; inline-size: 100%; min-inline-size: 0; }
+.reference-preview { display: flex; flex-wrap: wrap; align-items: flex-start; gap: .75rem; inline-size: 100%; min-inline-size: 0; }
 .reference-preview > img { flex: 0 0 5rem; inline-size: 5rem; block-size: 3.75rem; border: 1px solid var(--border); border-radius: .5rem; background: var(--media-bg); object-fit: contain; }
 .reference-info { display: grid; flex: 1 1 7rem; gap: .25rem; min-inline-size: 0; font-size: .8125rem; line-height: 1.5385; overflow-wrap: anywhere; }
 .reference-actions { gap: .5rem; }

@@ -1,0 +1,628 @@
+{
+  "task_id": "p56-independent-verification-001",
+  "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+  "checked_at": "2026-10-12T03:47:40.559282+00:00",
+  "method": "Fresh urllib HTTPS GET; no auth, cookies or browser session; 2 MB response bound, 20 s timeout",
+  "initial_sandbox_http_attempt": [
+    {
+      "name": "home",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+      "error": "URLError"
+    },
+    {
+      "name": "deep_route",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study",
+      "error": "URLError"
+    },
+    {
+      "name": "repository",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild",
+      "error": "URLError"
+    },
+    {
+      "name": "main",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+      "error": "URLError"
+    },
+    {
+      "name": "repository_page",
+      "url": "https://github.com/Arhaan2/higgsfield-rebuild",
+      "error": "URLError"
+    }
+  ],
+  "public_http": [
+    {
+      "name": "home",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+      "status": 200,
+      "final_url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+      "bytes": 14133,
+      "sha256": "2d9872b2e072d696d01c1293548e47e8597c041679e3d2f805b51d6443868748",
+      "shell_text": true,
+      "prepared_label": true,
+      "old_literal_disabled_match": false,
+      "disabled_disclosure_present": true,
+      "matcher_note": "Original literal Live generation is disabled did not match; subsequent anonymous read confirms Live generation off and Spending disabled $0 allowance."
+    },
+    {
+      "name": "deep_route",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study",
+      "status": 404,
+      "final_url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study",
+      "bytes": 6580,
+      "sha256": "a0cd608b399cdab64a2002b37b962c484558b6286ab1d1e5f5239e7edab1b0ea"
+    },
+    {
+      "name": "repository",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild",
+      "status": 200,
+      "final_url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild",
+      "bytes": 5452,
+      "sha256": "ba00ec37b74d447da4e16a739c7b10b24d808a88df14ea6f52d874b64662f4c3",
+      "public": true,
+      "default_branch": "main"
+    },
+    {
+      "name": "main",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+      "status": 200,
+      "final_url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+      "bytes": 12721,
+      "sha256": "c14d9c8adc9ca169135e78aebb29581c238ae4af2b58172ceb4eb07de500fd47",
+      "commit": "36cd60b88263fbf8fe12615c81a2a9eaaf1174fb"
+    },
+    {
+      "name": "repository_page",
+      "url": "https://github.com/Arhaan2/higgsfield-rebuild",
+      "status": 200,
+      "final_url": "https://github.com/Arhaan2/higgsfield-rebuild",
+      "bytes": 346076,
+      "sha256": "9ae9b1248d81f4c4501d21bcec63bf49040f6f295e90a570f204ea724b24aa61"
+    }
+  ],
+  "integration_fingerprints": [
+    {
+      "path": "src/server/jobs.ts",
+      "sha256": "3c67c9198119d79ed21793dc5bc63f0e62f9f5336e3078dd51ec2c11733d8d0b",
+      "equals_HEAD": true
+    },
+    {
+      "path": "src/client/api.ts",
+      "sha256": "d5f6cb6b10ddd20ee0d547ceaac30bdf15668a7aafb732aef88355b95eb38139",
+      "equals_HEAD": true
+    },
+    {
+      "path": "src/client/use-studio.ts",
+      "sha256": "8873d9ba29c0c8ef567e1e2f04a8bfbb848d534523c032eee476b89b9bb5f32b",
+      "equals_HEAD": true
+    },
+    {
+      "path": "src/client/reference-action.ts",
+      "sha256": "9385583efda95c74e7c719b5c4c774a0d4e4a25cebb9ff593984202f7741f8e0",
+      "equals_HEAD": true
+    },
+    {
+      "path": "components/studio/StudioView.tsx",
+      "sha256": "b0e6466a828581da0bce7a1d2fd0fd768df882149b2429199942edcd561ed473",
+      "equals_HEAD": true
+    },
+    {
+      "path": "components/studio/LibraryView.tsx",
+      "sha256": "8b10701f8ca7f78befdbc7664b5ddb42a1f265caca14b1b514662578675fdb61",
+      "equals_HEAD": true
+    },
+    {
+      "path": "components/studio/AssetDetails.tsx",
+      "sha256": "3cdcc47a7ae4cef6f62b50ddbc205c0b681139eb5f331c919a229c40cb498a9f",
+      "equals_HEAD": true
+    },
+    {
+      "path": "styles/studio.css",
+      "sha256": "c6771de7a9889889800fe9ffc13da88c3d09bc48861cc5a6b03d765daf21260f",
+      "equals_HEAD": true
+    },
+    {
+      "path": "tests/server/creative-loop.test.mjs",
+      "sha256": "00feaaf2be561f50e49cfeffcfc77a19ef87f1cdad599a17b7b7ff9a4d70ef91",
+      "equals_HEAD": true
+    },
+    {
+      "path": "src/server/schema-guards.sql",
+      "sha256": "c99266ebca45a7c4c24d848924c283c41919b6ec524615999ce82d17fa41585c",
+      "equals_HEAD": true
+    }
+  ],
+  "credential_scan": {
+    "method": "Bounded regex heuristics over all reachable local Git text blobs and current tracked UTF-8 files; no credential values emitted; max 4 MB per blob",
+    "categories": [
+      "private_key",
+      "github_token",
+      "aws_access_key",
+      "openai_key",
+      "google_key",
+      "slack_token",
+      "jwt",
+      "credential_assignment"
+    ],
+    "counts": {
+      "reachable_objects": 688,
+      "blob_objects": 505,
+      "text_blobs_scanned": 430,
+      "binary_blobs_skipped": 74,
+      "oversize_blobs_skipped": 1,
+      "total_text_bytes": 2792670,
+      "current_tracked_text_files_scanned": 345
+    },
+    "findings": [],
+    "limitation": "Cannot prove absence; misses unknown/custom formats, encrypted/binary/oversize content, untracked/ignored files and inaccessible remote history."
+  },
+  "capture_history": {
+    "commits_touching_logs": [
+      "f46769fb09ee0f314420aef92e8fc9d731a54695 Repair creative-loop recovery and review studio interaction states",
+      "36cd60b88263fbf8fe12615c81a2a9eaaf1174fb Record zero-spend R2 requirement and verified capture",
+      "d00febf50b3504d0996a97a99f02a43f4fef3ed3 Apply remote schema and verify Phase 3 recovery checks",
+      "fa28ec4dd849e267923ba530b8eaf0cb187f0f19 Capture coordinator handoff and main sync request",
+      "e9d66bb7d8f5c83e656afdbffc423779c4d9a9b7 Update Site source",
+      "88b273a4cadfb57d080df1d6f1fd915ed7b756ba Update Site source",
+      "b64b4b5c8555f62d8882528f7709e46b053c0795 Update Site source",
+      "c4cf9e882239dbbe3eec986ce8ba2e3f1e72857e Accept studio design and architecture under research exception",
+      "d3d110a71750ba92af2fd7cb3469fa57e24b82ce Document signed-in research and preserve unresolved gates",
+      "e1a116da189fc27f1a43d1f2137aad7595b3d705 Verify logged specialist delegation and checkpoint signed-in research",
+      "8269a3833cd322ab824e1eb8af7a2c560410f079 Set up verified automatic Codex capture and preserve assignment starter"
+    ],
+    "tracked_log_count": 31,
+    "prior_entry_changes": [],
+    "method": "Read all local reachable log-file revisions; compare complete LOG_ENTRY blocks as append-only sequences, ignoring delimiter trailing newlines and mutable document headers."
+  },
+  "root_attribution_measurement_trace": {
+    "method": "Documentary root measurement in docs/verification/phase456-integration.md, corroborated visually by screenshot19 and exact CSS; no new reviewer browser measurement",
+    "width_px": 180.75,
+    "height_px": 44,
+    "viewports_px": [
+      320,
+      390
+    ]
+  },
+  "home_label_evidence": [
+    "     \u25d2 \u00a0 FRAME STUDIO  Live generation off    HIGGSFIELD REBUILD / FIRST DEPLOYMENT  One idea. One cinematic shot.  The studio is ta",
+    "iting and uploads are being connected.    Dune flight  Prepared sample     Independent stock footage by Lukas Rodriguez. Not generated from a prompt in this app",
+    ".  Download sample   View source    Spending disabled \u00b7 $0 allowance  Source & build evidence \u2197       ((self[Symbol.for(\"vinext.navigationRunti"
+  ],
+  "environment": {
+    "os": "macOS",
+    "node": "v24.18.0",
+    "python": "3.13.5",
+    "cwd": "/Users/arhaan/Desktop/higgsfield-rebuild",
+    "provider": "mocked only; real generation not_run",
+    "spend_usd": 0,
+    "browser_automation_by_reviewer": false
+  },
+  "release_verdict": {
+    "result": "fail",
+    "verdict": "Do not release as complete",
+    "local_readiness": "Assigned repairs pass controlled local checks; next hosted validation may proceed with generation disabled once prerequisites resolve. Enlarged-text readability remains open.",
+    "unpassed_gates": [
+      "V3",
+      "P4",
+      "Q6"
+    ],
+    "candidate": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+    "public_source_reported": "6d5a576832f7704feade88d7f483ab402b924d0c",
+    "public_source_identity_method": "Documentary deployment evidence; fresh anonymous HTTP confirms old shell behavior, not deployment metadata"
+  },
+  "checks": [
+    {
+      "id": "server-suite",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "node --import ./tests/server/register.mjs --test tests/server/*.test.mjs",
+      "evidence": "36 tests, 36 pass, zero failures/skips, exit 0; in-memory SQLite and mocked fetch/R2"
+    },
+    {
+      "id": "studio-suite",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "node src/client/checks/studio-state.mjs",
+      "evidence": "44 checks passed; mocked hooks/APIs"
+    },
+    {
+      "id": "library-suite",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "node src/client/checks/library-state.mjs",
+      "evidence": "6 checks passed; mocked hooks/JSX"
+    },
+    {
+      "id": "reference-action-suite",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "node src/client/checks/reference-action.mjs",
+      "evidence": "18 checks passed; delayed-save typing and five live-region states included"
+    },
+    {
+      "id": "P4-01",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "Independent existing regressions plus read-only integrated code diff",
+      "evidence": "Confirmed no-output failure releases held storage with lease/owner guards; spend counted; unknown/transfer and stale-successor holds protected; rollback regression passes"
+    },
+    {
+      "id": "P4-02",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "controlled tests + code + supplied root render artifacts",
+      "method": "Existing hook/API tests, owner predicate and component diff inspection, supplied fixture screenshots",
+      "evidence": "Separate sourceJobs; ID/project and context validation; original metadata or source-aware unavailable fallback; current-shot polling/admission/notices/version list stay separate"
+    },
+    {
+      "id": "P4-03",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "controlled tests + supplied root render artifacts",
+      "method": "Existing Library regressions and supplied before/after fixture artifacts",
+      "evidence": "Preserved cards/links, explicit detail failure, only failed previews retried; root fixture click is attributed, not reviewer browser action"
+    },
+    {
+      "id": "P5-D01",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "Existing actual-hook/action tests with delayed mock save; source review",
+      "evidence": "Existing and in-flight movement text retained; same-reference action makes no API call; source originals unchanged"
+    },
+    {
+      "id": "P5-D02",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "code + root measurements + supplied stills",
+      "method": "Read exact CSS and component row; view_image screenshot14/19; read root measurement record",
+      "evidence": "44x44 CSS minimum; root reports 180.75x44 at320/390; screenshot19 shows separate continuous focus target. No new reviewer DOM measurement"
+    },
+    {
+      "id": "job-live-region-semantics",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local controlled tests",
+      "method": "Existing JSX assertions and source read",
+      "evidence": "Atomic polite status / assertive failure alert; timestamps and actions excluded; actual speech not_run"
+    },
+    {
+      "id": "render-matrix-artifact",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "root-owned isolated harness artifacts",
+      "method": "Parse all entries in states/rendered-matrix.json",
+      "evidence": "26 entries,13 states,1440/390 widths; zero recorded overflow; all generation disabled. This verifies artifact contents, not re-executed browser checks"
+    },
+    {
+      "id": "fixture-isolation-artifact",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "code + root HTTP fixture artifact",
+      "method": "Read isolation.json and tests/visual/vite.config.ts",
+      "evidence": "Recorded GET/POST API403, connect-src none; actual component fixture aliases; reviewer did not restart server"
+    },
+    {
+      "id": "P5-R01-text-readability",
+      "result": "fail",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "supplied 390px/200% fixture rendering",
+      "method": "Inspect states/text-200-390.png plus reference-preview CSS",
+      "evidence": "Reference metadata becomes near one-character column next to5rem image; 32px root makes thumbnail160px. Stack metadata when constrained"
+    },
+    {
+      "id": "P5-E01-evidence-label",
+      "result": "fail",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local artifact metadata",
+      "method": "sips dimensions and direct screenshot view",
+      "evidence": "18-edit-movement-preserved-mobile.png is1280x1618; count as desktop evidence"
+    },
+    {
+      "id": "public-anonymous-home",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "public deployed shell",
+      "method": "Fresh anonymous HTTPS GET",
+      "evidence": "200; prepared stock sample, first deployment, Live generation off, Spending disabled $0 allowance"
+    },
+    {
+      "id": "public-integrated-studio",
+      "result": "fail",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "public deployed shell",
+      "method": "Fresh anonymous HTTPS GET /studio?sample=dune-study",
+      "evidence": "404; integrated route unavailable"
+    },
+    {
+      "id": "public-repository-access",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "public GitHub",
+      "method": "Fresh anonymous GitHub webpage and repository API GET",
+      "evidence": "Both200; public=true; default branch main"
+    },
+    {
+      "id": "public-candidate-alignment",
+      "result": "fail",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "public GitHub + local Git",
+      "method": "Anonymous commits/main GET versus git rev-parse HEAD main",
+      "evidence": "Public main36cd60b88263fbf8fe12615c81a2a9eaaf1174fb; local f46769fb09ee0f314420aef92e8fc9d731a54695"
+    },
+    {
+      "id": "capture-current-source",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local capture sources and repository logs",
+      "method": "PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py",
+      "evidence": "Exit0;32 exact source-matching sessions. See release-capture-audit.json"
+    },
+    {
+      "id": "capture-history",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "reachable local Git history",
+      "method": "All reachable local log revisions compared for prior LOG_ENTRY block preservation",
+      "evidence": "31 tracked logs;11 commits touch logs; no prior block mutation/removal; mutable headers/delimiter newlines excluded"
+    },
+    {
+      "id": "capture-canaries-delegation",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local source transcripts + capture evidence",
+      "method": "Read CAPTURE-TEST and exact current source audit",
+      "evidence": "Two separate final canaries and separate CLI specialist canary match source. Native children/worktrees remain unverified; continuity is documentary"
+    },
+    {
+      "id": "capture-this-final",
+      "result": "not_run",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "active reviewer session",
+      "method": "Automatic Stop after final emission; coordinator comparison required",
+      "evidence": "One prompt/no final in audit at time of writing; complete assignment matches handoff22 verbatim"
+    },
+    {
+      "id": "credential-heuristic",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "tracked files + reachable local Git text history",
+      "method": "Bounded8-category regex scan, max4MB per blob; no matched values printed",
+      "evidence": "430 reachable text blobs +345 current tracked text files;zero matches.74 binaries and1 oversized blob skipped;cannot prove absence"
+    },
+    {
+      "id": "credential-ignore-rules",
+      "result": "pass",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local Git ignore rules",
+      "method": "git check-ignore --no-index on synthetic path names",
+      "evidence": "env/localenv/devvars/pem/key/secrets ignored; .env.example and .agent-logs remain includable"
+    },
+    {
+      "id": "native-accessibility",
+      "result": "not_run",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "native browser/OS/phone",
+      "method": "Not operated under browser ownership constraint",
+      "evidence": "OS reduced motion/transparency/contrast, forced colors, physical phone/software keyboard and screen-reader speech unrun"
+    },
+    {
+      "id": "real-provider-connected-loop",
+      "result": "not_run",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "public provider integration",
+      "method": "No authorization/key/live allowance; no provider calls",
+      "evidence": "Zero budget; fixtures/samples cannot pass V3/P4"
+    },
+    {
+      "id": "actual-walkthrough",
+      "result": "not_run",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "delivery artifact",
+      "method": "SUBMISSION inventory",
+      "evidence": "Actual recording absent; camera/duration/access cannot be checked"
+    },
+    {
+      "id": "reviewer-build-typescript",
+      "result": "not_run",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "local build",
+      "method": "Root pass reviewed; unnecessary rerun omitted",
+      "evidence": "No fresh reviewer build or TypeScript pass claimed"
+    },
+    {
+      "id": "fresh-checkout-setup",
+      "result": "not_run",
+      "revision": "f46769fb09ee0f314420aef92e8fc9d731a54695",
+      "environment": "clean local environment",
+      "method": "Read README and script/config contracts",
+      "evidence": "No install, clean checkout or migration replay performed"
+    }
+  ],
+  "reviewed_artifacts": [
+    {
+      "path": "docs/verification/13-details-desktop.png",
+      "sha256": "ef6ce2c2c3cea3ff56eb080054d4da8856161f2e9e2e0aca5bc372594b5621e9",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/14-details-mobile.png",
+      "sha256": "928820e0875f13d8de5afe3a81faf5b4d30af40dce97427846ac756a2715deb0",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/18-edit-movement-preserved-mobile.png",
+      "sha256": "fedf6d2890042820a9edded9f8539535d95bd09024fb30eaea7f0802a15d9757",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/19-details-attribution-repaired.png",
+      "sha256": "405807656df52f8048bdd24785b4aa7b8ebe475cb2ec9d3e83c1472d940c70b6",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/cross-project-metadata.png",
+      "sha256": "10ef665a24a73a0ddec82844f0eb775e8ce07980e6977470ded1d0481f9021e3",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/metadata-unavailable.png",
+      "sha256": "05155c5d806023befeba6338b5e818b680c806342945269eb07a83db3bdb6a57",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/library-partial-failure.png",
+      "sha256": "78c6e5dfc2d994c806d1c17c61c8c69ee82b3519185eae05b75443a3a48258eb",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/library-retry-recovered.png",
+      "sha256": "f612d3a7e6ea28e33cb838e09763bfe7a3a8e30a552b34c56df4e7c83e1f053a",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/validation_error-mobile.png",
+      "sha256": "b39671d0de49ea470730ff9cca73fc826d18d1c8ca4223f3f8b60db29851e20e",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/submission_unknown-mobile.png",
+      "sha256": "9ca78f44b8ce20b1d1ccc97ba5bf22ba9abbf43f9712f041f7300c4453ca7d2b",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/text-200-390.png",
+      "sha256": "67b6268a6159557888135a943862132dc62904334b8eac9cd2d324693ae6e13b",
+      "method": "view_image"
+    },
+    {
+      "path": "docs/verification/states/rendered-matrix.json",
+      "sha256": "2c96ae94dfce00ee4b2e4889f6221fd8452e23d1b912e815c3a38fd3eb0725ff",
+      "method": "JSON read/inspection"
+    },
+    {
+      "path": "docs/verification/states/text-200.json",
+      "sha256": "c9dd23e3b6221266644407d2a370721e02a6753255723507ca3b5a9a383c06f4",
+      "method": "JSON read/inspection"
+    },
+    {
+      "path": "docs/verification/states/isolation.json",
+      "sha256": "8d3d0410473b8a250d1137b782e881c5c93222a5b96ca863075601857e2dee89",
+      "method": "JSON read/inspection"
+    }
+  ],
+  "original_reports_preserved": [
+    {
+      "path": "docs/verification/phase-4.md",
+      "equals_candidate": true
+    },
+    {
+      "path": "docs/design/implementation-review.md",
+      "equals_candidate": true
+    },
+    {
+      "path": "docs/verification/design-repairs.md",
+      "equals_candidate": true
+    },
+    {
+      "path": "docs/verification/provenance-library-repair.md",
+      "equals_candidate": true
+    },
+    {
+      "path": "docs/verification/storage-reservation-repair.md",
+      "equals_candidate": true
+    }
+  ],
+  "capture_prompt": {
+    "session_id": "01a12e37-e100-7cd1-8115-6dd2143c9037",
+    "log": ".agent-logs/2026-10-12_03-46-17_01a12e37-e100-7cd1-8115-6dd2143c9037.md",
+    "recorded_model": "gpt-6-astra",
+    "full_prompt_verified_before_work": true,
+    "handoff_exact_match": true,
+    "final_response_status": "not_run until emitted; root must verify"
+  },
+  "authored_paths": [
+    "docs/verification/phase-5.md",
+    "docs/verification/phase-6.md",
+    "docs/verification/release-review-checks.json",
+    "docs/verification/release-capture-audit.json"
+  ],
+  "completed_at": "2026-10-12T03:54:47.357573+00:00",
+  "integration_fingerprint_scope": "Observed before root concurrent CSS repair; files matched f46769f when the104 controlled checks ran. Not a final clean-working-tree claim.",
+  "post_candidate_followup": {
+    "checked_at": "2026-10-12T03:54:00Z",
+    "owner": "coordinator; reviewer read-only",
+    "revision_scope": "Uncommitted changes over f46769fb09ee0f314420aef92e8fc9d731a54695",
+    "method": "Read narrow production/fixture CSS diff and supplied root measurement JSON; independently view new viewport PNG",
+    "result": "pass for readable stacked reference metadata in supplied390px/200%fixture; distinct ordinary320/1440 evidence not established by the inspected normal-size JSON",
+    "measurements": {
+      "metadata": {
+        "height": 88,
+        "width": 194,
+        "x": 98,
+        "y": 272.1484375
+      },
+      "rootFont": "32px",
+      "scrollWidth": 390,
+      "stacked": true,
+      "thumbnail": {
+        "height": 120,
+        "width": 160,
+        "x": 98,
+        "y": 128.1484375
+      },
+      "width": 390
+    },
+    "normal_recheck_at_inspection": [
+      {
+        "metadataWidth": 198,
+        "rootFont": "16px",
+        "scrollWidth": 390,
+        "stacked": false,
+        "width": 390
+      },
+      {
+        "metadataWidth": 198,
+        "rootFont": "16px",
+        "scrollWidth": 390,
+        "stacked": false,
+        "width": 390
+      },
+      {
+        "metadataWidth": 198,
+        "rootFont": "16px",
+        "scrollWidth": 390,
+        "stacked": false,
+        "width": 390
+      }
+    ],
+    "remaining": "Coordinator completes intended normal-width evidence, integrates and commits; release blockers unchanged",
+    "files": [
+      {
+        "path": "styles/studio.css",
+        "sha256": "8228ae52d2a5bd8fb88d3b32b0a88a973d9961a5e0b7d48f5dbb0b465e86c393"
+      },
+      {
+        "path": "tests/visual/fixture.css",
+        "sha256": "f9b47ad89bcc14d3f3f2696932cfaf1d2433042796d3a07fb9597c1eea0b8219"
+      },
+      {
+        "path": "docs/verification/states/reference-text-200-repaired.json",
+        "sha256": "0c2eb05637af45f295d1c773f263446905f6444205dd4a96fb4f4e210ee968f8"
+      },
+      {
+        "path": "docs/verification/states/reference-normal-recheck.json",
+        "sha256": "84bbf93653219d3dd584450561ee71b92f78f9f95858e2a40841fa0169196a98"
+      },
+      {
+        "path": "docs/verification/states/reference-text-200-viewport.png",
+        "sha256": "4fc37f04548d61a4c032f067cbd81e20dcfe6e4525037268ab2ef76b868de49b"
+      }
+    ]
+  }
+}

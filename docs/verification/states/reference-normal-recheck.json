@@ -1,0 +1,26 @@
+{
+  "method": "Observed DOM dimensions; resize requests are not treated as evidence of an applied width",
+  "checks": [
+    {
+      "context": "local app",
+      "metadataWidth": 128,
+      "rootFont": "16px",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "context": "isolated fixture",
+      "metadataWidth": 198,
+      "rootFont": "16px",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "context": "fresh isolated fixture",
+      "metadataWidth": 152,
+      "rootFont": "16px",
+      "scrollWidth": 1440,
+      "width": 1440
+    }
+  ]
+}
