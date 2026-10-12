@@ -1,0 +1,62 @@
+{
+  "recordedAt": "2026-10-12T19:06:51.669136+00:00",
+  "origin": "https://higgsfield-rebuild.arhaan2.workers.dev",
+  "source": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+  "workerVersion": "cbe42062-203d-462c-949e-0d4bd380beac",
+  "method": "Actual Codex in-app browser UI through CUA; no injected API calls or synthetic UI state",
+  "projectId": "50521780-c6ae-4e76-b311-333eac855427",
+  "uploadedAssetId": "256d6f74-3c11-4daf-baca-157e47e0e264",
+  "presetOnlyProjectId": "d0ce9787-9a75-4940-aed7-6545bfb2e9af",
+  "savedPrompt": "A slow counterclockwise drift above the dunes, preserving the warm light and natural contours.",
+  "measuredWidths": [
+    {
+      "viewport": 1440,
+      "documentScrollWidth": 1440
+    },
+    {
+      "viewport": 390,
+      "documentScrollWidth": 390
+    }
+  ],
+  "video": {
+    "source": "sample",
+    "duration": 14.996667,
+    "width": 1920,
+    "height": 1080,
+    "observedPlayingTime": 0.050283,
+    "observedEndTime": 14.996667,
+    "ended": true,
+    "ordinaryClickDownloadSha256": "356a6ef6192ae00b955b82755c7c07cb6ff767da79995e574925e7c2a64e633e"
+  },
+  "privateImage": {
+    "bytes": 187464,
+    "ordinaryClickDownloadSha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a"
+  },
+  "observedConsoleWarningsErrors": [],
+  "screenshots": [
+    {
+      "file": "docs/verification/deployed-studio-desktop.jpg",
+      "bytes": 91349,
+      "sha256": "0c54f25d53780aff1ec0029f9908d9e83ceb3b6dee518ea552a39d715b4da736",
+      "modifiedAtUtc": "2026-10-12T19:04:43.095860+00:00"
+    },
+    {
+      "file": "docs/verification/deployed-studio-mobile.jpg",
+      "bytes": 100941,
+      "sha256": "bb78910af98e81508e2065aa3a7aa7af819aa2bf8ecd497b9f8bbc6c27fd6695",
+      "modifiedAtUtc": "2026-10-12T19:01:31.551426+00:00"
+    },
+    {
+      "file": "docs/verification/deployed-library-mobile.jpg",
+      "bytes": 59562,
+      "sha256": "b09a7870ae66a38071d3300907357489a9a6a60b6b8b44356e37c217b2e8eeb2",
+      "modifiedAtUtc": "2026-10-12T19:02:14.025762+00:00"
+    }
+  ],
+  "limitations": [
+    "No real provider job or generated output",
+    "No physical phone/native accessibility preferences/full keyboard audit",
+    "No actual camera-on recording",
+    "Same-browser guest state, not cross-device account synchronization"
+  ]
+}

@@ -84,7 +84,8 @@
     "createdAt": "2026-10-12T18:50:39.955Z",
     "location": "WNAM",
     "class": "Standard",
-    "publicAccessEnabledByCoordinator": false
+    "publicAccessEnabledByCoordinator": false,
+    "r2DevPublicAccess": "disabled (wrangler r2 bucket dev-url get confirmed)"
   },
   "generation": {
     "enabled": false,
@@ -92,5 +93,20 @@
     "providerSecretBindingPresent": false
   },
   "spending": "No billing activation, upgrade, paid provider call or positive allowance performed. User enabled R2. Included R2 usage is not a hard account-wide spending cap.",
-  "recordedAt": "2026-10-12T18:59:29.314661+00:00"
+  "recordedAt": "2026-10-12T18:59:29.314661+00:00",
+  "activeDeployments": [
+    {
+      "id": "1f6f6ca7-cd82-4df5-b624-e9d549234577",
+      "created_on": "2026-10-12T18:51:42.950748Z",
+      "source": "wrangler",
+      "strategy": "percentage",
+      "versions": [
+        {
+          "version_id": "cbe42062-203d-462c-949e-0d4bd380beac",
+          "percentage": 100
+        }
+      ]
+    }
+  ],
+  "lastConfirmedAt": "2026-10-12T19:06:51.667481+00:00"
 }

@@ -1,27 +1,30 @@
-# Submission preparation — incomplete
+# Submission preparation — recording outstanding
 
-The public source and sample shell exist. The full application is implemented and tested locally, but integrated deployment failed in the Sites migration runner. No real generated-video acceptance or camera-on recording is complete. Do not present this as a finished submission.
+The integrated zero-spend studio is public and its hosted data paths pass verification. The assignment remains incomplete because real provider acceptance, required research output chains and the actual camera-on recording are not complete. No external submission has been made.
 
-## Verified links
+## Verified links and revisions
 
-- Live sample shell: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site
+- Live application: https://higgsfield-rebuild.arhaan2.workers.dev
 - Public repository: https://github.com/Arhaan2/higgsfield-rebuild
 - Walkthrough: **NOT RECORDED**
-- Current public revision:6d5a576832f7704feade88d7f483ab402b924d0c, Sites version1.
-- Current reviewed product candidate: b32b03e7f867fa78b4c075890b76a9d41d736287 on public main. It is not the current public application. Earlier integrated revisions 88b273a and e9d66bb remain in history; Sites versions 2/3 failed and are not live.
-- Fresh anonymous access at 2026-10-12T04:35Z: sample shell 200, Studio and Library 404, public repository main then 5bd4a39. Later source candidate b32b03e is pushed; the independent continuation review confirms anonymous public main at b32b03e and all 138 controlled checks. Integrated deployment remains blocked. See verification/submission-public-preflight.json and the current evidence index.
+- Deployed source: **f271258fd0d4fece10229dfd74c89dfd5bcf275f**; reviewed application: **b32b03e7f867fa78b4c075890b76a9d41d736287**.
+- Cloudflare Worker version: **cbe42062-203d-462c-949e-0d4bd380beac**, tag f271258, created 2026-10-12T18:51:42.950748Z. Current source can include later evidence/capture-only commits; product equality is checked separately.
+- The old chatgpt.site URL is a historical sample shell, not the submission's application link.
 
-## Remaining delivery work
+## Observed checks
 
-1. Cloudflare CLI sign-in and the separate D1 database/schema are verified. R2 activation remains missing; its subscription setup is user-owned and the current authorization is $0 total spending. Once R2 is enabled within the user's chosen terms, the coordinator can bind the private bucket, deploy the reviewed Worker and run hosted checks. Do not replay the initial migration. See DEPLOY-CLOUDFLARE.md.
-2. Keep real generation disabled under the user's zero-spend instruction. Samples and mocked tests do not satisfy V3/P4. No paid allowance is being requested as routine continuation.
-3. After integrated publication and hosted checks, use WALKTHROUGH-SCRIPT.md for a truthful 4:30 rehearsal. Do not request the actual recording while the full public app is unavailable. Arhaan must record with camera visible, remain below five minutes and provide an accessible URL. Update the script if live-generation evidence is later obtained.
-4. Verify the actual recording's access, camera and duration; then verify final application/repository access and source/deployment alignment again. A script is not a recording.
+Fresh anonymous homepage/Studio/Library return 200. Eleven hosted HTTP checks and 20 independent Reviewer checks pass, including persistence, ownership, origin/revision protection, disabled/zero policy and exact media bytes. Public browser upload/save/reload/Library reopening/preference, preset-only thumbnails, sample playback and ordinary downloads pass. The prior 138 controlled checks remain attributed to unchanged product source. See [current evidence](verification/INDEX.md).
 
-## Field placement
+## Next user action
 
-After full release verification, place the real recording URL in the walkthrough field. The links field should label the actual live application and public repository separately. Current links can be copied from above, but the live link currently denotes the sample shell only. No walkthrough URL has been invented and no external application has been submitted.
+Record the prepared [4:30 walkthrough](WALKTHROUGH-SCRIPT.md) with your camera visible throughout, keep it below five minutes and provide a reviewer-accessible URL. The complete zero-spend demonstration has been rehearsed in the actual public app. Use public/samples/dune-light.jpg for the upload; the existing walkthrough draft is available only in the same browser session used to create it.
 
-## Capture closure
+Say explicitly that the clip is prepared stock footage and live generation remains disabled. A recording demonstrates the implemented studio; it does not satisfy the unverified real prompt→image→video acceptance. No paid allowance is requested and none is assumed.
 
-All completed specialist prompts/finals were automatically captured and verified. The active coordinator's final response will be logged only after emission. Run the coordinator's actual-root inspection, verification, conditional commit and push commands after it stops; do not rewrite or squash earlier capture. Final source/log closure remains pending until those commands actually run.
+After receiving the recording, the coordinator must verify its public access, actual duration and visible camera, then recheck application/repository access. Arhaan retains final submission responsibility unless separately authorized. Label the live application and source links separately; place the actual recording URL in the walkthrough field.
+
+## Remaining limits and capture closure
+
+R2 activation is resolved; the existing D1 was reused without migration replay. No infrastructure upgrade, billing authorization or provider call was made. R2's included usage is not an account-wide hard spending cap; no claim of zero billing is inferred from deployment success.
+
+Required signed-in output chains remain unverified under the recorded research exception. Native accessibility preferences/physical-phone testing and the formal initial-guide first-message item remain disclosed in ACCEPTANCE.md. All completed production-specialist prompts/finals have been verified. Two automatic suggestion sessions have exact native-journal matches but unavailable full transcripts. The current coordinator's final response is captured only after emission; inspect, verify, commit and push that final append from the original workspace after the agent stops. Do not rewrite or squash raw capture.

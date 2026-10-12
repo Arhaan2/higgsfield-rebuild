@@ -2,12 +2,12 @@
 
 A focused creative studio for the 8x assignment. Explore a prompt direction, compose a shot, retain its inputs, and inspect related work.
 
-**Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The full application works locally. The first public shell remains live because two integrated publishes failed in the hosting migration runner. Direct Cloudflare sign-in and the remote database migration now succeed; R2 enablement is the remaining hosting prerequisite. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
+**The integrated application is public:** Explore, Studio, Library, private uploads and saved guest drafts run on Cloudflare Workers, D1 and private R2. Live generation remains disabled with every allowance at zero. Real AI generation and the actual camera-on walkthrough are still unverified.
 
-- [Live sample shell](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
+- [Live application](https://higgsfield-rebuild.arhaan2.workers.dev)
 - [Public source](https://github.com/Arhaan2/higgsfield-rebuild)
-- [Current evidence index](docs/verification/INDEX.md) and [phase status](docs/STATUS.md)
-- Camera-on walkthrough: **not recorded**; [4:30 preparation script](docs/WALKTHROUGH-SCRIPT.md).
+- [Current evidence](docs/verification/INDEX.md) and [phase status](docs/STATUS.md)
+- Camera-on walkthrough: **not recorded**; [ready-to-rehearse 4:30 script](docs/WALKTHROUGH-SCRIPT.md).
 
 ## Product choices
 
@@ -17,7 +17,13 @@ The user explicitly allowed implementation with the documented research gaps unv
 
 ## Current verification
 
-The first public shell is source `6d5a576832f7704feade88d7f483ab402b924d0c`, Sites version 1. Build and TypeScript checks pass. An unauthenticated HTTP request and browser navigation reach the labeled sample. Its actual 14.996667-second clip plays. Direct browser retrieval downloads an 11,342,355-byte MP4 with the source checksum; the ordinary click's download event timed out and remains unverified. The integrated editor/data path is verified locally, not on this public shell. Two integrated publish attempts failed; see [deployment evidence](docs/verification/deployment.md) and the prepared [direct Cloudflare route](docs/DEPLOY-CLOUDFLARE.md). No real AI generation is claimed.
+Published source **f271258fd0d4fece10229dfd74c89dfd5bcf275f**, containing reviewed product **b32b03e**, is Cloudflare version **cbe42062-203d-462c-949e-0d4bd380beac**. Later evidence/capture commits do not change the deployed application. [Deployment metadata](docs/verification/deployed-cloudflare.json) confirms the origin, bindings and disabled/zero policy; the initial D1 migration was not replayed.
+
+**138 controlled checks**, **11 real hosted HTTP checks**, and **20 independent Reviewer HTTP/source checks** pass within their documented boundaries. Actual public browser checks cover upload, explicit save, reload, Library reopening, preferred-version persistence, preset-only previews, full prepared-video playback and ordinary sample/private download clicks with matching checksums. See [browser evidence](docs/verification/deployed-browser.md) and [independent hosted review](docs/verification/deployed-review.md). No provider output is claimed.
+
+![Public Studio with preferred upload, visible focus and generation disabled](docs/verification/deployed-studio-desktop.jpg)
+
+The earlier Sites URL remains a historical sample shell; its failed integrated deployments are preserved in [deployment history](docs/verification/deployment.md). Use the Workers URL above for evaluation.
 
 ## Run locally
 
@@ -67,10 +73,6 @@ Guests are private per browser cookie, with access for up to 30 days; this is no
 PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py
 ```
 
-[Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. Final public access, the actual creation-path gate, and Arhaan's camera-on walkthrough under five minutes remain delivery requirements.
+[Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. The actual creation-path gate and Arhaan's camera-on walkthrough under five minutes remain delivery requirements. Public integrated entry and data paths now pass. The previous [138-check repair review](docs/verification/submission-review.md) covers durable preferences, new-upload selection and preset-only previews. Native accessibility preferences and physical-phone checks remain unrun.
 
-Phase 4–6 local review repaired failure-storage reservations, cross-shot metadata, Library preview recovery and movement-text preservation. [Integration evidence](docs/verification/phase456-integration.md) separates actual browser/HTTP checks from [isolated UI fixtures](docs/verification/state-fixture-guide.md). The public Studio deep link still returns404; release acceptance remains pending. The [independent release review](docs/verification/phase-6.md) passes all 104 controlled local checks but withholds release acceptance; its [narrow follow-up](docs/verification/phase56-followup.md) records the final layout and public-source rechecks. All generation spending stays disabled.
-
-Submission checkpoint (2026-10-12 04:45 UTC): integrated product candidate `b32b03e7f867fa78b4c075890b76a9d41d736287` adds explicit **Make preferred version** persistence, selects the newly uploaded reference correctly after inspecting an old job, and gives saved preset-only shots a Library start-frame thumbnail. [Actual local browser evidence](docs/verification/submission-local-browser.md) covers preference/reload and preset reopening. [Current resource checks](docs/verification/submission-resource-preflight.json) still find R2 disabled and no direct Worker; fresh public Studio and Library return 404. The public URL above is therefore still a sample shell. The hosted demonstration and camera-on recording are not ready.
-
-The [independent continuation review](docs/verification/submission-review.md) reproduces all **138 controlled checks** on b32b03e and accepts the three repairs within their stated limits. It confirms public source alignment while retaining the release block. Native accessibility/physical-phone checks, actual provider generation and the camera-on recording remain unrun.
+The capture audit preserves 37 source-matching coordinator/specialist sessions and two automatic suggestion sessions verified only against their genuine hook journals because their full transcripts are unavailable. That distinction is explicit in [capture documentation](docs/capture/README.md); no raw log was rewritten. The current coordinator final can be captured only after emission and must be committed afterward.

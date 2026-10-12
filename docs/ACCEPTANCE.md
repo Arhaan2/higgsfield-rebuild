@@ -13,24 +13,29 @@ Application checks below are pending unless explicitly marked. Record actual met
 
 ## Core deployed product
 
-- [ ] Fresh unauthenticated evaluator can open and use the intended entry path.
-- [ ] Sample project is immediately inspectable and clearly labeled.
-- [ ] Supported image upload validates, previews, persists and reaches the real request.
+- [x] Fresh unauthenticated evaluator can open and use the intended entry path.
+- [x] Sample project is immediately inspectable and clearly labeled.
+- [x] Supported image upload validates, previews and persists in hosted D1/R2.
+- [ ] Uploaded image reaches a real provider generation request.
 - [ ] Exposed controls map to supported server-validated inputs.
 - [ ] Real uploaded-image-to-video job completes on the deployed environment.
 - [ ] Real image generation and its video handoff work for the final target scope.
 - [ ] Pending, success, failure and uncertain-submission states are truthful.
 - [ ] Failed jobs retain the draft and provide a useful recovery action.
 - [ ] Duplicate clicks/retried submissions do not create unintended extra paid jobs.
-- [ ] Reload/deep-link behavior restores the promised draft/job/history boundary.
-- [ ] Results display/play correctly and download retrieves the correct file.
+- [x] Hosted reload/deep links restore saved drafts, references and preferred versions; Library reopens them.
+- [ ] Real generated-job/history reload acceptance.
+- [x] Prepared sample video plays to completion; uploaded images display; ordinary hosted downloads match source bytes.
+- [ ] Real generated results display/play/download correctly.
 - [ ] Reuse/variation preserves original work and restores relevant settings.
-- [ ] Visitor ownership prevents access to unrelated private assets/jobs.
-- [ ] Server-side usage limits and the approved spending cap are enforced.
+- [x] Hosted guest isolation rejects unrelated project, asset, media and download access.
+- [ ] Actual generated-job ownership acceptance (controlled guards pass; real jobs unrun).
+- [x] Hosted generation policy is disabled with zero allowance; denied request creates no job.
+- [ ] Live provider accounting/usage behavior (only controlled tests run).
 
 ## Design and interaction
 
-- [ ] Laptop and narrow mobile views have no clipped/obscured critical controls.
+- [x] Specified desktop/mobile views have usable critical controls: hosted1440/390px, prior local320px/200% repairs. Physical phone remains unrun.
 - [ ] Keyboard focus, labels and the primary action are clear.
 - [ ] Essential actions do not rely solely on hover.
 - [ ] Loading/failure/sample/success states fit the same design system.
@@ -41,20 +46,21 @@ Application checks below are pending unless explicitly marked. Record actual met
 ## Delivery
 
 - [x] Public repository opens while signed out (GitHub public metadata HTTP200,2026-10-12 02:46 UTC; public-access.json).
-- [ ] Public live URL opens while signed out and matches the reviewed revision.
-- [ ] README has reproducible setup, real links, actual capabilities and limitations.
+- [x] Public live URL opens while signed out and matches the reviewed revision.
+- [x] README has reproducible setup, real links, actual capabilities and limitations.
 - [ ] Repository/history/log review finds no exposed credentials or private account media.
-- [ ] Logs are incremental, with no invented entries or rewritten narrative.
+- [x] Raw logs remain automatic and incremental, without rewritten entries. Two suggestion sessions have journal-only proof; full-source coverage is not claimed for them.
 - [ ] Final-response capture closure is complete after the agent stops.
 - [ ] Actual walkthrough has Arhaan's camera on and duration below five minutes.
 - [ ] Walkthrough link is accessible to a reviewer.
-- [ ] Live and repository links are labeled; video goes in the walkthrough field.
+- [x] Live and repository links are separately labeled.
+- [ ] Actual video URL placed in walkthrough field.
 
 ## Evidence record
 
 Keep a compact table: check ID; test method; expected observable behavior; actual result; source commit; deployment revision; artifact/source; remaining issue. Store selected review evidence under docs/verification/ rather than relying on ignored transient browser reports. Stop broad testing once the required gates pass; retest changed behavior when fixing a concrete defect.
 
-D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit research exception. Local implementation, rendered review/repairs and bounded mocked/HTTP/browser checks now exist; see STATUS and docs/verification. Full deployed-product acceptance remains pending because integrated publication failed twice; current public access reaches only version1's sample shell. The walkthrough is unrecorded. Unqualified creation/result checks above are deliberately not checked on the strength of samples or local mocks.
+D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit research exception. Local implementation, rendered review/repairs and bounded mocked/HTTP/browser checks now exist; see STATUS and docs/verification. The earlier Sites integrated attempts failed; the current direct Worker is now deployed and its zero-spend paths pass. Full provider acceptance remains pending. The walkthrough is unrecorded. Unqualified creation/result checks above are deliberately not checked on the strength of samples or local mocks.
 
 ## Phase 4–6 local checkpoint (does not check off deployed criteria)
 
@@ -68,7 +74,7 @@ D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit resea
 | Public deep route/current source alignment | fail | Public Studio404; only the older sample shell is live. |
 | Real image/video loop and recording | not_run |$0generation allowance, no fullpublicdeployment, actual walkthrough absent. |
 
-Independent phase-5/phase-6 reports now record 104 passing controlled checks and a fail/blocked release verdict. The enlarged-text layout and public-source alignment follow-up is in verification/phase56-followup.md. Historical review failures remain in their original reports, with repairs tracked separately. The complete public Studio, actual provider outputs, native accessibility contexts and actual recording remain unresolved.
+Independent phase-5/phase-6 reports now record 104 passing controlled checks and a fail/blocked release verdict. The enlarged-text layout and public-source alignment follow-up is in verification/phase56-followup.md. Historical review failures remain in their original reports, with repairs tracked separately. The public Studio is now resolved by the direct deployment below. Actual provider outputs, native accessibility contexts and recording remain unresolved.
 
 ## Submission reconciliation
 
@@ -76,5 +82,11 @@ Independent phase-5/phase-6 reports now record 104 passing controlled checks and
 - The preceding coordinator final response has since been verified from genuine source and committed in 2394c92. This active turn's future final remains pending; the final-response checkbox stays unchecked.
 - Original guide bytes and two real canaries are preserved. The first source message supplied a file attachment reference rather than the full inline guide, so the formal first-message item remains unresolved; successful later capture does not retroactively change the original message.
 - Required signed-in real output chains remain unverified under the explicit research exception and zero-spend constraint. No new provider check occurred.
-- Current source repairs and actual local browser observations are in verification/INDEX.md. The independent continuation review records their bounded acceptance. Public Studio/Library are still 404; none of the unqualified deployed criteria above are checked from localhost or mocked tests.
+- Current source repairs and actual local browser observations are in verification/INDEX.md. The independent continuation review records their bounded acceptance. Those historical Studio/Library404 results are superseded by the direct deployment below. Only newly observed hosted criteria above are checked; mocks do not prove provider acceptance.
 - Existing credential/history review found no known matching text secrets within its documented limits. It was a bounded scan, not proof that every binary or media asset is free of private material; retain that limitation.
+
+## Direct deployed checkpoint — 2026-10-12
+
+Source f271258fd0d4fece10229dfd74c89dfd5bcf275f / Worker cbe42062-203d-462c-949e-0d4bd380beac is live at https://higgsfield-rebuild.arhaan2.workers.dev. [Deployment metadata](verification/deployed-cloudflare.json), [11 root HTTP checks](verification/deployed-http-integration.json), [20 independent HTTP/source checks](verification/deployed-review.md), and [actual browser evidence](verification/deployed-browser.md) support the narrowly checked criteria above. APP_ORIGIN matches; generation false/cap0; no provider secret; migration not replayed. No account-wide hard$0cap is inferred from R2 free allowances.
+
+Hosted browser acceptance includes explicit preferred-version persistence, preset-only thumbnail/reopening and complete prepared playback/download. Old generated-job selection→upload remains controlled-test evidence because no real provider job exists. Opening/closing asset details with Escape returns focus to its trigger; this is a bounded keyboard observation, not a full accessibility pass. The complete zero-spend demonstration is prepared and the actual camera-on recording has been requested. Recording/access/duration and future-final capture boxes remain unchecked.
