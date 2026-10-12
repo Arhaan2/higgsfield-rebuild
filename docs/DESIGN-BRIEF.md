@@ -12,4 +12,4 @@ Root resolves the proposed Amber Study sample to **Dune study** using attributed
 
 The first implementation targets upload → save → reload → inspect → reuse plus sample playback/download. Both real generation paths remain required but unverified until provider access and bounded spending are authorized. All designer state treatments remain required for the adapter; an unavailable live operation is visibly disabled.
 
-Final visual acceptance requires actual laptop/mobile, keyboard, error, reload and media checks; Phase 5 is pending.
+Phase5 local review now has actual laptop/mobile screens, keyboard/focus, error fixtures, reload and media evidence. The installed skill guided targeted repairs: “Edit movement” preserves existing text, “Use as start frame” explains draft effects, source attribution has a44px target, and job-status text has live semantics. See design/implementation-review.md and verification/phase456-integration.md. Native preference toggles, physical-phone context and the current public integrated UI are still unverified; full Phase5 acceptance remains partial.

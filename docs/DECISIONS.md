@@ -1,5 +1,9 @@
 # Decision record
 
+## 2026-10-12 03:25 UTC — independent Phase 4–6 work, zero spend
+
+Owner: coordinator. The user requested “lets run phase 4 to 6 in the meantime” while R2 activation and real generation remain unresolved. Run local connected-flow review, isolated visual states, Apple Design review, targeted repairs and independent release assessment now. This changes work sequencing, not acceptance requirements: V3/P4/Q6 cannot pass without their actual public/provider evidence. Keep the accepted three presets and existing architecture. Total spending authorization remains $0; no billing activation, upgrade, overage authorization or generation call is included.
+
 ## 2026-10-12 01:35 UTC — D2 accepted; original repository retained
 
 Root reviewed the three Phase 2 reports and their actual evidence. Full prompts and finals exactly match automatic logs; source audit matches all 16 sessions. Adopt the charcoal/brass Frame Studio direction and Vinext/D1/R2 architecture, with explicit root-location, parent-lineage and static-sample amendments in TECH-SPEC. The official starter is merged from an ignored empty staging directory to preserve the user-required capture root. Sites project registration and public audience succeeded; deploy/build/data operations remain untested. Zero spending remains authoritative. Three prompt presets and Dune study sample media are the bounded implementation scope; real image/video generation remains a required unresolved gate.
@@ -20,7 +24,7 @@ Keep this short. Every new entry names the evidence, choice, tradeoff, owner and
 - Prove uploaded-image-to-video first; aim to complete both image generation and image-to-video handoff.
 - Preserve capture/research prerequisites and truthful incremental evidence.
 
-## Decisions still to resolve in the actual build
+## Initial planning questions (historical; superseded by D2 above)
 
 | Decision | Current position | Evidence needed |
 | --- | --- | --- |

@@ -43,9 +43,11 @@ npx tsc --noEmit
 npm run build
 node --import ./tests/server/register.mjs --test tests/server/*.test.mjs
 node src/client/checks/studio-state.mjs
+node src/client/checks/library-state.mjs
+node src/client/checks/reference-action.mjs
 ```
 
-The 22 server checks use isolated SQLite and mocked R2/provider calls; 32 client-state checks use mocked APIs. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md) and [Phase 3 continuation](docs/verification/phase3-continuation.md). The continuation verifies ordinary sample/private download clicks and repairs a stale save notice. These checks do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
+The 36 server checks use isolated SQLite and mocked R2/provider calls; 44 Studio, 6 Library and 18 reference-action checks use mocked APIs/hooks. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md) and [Phase 3 continuation](docs/verification/phase3-continuation.md). The continuation verifies ordinary sample/private download clicks and repairs a stale save notice. These checks do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
 
 `APP_ORIGIN` must exactly match the browser origin. `LIVE_GENERATION_ENABLED=false` and `GENERATION_BUDGET_USD=0` are the defaults. `FAL_KEY` is optional and server-only; a key alone does not enable generation. D1's separate budget policy also defaults to no allowance. Do not put populated secrets in tracked files or chat.
 
@@ -66,3 +68,5 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py
 ```
 
 [Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. Final public access, the actual creation-path gate, and Arhaan's camera-on walkthrough under five minutes remain delivery requirements.
+
+Phase 4–6 local review repaired failure-storage reservations, cross-shot metadata, Library preview recovery and movement-text preservation. [Integration evidence](docs/verification/phase456-integration.md) separates actual browser/HTTP checks from [isolated UI fixtures](docs/verification/state-fixture-guide.md). The public Studio deep link still returns404; release acceptance remains pending. All generation spending stays disabled.

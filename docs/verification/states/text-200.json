@@ -1,0 +1,19 @@
+{
+  "method": "Isolated harness sets root text size to200%; not native browser zoom or an OS preference",
+  "checks": [
+    {
+      "composerWidth": 1120,
+      "promptFont": "32px",
+      "rootFont": "32px",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "composerWidth": 326,
+      "promptFont": "32px",
+      "rootFont": "32px",
+      "scrollWidth": 390,
+      "width": 390
+    }
+  ]
+}

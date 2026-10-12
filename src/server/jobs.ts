@@ -133,7 +133,22 @@ export async function progressJob(rt:Runtime,owner:string,id:string,retryTransfe
         return ownedJob(rt,owner,id);
       }
       if(state.error!==undefined && state.error!==null) {
-        await leasedUpdate(rt,job,lease,"status='failed',accounting_state='committed',error_code='PROVIDER_FAILED',error_message=?,next_poll_at=NULL,lease_token=NULL,lease_expires_at=NULL",["The provider could not complete this request. Your draft is retained; the reserved allowance remains counted until billing review."]);
+        // Once completion was observed, contradictory status must retain the transfer retry hold.
+        if(providerComplete)throw new Error("Provider completion was already observed");
+        const failedAt=rt.now();
+        const eligible=`id=? AND guest_id=? AND lease_token=? AND lease_expires_at>?
+          AND status IN ('submission_unknown','queued','running') AND provider_request_id IS NOT NULL
+          AND provider_output_json IS NULL AND output_asset_id IS NULL`;
+        const guard=[id,owner,lease,failedAt];
+        // Both statements use the same live lease/state guard in one transaction. Releasing
+        // storage first preserves that guard until the terminal update clears the lease.
+        await rt.db.batch([
+          stmt(rt,`UPDATE storage_reservations SET state='released',updated_at=?
+            WHERE job_id=? AND guest_id=? AND state='held' AND EXISTS (SELECT 1 FROM jobs WHERE ${eligible})`,failedAt,id,owner,...guard),
+          stmt(rt,`UPDATE jobs SET status='failed',accounting_state='committed',error_code='PROVIDER_FAILED',error_message=?,
+            next_poll_at=NULL,lease_token=NULL,lease_expires_at=NULL,updated_at=? WHERE ${eligible}`,
+            "The provider could not complete this request. Your draft is retained; the reserved allowance remains counted until billing review.",failedAt,...guard),
+        ]);
         return ownedJob(rt,owner,id);
       }
       providerComplete=true;

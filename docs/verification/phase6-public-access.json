@@ -1,0 +1,31 @@
+{
+  "checkedAt": "2026-10-12T03:28:14.843Z",
+  "method": "Anonymous fetch without credentials or cookies",
+  "results": [
+    {
+      "name": "home",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+      "status": 200,
+      "hasShellText": true,
+      "hasDisabledLabel": true
+    },
+    {
+      "name": "deepRoute",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study",
+      "status": 404
+    },
+    {
+      "name": "repository",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild",
+      "status": 200,
+      "public": true,
+      "defaultBranch": "main"
+    },
+    {
+      "name": "main",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+      "status": 200,
+      "commit": "36cd60b88263fbf8fe12615c81a2a9eaaf1174fb"
+    }
+  ]
+}

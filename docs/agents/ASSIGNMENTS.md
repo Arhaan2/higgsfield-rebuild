@@ -1,3 +1,26 @@
+# Phase 4–6 continuation — 2026-10-12 03:25 UTC
+
+The user explicitly requested Phases4–6 independent work while V3 remains unresolved. This authorizes local review, repairs and release assessment; it does not turn a missing real/public flow into a pass. Total spend remains $0. Separate verified CLI sessions in the original CWD remain the only production delegation route. Root owns browser operation, integration, config/contracts, capture, Git/deployment and all paths not assigned below.
+
+| Task | Role | Exclusive writable paths | Contract |
+| --- | --- | --- | --- |
+| p4-connected-review-001 | Reviewer | docs/verification/phase-4.md; tests/server/creative-loop.test.mjs if meaningful uncovered risk | handoffs/16-phase4-review.txt |
+| p5-isolated-states-001 | Frontend | tests/visual/**; docs/verification/state-fixture-guide.md | handoffs/17-state-fixtures.txt |
+| p5-rendered-design-001 | Designer | docs/design/implementation-review.md | handoffs/18-design-review.txt |
+
+The fixture and Designer tasks finished; root verified their full prompt/final exact matches and reviewed their outputs. Root rendered all13 fixture states at1440px and reproduced P5-D01 in the actual local app. Their paths return to root. The Reviewer task remains active.
+
+| Repair task | Role | Exclusive writable paths | Contract |
+| --- | --- | --- | --- |
+| p5-draft-action-repair-001 | Frontend | components/studio/StudioView.tsx; components/studio/AssetDetails.tsx; styles/studio.css; src/client/reference-action.ts; src/client/checks/reference-action.mjs; docs/verification/design-repairs.md | handoffs/19-frontend-review-repairs.txt |
+| p4-failed-storage-repair-001 | Backend | src/server/jobs.ts; tests/server/failure-reservation.test.mjs; docs/verification/storage-reservation-repair.md | handoffs/20-storage-release-repair.txt |
+
+P4 Reviewer finished and its full final exactly matches automatic capture. Root inspected all three findings; tests remain unmodified. Its paths return to root.
+
+| p4-provenance-library-repair-001 | Frontend | src/client/use-studio.ts; src/client/api.ts; src/client/checks/studio-state.mjs; components/studio/LibraryView.tsx; src/client/checks/library-state.mjs; docs/verification/provenance-library-repair.md | handoffs/21-provenance-library-repair.txt |
+
+This task does not own StudioView/AssetDetails; root integrates supplemental metadata after the other Frontend returns those paths. Root handles acceptance/capture/Git.
+
 # Current ownership
 
 ## Phase 3 continuation — 2026-10-12 02:57 UTC
@@ -86,3 +109,7 @@ Frontend repair task completed in session01a12dec-e271-79b2-8fac-144da7f16fa2. R
 ## Migration review acceptance — 2026-10-12 02:47 UTC
 
 Root verified full prompt/final exact capture and the source audit for session01a12df6-8430-7962-8c6a-d17a3b64638a. The report's independent semantic/guard checks are accepted. The formatted publish still failed; no hosted pass is inferred. The experiment is removed from current build code, preserved in history. Ownership returns to root; no specialists remain active. Missing Cloudflare login is the next external deployment dependency.
+
+At03:42UTC, backend and draft-action Frontend finished; root verified exact full final capture for both and read their reports. Those paths return to root. P4-provenance Frontend still owns its hook/API/Library/check paths. Root integrates inspectable sourceJobs only into asset inspection/reuse, not active-job/version lists, and truthful missing-generated-metadata copy. The delayed-save regression remains pending until hook ownership returns.
+
+P4-provenance Frontend finished; full final exact capture verified. Root read its report and accepted ownership back. Root integrated supplemental sourceJobs lookups, source-aware missing-metadata copy/reuse guard, and the function-resolved reference draft after beforeNavigate to address the failing delayed-save regression. All implementation specialists are finished. Independent verification follows.

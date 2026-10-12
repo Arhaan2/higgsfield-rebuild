@@ -2,6 +2,10 @@
 
 Coordinator decision, 2026-10-12 01:35 UTC. Specification accepted; runtime verification pending. Adopt [architecture](architecture/decision.md) and [API contract](architecture/api-contract.md) with the explicit amendments below. Shared source types in `src/contracts/studio.ts` are authoritative once scaffolded.
 
+**Implementation checkpoint, 2026-10-12:** the accepted contract is now implemented at the repository root and locally built/typechecked. The historical provisioning plan below describes the D2 decision. Current hosting evidence supersedes it: Sites version1 is a public sample shell; integrated versions2/3 failed migration processing. Direct Cloudflare login and the initial D1 schema are verified; R2 is not enabled and no Worker is published. See DEPLOY-CLOUDFLARE.md and verification/deployment.md. The initial direct D1 migration has already been applied once and must not be replayed.
+
+Explore provides the three accepted presets; Studio supports separate image/video draft buffers, explicit save acknowledgements, reference upload and immutable job inspection; Library opens saved guest projects with samples separated. Sample-image animation handoff and Library/reload are browser-verified locally. Real prompt→image→video remains unrun. A dedicated tests/visual harness, if used, is local-only, renders production components with labeled fixture state, and is excluded from the product routes and deployment.
+
 ## Stack and location
 
 Use the actual Sites Vinext starter: React 19.2.6, Vinext 1.0.0-beta.5, Next-compatible routes, TypeScript 5.9.3, Drizzle 0.45.2, Vite 8.0.13 and Wrangler 4.92.0; npm lockfile owns the dependency graph. Node 24.18.0/npm 11.16.0 are present. Install/build still must be verified.

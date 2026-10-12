@@ -29,6 +29,7 @@ export const api = {
   createProject: (body: { id: string; title: string; draft: Draft }) => request<Project>("/api/projects", json("POST", body)),
   saveProject: (id: string, body: { expectedRevision: number; title?: string; draft?: Draft; preferredAssetId?: string | null }) => request<Project>(`/api/projects/${encodeURIComponent(id)}`, json("PATCH", body)),
   asset: (id: string) => request<Asset>(`/api/assets/${encodeURIComponent(id)}`),
+  job: (id: string) => request<Job>(`/api/jobs/${encodeURIComponent(id)}`),
   upload: (projectId: string, assetId: string, file: File) => request<Asset>(`/api/projects/${encodeURIComponent(projectId)}/uploads?assetId=${encodeURIComponent(assetId)}&filename=${encodeURIComponent(file.name)}`, { method: "POST", headers: { "Content-Type": file.type }, body: file }),
   submit: (id: string, body: { requestKey: string; draftRevision: number }) => request<Job>(`/api/projects/${encodeURIComponent(id)}/jobs`, json("POST", body)),
   refresh: (id: string) => request<Job>(`/api/jobs/${encodeURIComponent(id)}/refresh`, json("POST", {})),

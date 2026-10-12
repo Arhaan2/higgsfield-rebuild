@@ -1,0 +1,114 @@
+- complementary "Isolated visual test controls":
+  - strong: ISOLATED UI TEST — NO GENERATION OR SAVING
+  - text: Visual state
+  - combobox "Visual state":
+    - option "empty draft"
+    - option "uploaded reference"
+    - option "validation error"
+    - option "submitting"
+    - option "queued"
+    - option "running"
+    - option "submission unknown"
+    - option "pending acknowledgement"
+    - option "succeeded" [selected]
+    - option "failed"
+    - option "transfer failed"
+    - option "budget exhausted"
+    - option "restored iteration"
+  - paragraph: "Sample pixels only: Jacob Castle / Unsplash (still); Lukas Rodriguez / Pexels (14.997s clip). No upload or generation occurred; source/status labels below exercise fixture branches."
+  - status: Fixture state selected. No product operation occurred.
+- link "Skip to content":
+  - /url: "#main-content"
+- complementary:
+  - link "Frame Studio — Explore":
+    - /url: /
+    - text: FRAME
+    - generic: STUDIO
+  - navigation "Main navigation":
+    - link "Explore":
+      - /url: /
+      - generic: Explore
+    - link "Studio":
+      - /url: /studio
+      - generic: Studio
+    - link "Library":
+      - /url: /library
+      - generic: Library
+  - link "Project source on GitHub (opens a new tab)":
+    - /url: https://github.com/Arhaan2/higgsfield-rebuild
+    - generic: Source
+- main:
+  - paragraph: One shot, visible iterations
+  - heading "Studio" [level=1]
+  - paragraph: Shape a frame. Give it direction.
+  - generic: Live generation off
+  - link "New shot":
+    - /url: /studio
+    - text: New shot
+  - region "Animate a start frame":
+    - paragraph: YOUR SHOT
+    - generic: Shot title
+    - textbox "Shot title": "Fixture: succeeded"
+    - heading "Animate a start frame" [level=2]
+    - group "Choose a task":
+      - generic: Choose a task
+      - radio "Create image"
+      - text: Create image
+      - radio "Animate image" [checked]
+      - text: Animate image
+    - paragraph: Switch tasks without losing your text. Save keeps the selected draft.
+    - generic: Start frame
+    - paragraph: Your video begins from this image.
+    - 'img "Start frame: FIXTURE reference — Jacob Castle / Unsplash sample"'
+    - strong: dune-light.jpg
+    - generic: 1600 × 2397
+    - button "Replace"
+    - button "Remove":
+      - text: Remove
+    - paragraph: JPG or PNG · up to 5 MB · 256–4,096 px per side · up to 16 MP
+    - generic: Describe the movement
+    - textbox "Describe the movement":
+      - /placeholder: A slow push forward, warm light shifting across the frame…
+      - text: A slow, gentle camera push forward through the scene. Preserve the subject and natural lighting. Subtle atmospheric movement, smooth cinematic motion, no sudden cuts.
+    - paragraph: Describe subject movement and camera direction in words.
+    - paragraph: 166 / 2,500 characters
+    - paragraph:
+      - strong: Kling 2.5 Turbo Pro
+    - paragraph: 5-second video · start-frame animation
+    - button "Generate 5-second video" [disabled]:
+      - text: Generate 5-second video
+    - paragraph: Spending is disabled for this workspace. You can still upload, edit, and save drafts.
+    - button "Save draft":
+      - text: Save draft
+    - status: Unsaved changes — save before closing this page.
+    - link "View result":
+      - /url: "#selected-output"
+      - text: View result
+  - region "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)":
+    - paragraph: SELECTED OUTPUT
+    - heading "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)" [level=2]
+    - generic: Generated result
+    - generic "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)"
+    - paragraph: 1920 × 1080 · 14.997 seconds · 11.34 MB
+    - paragraph:
+      - text: From
+      - button "FIXTURE reference — Jacob Castle / Unsplash sample"
+    - button "Revise this shot"
+    - button "View details":
+      - text: View details
+    - link "Download video":
+      - /url: /samples/dune-flight.mp4
+      - text: Download video
+    - heading "Original prompt" [level=3]
+    - paragraph: A slow, gentle camera push forward through the scene. Preserve the subject and natural lighting. Subtle atmospheric movement, smooth cinematic motion, no sudden cuts.
+  - region "Your references & versions":
+    - heading "Your references & versions" [level=2]
+    - generic: Originals stay unchanged
+    - list "Select an asset to inspect":
+      - button "FIXTURE reference — Jacob Castle / Unsplash sample Upload":
+        - generic: FIXTURE reference — Jacob Castle / Unsplash sample
+        - generic: Upload
+      - button "V01 Result ready · Selected A slow, gentle camera push forward through the scene. Preserve the subject and natural lighting. Subtle atmospheric movement, smooth cinematic motion, no sudden cuts." [pressed]:
+        - generic: V01
+        - generic: Result ready · Selected
+        - generic: A slow, gentle camera push forward through the scene. Preserve the subject and natural lighting. Subtle atmospheric movement, smooth cinematic motion, no sudden cuts.

@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-12T03:36:47.605Z",
+  "environment": "isolated localhost visual harness",
+  "apiBarrier": [
+    {
+      "method": "GET",
+      "path": "/api/capabilities",
+      "status": 403,
+      "body": "ISOLATED UI TEST: API requests and mutations are forbidden."
+    },
+    {
+      "method": "POST",
+      "path": "/api/projects",
+      "status": 403,
+      "body": "ISOLATED UI TEST: API requests and mutations are forbidden."
+    }
+  ],
+  "csp": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; connect-src 'none'; object-src 'none'; worker-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+}

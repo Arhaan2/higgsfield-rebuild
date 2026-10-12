@@ -1,0 +1,89 @@
+- complementary "Isolated visual test controls":
+  - strong: ISOLATED UI TEST — NO GENERATION OR SAVING
+  - text: Visual state
+  - combobox "Visual state":
+    - option "empty draft" [selected]
+    - option "uploaded reference"
+    - option "validation error"
+    - option "submitting"
+    - option "queued"
+    - option "running"
+    - option "submission unknown"
+    - option "pending acknowledgement"
+    - option "succeeded"
+    - option "failed"
+    - option "transfer failed"
+    - option "budget exhausted"
+    - option "restored iteration"
+  - paragraph: "Sample pixels only: Jacob Castle / Unsplash (still); Lukas Rodriguez / Pexels (14.997s clip). No upload or generation occurred; source/status labels below exercise fixture branches."
+  - status: Fixture state selected. No product operation occurred.
+- link "Skip to content":
+  - /url: "#main-content"
+- complementary:
+  - link "Frame Studio — Explore":
+    - /url: /
+    - text: FRAME
+    - generic: STUDIO
+  - navigation "Main navigation":
+    - link "Explore":
+      - /url: /
+      - generic: Explore
+    - link "Studio":
+      - /url: /studio
+      - generic: Studio
+    - link "Library":
+      - /url: /library
+      - generic: Library
+  - link "Project source on GitHub (opens a new tab)":
+    - /url: https://github.com/Arhaan2/higgsfield-rebuild
+    - generic: Source
+- main:
+  - paragraph: One shot, visible iterations
+  - heading "Studio" [level=1]
+  - paragraph: Shape a frame. Give it direction.
+  - generic: Live generation off
+  - link "New shot":
+    - /url: /studio
+    - text: New shot
+  - region "Animate a start frame":
+    - paragraph: YOUR SHOT
+    - generic: Shot title
+    - textbox "Shot title": Untitled shot
+    - heading "Animate a start frame" [level=2]
+    - group "Choose a task":
+      - generic: Choose a task
+      - radio "Create image"
+      - text: Create image
+      - radio "Animate image" [checked]
+      - text: Animate image
+    - paragraph: Switch tasks without losing your text. Save keeps the selected draft.
+    - generic: Start frame
+    - paragraph: Your video begins from this image.
+    - paragraph: Drop a start frame here
+    - button "Start frame"
+    - paragraph: JPG or PNG · up to 5 MB · 256–4,096 px per side · up to 16 MP
+    - generic: Describe the movement
+    - textbox "Describe the movement":
+      - /placeholder: A slow push forward, warm light shifting across the frame…
+    - paragraph: Describe subject movement and camera direction in words.
+    - paragraph: 0 / 2,500 characters
+    - paragraph:
+      - strong: Kling 2.5 Turbo Pro
+    - paragraph: 5-second video · start-frame animation
+    - button "Generate 5-second video" [disabled]:
+      - text: Generate 5-second video
+    - paragraph: Spending is disabled for this workspace. You can still upload, edit, and save drafts.
+    - button "Save draft":
+      - text: Save draft
+    - status: Your shot is ready for an idea.
+    - link "View result":
+      - /url: "#selected-output"
+      - text: View result
+  - region "Room for your next scene.":
+    - paragraph: SELECTED OUTPUT
+    - heading "Room for your next scene." [level=2]
+    - heading "Start with an image or an idea." [level=3]
+    - paragraph: Your uploaded references and retained results appear here. Start a draft, or take a look around the prepared Dune study.
+    - link "Open sample shot":
+      - /url: /studio?sample=dune-study
+      - text: Open sample shot

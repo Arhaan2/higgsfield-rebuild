@@ -20,6 +20,10 @@ export function useStudio() {
   const ackRef = useRef<string | null>(null);
   const [assets, setAssets] = useState<Asset[]>([]);
   const [jobs, setJobs] = useState<Job[]>([]);
+  // Immutable provenance only; current-project jobs alone drive polling and admission.
+  const [sourceJobs, setSourceJobs] = useState<Job[]>([]);
+  const metadataRequests = useRef(new Set<string>());
+  const metadataMounted = useRef(true);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [sampleCollection, setSampleCollection] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -56,6 +60,7 @@ export function useStudio() {
   const contextEpoch = useRef(0);
   const invalidateContext = useCallback(() => {
     contextEpoch.current++;
+    metadataRequests.current.clear(); setSourceJobs([]);
     savingPromise.current = null; setSaving(false);
     submittingRef.current = false; setSubmitting(false);
     uploadingRef.current = false; setUploading(false); uploadAttempt.current = null;
@@ -79,11 +84,12 @@ export function useStudio() {
   const handleError = useCallback((cause: unknown) => {
     if (cause instanceof StudioApiError && cause.status === 401) {
       expiredRef.current = true; setExpired(true); clearRecovery();
+      invalidateContext(); setAssets([]); setJobs([]); setSelectedId(null);
       setError("Your browser session has expired or is unavailable. Your current text is still here, but private media and saved shots need the original session.");
     } else if (cause instanceof StudioApiError && cause.code === "REVISION_CONFLICT") {
       conflictRef.current = true; setConflict(true); setError("This shot changed in another tab. Your current edits have been kept. Save them as a separate shot to preserve both drafts.");
     } else setError(errorMessage(cause));
-  }, []);
+  }, [invalidateContext]);
 
   const save = useCallback(async (): Promise<Project | null> => {
     if (savingPromise.current) return savingPromise.current;
@@ -208,13 +214,47 @@ export function useStudio() {
 
   const referenceId = buffer.drafts.image_to_video.operation === "image_to_video" ? buffer.drafts.image_to_video.startAssetId : null;
   useEffect(() => {
-    if (!referenceId || assets.some(asset => asset.id === referenceId) || SAMPLE_ASSETS.some(asset => asset.id === referenceId)) return;
-    let alive = true;
+    metadataMounted.current = true;
+    const epoch = contextEpoch;
+    const requests = metadataRequests;
+    return () => { metadataMounted.current = false; epoch.current++; requests.current.clear(); };
+  }, []);
+  useEffect(() => {
+    if (loading || expiredRef.current) return;
     const epoch = contextEpoch.current;
-    const currentContext = () => alive && contextEpoch.current === epoch && !expiredRef.current;
-    void api.asset(referenceId).then(asset => { if (currentContext()) setAssets(current => [...current.filter(item => item.id !== asset.id), asset]); }).catch(() => { if (currentContext()) setUploadError("Start frame unavailable — choose it again. Your prompt is preserved."); });
-    return () => { alive = false; };
-  }, [referenceId, assets]);
+    const currentContext = () => metadataMounted.current && contextEpoch.current === epoch && !expiredRef.current;
+    const needed = new Set<string>();
+    for (const draft of Object.values(buffer.drafts)) {
+      if (draft.parentAssetId) needed.add(draft.parentAssetId);
+      if (draft.operation === "image_to_video" && draft.startAssetId) needed.add(draft.startAssetId);
+    }
+    for (const job of [...jobs, ...sourceJobs]) {
+      if (job.snapshot?.parentAssetId) needed.add(job.snapshot.parentAssetId);
+      if (job.snapshot?.startAsset) needed.add(job.snapshot.startAsset.id);
+    }
+    // One attempt per ID/context bounds cycles and prevents retry storms on unavailable metadata.
+    for (const id of needed) {
+      if (assets.some(asset => asset.id === id) || SAMPLE_ASSETS.some(asset => asset.id === id) || metadataRequests.current.has(`asset:${id}`)) continue;
+      metadataRequests.current.add(`asset:${id}`);
+      void api.asset(id).then(asset => {
+        if (currentContext() && asset.id === id) setAssets(current => [...current.filter(item => item.id !== id), asset]);
+      }).catch(cause => {
+        if (!currentContext()) return;
+        if (cause instanceof StudioApiError && cause.status === 401) handleError(cause);
+        else if (id === referenceId) setUploadError("Start frame unavailable — choose it again. Your prompt is preserved.");
+      });
+    }
+    for (const asset of assets) {
+      const id = asset.sourceJobId;
+      if (!id || jobs.some(job => job.id === id) || sourceJobs.some(job => job.id === id) || metadataRequests.current.has(`job:${id}`)) continue;
+      metadataRequests.current.add(`job:${id}`);
+      void api.job(id).then(job => {
+        if (currentContext() && job.id === id && job.projectId === asset.projectId) setSourceJobs(current => [...current.filter(item => item.id !== id), job]);
+      }).catch(cause => {
+        if (currentContext() && cause instanceof StudioApiError && cause.status === 401) handleError(cause);
+      });
+    }
+  }, [loading, expired, project?.id, referenceId, buffer.drafts, assets, jobs, sourceJobs, handleError]);
 
   async function upload(file: File) {
     if (uploadingRef.current || expiredRef.current || conflictRef.current) return;
@@ -244,10 +284,13 @@ export function useStudio() {
   }
   function switchMode(operation: Operation) { edit(current => ({ ...current, operation })); }
   function updatePrompt(prompt: string) { edit(current => ({ ...current, drafts: { ...current.drafts, [current.operation]: { ...current.drafts[current.operation], prompt } } })); }
-  async function forkDraft(draft: Draft) {
+  async function forkDraft(nextDraft: Draft | ((current: EditorBuffer) => Draft)) {
     const epoch = contextEpoch.current;
     if (!await beforeNavigate() || contextEpoch.current !== epoch) return;
-    edit(current => ({ ...current, operation: draft.operation, drafts: { ...current.drafts, [draft.operation]: draft } }));
+    edit(current => {
+      const draft = typeof nextDraft === "function" ? nextDraft(current) : nextDraft;
+      return { ...current, operation: draft.operation, drafts: { ...current.drafts, [draft.operation]: draft } };
+    });
     setNotice("Ready to revise. The original asset and its prompt are unchanged.");
     await save();
   }
@@ -283,7 +326,7 @@ export function useStudio() {
       if (next.status === "succeeded") {
         const detail = await api.project(next.projectId);
         if (!currentContext() || detail.project.id !== job.projectId) return;
-        setAssets(detail.assets.sort((a, b) => a.createdAt.localeCompare(b.createdAt))); setJobs(detail.jobs.sort((a, b) => a.createdAt.localeCompare(b.createdAt)));
+        setAssets(current => [...current.filter(asset => asset.projectId !== next.projectId && !detail.assets.some(item => item.id === asset.id)), ...detail.assets].sort((a, b) => a.createdAt.localeCompare(b.createdAt))); setJobs(detail.jobs.sort((a, b) => a.createdAt.localeCompare(b.createdAt)));
         setSelectedId(next.outputAssetIds[0] || null); setNotice("Your result is ready to inspect.");
       }
     } catch (cause) { if (currentContext()) setJobError(`Status could not be refreshed. The last confirmed state is unchanged. ${errorMessage(cause)}`); }
@@ -332,7 +375,7 @@ export function useStudio() {
       setJobError(errorMessage(cause));
     } finally { if (contextEpoch.current === epoch) { submittingRef.current = false; setSubmitting(false); } }
   }
-  return { buffer, project, assets, jobs, selectedId, setSelectedId, sampleCollection, loading, loadError, error, notice, conflict, expired, saving, uploading, uploadError, pendingFile, capabilities, capabilityError, submitting, pending, jobError, jobBusy,
+  return { buffer, project, assets, jobs, sourceJobs, selectedId, setSelectedId, sampleCollection, loading, loadError, error, notice, conflict, expired, saving, uploading, uploadError, pendingFile, capabilities, capabilityError, submitting, pending, jobError, jobBusy,
     dirty: (!!project || buffer.title !== "Untitled shot" || Object.values(buffer.drafts).some(item => !!item.prompt || (item.operation === "image_to_video" && !!item.startAssetId))) && signature(buffer) !== acknowledged, saved: !!project && signature(buffer) === acknowledged,
     edit, save, beforeNavigate, upload, switchMode, updatePrompt, forkDraft, saveSeparate, restartSession, refreshJob, submit,
     removeReference: () => edit(current => ({ ...current, drafts: { ...current.drafts, image_to_video: { ...current.drafts.image_to_video, operation: "image_to_video", startAssetId: null } } })),

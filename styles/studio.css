@@ -116,7 +116,7 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1px;
 .text-small { font-size: .8125rem; line-height: 1.5385; letter-spacing: .01em; }
 .error-text { color: var(--danger); font-size: .8125rem; line-height: 1.5385; overflow-wrap: anywhere; }
 .notice, .job-notice { padding: 1rem; border: 1px solid var(--control-border); border-radius: .75rem; background: var(--surface); font-size: .875rem; line-height: 1.6; overflow-wrap: anywhere; }
-.notice > * + *, .job-notice > * + * { margin-block-start: .5rem; }
+.notice > * + *, .job-notice > * + *, .job-notice > [aria-live] > * + * { margin-block-start: .5rem; }
 .notice-error { border-color: var(--danger); }
 .notice-error :is(h2, h3, strong), .notice-error > p:first-child { color: var(--danger); }
 .notice-warning { border-color: var(--warning); }
@@ -239,6 +239,9 @@ dialog.asset-dialog::backdrop { background: var(--scrim); }
 .detail-list dd { color: var(--text); }
 .detail-list > div { display: grid; grid-column: 1 / -1; grid-template-columns: subgrid; gap: 1rem; }
 .detail-list a { display: inline-flex; align-items: center; min-block-size: 2.75rem; }
+.detail-attribution { min-inline-size: 0; }
+.detail-attribution a { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .25rem; min-inline-size: 44px; min-block-size: 44px; max-inline-size: 100%; padding: .5rem; border: 1px solid var(--control-border); border-radius: .5rem; overflow-wrap: anywhere; }
+.detail-attribution a:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
 .detail-prompt { padding: 1rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--surface); color: var(--text); font: inherit; font-size: .875rem; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
 .detail-prompt h3 { margin-block-end: .5rem; font-size: .875rem; font-weight: 600; }
 .dialog-actions { margin-block-start: 1.5rem; padding-block-start: 1.25rem; border-block-start: 1px solid var(--border); }

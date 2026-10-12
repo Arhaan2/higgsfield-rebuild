@@ -55,3 +55,17 @@ Application checks below are pending unless explicitly marked. Record actual met
 Keep a compact table: check ID; test method; expected observable behavior; actual result; source commit; deployment revision; artifact/source; remaining issue. Store selected review evidence under docs/verification/ rather than relying on ignored transient browser reports. Stop broad testing once the required gates pass; retest changed behavior when fixing a concrete defect.
 
 D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit research exception. Local implementation, rendered review/repairs and bounded mocked/HTTP/browser checks now exist; see STATUS and docs/verification. Full deployed-product acceptance remains pending because integrated publication failed twice; current public access reaches only version1's sample shell. The walkthrough is unrecorded. Unqualified creation/result checks above are deliberately not checked on the strength of samples or local mocks.
+
+## Phase 4–6 local checkpoint (does not check off deployed criteria)
+
+| Area | Actual result | Evidence / limit |
+| --- | --- | --- |
+| Draft handoff, Library/reload, same-reference editing | pass locally | Real browser, preserved saved/unsaved prompt and reference; phase456-browser.md. |
+| Failure quota, cross-project lineage/ownership | pass in controlled tests |36server tests; no real provider call. |
+| Recovery, metadata, Library retry, draft actions | pass in controlled tests |44Studio,6Library,18action checks; includes delayed-save typing. |
+| Core layout and state rendering | pass for checked contexts |1440/390px state matrix,320px details,44px attribution and200%fixture text; native preferences/physical phone unrun. |
+| Production build and TypeScript | pass | Root ran both after integration. |
+| Public deep route/current source alignment | fail | Public Studio404; only the older sample shell is live. |
+| Real image/video loop and recording | not_run |$0generation allowance, no fullpublicdeployment, actual walkthrough absent. |
+
+Independent phase-5/phase-6 reports will determine the release verdict. Historical review failures remain in their original reports, with repairs tracked separately.

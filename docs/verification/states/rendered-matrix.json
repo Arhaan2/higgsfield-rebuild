@@ -1,0 +1,412 @@
+{
+  "environment": "Isolated production-component rendering with mock state; no generation or saves",
+  "checkedAt": "2026-10-12T03:34:42.557Z",
+  "checks": [
+    {
+      "state": "empty_draft",
+      "alerts": [
+        "",
+        "Your shot is ready for an idea."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Room for your next scene."
+      ],
+      "promptInvalid": "false",
+      "promptLength": 0,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "uploaded_reference",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "validation_error",
+      "alerts": [
+        "Keep your prompt within 2,500 characters.Retry save",
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "true",
+      "promptLength": 2501,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "submitting",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Submitting request",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "queued",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Queued",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "running",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Creating your shot",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "submission_unknown",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Submission unconfirmed",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "pending_acknowledgement",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page.",
+        "Submission not yet confirmedThe connection ended before acknowledgement. Check the original request before trying a new one.Check original request"
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Submission not yet confirmed",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "succeeded",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "failed",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "This version couldn’t be created",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "transfer_failed",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "Result transfer needs attention",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "budget_exhausted",
+      "alerts": [
+        "",
+        "Unsaved changes — save before closing this page.",
+        "Fixture: the generation allowance has been reached. No provider was contacted."
+      ],
+      "generateDisabled": true,
+      "generationReason": "The generation allowance has been reached. Your drafts remain editable.",
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "restored_iteration",
+      "alerts": [
+        "Fixture restored iteration: unsaved browser buffer restored. It is not a confirmed server save. No recovery storage was read.",
+        "",
+        "Unsaved changes — save before closing this page."
+      ],
+      "generateDisabled": true,
+      "generationReason": "Spending is disabled for this workspace. You can still upload, edit, and save drafts.",
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)",
+        "Your references & versions"
+      ],
+      "promptInvalid": "false",
+      "promptLength": 166,
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "state": "empty_draft",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Room for your next scene."
+      ],
+      "promptLength": 0,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "uploaded_reference",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "validation_error",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 2501,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "submitting",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Submitting request",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "queued",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Queued",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "running",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Creating your shot",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "submission_unknown",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Submission unconfirmed",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "pending_acknowledgement",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Submission not yet confirmed",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "succeeded",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "failed",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "This version couldn’t be created",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "transfer_failed",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "Result transfer needs attention",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "budget_exhausted",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE reference — Jacob Castle / Unsplash sample",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "state": "restored_iteration",
+      "generateDisabled": true,
+      "headings": [
+        "Animate a start frame",
+        "FIXTURE result — Lukas Rodriguez / Pexels sample (not generated)",
+        "Your references & versions"
+      ],
+      "promptLength": 166,
+      "scrollWidth": 390,
+      "width": 390
+    }
+  ]
+}

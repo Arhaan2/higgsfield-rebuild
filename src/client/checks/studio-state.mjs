@@ -14,7 +14,7 @@ const deferred = () => { let resolve, reject; const promise = new Promise((r,j) 
 const tick = async () => { for (let i=0;i<5;i++) await new Promise(r => setImmediate(r)); };
 const sampleDraft = () => ({operation:'image_to_video',prompt:'first',presetId:null,parentAssetId:null,startAssetId:'sample-dune-light'});
 const project = (draft=sampleDraft(), revision=1) => ({id:'11111111-1111-4111-8111-111111111111', title:'Untitled shot', draft,revision,preferredAssetId:null,createdAt:'2026-10-12T00:00:00Z',updatedAt:'2026-10-12T00:00:00Z'});
-function harness(query='?sample=dune-study', overrides={}, existingStorage) {
+function harness(query='?sample=dune-study', overrides={}, existingStorage, followEffects=false) {
   let slot=0, first=true; const slots=[], effects=[], cache=new Map(), calls=[];
   const store=existingStorage||new Map();
   const storage = {getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,v),removeItem:k=>store.delete(k)};
@@ -23,8 +23,8 @@ function harness(query='?sample=dune-study', overrides={}, existingStorage) {
   const React={
     useState(initial){const index=slot++; if(first) slots[index]=typeof initial==='function'?initial():initial; return [slots[index],value=>{slots[index]=typeof value==='function'?value(slots[index]):value;}];},
     useRef(initial){const index=slot++; if(first) slots[index]={current:initial}; return slots[index];},
-    useCallback(fn){slot++;return fn;},
-    useEffect(fn){slot++;if(first)effects.push(fn);},
+    useCallback(fn,deps){const index=slot++;const previous=slots[index];if(!previous || deps.some((dep,i)=>dep!==previous.deps[i]))slots[index]={fn,deps};return slots[index].fn;},
+    useEffect(fn,deps){const index=slot++;const previous=slots[index];if(first || (followEffects && (!deps || deps.some((dep,i)=>dep!==previous?.deps?.[i])))){effects.push(()=>{previous?.cleanup?.();slots[index]={deps,cleanup:fn()};});}},
   };
   class StudioApiError extends Error {constructor(message,status,code,retryable=false){super(message);Object.assign(this,{status,code,retryable});}}
   const api={
@@ -34,17 +34,19 @@ function harness(query='?sample=dune-study', overrides={}, existingStorage) {
     saveProject:async(id,body)=>({...project(body.draft,body.expectedRevision+1),id,title:body.title}),
     project:async()=>({project:project(),assets:[],jobs:[]}),
     asset:async()=>{throw new Error('no asset');},
+    job:async()=>{throw new Error('no source job');},
     upload:async()=>{throw new StudioApiError('upload interrupted',503,'SERVICE_UNAVAILABLE');},
     ...overrides,
   };
   for(const key of Object.keys(api)){const fn=api[key];api[key]=(...args)=>{calls.push([key,...args]);return fn(...args);};}
-  const context={console,JSON,Date,Math,URLSearchParams,localStorage,crypto:webcrypto,setTimeout,clearTimeout,document:{hidden:true},window:{location:{search:query},history:{replaceState(){}},addEventListener(){},removeEventListener(){}},createImageBitmap:async()=>({width:512,height:512,close(){}})};
+  const context={console,JSON,Date,Math,URLSearchParams,localStorage,crypto:webcrypto,setTimeout:(...args)=>{const timer=setTimeout(...args);timer.unref();return timer;},clearTimeout,document:{hidden:true},window:{location:{search:query},history:{replaceState(){}},addEventListener(){},removeEventListener(){}},createImageBitmap:async()=>({width:512,height:512,close(){}})};
   function load(relative){const filename=path.join(root,relative);if(cache.has(filename))return cache.get(filename);const code=ts.transpileModule(fs.readFileSync(filename,'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;const loadedModule={exports:{}};cache.set(filename,loadedModule.exports);const localRequire=name=>{if(name==='react')return React;if(name==='./api')return {api,StudioApiError,errorMessage:e=>e.message};if(name.startsWith('@/'))return load(name.slice(2)+'.ts');if(name.startsWith('.'))return load(path.relative(root,path.resolve(path.dirname(filename),name))+'.ts');return req(name);};vm.runInNewContext(`(function(require,module,exports){${code}\n})`,context,{filename})(localRequire,loadedModule,loadedModule.exports);return loadedModule.exports;}
   const {useStudio: runStudio}=load('src/client/use-studio.ts');
   const render=()=>{slot=0;const view=runStudio();first=false;return view;};
   render();
-  const start=async()=>{for(const effect of effects)effect();await tick();return render();};
-  return {start,render,calls,store,api,StudioApiError,context,load};
+  const flush=async()=>{for(let i=0;i<10;i++){render();for(const effect of effects.splice(0))effect();await tick();}return render();};
+  const start=async()=>{for(const effect of effects.splice(0))effect();await tick();return followEffects?flush():render();};
+  return {start,flush,render,calls,store,api,StudioApiError,context,load};
 }
 (async()=>{
   let count=0;
@@ -193,6 +195,54 @@ function harness(query='?sample=dune-study', overrides={}, existingStorage) {
   await regression('IR03: late refresh cleanup cannot clear the replacement shot refresh indicator',async()=>{
     const old=deferred(),fresh=deferred();const h=harness(query,{refresh:async()=>old.promise});let v=await h.start();const oldWork=v.refreshJob(job());await tick();await v.restartSession();v=h.render();const newJob=job({id:'new-job',projectId:v.project.id});h.api.refresh=async()=>fresh.promise;
     const newWork=v.refreshJob(newJob);old.resolve(job());await oldWork;v=h.render();assert.equal(v.jobBusy,newJob.id);fresh.resolve(newJob);await newWork;v=h.render();assert.equal(v.jobBusy,null);
+  });
+  const foreignAsset={...output,id:'foreign-frame',projectId:'external-project',sourceJobId:'foreign-job',kind:'image',source:'generation'};
+  const parentAsset={...foreignAsset,id:'external-parent',sourceJobId:'parent-job'};
+  const foreignJob=job({id:'foreign-job',projectId:foreignAsset.projectId,snapshot:{operation:'text_to_image',prompt:'immutable original',modelId:'fal-ai/flux/schnell',parentAssetId:parentAsset.id}});
+  const parentJob=job({id:'parent-job',projectId:foreignAsset.projectId,snapshot:{operation:'text_to_image',prompt:'parent original',parentAssetId:foreignAsset.id}});
+  const crossProject=()=>project({...sampleDraft(),startAssetId:foreignAsset.id});
+  const metadataMocks={project:async()=>({project:crossProject(),assets:[],jobs:[]}),asset:async id=>id===foreignAsset.id?foreignAsset:parentAsset,job:async id=>id===foreignJob.id?foreignJob:parentJob};
+  await regression('P4-02: resolves immutable external source jobs and recursive parent without poll/list contamination or loops',async()=>{
+    const h=harness(query,{...metadataMocks,capabilities:async()=>live,submit:async(id,body)=>job({id:'own-job',projectId:id,requestKey:body.requestKey})},undefined,true);let v=await h.start();
+    assert.equal(v.sourceJobs.length,2);assert.equal(v.sourceJobs[0].snapshot.prompt,'immutable original');assert.equal(v.assets.length,2);assert.equal(v.jobs.length,0);assert.equal(v.selectedId,null);assert.equal(h.calls.filter(c=>c[0]==='asset').length,2);assert.equal(h.calls.filter(c=>c[0]==='job').length,2);
+    await v.refreshJob(v.sourceJobs[0]);assert.equal(h.calls.filter(c=>c[0]==='refresh').length,0);
+    v.updatePrompt('new draft');await v.submit();v=await h.flush();assert.equal(v.jobs.length,1);assert.equal(v.jobs[0].id,'own-job');assert.equal(v.sourceJobs[0].snapshot.prompt,'immutable original');assert.equal(v.buffer.drafts.image_to_video.prompt,'new draft');
+  });
+  for(const stage of ['asset','job']) for(const outcome of ['success','expiry']) await regression(`P4-02: stale external ${stage} ${outcome} ignored after session replacement`,async()=>{
+    const delayed=deferred();const h=harness(query,{...metadataMocks,[stage]:async()=>delayed.promise},undefined,true);let v=await h.start();await v.restartSession();v=await h.flush();
+    if(outcome==='expiry')delayed.reject(new h.StudioApiError('old guest',401,'GUEST_REQUIRED'));else delayed.resolve(stage==='asset'?foreignAsset:foreignJob);
+    v=await h.flush();assert.equal(v.sourceJobs.length,0);assert.equal(v.assets.length,0);assert.equal(v.expired,false);assert.equal(v.jobs.length,0);
+  });
+  await regression('P4-02: current metadata expiry clears private assets/jobs; late success cannot restore them',async()=>{
+    const delayed=deferred(),late=deferred();const extra={...parentAsset,id:'extra',sourceJobId:'late-job'};const h=harness(query,{...metadataMocks,project:async()=>({project:crossProject(),assets:[foreignAsset,parentAsset,extra],jobs:[]}),job:async id=>id===foreignJob.id?delayed.promise:id==='late-job'?late.promise:parentJob},undefined,true);let v=await h.start();assert.equal(v.sourceJobs.length,1);delayed.reject(new h.StudioApiError('expired',401,'GUEST_REQUIRED'));v=await h.flush();assert.equal(v.expired,true);assert.equal(v.sourceJobs.length,0);assert.equal(v.assets.length,0);assert.equal(v.buffer.drafts.image_to_video.prompt,'first');late.resolve({...parentJob,id:'late-job'});v=await h.flush();assert.equal(v.sourceJobs.length,0);assert.equal(v.assets.length,0);
+  });
+  await regression('P4-02: unavailable metadata retains known assets, selection and edited draft without retry loop',async()=>{
+    const h=harness(query,{...metadataMocks,project:async()=>({project:{...crossProject(),preferredAssetId:foreignAsset.id},assets:[foreignAsset],jobs:[]}),job:async()=>{throw new Error('temporary failure');}},undefined,true);let v=await h.start();v.updatePrompt('keep edits');v=await h.flush();assert.equal(v.assets.length,1);assert.equal(v.selectedId,foreignAsset.id);assert.equal(v.sourceJobs.length,0);assert.equal(v.buffer.drafts.image_to_video.prompt,'keep edits');assert.equal(h.calls.filter(c=>c[0]==='job').length,1);
+  });
+  await regression('P4-02: arbitrary recorded parent resolves independently of active start frame',async()=>{
+    const own=job({snapshot:{operation:'text_to_image',parentAssetId:parentAsset.id,prompt:'current shot'}});
+    const h=harness(query,{...metadataMocks,project:async()=>({project:project(),assets:[],jobs:[own]})},undefined,true);const v=await h.start();
+    assert.equal(v.assets.length,2);assert.equal(v.jobs.length,1);assert.equal(v.jobs[0].id,own.id);assert.equal(v.sourceJobs.find(j=>j.id===foreignJob.id).snapshot.modelId,'fal-ai/flux/schnell');assert.equal(v.buffer.drafts.image_to_video.startAssetId,'sample-dune-light');
+  });
+  await regression('P4-02: copy clears metadata and rejects old source-job response while same-owner references resolve again',async()=>{
+    const old=deferred();let reads=0;
+    const h=harness(query,{...metadataMocks,job:async id=>{if(id===foreignJob.id && reads++===0)return old.promise;return id===foreignJob.id?foreignJob:parentJob;}},undefined,true);let v=await h.start();await v.saveSeparate();v=await h.flush();assert.equal(v.sourceJobs.length,2);const copyId=v.project.id;
+    old.resolve({...foreignJob,snapshot:{...foreignJob.snapshot,prompt:'stale response must not overwrite'}});v=await h.flush();assert.equal(v.project.id,copyId);assert.equal(v.sourceJobs.find(j=>j.id===foreignJob.id).snapshot.prompt,'immutable original');assert.equal(v.jobs.length,0);
+  });
+  await regression('P4-02: source-job response must match requested ID and owning asset project',async()=>{
+    for(const invalid of [{...foreignJob,id:'wrong-job'},{...foreignJob,projectId:'wrong-project'}]){
+      const h=harness(query,{...metadataMocks,job:async()=>invalid},undefined,true);const v=await h.start();assert.equal(v.sourceJobs.length,0);assert.equal(v.assets.length,1);
+    }
+  });
+  await regression('P4-02: API job retrieval is an encoded owner-session GET with no-store',async()=>{
+    const h=harness();let requested;h.context.fetch=async(path,init)=>{requested={path,init};return {ok:true,status:200,json:async()=>({data:foreignJob,requestId:'mock'})};};
+    const result=await h.load('src/client/api.ts').api.job('source/id');assert.equal(result,foreignJob);assert.equal(requested.path,'/api/jobs/source%2Fid');assert.equal(requested.init.credentials,'same-origin');assert.equal(requested.init.cache,'no-store');assert.equal(requested.init.method,undefined);
+  });
+  await regression('P4-02: refreshing own result retains resolved external provenance without changing edited text',async()=>{
+    const own=job({snapshot:{operation:'image_to_video',parentAssetId:foreignAsset.id,startAsset:{id:foreignAsset.id}}});
+    const h=harness(query,{...metadataMocks,project:async()=>({project:crossProject(),assets:[],jobs:[own]})},undefined,true);let v=await h.start();v.updatePrompt('edited locally');
+    h.api.refresh=async()=>({...own,status:'succeeded',outputAssetIds:[output.id]});h.api.project=async()=>({project:crossProject(),assets:[output],jobs:[{...own,status:'succeeded'}]});
+    await v.refreshJob(own);v=await h.flush();assert.equal(v.sourceJobs.length,2);assert.equal(v.assets.length,3);assert.equal(v.jobs.length,1);assert.equal(v.selectedId,output.id);assert.equal(v.buffer.drafts.image_to_video.prompt,'edited locally');assert.equal(h.calls.filter(c=>c[0]==='asset').length,2);
   });
   assert.deepEqual(failures,[], 'regressions must pass');
   console.log(`${count} client-state checks passed; mocked API, no browser/provider calls.`);
