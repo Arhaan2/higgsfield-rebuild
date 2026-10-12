@@ -1,0 +1,25 @@
+{
+  "recordedAt": "2026-10-12T19:01:21.268161+00:00",
+  "entries": [
+    {
+      "session_id": "01a12e7e-0056-79d0-be06-c9489eb194d5",
+      "originalJournal": ".cache/agent-capture/01a12e7e-0056-79d0-be06-c9489eb194d5.jsonl",
+      "preservedJournal": "docs/capture/provenance/01a12e7e-0056-79d0-be06-c9489eb194d5.native.jsonl",
+      "sha256": "68c046bac271f3e7001d0d75afba316fd00e64f3c7fe033afbf77092997dd657",
+      "publishedLog": ".agent-logs/2026-10-12_05-02-53_01a12e7e-0056-79d0-be06-c9489eb194d5.md",
+      "nativeJournalExactMatch": true,
+      "fullSourceTranscript": "unavailable in sessions, archived_sessions or filename search of local Codex store",
+      "purpose": "Automatic client suggestion session; not a delegated production worker"
+    },
+    {
+      "session_id": "01a13149-d83b-7293-a505-0cbfbe90f8a4",
+      "originalJournal": ".cache/agent-capture/01a13149-d83b-7293-a505-0cbfbe90f8a4.jsonl",
+      "preservedJournal": "docs/capture/provenance/01a13149-d83b-7293-a505-0cbfbe90f8a4.native.jsonl",
+      "sha256": "6cfc60244f4c9363f7cd422b2af2974fca748983c11ff9a710d0cce17e3cad27",
+      "publishedLog": ".agent-logs/2026-10-12_18-04-47_01a13149-d83b-7293-a505-0cbfbe90f8a4.md",
+      "nativeJournalExactMatch": true,
+      "fullSourceTranscript": "unavailable in sessions, archived_sessions or filename search of local Codex store",
+      "purpose": "Automatic client suggestion session; not a delegated production worker"
+    }
+  ]
+}

@@ -165,8 +165,24 @@
       "source_item_id": "msg_01a12e62-3710-7da1-9a3b-224a93e5682a",
       "timestamp": "2026-10-12T04:32:30.995Z",
       "text_sha256": "ff6e71d6aaa3ebff5b25a996533316f93834a49d39208091c0234e4eb138a71c"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a12e62-3586-7f70-b45c-b515f67b6e4f",
+      "source_line": 5603,
+      "source_item_id": "msg_02cdbea6b81b8556016acc6757b7f8819ba91fdfbb0c6d6254",
+      "timestamp": "2026-10-12T04:51:45.309Z",
+      "text_sha256": "56cf83a521d2ca8dd056d79169d0ea86b67f39aea9cf1c0398956157e0d78c81"
+    },
+    {
+      "type": "PROMPT",
+      "turn_id": "01a13170-76ec-7070-98a2-464b2e2cde72",
+      "source_line": 5613,
+      "source_item_id": "msg_01a13170-7823-7041-b35c-87d619fb8e88",
+      "timestamp": "2026-10-12T18:46:56.804Z",
+      "text_sha256": "be63db9273d9ab702599f348910403ca41fa9c450147d7e66954c9d64b14453f"
     }
   ],
-  "exported_at": "2026-10-12T04:32:36.250Z",
+  "exported_at": "2026-10-12T18:47:05.351Z",
   "published_path": ".agent-logs/2026-10-11_23-53-44_01a12d62-f5bc-7650-8eb5-7b04e1496548.md"
 }

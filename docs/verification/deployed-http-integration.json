@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-12T18:52:33.680Z",
+  "origin": "https://higgsfield-rebuild.arhaan2.workers.dev",
+  "sourceHead": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+  "workingTreeDirty": true,
+  "kind": "real HTTP zero-spend integration; no live generation",
+  "checks": [
+    {
+      "name": "Public server policy is disabled with zero cap",
+      "result": "pass"
+    },
+    {
+      "name": "Cross-origin writes rejected before session creation",
+      "result": "pass",
+      "ms": 54
+    },
+    {
+      "name": "Two separate guest sessions created",
+      "result": "pass",
+      "ms": 490
+    },
+    {
+      "name": "Draft saved and retrievable; stale revision rejected",
+      "result": "pass",
+      "ms": 1147
+    },
+    {
+      "name": "Valid raw JPEG persists; retry returns same asset",
+      "result": "pass",
+      "ms": 1318
+    },
+    {
+      "name": "Invalid image rejected without replacing valid media",
+      "result": "pass",
+      "ms": 421
+    },
+    {
+      "name": "Private range/HEAD/download return actual bytes",
+      "result": "pass",
+      "ms": 1940
+    },
+    {
+      "name": "Other guest cannot read project, asset, media, or download",
+      "result": "pass",
+      "ms": 959
+    },
+    {
+      "name": "Reference and draft survive a fresh server read",
+      "result": "pass",
+      "ms": 391
+    },
+    {
+      "name": "Disabled generation returns 403 and creates no job",
+      "result": "pass",
+      "ms": 372
+    },
+    {
+      "name": "Prepared catalog remains separate from private work",
+      "result": "pass",
+      "ms": 44
+    }
+  ]
+}

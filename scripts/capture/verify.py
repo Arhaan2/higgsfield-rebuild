@@ -15,8 +15,27 @@ def audit():
         sid = re.search(r'^session_id: (.+)$', published, re.M)[1]
         journal = ROOT / '.cache' / 'agent-capture' / (sid + '.jsonl')
         provenance = ROOT / 'docs' / 'capture' / 'provenance' / (sid + '.json')
-        sources = list(Path('/Users/arhaan/.codex/sessions').rglob('*' + sid + '*.jsonl'))
-        assert len(sources) == 1, f'Ambiguous source: {sid}'
+        sources = [p for folder in ('sessions', 'archived_sessions')
+                   for p in (Path('/Users/arhaan/.codex') / folder).rglob('*' + sid + '*.jsonl')]
+        assert len(sources) <= 1, f'Ambiguous source: {sid}'
+        if not sources and journal.exists():
+            # Ephemeral client suggestion sessions can emit genuine lifecycle hooks
+            # without retaining a full transcript. Preserve their logs and report
+            # the narrower proof instead of claiming a source-transcript match.
+            events = [json.loads(line) for line in journal.read_text().splitlines()]
+            assert published == ''.join(render(events)), f'Native journal mismatch: {sid}'
+            reports.append(dict(session_id=sid, log=str(log.relative_to(ROOT)),
+                                mechanism='native lifecycle hooks', source=None,
+                                journal=str(journal.relative_to(ROOT)),
+                                native_journal_exact_match=True,
+                                source_text_exact_match=None,
+                                limitation='Full source transcript unavailable; native hook journal match only.',
+                                prompts=sum(e['kind'] == 'PROMPT' for e in events),
+                                responses=sum(e['kind'] == 'RESPONSE' for e in events),
+                                models=sorted({e['model'] for e in events}),
+                                sha256=hashlib.sha256(log.read_bytes()).hexdigest()))
+            continue
+        assert sources, f'Missing source and native journal: {sid}'
         lines = sources[0].read_bytes().splitlines()
         records = [json.loads(line) for line in lines]
         if journal.exists():
@@ -63,7 +82,9 @@ def audit():
                             source=str(sources[0]), prompts=prompts, responses=responses,
                             source_text_exact_match=True, models=sorted(source_models),
                             sha256=hashlib.sha256(log.read_bytes()).hexdigest()))
-    return dict(verified_at=utc_now(), sessions=reports)
+    return dict(verified_at=utc_now(),
+                source_transcript_audit_complete=all(r['source_text_exact_match'] is True for r in reports),
+                sessions=reports)
 
 
 if __name__ == '__main__':

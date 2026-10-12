@@ -1,0 +1,2470 @@
+{
+  "task_id": "direct-public-review-001",
+  "started_at": "2026-10-12T18:54:49.587Z",
+  "origin": "https://higgsfield-rebuild.arhaan2.workers.dev",
+  "candidate": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+  "reviewed_product": "b32b03e7f867fa78b4c075890b76a9d41d736287",
+  "capture": {
+    "session_id": "01a13175-6f40-7371-a8f8-5e8e83863da9",
+    "log_path": ".agent-logs/2026-10-12_18-52-23_01a13175-6f40-7371-a8f8-5e8e83863da9.md",
+    "prompt_chars": 3869,
+    "prompt_equals_full_handoff": true,
+    "prompt_sha256": "e6ecf89a77709c0b160982ece9e6fb2f9b7770cbc9be275652382fb6c61d1fd0",
+    "final": "pending Stop and root comparison"
+  },
+  "findings": [],
+  "limits": [
+    "HTTP is not browser rendering, playback or UI reload proof.",
+    "No job endpoint or provider call. Cookies held only in process memory; no cookie/token value printed or written."
+  ],
+  "policy": {
+    "liveGeneration": {
+      "enabled": false,
+      "reason": "disabled",
+      "budgetLimitMicroUsd": 0,
+      "remainingMicroUsd": 0
+    },
+    "operations": [
+      {
+        "id": "text_to_image",
+        "modelId": "fal-ai/flux/schnell",
+        "imageSize": {
+          "width": 1280,
+          "height": 720
+        },
+        "count": 1
+      },
+      {
+        "id": "image_to_video",
+        "modelId": "fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
+        "durationSeconds": 5,
+        "referenceRole": "start_frame"
+      }
+    ],
+    "upload": {
+      "mimeTypes": [
+        "image/jpeg",
+        "image/png"
+      ],
+      "maxBytes": 5000000
+    },
+    "samplesAvailable": true
+  },
+  "initial_attempt": {
+    "checks": [
+      {
+        "name": "Zero-generation policy before all mutations",
+        "result": "pass",
+        "started_at": "2026-10-12T18:54:49.588Z",
+        "detail": {
+          "enabled": false,
+          "reason": "disabled",
+          "budgetLimitMicroUsd": 0,
+          "remainingMicroUsd": 0
+        }
+      },
+      {
+        "name": "Anonymous integrated homepage and deep routes",
+        "result": "fail",
+        "started_at": "2026-10-12T18:54:49.729Z",
+        "detail": "/studio?sample=dune-study missing Prepared sample"
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+        "status": 200,
+        "started_at": "2026-10-12T18:54:49.588Z",
+        "finished_at": "2026-10-12T18:54:49.728Z",
+        "bytes": 510,
+        "sha256": "f72a9b2195bf4bc4e99c8832a6d62e3ceccb2bf8e0256aff58d96e7209809e30",
+        "headers": {
+          "date": "Mon, 12 Oct 2026 18:54:49 GMT",
+          "content-type": "application/json",
+          "cache-control": "private, no-store",
+          "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+          "x-content-type-options": "nosniff"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/",
+        "status": 200,
+        "started_at": "2026-10-12T18:54:49.729Z",
+        "finished_at": "2026-10-12T18:54:49.852Z",
+        "bytes": 26255,
+        "sha256": "a73148ae177646069956888fc9034e3c086d8186e96715d00fa3d1232b35d176",
+        "headers": {
+          "date": "Mon, 12 Oct 2026 18:54:49 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+        }
+      },
+      {
+        "method": "GET",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/studio?sample=dune-study",
+        "status": 200,
+        "started_at": "2026-10-12T18:54:49.852Z",
+        "finished_at": "2026-10-12T18:54:49.906Z",
+        "bytes": 12309,
+        "sha256": "26b2448c05a93465fba4cdda9f6d08c68de7a3154f12fc5b2f3c95facec0a2d2",
+        "headers": {
+          "date": "Mon, 12 Oct 2026 18:54:49 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+        }
+      }
+    ],
+    "execution_error": "/studio?sample=dune-study missing Prepared sample",
+    "classification": "Reviewer assertion was too strong: anonymous Studio serves Opening your studio before client useEffect initializes sample selection. Source and HTTP confirm integrated loading shell. Not an application defect or a playback result."
+  },
+  "checks": [
+    {
+      "name": "Zero-generation policy before every mutation",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:21.675Z",
+      "detail": {
+        "enabled": false,
+        "reason": "disabled",
+        "budgetLimitMicroUsd": 0,
+        "remainingMicroUsd": 0
+      }
+    },
+    {
+      "name": "Anonymous homepage and deep routes return integrated HTML",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:21.865Z",
+      "detail": [
+        {
+          "path": "/",
+          "markers": [
+            "Frame",
+            "Explore",
+            "Studio",
+            "Library"
+          ]
+        },
+        {
+          "path": "/studio?sample=dune-study",
+          "markers": [
+            "Studio",
+            "Opening your studio",
+            "Live generation off"
+          ]
+        },
+        {
+          "path": "/library",
+          "markers": [
+            "Your shots",
+            "Prepared media",
+            "Sample collection"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Cross-origin, cross-site and missing-origin session writes denied",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:22.056Z",
+      "detail": "Three 403 ORIGIN_FORBIDDEN responses without Set-Cookie"
+    },
+    {
+      "name": "Two separate secure guest sessions",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:22.306Z",
+      "detail": {
+        "distinct": true,
+        "flags": [
+          {
+            "httpOnly": true,
+            "secure": true,
+            "sameSiteLax": true,
+            "hostPrefix": true,
+            "pathRoot": true
+          },
+          {
+            "httpOnly": true,
+            "secure": true,
+            "sameSiteLax": true,
+            "hostPrefix": true,
+            "pathRoot": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Two owner-scoped drafts persist in fresh reads",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:22.924Z",
+      "detail": "Both exact drafts retained; zero jobs"
+    },
+    {
+      "name": "One licensed JPEG upload persists with upload provenance",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:23.854Z",
+      "detail": {
+        "source": "upload",
+        "bytes": 187464,
+        "width": 1600,
+        "height": 2397
+      }
+    },
+    {
+      "name": "Draft and preferredAssetId survive fresh detail and Library list",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:24.574Z",
+      "detail": {
+        "revision": 3,
+        "preferredAssetId": "03143bd2-2553-4f7a-8161-11692af54a0b",
+        "libraryListEqualsDetail": true,
+        "assets": 1,
+        "jobs": 0
+      }
+    },
+    {
+      "name": "Stale draft revision denied and retained state unchanged",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:25.500Z",
+      "detail": "409 REVISION_CONFLICT; title, draft and preference retained"
+    },
+    {
+      "name": "Unrelated guest denied project, metadata, media and download",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:25.892Z",
+      "detail": "Four 404 NOT_FOUND; guest B list excludes A"
+    },
+    {
+      "name": "Foreign project and asset preference writes plus cross-origin patch denied",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:26.545Z",
+      "detail": "Foreign project/asset: 404; cross-origin: 403"
+    },
+    {
+      "name": "Anonymous private project and media require guest",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:26.970Z",
+      "detail": "Three 401 responses"
+    },
+    {
+      "name": "Private download exactly matches source JPEG",
+      "result": "pass",
+      "started_at": "2026-10-12T18:56:27.069Z",
+      "detail": {
+        "bytes": 187464,
+        "sha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a",
+        "cache_control": "private, no-store",
+        "vary_contains_cookie": true,
+        "content_type": "image/jpeg",
+        "disposition": "attachment; filename=\"reviewer-dune-light.jpg\"; filename*=UTF-8''reviewer-dune-light.jpg",
+        "verification": "Exact bytes asserted before overly strict Vary equality stopped run; safe persisted response metadata independently rechecked for remaining header assertions."
+      }
+    },
+    {
+      "name": "Prepared catalog explicitly separates samples from generation",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:57.753Z",
+      "detail": {
+        "sampleAssets": 2,
+        "preparedPresets": 3,
+        "privateProjectEffects": "No sample job created; reviewer invoked no jobs routes. Earlier fresh reads had zero jobs; Library source counts source === generation only."
+      }
+    },
+    {
+      "name": "Public prepared video equals repository MP4",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:57.753Z",
+      "detail": {
+        "source": "sample",
+        "bytes": 11342355,
+        "sha256": "356a6ef6192ae00b955b82755c7c07cb6ff767da79995e574925e7c2a64e633e",
+        "browserPlayback": "not tested"
+      }
+    },
+    {
+      "name": "Public GitHub main equals requested source",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:59.226Z",
+      "detail": {
+        "sha": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+        "url": "https://github.com/Arhaan2/higgsfield-rebuild/commit/f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+        "checked_at": "2026-10-12T18:57:57.677Z"
+      }
+    },
+    {
+      "name": "Product source and tests match published immutable candidate",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:59.226Z",
+      "detail": {
+        "matchedFiles": 130,
+        "treeCheckedAt": "2026-10-12T18:57:57.658Z"
+      }
+    },
+    {
+      "name": "Reviewed product unchanged between b32b03e and f271258",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:59.244Z",
+      "detail": {
+        "changedFiles": 20,
+        "productOrTestChanges": 0,
+        "priorControlledChecksReused": 138
+      }
+    },
+    {
+      "name": "Prepared deployment binding retains exact zero budget and hosted origin",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:59.244Z",
+      "detail": {
+        "path": ".cache/cloudflare/wrangler.json",
+        "sha256": "fea218371288d19a62bec6523ff962a82af6f2fa07c6290a9b2717c54ac48f85",
+        "checked_at": "2026-10-12T18:57:59.245Z",
+        "vars": {
+          "APP_ORIGIN": "https://higgsfield-rebuild.arhaan2.workers.dev",
+          "LIVE_GENERATION_ENABLED": "false",
+          "GENERATION_BUDGET_USD": "0"
+        },
+        "binding_names": [
+          "DB",
+          "BUCKET"
+        ],
+        "compatibility_date": "2026-05-15",
+        "compatibility_flags": [
+          "nodejs_compat"
+        ],
+        "observability": {
+          "enabled": true,
+          "head_sampling_rate": 1
+        },
+        "limit": "Local prepared config; live Cloudflare version binding metadata remains root-owned."
+      }
+    },
+    {
+      "name": "Hosted application build marker and referenced assets match local fresh build",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:59.245Z",
+      "detail": {
+        "vinext_build_id": "4fe8a9b2-8d73-4d0d-bbcf-7227fe62d34f",
+        "cloudflare_version_from_assignment": "cbe42062-203d-462c-949e-0d4bd380beac",
+        "cloudflare_tag_from_assignment": "f271258",
+        "attribution": "Vinext build ID and public referenced asset hashes independently matched. Cloudflare version/tag supplied by root, not proven by homepage.",
+        "artifacts": [
+          {
+            "path": "/_next/static/css/index.BMmWFhaz.css",
+            "bytes": 178615,
+            "sha256": "39844c1b20a872a6a3d147ee9cf8a91665f5c830f1f5d46ebdfeffff633fb510"
+          },
+          {
+            "path": "/_next/static/chunks/index-B4ztYcrx.js",
+            "bytes": 194290,
+            "sha256": "f0aae9c1b2483ead1fc0da749bba3c2cc8b2c6e9298c49e9d61d408938f93979"
+          },
+          {
+            "path": "/_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+            "bytes": 694,
+            "sha256": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75"
+          },
+          {
+            "path": "/_next/static/chunks/framework-D_rUT4EX.js",
+            "bytes": 190152,
+            "sha256": "939d0fabebb3b2f01753bb866b067d8d3384fb06da19f0e6557609d3b1a9f4f7"
+          },
+          {
+            "path": "/_next/static/chunks/layout-segment-context-Xy-CIhz5.js",
+            "bytes": 494,
+            "sha256": "8829b58e578f39cb95dd58ca6640653558cbfcc2c57211c9c10d9b44dba7ef56"
+          },
+          {
+            "path": "/_next/static/chunks/StudioView-DeWtCBtl.js",
+            "bytes": 44884,
+            "sha256": "eea51e2aa5d55ae2e377ca947071b6e0a9cbc162f4ab9935a9f7fc942c2eed25"
+          },
+          {
+            "path": "/_next/static/chunks/AppShell-D-HrZAA3.js",
+            "bytes": 3742,
+            "sha256": "5ac13a5eced9ca814414277d8b5fe3cb03adb79f5728d1a7ba561d580472d693"
+          },
+          {
+            "path": "/_next/static/chunks/Icon-D0zGVybZ.js",
+            "bytes": 1082,
+            "sha256": "f3426f714786f25ed8a9e72c49b02957d2ff43e926a6c25381c556ef6b2d96d7"
+          },
+          {
+            "path": "/_next/static/chunks/samples-C7vLxxxT.js",
+            "bytes": 64077,
+            "sha256": "d9bcadf82f0acd7cd40bea121dd54340ea889b8dd44ad86048c639f9d34d3ae1"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Public generation policy remains disabled and zero after reviewer work",
+      "result": "pass",
+      "started_at": "2026-10-12T18:57:59.800Z",
+      "detail": {
+        "enabled": false,
+        "reason": "disabled",
+        "budgetLimitMicroUsd": 0,
+        "remainingMicroUsd": 0
+      }
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:21.675Z",
+      "finished_at": "2026-10-12T18:56:21.864Z",
+      "bytes": 510,
+      "sha256": "7d30b7c8b4719d625e0722811cde5e199bff718c5f1985ca865da9168b2e03b0",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:21 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:21.865Z",
+      "finished_at": "2026-10-12T18:56:21.956Z",
+      "bytes": 26255,
+      "sha256": "a73148ae177646069956888fc9034e3c086d8186e96715d00fa3d1232b35d176",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:21 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/studio?sample=dune-study",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:21.956Z",
+      "finished_at": "2026-10-12T18:56:22.003Z",
+      "bytes": 12309,
+      "sha256": "26b2448c05a93465fba4cdda9f6d08c68de7a3154f12fc5b2f3c95facec0a2d2",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:21 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/library",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.003Z",
+      "finished_at": "2026-10-12T18:56:22.056Z",
+      "bytes": 13451,
+      "sha256": "58eded9a79c87a4b0da24696849ad276f591ea6767f6e05cd73093bbe19f2a70",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.056Z",
+      "finished_at": "2026-10-12T18:56:22.109Z",
+      "bytes": 510,
+      "sha256": "3cb4ed5e00cba06e20519c88aff584c5b5a8467879d183706d722bc86d31e622",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/guest",
+      "status": 403,
+      "started_at": "2026-10-12T18:56:22.109Z",
+      "finished_at": "2026-10-12T18:56:22.142Z",
+      "bytes": 154,
+      "sha256": "0ab5c4081fe166ecf27748d7aa4fc8e3eb41f67a1396d38e2029d543e7aabb19",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.142Z",
+      "finished_at": "2026-10-12T18:56:22.193Z",
+      "bytes": 510,
+      "sha256": "c8b9e0c13c94f239c73bca2305a0596835d44f0d96b202d59581e471adf829ee",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/guest",
+      "status": 403,
+      "started_at": "2026-10-12T18:56:22.193Z",
+      "finished_at": "2026-10-12T18:56:22.224Z",
+      "bytes": 154,
+      "sha256": "ab4f5c4aa271a72f578fd9048969287d15ab8062753d10ecc57852787ab97ba2",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.224Z",
+      "finished_at": "2026-10-12T18:56:22.272Z",
+      "bytes": 510,
+      "sha256": "473cfeee3b4179549a4947faaa12d09b7891f48e3166fb020bd2373f6be0370a",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/guest",
+      "status": 403,
+      "started_at": "2026-10-12T18:56:22.272Z",
+      "finished_at": "2026-10-12T18:56:22.306Z",
+      "bytes": 154,
+      "sha256": "68a4b76aa25b3be28c497d384a79655fc2d1e4e735f5cf8524bea8fb35d41643",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.306Z",
+      "finished_at": "2026-10-12T18:56:22.378Z",
+      "bytes": 510,
+      "sha256": "005d8904d03076e194a651e13210e22620886839f00a533bbbf12a9e5eda63e2",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/guest",
+      "status": 201,
+      "started_at": "2026-10-12T18:56:22.378Z",
+      "finished_at": "2026-10-12T18:56:22.511Z",
+      "bytes": 100,
+      "sha256": "23ec830d7e4dadbcca14cd92f3593b1bf2140ac8d884e6577fa2654b1d3c12fe",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.511Z",
+      "finished_at": "2026-10-12T18:56:22.795Z",
+      "bytes": 510,
+      "sha256": "932b1f4160bb7a8df6a6b6f8cd57177ab8b446b663c4ed04354abf900bb608e6",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/guest",
+      "status": 201,
+      "started_at": "2026-10-12T18:56:22.795Z",
+      "finished_at": "2026-10-12T18:56:22.921Z",
+      "bytes": 100,
+      "sha256": "7bc5acb4673320b85b31d52ac2e1fbb09bfeaa2e8980f2eb565398879962227a",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:22.924Z",
+      "finished_at": "2026-10-12T18:56:22.976Z",
+      "bytes": 510,
+      "sha256": "f8711df736b0aa4d5f5d26d577b7e0107c94ea68ebfef64c3d75083b57bea8e4",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:22 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects",
+      "status": 201,
+      "started_at": "2026-10-12T18:56:22.976Z",
+      "finished_at": "2026-10-12T18:56:23.176Z",
+      "bytes": 423,
+      "sha256": "d55244ab3a9921ae069bb0b9fac937d4177e3d15cb61eb7c4ccc98b6c42a5b66",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:23 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:23.176Z",
+      "finished_at": "2026-10-12T18:56:23.401Z",
+      "bytes": 457,
+      "sha256": "3dfc5be57f3c8ba0300326b676412b1a2e167b893b247b0f61631a4990da772f",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:23 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:23.402Z",
+      "finished_at": "2026-10-12T18:56:23.458Z",
+      "bytes": 510,
+      "sha256": "2818682735ae862fb36ba53042b0babf69b699c26b1025b764e6ee8e40597c8b",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:23 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects",
+      "status": 201,
+      "started_at": "2026-10-12T18:56:23.458Z",
+      "finished_at": "2026-10-12T18:56:23.647Z",
+      "bytes": 445,
+      "sha256": "2ae13e241c33235d5d8464b628862a88802a45d0ff18ba196a9b643d44058c7c",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:23 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/9e12cbd5-b036-4f21-8d6b-57c2b28eb503",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:23.647Z",
+      "finished_at": "2026-10-12T18:56:23.853Z",
+      "bytes": 479,
+      "sha256": "d7811d673eb40ee7a6c26a6bfc1c464575b58f853791712de058a8c141f8c9d4",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:23 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:23.854Z",
+      "finished_at": "2026-10-12T18:56:23.909Z",
+      "bytes": 510,
+      "sha256": "7e09a1e9bd40a4e69183304c308a9eff904209fd5232a477abcae8555229089d",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:23 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835/uploads?assetId=03143bd2-2553-4f7a-8161-11692af54a0b&filename=reviewer-dune-light.jpg",
+      "status": 201,
+      "started_at": "2026-10-12T18:56:23.909Z",
+      "finished_at": "2026-10-12T18:56:24.573Z",
+      "bytes": 588,
+      "sha256": "78021b9e6e54cd7823333ba543e536aa39cc3ff4c8699d02d25a3d978b5fab4d",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:24 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:24.574Z",
+      "finished_at": "2026-10-12T18:56:24.719Z",
+      "bytes": 985,
+      "sha256": "964e59262c1a7644fcfaa3879ceae8091dad00c14b7bc69bc5afbca1e8412a67",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:24 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:24.719Z",
+      "finished_at": "2026-10-12T18:56:24.774Z",
+      "bytes": 510,
+      "sha256": "cde25f7e6d0740dd4f828bad8eb0195f274bdcabad7000c32ba5583d9a8bcac3",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:24 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:24.774Z",
+      "finished_at": "2026-10-12T18:56:24.993Z",
+      "bytes": 488,
+      "sha256": "3ebe7e2996488dc8c8663999b10e9552bb0faf111d79371367156faca2116594",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:24 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:24.993Z",
+      "finished_at": "2026-10-12T18:56:25.047Z",
+      "bytes": 510,
+      "sha256": "d92ee9fdb1295ebc74d0494655c186718c9252390a9076a30c31fc7a875fbc7a",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:25.047Z",
+      "finished_at": "2026-10-12T18:56:25.233Z",
+      "bytes": 522,
+      "sha256": "fefb740a433c58591f708b8ba298d88199be1f66be3d3b338a5158358fb02774",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:25.233Z",
+      "finished_at": "2026-10-12T18:56:25.377Z",
+      "bytes": 1084,
+      "sha256": "97ce7f4600ee51794c7030ecc0f4a97463873e5f4a2b5fee56136d8ad6a0a8cc",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:25.377Z",
+      "finished_at": "2026-10-12T18:56:25.500Z",
+      "bytes": 552,
+      "sha256": "5e627396f5053f1f17cf1f3763eef881ccb258c63c7f9438ccb43c4b3258f31f",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:25.500Z",
+      "finished_at": "2026-10-12T18:56:25.551Z",
+      "bytes": 510,
+      "sha256": "09bd97c7d2f614dd729d3993742ae4dd86dd1d5bdc40ffbc5adcb72903676f08",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 409,
+      "started_at": "2026-10-12T18:56:25.551Z",
+      "finished_at": "2026-10-12T18:56:25.690Z",
+      "bytes": 200,
+      "sha256": "a8fb05a5a8ff4700ae9bc27ecad5c3d308b42aeead9bb9f6c54bc03ba21ef6ce",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:25.690Z",
+      "finished_at": "2026-10-12T18:56:25.892Z",
+      "bytes": 1084,
+      "sha256": "90c34a7371c2b7e81f4cbbf179458d02f3ce1dc87828271993fedba804fd1991",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:25 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 404,
+      "started_at": "2026-10-12T18:56:25.892Z",
+      "finished_at": "2026-10-12T18:56:26.021Z",
+      "bytes": 140,
+      "sha256": "b53a74da624de3a3c7b9784c3aee1a4280f1f8e8b88705ee1780382aaec07fdc",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/assets/03143bd2-2553-4f7a-8161-11692af54a0b",
+      "status": 404,
+      "started_at": "2026-10-12T18:56:26.021Z",
+      "finished_at": "2026-10-12T18:56:26.158Z",
+      "bytes": 138,
+      "sha256": "f3a8510e53ecfdef7fafa7e80b4f94ad448bc942bd32f953d71d055eab7d7de4",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/assets/03143bd2-2553-4f7a-8161-11692af54a0b/media",
+      "status": 404,
+      "started_at": "2026-10-12T18:56:26.158Z",
+      "finished_at": "2026-10-12T18:56:26.287Z",
+      "bytes": 138,
+      "sha256": "4e760076cd408b1c95d4e6584fc9bcd68e8b9fd40881719b050336f42883cd90",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/assets/03143bd2-2553-4f7a-8161-11692af54a0b/download",
+      "status": 404,
+      "started_at": "2026-10-12T18:56:26.288Z",
+      "finished_at": "2026-10-12T18:56:26.414Z",
+      "bytes": 138,
+      "sha256": "e5bbbe42e8117114edd0189d109f800af49516974316909f14c83c4c65b52139",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:26.414Z",
+      "finished_at": "2026-10-12T18:56:26.544Z",
+      "bytes": 475,
+      "sha256": "0a66339514a9f072218d0e19469dc3b05dbc8891a8579e4f8843b4ce688a8baf",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:26.546Z",
+      "finished_at": "2026-10-12T18:56:26.598Z",
+      "bytes": 510,
+      "sha256": "e409a873dab3558a554790b998c92bec9d3edd8410978a7633fe7f4a92b4e4f7",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 404,
+      "started_at": "2026-10-12T18:56:26.598Z",
+      "finished_at": "2026-10-12T18:56:26.673Z",
+      "bytes": 140,
+      "sha256": "7c2004910c5147703b67d3531d3369da7c2a41b5a933effa5a403ac3793a13cd",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:26.673Z",
+      "finished_at": "2026-10-12T18:56:26.729Z",
+      "bytes": 510,
+      "sha256": "6562ce01fa51b4bb20fb0c5071be62a78b6c55f861808ead8e8d8eaac450227c",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/9e12cbd5-b036-4f21-8d6b-57c2b28eb503",
+      "status": 404,
+      "started_at": "2026-10-12T18:56:26.729Z",
+      "finished_at": "2026-10-12T18:56:26.883Z",
+      "bytes": 138,
+      "sha256": "bd956bd5bb8d6c1ac5eac4cdf4b3e0fa65ef82afeef547cb379169693b628a5e",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:26.883Z",
+      "finished_at": "2026-10-12T18:56:26.939Z",
+      "bytes": 510,
+      "sha256": "5356122b8cf6d149d57a5d72d0f64bde1c3b98e4358b809b56cbec32c3ecd76b",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "PATCH",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 403,
+      "started_at": "2026-10-12T18:56:26.939Z",
+      "finished_at": "2026-10-12T18:56:26.970Z",
+      "bytes": 154,
+      "sha256": "36e37ec6ca63742cd9f436cd9b98d64259c58e8688858eed214c09290dafcceb",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/projects/3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "status": 401,
+      "started_at": "2026-10-12T18:56:26.970Z",
+      "finished_at": "2026-10-12T18:56:27.000Z",
+      "bytes": 201,
+      "sha256": "7fcca618e97fd621bdf813bc8d8cbdd630ea9f187d7cd34b9c72b799122ff6cd",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:26 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/assets/03143bd2-2553-4f7a-8161-11692af54a0b/media",
+      "status": 401,
+      "started_at": "2026-10-12T18:56:27.000Z",
+      "finished_at": "2026-10-12T18:56:27.035Z",
+      "bytes": 201,
+      "sha256": "ad9721201376506a54d2dd8c53108d070ec8756ecde797df50653369f6444879",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:27 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/assets/03143bd2-2553-4f7a-8161-11692af54a0b/download",
+      "status": 401,
+      "started_at": "2026-10-12T18:56:27.035Z",
+      "finished_at": "2026-10-12T18:56:27.069Z",
+      "bytes": 201,
+      "sha256": "92f3c09b011315084dc9216f2bd2a3a4cabb390870e0a32982e7d9b38eae6ae8",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:27 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/assets/03143bd2-2553-4f7a-8161-11692af54a0b/download",
+      "status": 200,
+      "started_at": "2026-10-12T18:56:27.069Z",
+      "finished_at": "2026-10-12T18:56:27.410Z",
+      "bytes": 187464,
+      "sha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:56:27 GMT",
+        "content-type": "image/jpeg",
+        "content-disposition": "attachment; filename=\"reviewer-dune-light.jpg\"; filename*=UTF-8''reviewer-dune-light.jpg",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode",
+        "etag": "\"8886b0ca003d17c5b24583229fb28424\"",
+        "x-content-type-options": "nosniff"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/samples",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:57.231Z",
+      "finished_at": "2026-10-12T18:57:57.347Z",
+      "bytes": 3025,
+      "sha256": "835d94cbfa8306606444756896f37a60815e6436e5d32c27ebbb52e7a4a27c78",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:57 GMT",
+        "content-type": "application/json",
+        "cache-control": "public, max-age=60",
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/git/trees/f271258fd0d4fece10229dfd74c89dfd5bcf275f?recursive=1",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:57.246Z",
+      "finished_at": "2026-10-12T18:57:57.658Z",
+      "bytes": 131188,
+      "sha256": "072cbac2d5a4f320abf089bfae7722dc0a205ee4050626626338c672a07dd72f",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:57 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=86400, s-maxage=86400",
+        "vary": "Accept,Accept-Encoding, Accept, X-Requested-With"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:57.246Z",
+      "finished_at": "2026-10-12T18:57:57.677Z",
+      "bytes": 132304,
+      "sha256": "b0053cf7f477eec8052323afa12810cc61ebe86c800814bce8e91519f9fc5063",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:57 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=60, s-maxage=60",
+        "vary": "Accept,Accept-Encoding, Accept, X-Requested-With"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/compare/b32b03e7f867fa78b4c075890b76a9d41d736287...f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:57.246Z",
+      "finished_at": "2026-10-12T18:57:57.752Z",
+      "bytes": 139766,
+      "sha256": "bbe4b02c9d93461583c0aa47252e0a955ed935ec0ce0865e38a30f1edc602608",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:57 GMT",
+        "content-type": "application/json; charset=utf-8",
+        "cache-control": "public, max-age=60, s-maxage=60",
+        "vary": "Accept,Accept-Encoding, Accept, X-Requested-With"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/samples/dune-flight.mp4",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:57.753Z",
+      "finished_at": "2026-10-12T18:57:59.004Z",
+      "bytes": 11342355,
+      "sha256": "356a6ef6192ae00b955b82755c7c07cb6ff767da79995e574925e7c2a64e633e",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:57 GMT",
+        "content-type": "video/mp4",
+        "content-length": "11342355",
+        "cache-control": "public, max-age=0, must-revalidate"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/studio?sample=dune-study",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.245Z",
+      "finished_at": "2026-10-12T18:57:59.420Z",
+      "bytes": 12309,
+      "sha256": "26b2448c05a93465fba4cdda9f6d08c68de7a3154f12fc5b2f3c95facec0a2d2",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/html; charset=utf-8",
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/css/index.BMmWFhaz.css",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.420Z",
+      "finished_at": "2026-10-12T18:57:59.464Z",
+      "bytes": 178615,
+      "sha256": "39844c1b20a872a6a3d147ee9cf8a91665f5c830f1f5d46ebdfeffff633fb510",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/css",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/index-B4ztYcrx.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.466Z",
+      "finished_at": "2026-10-12T18:57:59.522Z",
+      "bytes": 194290,
+      "sha256": "f0aae9c1b2483ead1fc0da749bba3c2cc8b2c6e9298c49e9d61d408938f93979",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.523Z",
+      "finished_at": "2026-10-12T18:57:59.563Z",
+      "bytes": 694,
+      "sha256": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/framework-D_rUT4EX.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.563Z",
+      "finished_at": "2026-10-12T18:57:59.610Z",
+      "bytes": 190152,
+      "sha256": "939d0fabebb3b2f01753bb866b067d8d3384fb06da19f0e6557609d3b1a9f4f7",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/layout-segment-context-Xy-CIhz5.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.611Z",
+      "finished_at": "2026-10-12T18:57:59.647Z",
+      "bytes": 494,
+      "sha256": "8829b58e578f39cb95dd58ca6640653558cbfcc2c57211c9c10d9b44dba7ef56",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/StudioView-DeWtCBtl.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.647Z",
+      "finished_at": "2026-10-12T18:57:59.684Z",
+      "bytes": 44884,
+      "sha256": "eea51e2aa5d55ae2e377ca947071b6e0a9cbc162f4ab9935a9f7fc942c2eed25",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/AppShell-D-HrZAA3.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.685Z",
+      "finished_at": "2026-10-12T18:57:59.728Z",
+      "bytes": 3742,
+      "sha256": "5ac13a5eced9ca814414277d8b5fe3cb03adb79f5728d1a7ba561d580472d693",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/Icon-D0zGVybZ.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.728Z",
+      "finished_at": "2026-10-12T18:57:59.761Z",
+      "bytes": 1082,
+      "sha256": "f3426f714786f25ed8a9e72c49b02957d2ff43e926a6c25381c556ef6b2d96d7",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/samples-C7vLxxxT.js",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.761Z",
+      "finished_at": "2026-10-12T18:57:59.799Z",
+      "bytes": 64077,
+      "sha256": "d9bcadf82f0acd7cd40bea121dd54340ea889b8dd44ad86048c639f9d34d3ae1",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "text/javascript",
+        "cache-control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://higgsfield-rebuild.arhaan2.workers.dev/api/capabilities",
+      "status": 200,
+      "started_at": "2026-10-12T18:57:59.800Z",
+      "finished_at": "2026-10-12T18:57:59.906Z",
+      "bytes": 510,
+      "sha256": "bde8fae985054db1a72b4cb5d8fa2db702c0a347d1e887f3771e39acf3bfe767",
+      "headers": {
+        "date": "Mon, 12 Oct 2026 18:57:59 GMT",
+        "content-type": "application/json",
+        "cache-control": "private, no-store",
+        "vary": "Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode"
+      }
+    }
+  ],
+  "disposable": {
+    "project_ids": [
+      "3c9dbd4a-81b0-4298-a1d1-fd5a19a18835",
+      "9e12cbd5-b036-4f21-8d6b-57c2b28eb503"
+    ],
+    "asset_ids": [
+      "03143bd2-2553-4f7a-8161-11692af54a0b"
+    ],
+    "session_count": 2,
+    "upload_requests": 1
+  },
+  "fixture": {
+    "path": "public/samples/dune-light.jpg",
+    "bytes": 187464,
+    "sha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a"
+  },
+  "finished_at": "2026-10-12T18:57:59.906Z",
+  "total": {
+    "pass": 20,
+    "fail": 0
+  },
+  "assertion_corrections": [
+    {
+      "check": "Private download exactly matches source JPEG",
+      "original_result": {
+        "name": "Private download exactly matches source JPEG",
+        "result": "fail",
+        "started_at": "2026-10-12T18:56:27.069Z",
+        "detail": "Expected values to be strictly equal:\n+ actual - expected\n\n+ 'Cookie, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Next-Url, X-Vinext-Interception-Context, X-Vinext-Mounted-Slots, X-Vinext-Rsc-Render-Mode'\n- 'Cookie'\n"
+      },
+      "classification": "Test assertion was too strict: Vary may legally contain multiple tokens. Observed header includes Cookie; extra Vinext routing tokens do not disable private caching."
+    }
+  ],
+  "public_main": {
+    "sha": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+    "url": "https://github.com/Arhaan2/higgsfield-rebuild/commit/f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+    "checked_at": "2026-10-12T18:57:57.677Z"
+  },
+  "source_fingerprints": [
+    {
+      "path": "app/api/[...path]/route.ts",
+      "sha256": "8d666516c038f73f2d7720a6276e97ade339dd87d808d782178e8d7a6680cc76",
+      "github_blob_sha": "057c56501b7e75138b82693c9bc4d009f905462e",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "app/chatgpt-auth.ts",
+      "sha256": "4265a2e7c2dcb3a6f4b7026f762bf5b6e4caec76cc13c0a45987ee9a9f2e42cc",
+      "github_blob_sha": "a0ae2ed9a9771b5fc36a06af554a05c18b2a13b3",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "app/globals.css",
+      "sha256": "c012b82385e6391321e55dcaa4e01eb065fb49e26cf7f13479ebe754ab7093c5",
+      "github_blob_sha": "1ab8862cfb7f654ce1823f872207cae19c771ec4",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "app/layout.tsx",
+      "sha256": "b0c1a81109a9e0fe74914677148522d9a8b8d8ceb66d75105b19cdf1a1380e47",
+      "github_blob_sha": "1ef5a24d5d041d9e3d531cb75bcc79a3890a9577",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "app/library/page.tsx",
+      "sha256": "904f6e02962fca8807c5761648ec5bedcd834b00aa073e741af369b0d8d55450",
+      "github_blob_sha": "5be812aa31d57416895d153246d70a47c0515277",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "app/page.tsx",
+      "sha256": "0d420fa912147fa43f70331da92fdff1320ed14d71408af35dd1636eee2033e2",
+      "github_blob_sha": "1ade1fb8d43a50943ff3cd234293b028ceacf7e4",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "app/studio/page.tsx",
+      "sha256": "8f2a679ca11b56583e9766ebfb3ae76b910fa2d3bdcaa94f08480b07f1c1466e",
+      "github_blob_sha": "9b9d8264b0bf19b81cdf76adeec77e4fad18266d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "build/connector-preview-plugin.mjs",
+      "sha256": "a6a9fe2086e302f94a3f91e3c1a68a45bb3aa07d4a79faf01b14732191eb4e80",
+      "github_blob_sha": "f29e9953bdac6f25be5f1b58e5a02ef0457bafbe",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "build/connector-preview-worker.mjs",
+      "sha256": "c1b6b2c420cb67d9e28f8f4ae440f578c0dfd4cb840a12cfe4b58076629a17ba",
+      "github_blob_sha": "f4d5f1974728c4b295d05a1422d7e2bce75635e5",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "build/sites-vite-plugin.LICENSE",
+      "sha256": "7de1e115d165f176e68f962acdb809b5ab8d8ae78d3981e0701392b2ac50c713",
+      "github_blob_sha": "4243cb4a9aaa50f954498e54c850773e9ba13eea",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "build/sites-vite-plugin.ts",
+      "sha256": "07af20e7097d9ed1d76f7c446d02997550b8fc5ca89668b249e25eabd62c6834",
+      "github_blob_sha": "2ece1b96530b40a7ea4981e6341b52771a07813e",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "build/sites-worker.ts",
+      "sha256": "28a75f74adfc226a773d1c00d5779c26412eea40a104da5c77f7d0f0fc30f0e8",
+      "github_blob_sha": "f5589039057a3f3f221b4a5418d6a4e595e63224",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/connector-error.tsx",
+      "sha256": "2d0d04559952ce9c9a327cca499f4b99f35d885cccfce375230e116695d3f155",
+      "github_blob_sha": "3c994dc58811e4b02250092fec54b0b788edcc2c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/studio/AppShell.tsx",
+      "sha256": "db4bc6b931f8ae72a60bdbe91a30cadd9f04b5f8b8554cda20a38d3ac75c0cf2",
+      "github_blob_sha": "dc3932cfe3aef6f164feb18cffd2ddcc4bf9ab7d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/studio/AssetDetails.tsx",
+      "sha256": "3cdcc47a7ae4cef6f62b50ddbc205c0b681139eb5f331c919a229c40cb498a9f",
+      "github_blob_sha": "9798b68df62b716d258f500890938d17f281cb8f",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/studio/AssetMedia.tsx",
+      "sha256": "ce5bbe24eada0488dbef6f0ab562a6eb66d3c63ed37028170fcd72b26829b77d",
+      "github_blob_sha": "070559e5572953122c587320eebb7ef538564a70",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/studio/LibraryView.tsx",
+      "sha256": "3b18e8bdfad4f5fc204408f4d1e0e6a4fa977dd512feb750d7f42a3b1f2f0f1d",
+      "github_blob_sha": "9f27c0a6197f3c1db1031396d6384998771f4fa4",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/studio/StudioView.tsx",
+      "sha256": "4c7e2bab6f22c8c09e241aaeacd22a22cdcfbb7047674b94fbda5399a5ce3d31",
+      "github_blob_sha": "01eac0e7f26cf51a64456a0dc2345d48223b7eba",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/accordion.tsx",
+      "sha256": "a4f153089ba886dfcf73fac26b5c01ca933fa12fbe88df6fb723912bfffdfbb0",
+      "github_blob_sha": "91e3a250ce6ee0797b0258454d774800650adcc8",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/alert-dialog.tsx",
+      "sha256": "9a8d950f2b9b4352d5ebb762fb44d5c28c2d353aa29712071973656a8736e311",
+      "github_blob_sha": "dad327341382f200b84d5f833eb1b7a74b0e7469",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/alert.tsx",
+      "sha256": "2cc59b5f7bda91c1670884b1bf46bfc8a2a6f226cef184f5762acc037188885b",
+      "github_blob_sha": "f99164ed4b320790482f514342dab5e72f284aca",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/aspect-ratio.tsx",
+      "sha256": "b1c157886236782cb92d8fbcd4749532aaf6d8aabefd6e157ca40358f902f407",
+      "github_blob_sha": "57e38fa96f9c0cb767d7b8de0d6dbc171d1b921a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/attachment.tsx",
+      "sha256": "ae8a25dd1a896d3964e3ef54d97e51221b418cde287dfd794428b89951c5c790",
+      "github_blob_sha": "5bdd1ce7db5800eb55198cd0291a1e47dc67fb0d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/avatar.tsx",
+      "sha256": "58a846bf1617b94b9681921db9b8461d0145f311424663d11678a06b6153cb34",
+      "github_blob_sha": "ea658505703a577fe93341e5e1a0b478c27245f7",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/badge.tsx",
+      "sha256": "46a0de5224f6a5d5d63d45246534288518dce888f031064bff925bbc7fe6ad97",
+      "github_blob_sha": "6eb2a057aae0e23a74368cc4daf9657210e9a740",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/breadcrumb.tsx",
+      "sha256": "d4c0831bba2212e778248f54a6ace6ef378df8bba4616d1abf27787a31eabae5",
+      "github_blob_sha": "004bb63a4c92229e612b6126d79fb7b078aa7565",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/bubble.tsx",
+      "sha256": "870cc0c5cfc8a515053f7e41e706a6bd017a909b45f1305fd3b164a52cc4483b",
+      "github_blob_sha": "792146e61d80ef595d032d5d09a3d572d50f1374",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/button-group.tsx",
+      "sha256": "784c89d8ee683e1bc972ae69e6ea8225a7f63abe22aa1b5fc3423ae8a2a399c0",
+      "github_blob_sha": "cd550d7afca6562548afe3f595b352406f7f3951",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/button.tsx",
+      "sha256": "cc36af0f8b5019c33cc039fbf03bb952a513072b15b55b53c592b78af3e5f4c4",
+      "github_blob_sha": "4d38506cee5430d95a59ec6a2a0cef2b79217e7a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/calendar.tsx",
+      "sha256": "3855fbe0d3f8ad3a4b93071f98b76a9f6782d46ec8b05f5d2ddbee1e4e39bc84",
+      "github_blob_sha": "5d31419b130a18c52320f5a21546a9236123b6bf",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/card.tsx",
+      "sha256": "c48dd3b96be90a7066f1aebf294f0af9d00ebcdc367d5d4aca55429ade570c1c",
+      "github_blob_sha": "acf57dc5a534792273b8fb86227e92e001f3dc53",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/carousel.tsx",
+      "sha256": "b7ea0dda3903d972c186f739e23da61f547bc83b5a0bf13b16856577846d5fc3",
+      "github_blob_sha": "0e05a77ea155fde6af5d9a4848b1d3953df6ea5a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/chart.tsx",
+      "sha256": "45aa5ea4a386f4fb5b8869ff4bab3a08cf89255190ee322043baf84c3e950b6a",
+      "github_blob_sha": "9813c584e125847d88e9e7e7f9edff7e9ba45a97",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/checkbox.tsx",
+      "sha256": "b23ab9d4deeedf2ac8f512c368361ede681aa383437ef48563a6f9b7dbe95f27",
+      "github_blob_sha": "f5a7e433f3795b82a00c5c06a1fc6decf116a84a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/collapsible.tsx",
+      "sha256": "c6598e5584f4258b5d9fefadbc5ad6a66888ad58729f4b634a0bb2d9c513188b",
+      "github_blob_sha": "2f7a4e7fc64a8874373c1584646a63f28cd63c47",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/combobox.tsx",
+      "sha256": "2d68e78b2dc7e38a085f222dede60a80b4f8229a6e91732c484605e204d46735",
+      "github_blob_sha": "2415bd801031a16bbcee8343058825feecfaea69",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/command.tsx",
+      "sha256": "361193df1e3d64a9e9b5048f045264782fcb387aab3f00f2b805fdcbf538b16a",
+      "github_blob_sha": "8fe3ccb406be52d28961b0c0220e87ecd19596ca",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/context-menu.tsx",
+      "sha256": "2cf1fcf59df0649a3e2a126d1df2f639145f6b6bf5689ee54af1f40ab1245017",
+      "github_blob_sha": "5aaca76552cf0468b1def03c9e2c42f1f0b60734",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/dialog.tsx",
+      "sha256": "dce39c6adc47d997bd2567f8b7a72f466b0134715105cd42f9194007b8ecdb14",
+      "github_blob_sha": "84bdef4bb307087da1bfaf3cadf7be5dbda73f24",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/direction.tsx",
+      "sha256": "84ae2ad658207f0e0f367978e5508cd8027cd00c29c41d3d13db21a708c3d1e6",
+      "github_blob_sha": "22e165774bd595fbf41d0c45efef1cf996897983",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/drawer.tsx",
+      "sha256": "cb6eaf58eb0757ca91af284e5d925b89a42ad7eb19cb3f44c575a3487aa9350f",
+      "github_blob_sha": "ad08671442203fe345093f364696bdf43528e0b7",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/dropdown-menu.tsx",
+      "sha256": "98f0dcdae38225b73734aceeb9213dd751fea2c72ea520df31003cd133deac8a",
+      "github_blob_sha": "ae1fcf62f1e3b648554789b8fe02943d92bf00fc",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/empty.tsx",
+      "sha256": "ae95bdcf367a076ae02e7925f14522a148798f72d9651749c6d55497dba584c0",
+      "github_blob_sha": "ce4b0095f6d19d2eae2e465060e9060b0c210856",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/field.tsx",
+      "sha256": "ba67d76f017ac059fc86cf8c344e0b2991c4322d3619e125498c19b87f6eefbd",
+      "github_blob_sha": "ec849dae4d3dd06a973ba22e4b2248a25cf18148",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/form.tsx",
+      "sha256": "315b46bb75ab7d1c6061b5d750aa4bedf6e7a455e15e2d7f9182f053d5972b1e",
+      "github_blob_sha": "f371fea1bc35380d28678c6cf53df8f65deb2776",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/hover-card.tsx",
+      "sha256": "f5d8df42c59370ec14d61bcc54f7d68e9bb7dfa0d6a872b2f7cffc2aafbf23b8",
+      "github_blob_sha": "91e869c0d3091cbeddf5cb0266e82ddf56f829a6",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/input-group.tsx",
+      "sha256": "6afbd58fea4c438e6252dc4568bddc122e84ababead4ad5cee50ace01100c9a0",
+      "github_blob_sha": "a7652d936fffd9c5bca4b88e6b9715bf559e667d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/input-otp.tsx",
+      "sha256": "161946daa89f0eda2575b9271c0494e35807c4ffb55598a49f67160c17fec299",
+      "github_blob_sha": "6a556afacd71996bf0e385ff2b04869fb2ee4523",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/input.tsx",
+      "sha256": "8c4612a7c41319ac5049daa3b34b080f9784b6245c17780eb87c127e58e473db",
+      "github_blob_sha": "f1124aea14eee062fc2f4c55dad5f0d9de0ccc1a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/item.tsx",
+      "sha256": "6e2144d6d87142dbbe56d568810bf546318c8aa661447ebb0d76ebbf382cb45f",
+      "github_blob_sha": "d5dbb1a9c2e70456e45a39887a4b7cc56d484a45",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/kbd.tsx",
+      "sha256": "6088c3a5432338b1719c17e9b5d0e1fa74fd1f66060f248fc88909d33a82cd13",
+      "github_blob_sha": "2459224fbc531f6306b73aaeb22e9022d9985332",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/label.tsx",
+      "sha256": "a476e41f08b9de5bd447de66a33d8bc2ad18f2fa6b96c064778bab4b6f439f4c",
+      "github_blob_sha": "1ac80f701ebfe9dc02d632c08cafade732e46625",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/marker.tsx",
+      "sha256": "3d798763f094b2bb5e7ade2d5cd1b9bab498bc8ca7fd4cfaf4e5835bdedc34a0",
+      "github_blob_sha": "cfa76c6c014ab342befcbf7571eb932917406522",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/menubar.tsx",
+      "sha256": "9243af8afcea03703398ccd1c2a8c0a87ad6cbaf2bd272fb609f5b79fe46aebb",
+      "github_blob_sha": "4af16a428377f81cbb3f66adfe518308e0b690d8",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/message-scroller.tsx",
+      "sha256": "bb7660a248e4e9589c3816c7c1c199ea1381a70d2c8476ae895b567a7a4d86cf",
+      "github_blob_sha": "0b05011259c026a357380c3834bce0ead8565d22",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/message.tsx",
+      "sha256": "9d2952bf3b641081f09aa2739535e6bbd1be0a4946789752a2c20d8aaef43185",
+      "github_blob_sha": "53437e8db2b0fad1da06a7499e54ddaf116295c2",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/native-select.tsx",
+      "sha256": "007516b111fca8c98a6c40c94ab91bb68cc5b52afce1ed1f5e510c3d86e7347c",
+      "github_blob_sha": "3058398399ad6c029ad527052475b360b114715b",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/navigation-menu.tsx",
+      "sha256": "889d358a77de88e9cb6f39ea4895ea4c76eaf01d731b74e44f1c41e97a78a044",
+      "github_blob_sha": "0a673f513c97fbeaae0872403b7582ab2ba7e3c3",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/pagination.tsx",
+      "sha256": "374ad135c3d4ff3ec080a0009cd9745cdd0e12faa89d2b0e86074f11e5127fd1",
+      "github_blob_sha": "1dcfb0cc050c5f2bdd930522d627313d03d3690c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/popover.tsx",
+      "sha256": "31c350309ff5d3034e6ecf1b0eda75ba8855bdbf987fc7ad6d71f0ef07c5a447",
+      "github_blob_sha": "30058c4ec284ca9cad1ed1162d084ce3cd94e2b0",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/progress.tsx",
+      "sha256": "c8c26e8f5f041c3cdf4915347dc1d9c022f9448f149990fadcaf303e952fa57d",
+      "github_blob_sha": "b3ae25089ad549b7f13125e482f99b43dd895bd2",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/radio-group.tsx",
+      "sha256": "fe5ce39636d0818c2bf9c4eebddff893d1225fa2c81b5fa4bb8cbb39a8c913ce",
+      "github_blob_sha": "fe514536ed771f7adef0a6b9e4d1aeadc2c95481",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/resizable.tsx",
+      "sha256": "bc63958467aa00557c551bb0d96a5ae4c965c1e1ba2380e595949d933b132f7c",
+      "github_blob_sha": "a76832a10b4c5c2a137e25c16478567ba86daf0d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/scroll-area.tsx",
+      "sha256": "8bd9d986b2844c9a87de825c6de4787b6739b36c3dc9a05ccf3eb107160e4043",
+      "github_blob_sha": "73c4eb1cdcd4a699b150a9ddc3e87bfb90b63d09",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/select.tsx",
+      "sha256": "0b796a108a4eb5ba52d9ad938b7aea36dc56ae66c703a6d0a23dbc24f96daff3",
+      "github_blob_sha": "c0dc7120b4f78008ae5efc6d1c8b7ec8205c35d5",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/separator.tsx",
+      "sha256": "6da346505c8629a4668420d2a5ca48891383bbe0b0ceb14163537c671879427e",
+      "github_blob_sha": "cd873e3631b571060f166897b7b62e033e87c18f",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/sheet.tsx",
+      "sha256": "63863cf2df8f8973e52b3459ac9bdbf81be1262dbc70eb53d5271ffb03488e16",
+      "github_blob_sha": "cb53bb28b6850745c9519e8e7462e05f85a50c93",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/sidebar.tsx",
+      "sha256": "4a8d73e7730a2b1fcecfca31299ed26db65c2307b84197a59c6ec7c01c7ad28e",
+      "github_blob_sha": "f5f6c5aefc88ffa2e999e284b299472215c05161",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/skeleton.tsx",
+      "sha256": "ba48dd5be5a6a1378bd4e011028654b5bf419f1e7d20ee4b9f8330c1264e7239",
+      "github_blob_sha": "3ec6be770b846170b8e7f8916e5f165e2d1730df",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/slider.tsx",
+      "sha256": "0e37484f4b416e79ac18c655cac961aefacf6e67085cfc2b320ea8af545635a3",
+      "github_blob_sha": "46ebc4b4df1e9baf1f3997a4b6c08ef80c84a9c9",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/sonner.tsx",
+      "sha256": "13ccc9b0fe4248e622f83a1d3b2f0566b72b5e04162d7d0c8db8945ecc71b55f",
+      "github_blob_sha": "9b20afe2e10fd9b94d1abc1ae732054b2fb9821c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/spinner.tsx",
+      "sha256": "3e6e6e8d37fb4069f8e43e55318f8db06fbc36e6c8be0096da3c9337c1c798b9",
+      "github_blob_sha": "a70e713c5b4ecb2af186efe3fadea51805f26ba5",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/switch.tsx",
+      "sha256": "386d4d4deb39f34126f9700fe9bf5393d238485dd94018bba9d154dda84c62ae",
+      "github_blob_sha": "8baa844fdb17d668b3ce07cfbd6a7ef52e2eb5eb",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/table.tsx",
+      "sha256": "20e5a7f224959c6b75802995706a97e9da171f693d4b6b1b436388fcd9df96f3",
+      "github_blob_sha": "7add5f1a22db954ac6cb3446f1bf8c8a9fc5c335",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/tabs.tsx",
+      "sha256": "865d0194331b9b2be36723fa79d3575dc83078b4cb941cafee87cb72fc2cff46",
+      "github_blob_sha": "b463afd170637df477e36184aa27d2ad1bd3c3e0",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/textarea.tsx",
+      "sha256": "253cdeb487c73beaaccdf47fc163e36e7d5b7ae6ddf09a4f64998a109a112979",
+      "github_blob_sha": "e67d8fefe50c41dfa2deed9a5096d5be7691581a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/toggle-group.tsx",
+      "sha256": "69f643e889e933f05c1439084480d8646f66a161c7d1cf0730ee926382ade35e",
+      "github_blob_sha": "9894607b212ff7182bf2024f4262da03df0a8973",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/toggle.tsx",
+      "sha256": "ba4d0b0a2b2fee75dc36dfc19e32082e721024b919050c97fd5dc70faa924e16",
+      "github_blob_sha": "5250c98ff7f11f531af38c227230a76b7d25bf19",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "components/ui/tooltip.tsx",
+      "sha256": "a0784eb77831a799fad7991df4f1b666f876201565a80175e1aa68733574a2e4",
+      "github_blob_sha": "ec65c1e4255f050d9555c6cdade90a5f8a6c0c29",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "lib/connector-context.ts",
+      "sha256": "bbddff68689cb0f6926fecd4b8b96f12f2054277c296e97b0df07d4ad5ece24e",
+      "github_blob_sha": "6cdeac72bf2df63e0a73159af25e0b4564ed1d43",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "lib/connector-contract.mts",
+      "sha256": "e1a7b24a8793af34b595690d9b1300c897c7321c14f215cedf58ad95799d7c3e",
+      "github_blob_sha": "f146418508b4c272a4495ec5498b6f0554b1f966",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "lib/connector-errors.mts",
+      "sha256": "a22edf13d6873ae832c4a2a0d579fc666c73ec996ef0722d39172649d38f0871",
+      "github_blob_sha": "c9d2fe845ec965062d3724fd28a0892b4fbf5a9b",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "lib/connector-preview.d.ts",
+      "sha256": "abd69a94f7f61f1359063bb557574faae35e8ff5a028cc4c04b9ee248ef52642",
+      "github_blob_sha": "bb3f498b67e3dfd93601626aa2675af07dfe711c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "lib/connectors.ts",
+      "sha256": "1c93d747e384c8e17e3e3dd5361b24412babf5eba2a11d2ae7a75f4e0924112c",
+      "github_blob_sha": "30b85c0dd699e7236ec1694e03466b03caa2a7dc",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "lib/utils.ts",
+      "sha256": "53f3d3d070f0a9082934da25b875f9499855c2b0693868dd28be8c23d8730f68",
+      "github_blob_sha": "b500fb167fdaa78785feb0ff03b51f8a182a44ae",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "eedaeab6870c0f70f9db869fcaa24abae9b0f945cbc9acb8a43b6e7ed6bcbfca",
+      "github_blob_sha": "0c8fdaec7500eb3dc16d88807e4269b0685d61e4",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "eb7b53ec5bdce1db5a8576b2ffc3b63ddd8c5fdee0f97dcb341674abbf69843a",
+      "github_blob_sha": "170db67a0667359eae3ea4433a51b25760357b7c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "scripts/prepare-cloudflare.mjs",
+      "sha256": "13f21eba2f4c08505d8ee69850914321ff5cb40eb1014d2af096a5088d1712cb",
+      "github_blob_sha": "bcade63a6bf8b63463fba9b2c9f63710ed819a3c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "scripts/verify-http.mjs",
+      "sha256": "a5e52b869a940565fb225f52f4debc0b190506ae0b8467d2df10a40d5e111aa1",
+      "github_blob_sha": "62f645b9cb8962ee3eb018f25efac430c2ff6bc1",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/catalog/samples.ts",
+      "sha256": "2d198185a185efdd1a3747bfa14f56d71603309ac2879544740ce7c4430281b0",
+      "github_blob_sha": "52a2033b3fe7cb9d9adb89b93b163e6feafd7836",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/api.ts",
+      "sha256": "d5f6cb6b10ddd20ee0d547ceaac30bdf15668a7aafb732aef88355b95eb38139",
+      "github_blob_sha": "fa33fa5bac228aa8b916161ea219f3dba11e12b9",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/checks/library-state.mjs",
+      "sha256": "3641840b3248872e26d5e045f2f5cd1e0ba4b70ed793833c1bad54430664cc74",
+      "github_blob_sha": "681477fa1673dc6c522bd75e5a76dc94d3b2f363",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/checks/reference-action.mjs",
+      "sha256": "03b205f71d1472015af6d1a7a18b7cb10fc5f3022378f61ca793a5f0e324bb04",
+      "github_blob_sha": "5774083e6a3878ff7be8c308cb9fd350c3f49747",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/checks/studio-state.mjs",
+      "sha256": "dfb784ca4dc42696c422390581084e168297dc86e6da804e7da4ce73ff29bbe3",
+      "github_blob_sha": "c2d1c179f488dd1d483d517d37bd1929b00a5f9b",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/integration-notes.md",
+      "sha256": "23fe96befa0bf4054b4b5517974fd3e0c26fe7995b6db21beeedd8203657373f",
+      "github_blob_sha": "167bf541f3d4262d318e8cab1aaa25b9be4968ee",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/recovery.ts",
+      "sha256": "802cf4318d8425ac6e24651b8270d219e808cb8903496d57410216ec98f78375",
+      "github_blob_sha": "8c6e38c9edfb7496344fdcbb4259c5de80cc395c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/reference-action.ts",
+      "sha256": "9385583efda95c74e7c719b5c4c774a0d4e4a25cebb9ff593984202f7741f8e0",
+      "github_blob_sha": "203b11e24f7d7c748ed1acafb3f76d19a9f6b9f2",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/repair-notes.md",
+      "sha256": "504a04c27815bac99a5cd3faca42ff3bbbd8885d3e436e60c0a939bc0df479fc",
+      "github_blob_sha": "bf9c593e4b20bc6ae3e717889a8746b88ed05f28",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/client/use-studio.ts",
+      "sha256": "2c7cac8c6b96bf6612ef5eadf08c32dc459eb29080742a79af9e678766db3684",
+      "github_blob_sha": "d2dd153e10e0dc0429fefcc64a1623ca0da730ab",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/config/server.ts",
+      "sha256": "ba934105655471a718df9b8c2fa65e09d3c299a4b033adec6ec3fe71a9a77197",
+      "github_blob_sha": "1a2eb58eb098538d8787aad7193331e1831d878d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/contracts/studio.ts",
+      "sha256": "d88a33a1beee1a5bf642db0392fb171f69dc49b9ce73ee8f2026581f7e2b5b33",
+      "github_blob_sha": "558e3a1728e12d3e08b77402928d031d92e6cb78",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/README.md",
+      "sha256": "a7f27f8ca02712b603a8ef934d0e2be1e1066a77aa07fe21c302934495122f2f",
+      "github_blob_sha": "32fb9eba938c2ea76748cdb17748cca1544526ba",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/api.ts",
+      "sha256": "b3be27b2ce1b98feb75545a264ca889fe43634a297e2da08898063735a3c2ce8",
+      "github_blob_sha": "97f4c6e3850094fa312696ea6218752b20758c0d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/fal.ts",
+      "sha256": "5eeafd65ce9e012f09c84b0a909aae0202a65f9362b664c878bea5f2daa1da6a",
+      "github_blob_sha": "c5cfaa35726f3447fa1d9b1461cf565d32c03766",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/http.ts",
+      "sha256": "50349cebf8e9a5b565454ff0a037f8046f752a2c92acb5324d9a50c40297a2bf",
+      "github_blob_sha": "9c0b5f41bdc66094f869b8b0cfc6dd6cb071b831",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/images.ts",
+      "sha256": "735786ccbc617ff30a0a1c3ecc2020993e03931affe367586cf026636e4bf27e",
+      "github_blob_sha": "65c6254f1617fc895afdfbb1aca2dee36fb88344",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/integration-notes.md",
+      "sha256": "1e240dab1d498b892210324e79f5e3d8718bb0f586ea9c181a3b590936f3e27d",
+      "github_blob_sha": "5c2a78330993bc2bf3fa7061ef71ec9d06546169",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/jobs.ts",
+      "sha256": "3c67c9198119d79ed21793dc5bc63f0e62f9f5336e3078dd51ec2c11733d8d0b",
+      "github_blob_sha": "b648b74d67d736ec72d4b648440b076fd9658e93",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/media.ts",
+      "sha256": "e7a9d19315d9e692c51083d4c359f5bb5fcead085c3827b3a9d69dd00d97f643",
+      "github_blob_sha": "a6b97e700a1f1bba0decd486044c6f4e975b5a1a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/schema-guards.sql",
+      "sha256": "c99266ebca45a7c4c24d848924c283c41919b6ec524615999ce82d17fa41585c",
+      "github_blob_sha": "3372f057a1ea0a0875117637cda408153ea78d7e",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/store.ts",
+      "sha256": "5e4f6eded75cb629579692571c84caf4a8ac2386a76e62121f087272ae2e3dd7",
+      "github_blob_sha": "aa56db88e5a603802f2fd7f9d6f6438afd5cd62a",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/transfer.ts",
+      "sha256": "6645c0e9ea10c40740e210bbbc66265b442d95fb237a5c21dbf8f5faa7fd0ea3",
+      "github_blob_sha": "cee3e86a27a70f77ef024f8422f502dc63e3a7c9",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "src/server/uploads.ts",
+      "sha256": "427aa3c8e9de09612be6716f5d8039a08363323e1012c0f8bb130ba63387868b",
+      "github_blob_sha": "f1155d30ac0dff9bcf8af3614dd76ee8a0508278",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/server/backend.test.mjs",
+      "sha256": "e3e823f614ad9a9f829535d4ceb3ddeefc1f3089169e1449fac4ff7af07728ee",
+      "github_blob_sha": "63aa116c702340ec2b44c7d1279137c470f1414c",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/server/creative-loop.test.mjs",
+      "sha256": "00feaaf2be561f50e49cfeffcfc77a19ef87f1cdad599a17b7b7ff9a4d70ef91",
+      "github_blob_sha": "6c4bcce7291c368328d06082460a3e92d7e64b51",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/server/failure-reservation.test.mjs",
+      "sha256": "047b586203bef1285f4ab446c487e8406bd62bc70b5deed641efbd8dc1b09e21",
+      "github_blob_sha": "037826287ed6cf9927a1e52e230eb6bd6914b52d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/server/harness.mjs",
+      "sha256": "eae233c4fefd1a7bb1c86b3fd67a59767fc82c17be0ff9a4a6978e3d8914ff19",
+      "github_blob_sha": "49b16489588ec4abab8e99c66ff6baec15dd4d77",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/server/register.mjs",
+      "sha256": "caad8a9369178c033ee1c5bf7e7105cb72015c175befe9d6e1c76b33d55381e3",
+      "github_blob_sha": "72c57944dbe07bf4b549f86fc79e2cc5005dc112",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/server/transfer.test.mjs",
+      "sha256": "9b87a9421315b49b4fda03fc41e29cf115ce12e36beee050a7c1b0efdf2dca51",
+      "github_blob_sha": "f2d3a7a26f4ba1db0787ff0c3b9ffd15c0fcf983",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/.gitignore",
+      "sha256": "3277f78d5b133b838314f96884f806b1f4d32b71aacc1601c7ddd0359bfe67f6",
+      "github_blob_sha": "ae3911c406bb558fc5e892e39f21fbf06ba2af67",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/fixture-api.ts",
+      "sha256": "d222eaaafa75adebef7ba275d59cebc2b14fccddd1f3229dbdb2f32181fc069c",
+      "github_blob_sha": "dd5aeecdc02bf9993dea632bc6a9eb4badef536f",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/fixture-recovery.ts",
+      "sha256": "25946731c22acb4243745af89492cc14e1ab3368b5af38c8da78263cfe5fa792",
+      "github_blob_sha": "2eaf28cfbf1ee0ea1db9b92667f12118326ce24d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/fixture-studio.tsx",
+      "sha256": "742e4bd1e25ddba9303935ce26193efbaaae5df0f5fcea9f80043cf74f6a6fea",
+      "github_blob_sha": "fbc7ca7856aa6ababb0df136fe7bc03cfcb951a5",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/fixture.css",
+      "sha256": "f9b47ad89bcc14d3f3f2696932cfaf1d2433042796d3a07fb9597c1eea0b8219",
+      "github_blob_sha": "5358564b9611c8bec088948c825ae73d861a051d",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/index.html",
+      "sha256": "8bbe50356b86d4b82410fc1f35c2209025b4c147dcea5c044638f1335008ecb7",
+      "github_blob_sha": "fd3b8f9ff8728235f8e9f6fcee839f3610336058",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/main.tsx",
+      "sha256": "692487e77a025f6a4972017b828916a28bed0de15cbe0dac83adfe8a72905a03",
+      "github_blob_sha": "369388181f90ff9d9b7b36d0f17273461a5aa42f",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/tsconfig.json",
+      "sha256": "0c51d5a0804f6a26eabdf78ba32bcf1c94d5bca03bf2d6dd6a773c181b34d5a7",
+      "github_blob_sha": "98f04349edce0f733714d9d95d4ac2d310946392",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tests/visual/vite.config.ts",
+      "sha256": "96ac48dec43dbbd4df968837d629fef1775a056752f70b6f164ca9bee220457f",
+      "github_blob_sha": "60487e138d8f6ca0c8e44f5e7d1e5bdd2e4dba60",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "3519a2a111cf7b5265e1c4a29f553a1e1f7ac4676254c33557a709c546b40895",
+      "github_blob_sha": "75c8779ee647e9f9545d46f402ec5bd573144f3b",
+      "working_equals_candidate": true
+    },
+    {
+      "path": "vite.config.ts",
+      "sha256": "6f6d890794fbe23f3e35cceb327f49d5977432a5aaf715e040a6408932da395b",
+      "github_blob_sha": "62c760210840bf230b9738c8d20a51f48b7dd5f0",
+      "working_equals_candidate": true
+    }
+  ],
+  "source_comparison": {
+    "base": "b32b03e7f867fa78b4c075890b76a9d41d736287",
+    "head": "f271258fd0d4fece10229dfd74c89dfd5bcf275f",
+    "status": "ahead",
+    "total_commits": 1,
+    "files": [
+      {
+        "path": ".agent-logs/2026-10-12_04-43-56_01a12e6c-a616-7122-b93b-24226a36007f.md",
+        "status": "added"
+      },
+      {
+        "path": "README.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/ACCEPTANCE.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/DECISIONS.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/STATUS.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/SUBMISSION.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/TECH-SPEC.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/WALKTHROUGH-SCRIPT.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/agents/ASSIGNMENTS.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/agents/handoffs/26-submission-review.txt",
+        "status": "added"
+      },
+      {
+        "path": "docs/capture/verification-submission-final.json",
+        "status": "added"
+      },
+      {
+        "path": "docs/verification/INDEX.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/verification/submission-closure.json",
+        "status": "added"
+      },
+      {
+        "path": "docs/verification/submission-local-browser.md",
+        "status": "modified"
+      },
+      {
+        "path": "docs/verification/submission-preference-final-desktop.jpg",
+        "status": "added"
+      },
+      {
+        "path": "docs/verification/submission-preference-final-mobile.jpg",
+        "status": "added"
+      },
+      {
+        "path": "docs/verification/submission-preference-layout.json",
+        "status": "added"
+      },
+      {
+        "path": "docs/verification/submission-resource-preflight.json",
+        "status": "modified"
+      },
+      {
+        "path": "docs/verification/submission-review-checks.json",
+        "status": "added"
+      },
+      {
+        "path": "docs/verification/submission-review.md",
+        "status": "added"
+      }
+    ],
+    "checked_at": "2026-10-12T18:57:57.752Z"
+  },
+  "prepared_binding": {
+    "path": ".cache/cloudflare/wrangler.json",
+    "sha256": "fea218371288d19a62bec6523ff962a82af6f2fa07c6290a9b2717c54ac48f85",
+    "checked_at": "2026-10-12T18:57:59.245Z",
+    "vars": {
+      "APP_ORIGIN": "https://higgsfield-rebuild.arhaan2.workers.dev",
+      "LIVE_GENERATION_ENABLED": "false",
+      "GENERATION_BUDGET_USD": "0"
+    },
+    "binding_names": [
+      "DB",
+      "BUCKET"
+    ],
+    "compatibility_date": "2026-05-15",
+    "compatibility_flags": [
+      "nodejs_compat"
+    ],
+    "observability": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "limit": "Local prepared config; live Cloudflare version binding metadata remains root-owned."
+  },
+  "build_marker": {
+    "vinext_build_id": "4fe8a9b2-8d73-4d0d-bbcf-7227fe62d34f",
+    "cloudflare_version_from_assignment": "cbe42062-203d-462c-949e-0d4bd380beac",
+    "cloudflare_tag_from_assignment": "f271258",
+    "attribution": "Vinext build ID and public referenced asset hashes independently matched. Cloudflare version/tag supplied by root, not proven by homepage.",
+    "artifacts": [
+      {
+        "path": "/_next/static/css/index.BMmWFhaz.css",
+        "bytes": 178615,
+        "sha256": "39844c1b20a872a6a3d147ee9cf8a91665f5c830f1f5d46ebdfeffff633fb510"
+      },
+      {
+        "path": "/_next/static/chunks/index-B4ztYcrx.js",
+        "bytes": 194290,
+        "sha256": "f0aae9c1b2483ead1fc0da749bba3c2cc8b2c6e9298c49e9d61d408938f93979"
+      },
+      {
+        "path": "/_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+        "bytes": 694,
+        "sha256": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75"
+      },
+      {
+        "path": "/_next/static/chunks/framework-D_rUT4EX.js",
+        "bytes": 190152,
+        "sha256": "939d0fabebb3b2f01753bb866b067d8d3384fb06da19f0e6557609d3b1a9f4f7"
+      },
+      {
+        "path": "/_next/static/chunks/layout-segment-context-Xy-CIhz5.js",
+        "bytes": 494,
+        "sha256": "8829b58e578f39cb95dd58ca6640653558cbfcc2c57211c9c10d9b44dba7ef56"
+      },
+      {
+        "path": "/_next/static/chunks/StudioView-DeWtCBtl.js",
+        "bytes": 44884,
+        "sha256": "eea51e2aa5d55ae2e377ca947071b6e0a9cbc162f4ab9935a9f7fc942c2eed25"
+      },
+      {
+        "path": "/_next/static/chunks/AppShell-D-HrZAA3.js",
+        "bytes": 3742,
+        "sha256": "5ac13a5eced9ca814414277d8b5fe3cb03adb79f5728d1a7ba561d580472d693"
+      },
+      {
+        "path": "/_next/static/chunks/Icon-D0zGVybZ.js",
+        "bytes": 1082,
+        "sha256": "f3426f714786f25ed8a9e72c49b02957d2ff43e926a6c25381c556ef6b2d96d7"
+      },
+      {
+        "path": "/_next/static/chunks/samples-C7vLxxxT.js",
+        "bytes": 64077,
+        "sha256": "d9bcadf82f0acd7cd40bea121dd54340ea889b8dd44ad86048c639f9d34d3ae1"
+      }
+    ]
+  },
+  "source_review": {
+    "checked_at": "2026-10-12T19:00:34.306293+00:00",
+    "zero_budget": "src/server/jobs.ts policy takes min(environment cap, database cap), defaults missing policy to zero, denies admission before INSERT/provider submission, and pauses provider progress when disabled or zero. src/config/server.ts defaults budget to zero and requires literal true for enablement.",
+    "cross_origin": "src/server/api.ts dispatch calls requireOrigin before routing mutations; src/server/http.ts requires exact configured Origin and rejects Sec-Fetch-Site cross-site.",
+    "ownership": "src/server/store.ts scopes project/asset/job lookup by guest_id; API checks owned project before upload/detail/PATCH, checks owned preferred asset and project membership; media is reached only after ownership. Same-owner cross-project references and catalog samples are explicit exceptions.",
+    "private_media": "src/server/media.ts streams R2 body, sets private no-store, Vary Cookie, nosniff and attachment for download. Hosted Vinext adds routing Vary tokens; Cookie remains present.",
+    "sample_accounting": "LibraryView.tsx counts only assets with source generation; catalog samples have no project/source job, presets explicitly isPreparedSample, and Studio/Library label prepared media. Uploaded fixture is source upload.",
+    "apple_design": "Agency and specific status feedback: preference is an explicit acknowledged action; inspection does not persist it; saved/retry/error labels distinguish pending and confirmed states; preserved buffers/revision conflict recovery protect work. Sample labels and generation-off status remain explicit. No rendered, keyboard, reduced-motion, accessibility or animation claim.",
+    "sources": [
+      "src/config/server.ts",
+      "src/server/http.ts",
+      "src/server/api.ts",
+      "src/server/store.ts",
+      "src/server/jobs.ts",
+      "src/server/uploads.ts",
+      "src/server/media.ts",
+      "src/catalog/samples.ts",
+      "src/client/use-studio.ts",
+      "components/studio/StudioView.tsx",
+      "components/studio/LibraryView.tsx"
+    ],
+    "current_primary_references": [
+      {
+        "url": "https://developers.cloudflare.com/workers/best-practices/workers-best-practices/",
+        "retrieved": "2026-10-12",
+        "use": "Bindings, awaited I/O, secrets and streaming review guidance."
+      },
+      {
+        "url": "https://unpkg.com/@cloudflare/workers-types@latest/index.d.ts",
+        "retrieved": "2026-10-12",
+        "bytes": 623700,
+        "sha256": "01ca160750648c12b5adf4c5dc0e1e94b80790e11c53a997877717a1d877a5cf",
+        "observed": "D1Database, R2Bucket and R2ObjectBody with ReadableStream body; no package installed. Initial request was a redirect body; corrected with redirect following."
+      }
+    ]
+  },
+  "reused_evidence": {
+    "controlled_checks": {
+      "source": "docs/verification/submission-review-checks.json",
+      "sha256": "b52f2b5fe006e9734217e3717d06a903c75e15f8be2fee58786f71d562565f0e",
+      "passed": 138,
+      "boundary": "Prior independent client mocks and SQLite/mock storage/provider on unchanged b32b03e product; not rerun."
+    },
+    "root_http": {
+      "source": "docs/verification/deployed-http-integration.json",
+      "sha256": "724dc53c6e4298deafddfbb6e01ec3122066ea97b86670c2d9c9b915039772af",
+      "checked_at": "2026-10-12T18:52:33.680Z",
+      "passed": 11,
+      "attribution": "Root executed separately. Includes Range/HEAD, idempotency, invalid upload and disabled-generation denial not independently rerun here."
+    },
+    "build": {
+      "attribution": "Fresh production build supplied by root; reviewer did not rebuild or rerun TypeScript. Independently matched current dist build ID and nine hosted JS/CSS files. Prior successful build transcript also read at docs/verification/submission-build.txt."
+    }
+  },
+  "not_run": [
+    "Browser hydration, upload/save/reload/Library/preference/playback/download UI: root owns browser and concurrent verification.",
+    "Independent private Range/HEAD: process ended after strict Vary assertion; two-session allowance respected and cookies not retained. Root existing hosted check passes.",
+    "Live provider image/video generation and provider-job denial: not invoked by reviewer; disabled/zero generation preserved.",
+    "Actual camera-on recording accessibility/duration/visibility.",
+    "New full historical capture audit or resolution of the two unrelated automatic suggestion sessions.",
+    "This session and active root future-final capture verification before emission."
+  ],
+  "release_scope": {
+    "hosted_http_source_acceptance": "pass",
+    "new_important_product_defects": [],
+    "full_assignment": "not complete",
+    "deployment_metadata": "Cloudflare version cbe42062-203d-462c-949e-0d4bd380beac / tag f271258 attributed to root assignment; root must independently confirm live provider metadata. Public GitHub source and Vinext build identity separately verified.",
+    "R1": "Explicit exception retained; no new waiver.",
+    "resources": "User/root supplied R2 activation/private bucket and unchanged D1 seven-table/ten-guard/FK-clean/zero-policy status. No account-level query, migration replay or billing action by reviewer."
+  },
+  "final_source_recheck": {
+    "checked_at": "2026-10-12T19:00:34.306293+00:00",
+    "all_130_fingerprints_unchanged": true
+  },
+  "report_metadata": {
+    "path": "docs/verification/deployed-review.md",
+    "written_at": "2026-10-12T19:00:34.306293+00:00",
+    "sha256": "ba713d2f5b3acb9119f5bbe91297e3a0bc224f2568827e4a3ff619ed07f02222",
+    "verified_at": "2026-10-12T19:01:08.196844+00:00"
+  },
+  "authored_files": [
+    "docs/verification/deployed-review.md",
+    "docs/verification/deployed-review-checks.json"
+  ],
+  "artifact_validation": {
+    "json_parses": true,
+    "twenty_pass_checks": true,
+    "no_job_route_requested": true,
+    "exactly_two_guests_two_projects_one_upload": true,
+    "no_sensitive_headers_or_cookie_values_in_artifacts": true,
+    "own_full_prompt_still_matches": true,
+    "future_final_not_claimed_captured": true,
+    "130_source_files_still_unchanged": true
+  }
+}
