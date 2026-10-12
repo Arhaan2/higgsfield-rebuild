@@ -2,7 +2,7 @@
 
 **The integrated studio is deployed and its zero-spend hosted flows pass. Not all assignment phases are complete.** Real provider acceptance, required research output chains and Arhaan's actual camera-on walkthrough remain outstanding. Total authorized spending is **$0**.
 
-Checkpoint: 2026-10-12T19:14:05.986043+00:00. Deadline: **2026-10-12 23:04 UTC / Monday 4:04 p.m. Pacific**. Preserve the remaining time for the actual recording and its public-access check.
+Checkpoint: final sprint started 2026-10-12T19:41:37Z. Deadline: **2026-10-12 23:04 UTC / Monday 4:04 p.m. Pacific**. Preserve the remaining time for the actual recording and its public-access check.
 
 | Phase | State | Evidence / remaining requirement |
 | --- | --- | --- |
@@ -47,3 +47,9 @@ Only the coordinator owns Git/deployment/shared interfaces. Reviewer handoffs27/
 Latest audit: **38 sessions exactly match full source transcripts**, including all coordinator/production specialists; **two automatic client suggestion sessions match genuine native hook journals only**, with unavailable full transcripts. Their unmodified journals and hashes are preserved; no raw log was edited. See capture/verification-delivery-final.json and capture/native-journal-continuation.json. The active coordinator final remains future capture.
 
 Final [package review](verification/final-release.md) independently passes public access, ten served asset hashes, unchanged product fingerprints, disabled policy, genuine screenshots and truthful submission materials. Root has verified its complete final capture after Stop. The verdict is scoped package acceptance; full assignment/Q6/S7 remain incomplete. Final anonymous root check is verification/deployed-public-final.json.
+
+## Final sprint in progress
+
+Phase0 synchronized original main432d3d9 with origin; authenticated Arhaan2 confirmed; only main exists and no PRs. Existing dirty files were authentic capture updates and preserved. Node24.18.0 is installed. Updated Codex capture was revalidated with two separate canaries and eleven unit checks; each of the three specialist prompts matches its full source. Root owns integration/styles/Git/deployment; handoffs29–31 assign export, Library controls, and read-only review. Feature freeze20:50UTC; deployment cutoff21:35UTC; recording buffer at least50minutes before23:04UTC deadline. Current deployment remains unchanged until verified release.
+
+Changed setup: capture exporter/test, capture documentation/evidence and handoffs. Next: accept bounded features, apply matching styles, run integrated checks, then actual browser acceptance and deployment. No generation spending, provider calls, dependencies, schema or migrations. Recording remains human-owned and unrecorded.

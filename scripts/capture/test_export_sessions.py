@@ -46,6 +46,25 @@ class ExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'Untested'):
             parse_source(raw,Path('/tmp/unit-only'))
 
+    def test_revalidated_0162_format_preserves_exact_text(self):
+        records = self.fixture()
+        records[0]['payload']['cli_version'] = '0.162.0-alpha.17.2'
+        raw = b''.join((json.dumps(e)+'\n').encode() for e in records)
+        events, provenance = parse_source(raw, Path('/tmp/unit-only'))
+        self.assertEqual([e['text'] for e in events], ['  raw\r\ntext\n', ' exact final\n'])
+        self.assertEqual(provenance['source_format'], 'Codex 0.162.0-alpha.17.2 rollout JSONL')
+
+    def test_native_journal_owns_its_session_file(self):
+        raw = b''.join((json.dumps(e)+'\n').encode() for e in self.fixture())
+        events, provenance = parse_source(raw, Path('/tmp/unit-only'))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            journal = root / '.cache' / 'agent-capture' / 'fixture-session.jsonl'
+            journal.parent.mkdir(parents=True)
+            journal.write_text('native writer owns this fixture')
+            publish(events, provenance, root)
+            self.assertFalse((root / '.agent-logs').exists())
+
     def test_native_delegation_input_preserved(self):
         records=self.fixture()
         message=records[3]['payload']

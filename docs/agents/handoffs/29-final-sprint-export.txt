@@ -1,0 +1,32 @@
+Act as the assigned specialist in the ORIGINAL /Users/arhaan/Desktop/higgsfield-rebuild workspace. Read AGENTS.md, docs/agents/TEAM.md, docs/templates/AGENT-HANDOFF.template.md, docs/STATUS.md, and the installed /Users/arhaan/.codex/skills/apple-design/SKILL.md. Apply that design guidance while preserving the existing charcoal/ivory/brass studio.
+Verified prerequisites: capture native hooks have been revalidated on Codex 0.162.0-alpha.17.2 with two separate canary sessions 01a131a3-2d7d-7301-b9c1-27af58210e23 and 01a131a3-6a2d-7643-abbe-e3fef23f00e2; prompt/final exactly match full source transcripts. Root current session native prompt also matches. Research is advanced by explicit user exception, not passed. Starting source main432d3d9; no other branch or PR. Generation false, budget0, no provider calls or billing changes.
+Capture: verify your actual full prompt in your own automatically created .agent-logs file before substantive work. Never edit capture. Root checks final/source after Stop. No worktrees, native children, or further delegation.
+Ownership: root alone owns styles/studio.css, shared contracts/hooks/config/dependencies, Git, capture, integration, deployment and documentation except explicitly assigned evidence. Other specialist owns the other feature component. Do not edit any unassigned path. Do not commit/push/deploy, install dependencies, or use the browser; root owns browser for this phase. Existing interfaces remain unchanged. Read relevant hooks/contracts/catalog/checks as needed. Send requested CSS selectors/styles in your final response; root integrates CSS.
+Timing: 30 minutes, prioritize working bounded scope with focused checks; return partial evidence promptly if blocked. No simulated acceptance. Return exact canonical TEAM.md YAML including actual session/log destination, files, checks, unresolved limits and integration requests. Ownership returns to root after final.
+
+Task ID: final-sprint-export. Role: export implementation specialist.
+Exclusive writable paths: components/studio/StudioView.tsx, src/client/shot-brief.ts, src/client/checks/shot-brief.mjs.
+### Specialist A — Export shot brief
+
+Own components/studio/StudioView.tsx, new src/client/shot-brief.ts, and one focused formatter/action check file that you explicitly name in the handoff. Do not edit use-studio.ts, shared contracts, dependencies, server routes, or styles/studio.css without a coordinator handoff.
+
+Add a clearly labeled Export shot brief action near the draft actions. Produce one readable Markdown file using a local Blob download. This must work with generation disabled and without a save, generation, or other network mutation.
+
+Take one consistent snapshot of the CURRENT title, active task, exact current prompt, requested model/settings, actual draft start-frame metadata, and known source/attribution. Use the draft's reference, not an unrelated asset the user happens to be inspecting. Clearly distinguish requested generation settings from the provenance of an upload or prepared sample.
+
+Export the user's current unsaved edits if present and label them "Working draft — unsaved". Only state a saved revision when current state proves the exported content matches a confirmed save. Do not change dirty state, selected asset, preferred version, or pending-save behavior.
+
+Preserve multiline prompts and Unicode exactly. Handle embedded Markdown/code fences safely and use a safe filename. Clearly state that media files are not embedded and can be downloaded separately. Do not export secrets, cookies, signed URLs, or session-dependent private download links as portable links. Never invent jobs, result lineage, or a generation prompt for stock media. Missing metadata stays explicitly unavailable.
+
+Acceptance:
+
+- Saved and unsaved exports preserve the exact intended prompt and report the correct save state.
+- Image and motion tasks contain the correct current settings/reference facts.
+- Prepared media remains labeled prepared; uploaded files remain uploads.
+- Export makes no save/job request and does not disturb a save in flight.
+- The actual downloaded file opens and contains readable, accurate content.
+
+After the feature works, move an existing preview jump action near the Studio header when an inspected asset exists, using the actual selected-output target and correct reference/result wording. Keep keyboard behavior useful. When generation is disabled, make Save draft the visually primary enabled action while retaining the disabled Generate control and its truthful explanation. Coordinate CSS with root; do not restyle the whole Studio.
+
+
+Verification: run npx tsc --noEmit and your focused checks using installed Node24.18. Cross-agent TypeScript conflicts should be reported precisely; do not change others files. Browser acceptance remains root/reviewer responsibility.

@@ -181,8 +181,16 @@
       "source_item_id": "msg_01a13170-7823-7041-b35c-87d619fb8e88",
       "timestamp": "2026-10-12T18:46:56.804Z",
       "text_sha256": "be63db9273d9ab702599f348910403ca41fa9c450147d7e66954c9d64b14453f"
+    },
+    {
+      "type": "RESPONSE",
+      "turn_id": "01a13170-76ec-7070-98a2-464b2e2cde72",
+      "source_line": 6134,
+      "source_item_id": "msg_02cdbea6b81b8556016acd31c9a2f4819b84392b7afc8ec49c",
+      "timestamp": "2026-10-12T19:15:29.496Z",
+      "text_sha256": "5ef785d3b08f1803570cf1475b930acd9bfa080d453179e92d011a987dd4a160"
     }
   ],
-  "exported_at": "2026-10-12T18:47:05.351Z",
+  "exported_at": "2026-10-12T19:15:31.580Z",
   "published_path": ".agent-logs/2026-10-11_23-53-44_01a12d62-f5bc-7650-8eb5-7b04e1496548.md"
 }

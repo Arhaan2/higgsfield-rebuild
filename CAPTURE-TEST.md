@@ -90,3 +90,7 @@ After that verification, two bounded Phase 1 specialists started with exclusive 
 - Native child canary `01a12d6a-e18a-7fa3-959c-18ce82bd58d2` returned an acknowledgement but created no capture. Its prompt is encrypted in the persisted source. **Child coverage is unresolved; no production child ran.** Do not reconstruct its prompt or claim the acknowledgement proves coverage.
 - The exporter supports the observed text shapes. Unsupported message shapes or future transcript versions require revalidation. Session-root moves and worktrees require their own capture tests.
 - Public repository creation is verified: https://github.com/Arhaan2/higgsfield-rebuild . Source push and final-response closure are tracked in `docs/STATUS.md`.
+
+## Revalidation on updated client (2026-10-12)
+
+Codex 0.162.0-alpha.17.2 was encountered at sprint start. Two independent capture-only CLI sessions (no reinstall) returned `CAPTURE 0162 A — Arhaan — café 🎬` and `CAPTURE 0162 B — separate session — 雪`. The actual native logs contain one prompt and one final each, exactly matching their full transcripts, with actual model `gpt-6-astra`. IDs: `01a131a3-2d7d-7301-b9c1-27af58210e23`, `01a131a3-6a2d-7643-abbe-e3fef23f00e2`. See docs/capture/verification-final-sprint-start.json and capture/README.md. Eleven capture unit checks pass. Existing raw entries were not edited. Native-hook ownership takes precedence over Desktop extraction for a session with a native journal. This revalidation does not erase the original first-message process exception.

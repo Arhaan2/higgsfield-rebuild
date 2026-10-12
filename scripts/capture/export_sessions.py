@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Automatic, provenance-preserving export of Codex Desktop text turns.
 
-Codex 0.160 JSONL is version-dependent, not a stable API. Unsupported records fail
+Codex rollout JSONL is version-dependent, not a stable API. Unsupported records fail
 closed. CLI sessions (interactive and exec) use the native hooks instead. Encrypted child
 prompts are explicitly unsupported; no ciphertext or reconstructed prompt is logged.
 """
@@ -43,7 +43,7 @@ def parse_source(raw, path):
         return [], None
     if meta.get('source') != 'vscode':
         return [], None
-    if meta.get('cli_version') != '0.160.0':
+    if meta.get('cli_version') not in ('0.160.0', '0.162.0-alpha.17.2'):
         raise ValueError('Untested Codex transcript version; capture needs revalidation')
     models = {}
     events, provenance = [], []
@@ -96,13 +96,17 @@ def parse_source(raw, path):
                                text_sha256=hashlib.sha256(text.encode()).hexdigest()))
     if not events:
         return [], None
-    return events, dict(source_path=str(path), source_format='Codex 0.160.0 rollout JSONL',
+    return events, dict(source_path=str(path), source_format=f"Codex {meta['cli_version']} rollout JSONL",
                         extraction='Automatic source transcript extraction; not a retroactive hook event',
                         session_id=meta['id'], source_originator=meta.get('originator'),
                         source_session_start=meta['timestamp'], entries=provenance)
 
 
 def publish(events, provenance, root=ROOT):
+    # Updated Desktop clients may also run native hooks. That journal owns the
+    # session's timestamps and file; never race it with transcript extraction.
+    if (root / '.cache' / 'agent-capture' / (events[0]['session_id'] + '.jsonl')).exists():
+        return
     target = log_path(root, events)
     header, body = render(events)
     if target.exists():
