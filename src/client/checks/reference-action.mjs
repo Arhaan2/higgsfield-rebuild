@@ -16,14 +16,15 @@ function harness({ source = 'upload', status = 'succeeded', selected = 'frame-a'
   let slot = 0, effects = [], tree, studio, focusCalls = 0, inspectOnly = false;
   const slots = [], cache = new Map(), calls = [], store = new Map();
   const motion = { operation: 'image_to_video', prompt, presetId: null, parentAssetId: 'original-parent', startAssetId: 'frame-a' };
-  const project = { id: '11111111-1111-4111-8111-111111111111', title: 'Repair check', draft: motion, revision: 1, preferredAssetId: selected, createdAt: '2026-10-12T00:00:00Z', updatedAt: '2026-10-12T00:00:00Z' };
+  let project = { id: '11111111-1111-4111-8111-111111111111', title: 'Repair check', draft: motion, revision: 1, preferredAssetId: selected, createdAt: '2026-10-12T00:00:00Z', updatedAt: '2026-10-12T00:00:00Z' };
   const assets = deepFreeze(['frame-a', 'frame-b'].map(id => ({ id, projectId: project.id, title: id, kind: 'image', source, fileName: id + '.png', mimeType: 'image/png', mediaUrl: '/' + id, downloadUrl: '/' + id, width: 512, height: 512, durationSeconds: null, byteSize: 100, posterUrl: null, sourceJobId: source === 'upload' ? null : 'job-' + id, createdAt: project.createdAt, attribution: null })));
   const jobs = deepFreeze(assets.map(asset => ({ id: 'job-' + asset.id, projectId: project.id, status, lastCheckedAt: project.createdAt, outputAssetIds: [source === 'upload' ? 'output-' + asset.id : asset.id], snapshot: { operation: 'text_to_image', prompt: 'immutable original', presetId: null, parentAssetId: null, startAsset: null }, createdAt: project.createdAt })));
   const originals = JSON.stringify({ assets, jobs });
   const api = {
     project: async () => ({ project, assets: [...assets], jobs: [...jobs] }),
-    capabilities: async () => ({ liveGeneration: { enabled: false, remainingMicroUsd: 0, reason: 'disabled' } }),
-    saveProject: async (id, body) => ({ ...project, id, draft: body.draft, title: body.title, revision: body.expectedRevision + 1 }),
+    projects: async () => ({ items: [project], nextCursor: null }),
+    capabilities: async () => ({ upload: { maxBytes: 5000000 }, liveGeneration: { enabled: false, remainingMicroUsd: 0, reason: 'disabled' } }),
+    saveProject: async (id, { expectedRevision, ...patch }) => (project = { ...project, ...patch, id, revision: expectedRevision + 1 }),
     asset: async () => { throw new Error('metadata unavailable in fixture'); },
     guest: async () => ({ expiresAt: '2026-11-01T00:00:00Z' }),
   };
@@ -34,7 +35,7 @@ function harness({ source = 'upload', status = 'succeeded', selected = 'frame-a'
     useCallback(fn, deps) { const i = slot++, previous = slots[i]; if (!previous || deps.some((value, n) => !Object.is(value, previous.deps[n]))) slots[i] = { deps, fn }; return slots[i].fn; },
     useEffect(fn, deps) { if (inspectOnly) return; const i = slot++, previous = slots[i]; if (!previous || !deps || deps.some((value, n) => !Object.is(value, previous.deps[n]))) effects.push(() => { previous?.cleanup?.(); slots[i] = { deps, cleanup: fn() }; }); },
   };
-  const context = { console, URLSearchParams, Date, JSON, Math, crypto: webcrypto, setTimeout: () => 0, clearTimeout() {}, document: { hidden: true }, window: { location: { search: '?project=' + project.id }, history: { replaceState() {} }, addEventListener() {}, removeEventListener() {} }, localStorage: { getItem: key => store.get(key) || null, setItem: (key, value) => store.set(key, value), removeItem: key => store.delete(key) } };
+  const context = { createImageBitmap: async () => ({ width: 512, height: 512, close() {} }), console, URLSearchParams, Date, JSON, Math, crypto: webcrypto, setTimeout: () => 0, clearTimeout() {}, document: { hidden: true }, window: { location: { search: '?project=' + project.id }, history: { replaceState() {} }, addEventListener() {}, removeEventListener() {} }, localStorage: { getItem: key => store.get(key) || null, setItem: (key, value) => store.set(key, value), removeItem: key => store.delete(key) } };
   const apiProxy = new Proxy(api, { get: (target, key) => (...args) => { calls.push([key, ...args]); return target[key](...args); } });
   function load(relative) {
     const filename = path.resolve(root, relative); if (cache.has(filename)) return cache.get(filename);
@@ -44,7 +45,7 @@ function harness({ source = 'upload', status = 'succeeded', selected = 'frame-a'
       if (name === 'react') return React;
       if (name === 'react/jsx-runtime') return { jsx: (type, props) => ({ type, props }), jsxs: (type, props) => ({ type, props }), Fragment: 'fragment' };
       if (name === 'lucide-react') return new Proxy({}, { get: (_, key) => String(key) });
-      if (name === './AppShell') return { AppShell: 'AppShell' };
+      if (name === './AppShell') return { AppShell: 'AppShell', GenerationBadge: 'GenerationBadge' };
       if (name === './api' || name === '@/src/client/api') return { api: apiProxy, StudioApiError, errorMessage: error => error.message };
       if (name.startsWith('.') || name.startsWith('@/')) {
         const base = name.startsWith('@/') ? name.slice(2) : path.relative(root, path.resolve(path.dirname(filename), name));
@@ -57,14 +58,14 @@ function harness({ source = 'upload', status = 'succeeded', selected = 'frame-a'
     vm.runInNewContext(`(function(require,module,exports){${compiled}\n})`, context, { filename })(localRequire, mod, mod.exports);
     return mod.exports;
   }
-  const { StudioView } = load('components/studio/StudioView.tsx');
+  let View = load('components/studio/StudioView.tsx').StudioView;
   function render() {
-    slot = 0; tree = StudioView();
+    slot = 0; tree = View();
     for (const node of nodes(tree)) if (node.props?.ref && node.type === 'textarea') node.props.ref.current = { focus() { focusCalls++; } };
     const next = effects; effects = []; for (const effect of next) effect();
     return tree;
   }
-  return { api, calls, load, render, detailsElement(props) { inspectOnly = true; try { return load('components/studio/AssetDetails.tsx').AssetDetails(props); } finally { inspectOnly = false; } }, get studio() { return studio; }, get tree() { return tree; }, get focusCalls() { return focusCalls; }, async start() { render(); await tick(); render(); }, button(label) { const found = nodes(tree).find(node => node.type === 'button' && textOf(node).trim() === label.trim()); assert(found, `button ${label} exists; loadError=${studio.loadError}; selected=${studio.selectedId}; buttons=${nodes(tree).filter(n => n.type === "button").map(textOf).join("|")}`); return found; }, unchanged() { assert.equal(JSON.stringify({ assets, jobs }), originals); }, detailsProps() { return nodes(tree).find(node => typeof node.type === 'function' && node.type.name === 'AssetDetails')?.props; } };
+  return { api, calls, load, render, async openLibrary() { for (const entry of slots) entry?.cleanup?.(); slots.length = 0; effects = []; View = load('components/studio/LibraryView.tsx').LibraryView; render(); await tick(); return render(); }, detailsElement(props) { inspectOnly = true; try { return load('components/studio/AssetDetails.tsx').AssetDetails(props); } finally { inspectOnly = false; } }, get assets() { return assets; }, get studio() { return studio; }, get tree() { return tree; }, get focusCalls() { return focusCalls; }, async start() { render(); await tick(); render(); }, button(label) { const found = nodes(tree).find(node => node.type === 'button' && textOf(node).trim() === label.trim()); assert(found, `button ${label} exists; loadError=${studio.loadError}; selected=${studio.selectedId}; buttons=${nodes(tree).filter(n => n.type === "button").map(textOf).join("|")}`); return found; }, unchanged() { assert.equal(JSON.stringify({ assets, jobs }), originals); }, detailsProps() { return nodes(tree).find(node => typeof node.type === 'function' && node.type.name === 'AssetDetails')?.props; } };
 }
 let checks = 0;
 const check = name => { checks++; console.log('PASS ' + name); };
@@ -132,5 +133,67 @@ for (const status of ['queued', 'running', 'storing', 'failed', 'transfer_failed
     console.error('BLOCKED root hook: forkDraft applies its pre-save argument after beforeNavigate, replacing typing made during that wait.');
     process.exitCode = 1;
   } else check('typing during reference-action save remains exact');
+}
+
+// Select a retained old job, then replace its reference using the real hook upload path.
+{
+  const h = harness({ source: 'generation' }); await h.start();
+  const version = nodes(h.tree).find(n => n.type === 'button' && n.props.className === 'version-card' && textOf(n).includes('V01'));
+  version.props.onClick(); h.render();
+  const uploaded = { ...h.assets[0], id: 'new-reference', title: 'New reference', source: 'upload', sourceJobId: null };
+  h.api.upload = async () => uploaded;
+  await h.studio.upload({ name: 'new.png', type: 'image/png', size: 100 }); h.render();
+  assert.equal(h.studio.selectedId, uploaded.id);
+  const media = nodes(h.tree).find(n => typeof n.type === 'function' && n.type.name === 'AssetMedia');
+  assert.equal(media?.props.asset.id, uploaded.id, 'successful upload must replace old selected job on stage');
+  check('old selected job yields to successfully uploaded reference');
+}
+
+for (const status of ['succeeded', 'queued', 'failed', 'transfer_failed']) for (const success of [true, false]) {
+  const h = harness({ source: 'generation', status }); await h.start();
+  nodes(h.tree).find(n => n.type === 'button' && n.props.className === 'version-card' && textOf(n).includes('V01')).props.onClick(); h.render();
+  const stageMedia = () => nodes(h.tree).find(n => typeof n.type === 'function' && n.type.name === 'AssetMedia')?.props.asset.id;
+  assert.equal(stageMedia(), status === 'succeeded' ? 'frame-a' : undefined, 'non-success job must not expose fake output');
+  let release; const pending = new Promise(resolve => { release = resolve; });
+  const uploaded = { ...h.assets[0], id: 'new-reference', title: 'New reference', source: 'upload', sourceJobId: null };
+  h.api.upload = async () => { await pending; if (!success) throw new Error('upload interrupted'); return uploaded; };
+  const upload = h.studio.upload({ name: 'new.png', type: 'image/png', size: 100 }); await tick(); h.render();
+  assert.equal(stageMedia(), status === 'succeeded' ? 'frame-a' : undefined);
+  release(); await upload; h.render();
+  assert.equal(stageMedia(), success ? uploaded.id : status === 'succeeded' ? 'frame-a' : undefined);
+  assert.equal(h.studio.buffer.drafts.image_to_video.startAssetId, success ? uploaded.id : 'frame-a');
+  if (!success) assert.match(h.studio.uploadError, /interrupted/);
+  h.unchanged(); check(`${status} inspection: ${success ? 'successful upload selects reference' : 'failed upload preserves selection'}, no fake output while pending`);
+}
+{
+  const h = harness(); await h.start();
+  nodes(h.tree).find(n => n.type === 'button' && n.props.className === 'version-card' && textOf(n).includes('frame-b')).props.onClick(); h.render();
+  assert.equal(h.calls.filter(c => c[0] === 'saveProject').length, 0, 'inspection must never persist');
+  h.studio.updatePrompt('unsaved preserved'); h.render();
+  let release; const pending = new Promise(resolve => { release = resolve; }); const save = h.api.saveProject;
+  h.api.saveProject = async (...args) => { await pending; return save(...args); };
+  h.button('Make preferred version').props.onClick(); await tick(); h.render();
+  assert.equal(h.button('Saving preference…').props.disabled, true); assert.equal(h.studio.project.preferredAssetId, 'frame-a');
+  h.studio.updatePrompt('newer preserved'); release(); await tick(); h.render();
+  assert.equal(h.button('Preferred version').props.disabled, true); assert.equal(h.studio.project.preferredAssetId, 'frame-b');
+  assert.equal(h.studio.buffer.drafts.image_to_video.prompt, 'newer preserved'); assert.equal(h.studio.dirty, true);
+  assert(nodes(h.tree).some(n => n.props?.role === 'status' && textOf(n).includes('Preferred version saved')));
+  h.unchanged();
+  const library = await h.openLibrary();
+  const card = nodes(library).find(n => n.type === 'a' && n.props.href === '/studio?project=11111111-1111-4111-8111-111111111111');
+  assert.equal(nodes(card).find(n => n.type === 'img')?.props.src, '/frame-b');
+  assert.equal(h.calls.filter(c => c[0] === 'saveProject').length, 1);
+  check('explicit preference acknowledges after PATCH, preserves unsaved text, and actual Library component uses saved preference');
+}
+{
+  const h = harness(); await h.start();h.studio.setSelectedId('frame-b');h.render();
+  const save = h.api.saveProject;h.api.saveProject = async () => { throw new Error('network lost'); };
+  h.button('Make preferred version').props.onClick();await tick();h.render();
+  assert(nodes(h.tree).some(n => n.props?.role === 'alert' && textOf(n).includes('Preferred version was not confirmed')));
+  assert.equal(h.studio.project.preferredAssetId,'frame-a');h.api.saveProject=save;
+  h.button('Retry preferred version').props.onClick();await tick();h.render();assert.equal(h.button('Preferred version').props.disabled,true);
+  h.studio.setSelectedId('sample-dune-light');h.render();
+  assert(!nodes(h.tree).some(n => n.type === 'button' && /^(Make preferred version|Retry preferred version|Preferred version)$/.test(textOf(n))));
+  check('preference error exposes explicit retry; prepared sample has no preference action');
 }
 console.log(`${checks} action checks passed; mock React/API, no browser/provider calls.`);

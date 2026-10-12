@@ -3,6 +3,10 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import ts from 'typescript';
+const catalogModule={exports:{}};
+const catalogCode=ts.transpileModule(fs.readFileSync('src/catalog/samples.ts','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022}}).outputText;
+vm.runInNewContext(`(function(module,exports){${catalogCode}\n})`)(catalogModule,catalogModule.exports);
+const {SAMPLE_ASSETS,PRESETS}=catalogModule.exports;
 const tick=async()=>{for(let i=0;i<5;i++)await new Promise(resolve=>setImmediate(resolve));};
 const deferred=()=>{let resolve,reject;const promise=new Promise((r,j)=>{resolve=r;reject=j;});return {promise,resolve,reject};};
 const shot=id=>({id,title:`Shot ${id}`,draft:{operation:'text_to_image'},updatedAt:'2026-10-12T00:00:00Z',preferredAssetId:null});
@@ -16,7 +20,7 @@ function harness(overrides={}) {
     useCallback(fn){slot++;return fn;},
     useEffect(fn){slot++;if(first)effects.push(fn);},
   };
-  const api={projects:async()=>({items:[shot('a'),shot('b')],nextCursor:null}),project:async id=>detail(id),...overrides};
+  const api={projects:async()=>({items:[shot('a'),shot('b')],nextCursor:null}),project:async id=>detail(id),asset:async()=>{throw new StudioApiError(404);},...overrides};
   for(const key of Object.keys(api)){const fn=api[key];api[key]=(...args)=>{calls.push([key,...args]);return fn(...args);};}
   const loadedModule={exports:{}};
   const code=ts.transpileModule(fs.readFileSync('components/studio/LibraryView.tsx','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX}}).outputText;
@@ -28,7 +32,7 @@ function harness(overrides={}) {
     if(name==='./AppShell')return {AppShell:'shell',GenerationBadge:'badge'};
     if(name==='@/src/client/api')return {api,StudioApiError,errorMessage:e=>e.message};
     if(name==='@/src/client/recovery')return {clearRecovery:()=>cleared++};
-    if(name==='@/src/catalog/samples')return {SAMPLE_ASSETS:[{},{}]};
+    if(name==='@/src/catalog/samples')return {SAMPLE_ASSETS};
     throw new Error(name);
   };
   vm.runInNewContext(`(function(require,module,exports){${code}\n})`,{console,Date,Promise},{filename:'LibraryView.tsx'})(require,loadedModule,loadedModule.exports);
@@ -62,5 +66,77 @@ await check('P4-03: list expiry removes existing private previews and failed sta
 });
 await check('P4-03: unmounted Library ignores delayed detail and expiry',async()=>{
   const pending=deferred();const h=harness({project:async()=>pending.promise});await h.start();h.unmount();pending.reject(new StudioApiError(401));await tick();assert.equal(h.cleared(),0);
+});
+await check('preset-only motion drafts render the real catalog start frame and zero generated versions',async()=>{
+  for(const preset of PRESETS.filter(p=>p.operation==='image_to_video')){
+    const project={...shot(preset.id),draft:preset.draft};
+    const h=harness({projects:async()=>({items:[project],nextCursor:null}),project:async()=>({project,assets:[],jobs:[]})});
+    const v=await h.start(),saved=card(v,project.id);
+    assert.equal(nodes(saved).find(n=>n.type==='img')?.props.src,SAMPLE_ASSETS.find(a=>a.id===preset.draft.startAssetId).mediaUrl);
+    assert.match(text(saved),/Motion draft.*0 generated versions/);assert.doesNotMatch(text(saved),/Latest request/);
+    assert.equal(h.calls.some(c=>c[0]==='asset'),false);
+  }
+});
+const motion=(id,startAssetId='sample-dune-light')=>({...shot(id),draft:{operation:'image_to_video',startAssetId}});
+const thumbnail=(view,id)=>nodes(card(view,id)).find(n=>n.type==='img')?.props.src;
+await check('current detail controls preferred retained output, retained fallback, title and draft',async()=>{
+  for(const preferredAssetId of ['preferred',null]){
+    const project={...motion('a'),title:'Current shot',preferredAssetId};
+    const assets=[{id:'preferred',kind:'video',source:'generation',posterUrl:'/preferred.jpg'},{id:'latest',kind:'image',source:'upload',mediaUrl:'/latest.jpg'}];
+    const h=harness({projects:async()=>({items:[{...shot('a'),preferredAssetId:'latest'}],nextCursor:null}),project:async()=>({project,assets,jobs:[]})});
+    const v=await h.start();assert.equal(thumbnail(v,'a'),preferredAssetId?'/preferred.jpg':'/latest.jpg');
+    assert.match(text(card(v,'a')),/Current shot.*Motion draft.*1 generated version/);assert.equal(h.calls.some(c=>c[0]==='asset'),false);
+  }
+});
+await check('current detail start frame supersedes stale list; text and frameless drafts stay empty',async()=>{
+  for(const current of [motion('a'),shot('a'),motion('a',null)]){
+    const h=harness({projects:async()=>({items:[motion('a','stale-private-id')],nextCursor:null}),project:async()=>({project:current,assets:[],jobs:[]})});
+    const v=await h.start();assert.equal(thumbnail(v,'a'),current.draft.startAssetId?'/samples/dune-light.jpg':undefined);
+    assert.match(text(card(v,'a')),/0 generated versions/);assert.equal(h.calls.some(c=>c[0]==='asset'),false);
+  }
+});
+await check('external start frame requests only its ID and never becomes this shot’s generated count',async()=>{
+  const project=motion('a','external-image');
+  const h=harness({projects:async()=>({items:[project],nextCursor:null}),project:async()=>({project,assets:[],jobs:[]}),asset:async id=>({id,kind:'image',source:'generation',projectId:'source-shot',mediaUrl:'/external.jpg'})});
+  const v=await h.start();assert.equal(thumbnail(v,'a'),'/external.jpg');assert.match(text(card(v,'a')),/0 generated versions/);assert.doesNotMatch(text(card(v,'a')),/Latest request/);
+  assert.deepEqual(h.calls.filter(c=>c[0]==='asset'),[['asset','external-image']]);
+});
+await check('missing or unavailable references preserve mixed successes and recover through targeted retry',async()=>{
+  for(const status of [404,503]){
+    const project=motion('b','external-image');let available=false;
+    const h=harness({project:async id=>id==='b'?{project,assets:[],jobs:[]}:detail(id),asset:async id=>{if(!available)throw new StudioApiError(status);return {id,kind:'image',mediaUrl:'/recovered.jpg'};}});
+    let v=await h.start();assert.equal(thumbnail(v,'a'),'/private/a');assert(card(v,'b'));assert.match(text(card(v,'b')),/unavailable/);assert.doesNotMatch(text(card(v,'b')),/0 generated/);
+    const before=h.calls.filter(c=>c[0]==='project').length;available=true;button(v,'Retry previews').props.onClick();await tick();v=h.render();
+    assert.equal(thumbnail(v,'b'),'/recovered.jpg');assert.equal(thumbnail(v,'a'),'/private/a');assert.match(text(card(v,'b')),/0 generated versions/);assert.equal(button(v,'Retry previews'),undefined);
+    assert.deepEqual(h.calls.filter(c=>c[0]==='project').slice(before),[['project','b']]);
+  }
+});
+await check('mismatched details or non-image/mismatched reference responses remain recoverable',async()=>{
+  for(const variant of ['project','asset-id','asset-kind']){
+    const project=motion('a','external-image');
+    const h=harness({projects:async()=>({items:[project],nextCursor:null}),project:async()=>({project:variant==='project'?motion('wrong','unrelated'):project,assets:[],jobs:[]}),asset:async()=>({id:variant==='asset-id'?'unrelated':'external-image',kind:variant==='asset-kind'?'video':'image',mediaUrl:'/wrong.jpg'})});
+    const v=await h.start();assert.equal(thumbnail(v,'a'),undefined);assert.match(text(card(v,'a')),/unavailable/);assert(button(v,'Retry previews'));
+    assert.equal(h.calls.filter(c=>c[0]==='asset').length,variant==='project'?0:1);
+  }
+});
+await check('reference expiry clears private cards immediately and ignores pending sibling reference',async()=>{
+  const a=deferred(),b=deferred();
+  const h=harness({project:async id=>({project:motion(id,`external-${id}`),assets:[],jobs:[]}),asset:async id=>id==='external-a'?a.promise:b.promise});
+  await h.start();a.reject(new StudioApiError(401));await tick();assert.equal(card(h.render(),'a'),undefined);assert.equal(card(h.render(),'b'),undefined);assert.equal(h.cleared(),1);
+  b.resolve({id:'external-b',kind:'image',mediaUrl:'/late.jpg'});await tick();assert.equal(card(h.render(),'b'),undefined);assert.match(text(h.render()),/No saved shots/);
+});
+await check('stale reference success or expiry cannot overwrite a newer Library load',async()=>{
+  for(const expires of [false,true]){
+    const stale=deferred();const project=motion('a','external-image');
+    const h=harness({projects:async()=>({items:[project],nextCursor:'next'}),project:async()=>({project,assets:[],jobs:[]}),asset:async()=>stale.promise});
+    await h.start();h.api.projects=async()=>({items:[shot('a')],nextCursor:null});h.api.project=async()=>detail('a');
+    button(h.render(),'Load more shots').props.onClick();await tick();assert.equal(thumbnail(h.render(),'a'),'/private/a');
+    if(expires)stale.reject(new StudioApiError(401));else stale.resolve({id:'external-image',kind:'image',mediaUrl:'/stale.jpg'});
+    await tick();assert.equal(thumbnail(h.render(),'a'),'/private/a');assert.equal(h.cleared(),0);
+  }
+});
+await check('unmounted or superseded detail never starts an external reference request',async()=>{
+  const pending=deferred();const h=harness({project:async()=>pending.promise});await h.start();h.unmount();
+  pending.resolve({project:motion('a','external-image'),assets:[],jobs:[]});await tick();assert.equal(h.calls.some(c=>c[0]==='asset'),false);
 });
 console.log(`${count} Library checks passed; mock hooks/JSX only.`);

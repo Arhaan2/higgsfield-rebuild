@@ -244,6 +244,76 @@ function harness(query='?sample=dune-study', overrides={}, existingStorage, foll
     h.api.refresh=async()=>({...own,status:'succeeded',outputAssetIds:[output.id]});h.api.project=async()=>({project:crossProject(),assets:[output],jobs:[{...own,status:'succeeded'}]});
     await v.refreshJob(own);v=await h.flush();assert.equal(v.sourceJobs.length,2);assert.equal(v.assets.length,3);assert.equal(v.jobs.length,1);assert.equal(v.selectedId,output.id);assert.equal(v.buffer.drafts.image_to_video.prompt,'edited locally');assert.equal(h.calls.filter(c=>c[0]==='asset').length,2);
   });
+  await regression('SS01: explicit preference uses preference-only PATCH',async()=>{
+    const asset={...output,source:'upload'};
+    const h=harness(query,{project:async()=>({project:project(),assets:[asset],jobs:[]}),saveProject:async(id,body)=>({...project(),revision:body.expectedRevision+1,preferredAssetId:body.preferredAssetId})});
+    let v=await h.start();v.updatePrompt('unsaved current draft');
+    assert.equal(typeof v.preferAsset,'function','explicit durable preference action must exist');
+    await v.preferAsset(asset.id);v=h.render();
+    assert.equal(v.project.preferredAssetId,asset.id);assert.equal(v.buffer.drafts.image_to_video.prompt,'unsaved current draft');assert.equal(v.dirty,true);
+    const patch=h.calls.find(c=>c[0]==='saveProject')[2];assert.deepEqual(Object.keys(patch).sort(),['expectedRevision','preferredAssetId']);
+  });
+
+  function preferenceFixture() {
+    let server=project();
+    const asset={...output,source:'upload',title:'Retained reference'};
+    const patches=[];
+    const mocks={project:async()=>({project:server,assets:[asset],jobs:[]}),saveProject:async(id,{expectedRevision,...patch})=>{
+      assert.equal(id,server.id);assert.equal(expectedRevision,server.revision,'sequential expectedRevision');
+      patches.push({expectedRevision,...patch});server={...server,...patch,revision:server.revision+1};return server;
+    }};
+    return {asset,mocks,patches,get server(){return server;}};
+  }
+  await regression('SS02: preference acknowledgement preserves newer and inactive typing, restores preference and dirty drafts after reload',async()=>{
+    const f=preferenceFixture(),d=deferred();const h=harness(query,{...f.mocks,saveProject:async(...args)=>{await d.promise;return f.mocks.saveProject(...args);}});
+    let v=await h.start();v.switchMode('text_to_image');v.updatePrompt('inactive '+ 'x'.repeat(2501));v.switchMode('image_to_video');v.updatePrompt('unsaved at click');
+    const work=v.preferAsset(f.asset.id);await tick();v=h.render();assert.equal(v.preferring,true);assert.equal(v.project.preferredAssetId,null);assert.equal(v.preferenceNotice,'');
+    v.updatePrompt('newer typing');v.edit(current=>({...current,title:'unsaved title'}));d.resolve();await work;v=h.render();
+    assert.equal(v.buffer.drafts.image_to_video.prompt,'newer typing');assert.match(v.buffer.drafts.text_to_image.prompt,/inactive/);assert.equal(v.dirty,true);assert.match(v.preferenceNotice,/Preferred version saved/);assert.equal(f.server.draft.prompt,'first');assert.equal(f.server.title,'Untitled shot');
+    const reload=harness(query,f.mocks,h.store);v=await reload.start();assert.equal(v.selectedId,f.asset.id);assert.equal(v.project.revision,2);assert.equal(v.conflict,false);assert.equal(v.buffer.title,'unsaved title');assert.equal(v.buffer.drafts.image_to_video.prompt,'newer typing');assert.equal(v.buffer.drafts.text_to_image.prompt.length,2510);assert.equal(v.dirty,true);
+    const fresh=harness(query,f.mocks);const clean=await fresh.start();assert.equal(clean.selectedId,f.asset.id);assert.equal(clean.saved,true);assert.equal(clean.buffer.drafts.image_to_video.prompt,'first');
+  });
+  await regression('SS03: pending draft save precedes preference PATCH, later typing stays dirty',async()=>{
+    const f=preferenceFixture(),d=deferred();let first=true;const h=harness(query,{...f.mocks,saveProject:async(...args)=>{if(first){first=false;await d.promise;}return f.mocks.saveProject(...args);}});
+    let v=await h.start();v.updatePrompt('draft before save');const save=v.save();const preference=v.preferAsset(f.asset.id);await tick();assert.equal(f.patches.length,0);v.updatePrompt('newer typing');d.resolve();await Promise.all([save,preference]);v=h.render();
+    assert.deepEqual(f.patches.map(p=>p.expectedRevision),[1,2]);assert.equal(f.patches[1].draft,undefined);assert.equal(f.server.draft.prompt,'draft before save');assert.equal(v.buffer.drafts.image_to_video.prompt,'newer typing');assert.equal(v.dirty,true);assert.equal(v.project.revision,3);
+  });
+  await regression('SS04: draft save waits for preference and captures latest typing; duplicate preference does not write',async()=>{
+    const f=preferenceFixture(),d=deferred();let first=true;const h=harness(query,{...f.mocks,saveProject:async(...args)=>{if(first){first=false;await d.promise;}return f.mocks.saveProject(...args);}});
+    let v=await h.start();const preference=v.preferAsset(f.asset.id);await v.preferAsset(f.asset.id);v.updatePrompt('text at save');const save=v.save();v.updatePrompt('newer while preference pending');d.resolve();await Promise.all([preference,save]);v=h.render();
+    assert.equal(f.patches.length,2);assert.deepEqual(f.patches.map(p=>p.expectedRevision),[1,2]);assert.equal(f.server.preferredAssetId,f.asset.id);assert.equal(f.server.draft.prompt,'newer while preference pending');assert.equal(v.saved,true);
+  });
+  await regression('SS05: preference network failure retains selection/drafts/confirmed preference; explicit retry succeeds',async()=>{
+    const f=preferenceFixture();let fail=true;const h=harness(query,{...f.mocks,saveProject:async(...args)=>{if(fail)throw new Error('connection lost');return f.mocks.saveProject(...args);}});
+    let v=await h.start();v.updatePrompt('keep text');const selected=v.selectedId;await v.preferAsset(f.asset.id);v=h.render();assert.equal(v.project.preferredAssetId,null);assert.equal(v.selectedId,selected);assert.equal(v.buffer.drafts.image_to_video.prompt,'keep text');assert.equal(v.preferenceNotice,'');assert.match(v.preferenceError,/not confirmed/);assert.equal(v.preferring,false);assert.equal(v.error,'');
+    fail=false;await v.preferAsset(f.asset.id);v=h.render();assert.equal(v.preferenceError,'');assert.equal(v.project.preferredAssetId,f.asset.id);assert.equal(v.dirty,true);
+  });
+  for(const [status,code] of [[409,'REVISION_CONFLICT'],[401,'GUEST_REQUIRED']]) await regression(`SS06: preference ${code} preserves text and uses existing recovery path`,async()=>{
+    const f=preferenceFixture();const h=harness(query,f.mocks);let v=await h.start();v.switchMode('text_to_image');v.updatePrompt('inactive text');v.switchMode('image_to_video');v.updatePrompt('current text');let requests=0;
+    h.api.saveProject=async()=>{requests++;throw new h.StudioApiError('server rejected',status,code);};await v.preferAsset(f.asset.id);v=h.render();assert.equal(v[status===409?'conflict':'expired'],true);assert.equal(v.preferring,false);assert.equal(v.buffer.drafts.image_to_video.prompt,'current text');assert.equal(v.buffer.drafts.text_to_image.prompt,'inactive text');assert.equal(v.project.preferredAssetId,null);await v.preferAsset(f.asset.id);assert.equal(requests,1);
+    if(status===401){assert.equal(v.assets.length,0);assert.equal(v.selectedId,null);assert.equal(v.preferenceNotice,'');}
+  });
+  for(const replace of ['saveSeparate','restartSession']) for(const outcome of ['success','expiry']) await regression(`SS07: stale preference ${outcome} ignored after ${replace}`,async()=>{
+    const f=preferenceFixture(),d=deferred();const h=harness(query,f.mocks);let v=await h.start();h.api.saveProject=async()=>d.promise;v.updatePrompt('kept text');const work=v.preferAsset(f.asset.id);await tick();await v[replace]();v=h.render();const copy=v.project;const notice=v.notice;
+    if(outcome==='success')d.resolve({...project(),revision:2,preferredAssetId:f.asset.id});else d.reject(new h.StudioApiError('old expiry',401,'GUEST_REQUIRED'));
+    await work;v=h.render();assert.equal(v.project.id,copy.id);assert.equal(v.project.preferredAssetId,null);assert.equal(v.expired,false);assert.equal(v.preferenceError,'');assert.equal(v.preferenceNotice,'');assert.equal(v.notice,notice);assert.equal(v.buffer.drafts.image_to_video.prompt,'kept text');
+  });
+  await regression('SS08: samples, foreign assets and missing assets cannot become preferences; inspection makes no writes',async()=>{
+    const foreign={...output,id:'foreign',source:'upload',projectId:'another-project'};const h=harness(query,{project:async()=>({project:project(),assets:[foreign],jobs:[]})});let v=await h.start();
+    for(const id of ['sample-dune-light','foreign','missing']){v.setSelectedId(id);await v.preferAsset(id);v=h.render();assert.equal(v.project.preferredAssetId,null);}
+    assert.equal(h.calls.filter(c=>['saveProject','createProject','guest'].includes(c[0])).length,0);
+    const sample=harness();v=await sample.start();v.setSelectedId('sample-dune-light');await v.preferAsset('sample-dune-light');assert.equal(sample.calls.filter(c=>['saveProject','createProject','guest'].includes(c[0])).length,0);
+  });
+  await regression('SS09: wrong preference/revision acknowledgements never claim success',async()=>{
+    for(const reply of [{preferredAssetId:'wrong',revision:2},{preferredAssetId:output.id,revision:1}]){
+      const f=preferenceFixture();const h=harness(query,{...f.mocks,saveProject:async()=>({...project(),...reply})});let v=await h.start();await v.preferAsset(f.asset.id);v=h.render();assert.equal(v.project.revision,1);assert.equal(v.project.preferredAssetId,null);assert.equal(v.preferenceNotice,'');assert.match(v.preferenceError,/not confirmed/);
+    }
+  });
+  await regression('SS10: navigation awaits preference acknowledgement and failed acknowledgement blocks departure',async()=>{
+    for(const success of [true,false]){
+      const f=preferenceFixture(),d=deferred();const h=harness(query,{...f.mocks,saveProject:async(...args)=>{await d.promise;if(!success)throw new Error('lost');return f.mocks.saveProject(...args);}});let v=await h.start();const preference=v.preferAsset(f.asset.id);let left=false;const navigation=v.beforeNavigate().then(value=>{left=value;return value;});await tick();assert.equal(left,false);d.resolve();await preference;assert.equal(await navigation,success);
+    }
+  });
   assert.deepEqual(failures,[], 'regressions must pass');
   console.log(`${count} client-state checks passed; mocked API, no browser/provider calls.`);
 })().catch(e=>{console.error(e);process.exitCode=1;});

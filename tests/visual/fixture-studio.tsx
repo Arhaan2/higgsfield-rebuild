@@ -62,6 +62,7 @@ export function FixtureProvider({ scenario, report, children }: { scenario: Scen
     nextPollAfterMs: null, lastCheckedAt: null, createdAt: timestamp, updatedAt: timestamp,
   } : null;
   const state: StudioState = {
+    preferring: false, preferenceError: "", preferenceNotice: "", preferAsset: async () => blocked(),
     buffer: { title: scenario === "empty_draft" ? "Untitled shot" : `Fixture: ${scenario.replaceAll("_", " ")}`, operation: "image_to_video", drafts: { image_to_video: videoDraft, text_to_image: emptyDraft("text_to_image") } },
     project: null, assets: hasOutput ? [fixtureReference, fixtureOutput] : hasReference ? [reference] : [], jobs: job ? [job] : [], sourceJobs: scenario === "cross_project_reference" ? [fixtureSourceJob] : [],
     selectedId, setSelectedId, sampleCollection: false, loading: false, loadError: "",

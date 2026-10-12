@@ -2,6 +2,8 @@
 
 This script covers the implemented zero-spend studio. It is **not a recording** and does not satisfy the outstanding real-generation requirement. Arhaan's camera must remain visible. Rehearse on the current public deployment after its checks pass; do not show local-only work as deployed.
 
+**Not ready to record the full hosted demonstration:** the current public Studio and Library return 404. R2 activation, integrated publication and hosted rehearsal must happen first. Do not ask Arhaan to record this script against the sample shell. Local preparation now includes a preferred-version action and preset-only Library thumbnails; verify those again on the eventual public revision before including them.
+
 Have two tabs ready: [Frame Studio](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site) and [public source](https://github.com/Arhaan2/higgsfield-rebuild). Use the licensed Dune study photograph in public/samples/dune-light.jpg as a start-frame demonstration; the prepared photograph and clip are independent works. Keep credentials and account pages out of the recording.
 
 | Time | Screen and narration |

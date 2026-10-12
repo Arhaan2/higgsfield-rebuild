@@ -34,6 +34,10 @@ export function useStudio() {
   const conflictRef = useRef(false);
   const [expired, setExpired] = useState(false);
   const expiredRef = useRef(false);
+  const [preferring, setPreferring] = useState(false);
+  const [preferenceError, setPreferenceError] = useState("");
+  const [preferenceNotice, setPreferenceNotice] = useState("");
+  const preferencePromise = useRef<Promise<Project | null> | null>(null);
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
   const uploadingRef = useRef(false);
@@ -62,6 +66,7 @@ export function useStudio() {
     contextEpoch.current++;
     metadataRequests.current.clear(); setSourceJobs([]);
     savingPromise.current = null; setSaving(false);
+    preferencePromise.current = null; setPreferring(false); setPreferenceError(""); setPreferenceNotice("");
     submittingRef.current = false; setSubmitting(false);
     uploadingRef.current = false; setUploading(false); uploadAttempt.current = null;
     setPendingFile(null); setUploadError("");
@@ -92,6 +97,11 @@ export function useStudio() {
   }, [invalidateContext]);
 
   const save = useCallback(async (): Promise<Project | null> => {
+    const waitingEpoch = contextEpoch.current;
+    if (preferencePromise.current) {
+      await preferencePromise.current;
+      if (contextEpoch.current !== waitingEpoch) return null;
+    }
     if (savingPromise.current) return savingPromise.current;
     if (expiredRef.current || conflictRef.current) return null;
     const epoch = contextEpoch.current;
@@ -136,11 +146,48 @@ export function useStudio() {
     try { return await promise; } finally { if (savingPromise.current === promise) savingPromise.current = null; }
   }, [acceptProject, handleError, persist]);
 
+  // Inspection is local. Only this explicit action changes the durable Library preference.
+  async function preferAsset(assetId: string) {
+    if (preferencePromise.current || expiredRef.current || conflictRef.current) return;
+    const owner = projectRef.current;
+    const asset = assets.find(item => item.id === assetId && item.projectId === owner?.id && item.source !== "sample");
+    if (!owner || !asset) { setPreferenceError("Choose a retained version from this shot."); return; }
+    if (owner.preferredAssetId === assetId) return;
+    const epoch = contextEpoch.current;
+    const currentContext = () => contextEpoch.current === epoch && !expiredRef.current && projectRef.current?.id === owner.id;
+    const precedingSave = savingPromise.current;
+    setPreferring(true); setPreferenceError(""); setPreferenceNotice("");
+    const operation = async (): Promise<Project | null> => {
+      try {
+        if (precedingSave && !await precedingSave) return null;
+        if (!currentContext() || conflictRef.current) return null;
+        const expectedRevision = projectRef.current!.revision;
+        const saved = await api.saveProject(owner.id, { expectedRevision, preferredAssetId: assetId });
+        if (!currentContext()) return null;
+        if (saved.id !== owner.id || saved.preferredAssetId !== assetId || saved.revision !== expectedRevision + 1) throw new Error("The preferred version was not confirmed. Try again.");
+        acceptProject(saved); persist();
+        setPreferenceNotice(`Preferred version saved: ${asset.title}. Library and this shot will open with it.`);
+        return saved;
+      } catch (cause) {
+        if (currentContext()) {
+          setPreferenceError(`Preferred version was not confirmed for “${asset.title}”. ${errorMessage(cause)}`);
+          if (cause instanceof StudioApiError && (cause.status === 401 || cause.code === "REVISION_CONFLICT")) handleError(cause);
+        }
+        return null;
+      } finally { if (contextEpoch.current === epoch) setPreferring(false); }
+    };
+    const request = operation(); preferencePromise.current = request;
+    try { await request; } finally { if (preferencePromise.current === request) preferencePromise.current = null; }
+  }
+
   const hasWork = useCallback(() => {
     const value = bufferRef.current;
     return !!projectRef.current || value.title !== "Untitled shot" || Object.values(value.drafts).some(draft => !!draft.prompt || (draft.operation === "image_to_video" && !!draft.startAssetId));
   }, []);
   const beforeNavigate = useCallback(async () => {
+    const preferenceEpoch = contextEpoch.current;
+    if (preferencePromise.current && !await preferencePromise.current) return false;
+    if (contextEpoch.current !== preferenceEpoch) return false;
     if (loadFailedRef.current) return true;
     if (uploadingRef.current) { setError("Wait for the start-frame upload to finish before leaving this shot."); return false; }
     if (!hasWork()) return true;
@@ -206,7 +253,7 @@ export function useStudio() {
 
   useEffect(() => {
     const guard = (event: BeforeUnloadEvent) => {
-      if ((hasWork() && signature(bufferRef.current) !== ackRef.current) || uploadingRef.current) { event.preventDefault(); event.returnValue = ""; }
+      if ((hasWork() && signature(bufferRef.current) !== ackRef.current) || uploadingRef.current || preferencePromise.current) { event.preventDefault(); event.returnValue = ""; }
     };
     window.addEventListener("beforeunload", guard);
     return () => window.removeEventListener("beforeunload", guard);
@@ -375,7 +422,7 @@ export function useStudio() {
       setJobError(errorMessage(cause));
     } finally { if (contextEpoch.current === epoch) { submittingRef.current = false; setSubmitting(false); } }
   }
-  return { buffer, project, assets, jobs, sourceJobs, selectedId, setSelectedId, sampleCollection, loading, loadError, error, notice, conflict, expired, saving, uploading, uploadError, pendingFile, capabilities, capabilityError, submitting, pending, jobError, jobBusy,
+  return { preferring, preferenceError, preferenceNotice, preferAsset, buffer, project, assets, jobs, sourceJobs, selectedId, setSelectedId, sampleCollection, loading, loadError, error, notice, conflict, expired, saving, uploading, uploadError, pendingFile, capabilities, capabilityError, submitting, pending, jobError, jobBusy,
     dirty: (!!project || buffer.title !== "Untitled shot" || Object.values(buffer.drafts).some(item => !!item.prompt || (item.operation === "image_to_video" && !!item.startAssetId))) && signature(buffer) !== acknowledged, saved: !!project && signature(buffer) === acknowledged,
     edit, save, beforeNavigate, upload, switchMode, updatePrompt, forkDraft, saveSeparate, restartSession, refreshJob, submit,
     removeReference: () => edit(current => ({ ...current, drafts: { ...current.drafts, image_to_video: { ...current.drafts.image_to_video, operation: "image_to_video", startAssetId: null } } })),

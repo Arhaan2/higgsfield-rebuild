@@ -23,7 +23,17 @@ export function LibraryView() {
   }, []);
   const loadPreviews = useCallback(async (items: Project[], epoch: number) => {
     const results = await Promise.allSettled(items.map(async project => {
-      try { return await api.project(project.id); }
+      try {
+        const detail = await api.project(project.id);
+        if (requestEpoch.current !== epoch || detail.project.id !== project.id) throw new Error("Preview unavailable");
+        let asset = detail.assets.find(item => item.id === detail.project.preferredAssetId) || detail.assets.at(-1);
+        const draft = detail.project.draft;
+        if (!asset && draft.operation === "image_to_video" && draft.startAssetId) {
+          asset = SAMPLE_ASSETS.find(item => item.id === draft.startAssetId) || await api.asset(draft.startAssetId);
+          if (asset.id !== draft.startAssetId || asset.kind !== "image") throw new Error("Start frame unavailable");
+        }
+        return { detail, asset };
+      }
       catch (cause) {
         if (requestEpoch.current === epoch && cause instanceof StudioApiError && cause.status === 401) expire();
         throw cause;
@@ -34,10 +44,14 @@ export function LibraryView() {
     const loaded: Record<string, { asset?: Asset; jobs: Job[]; count: number }> = {};
     results.forEach((result, index) => {
       const project = items[index];
-      if (result.status === "rejected" || result.value.project.id !== project.id) { failed.push(project.id); return; }
-      const detail = result.value;
-      loaded[project.id] = { asset: detail.assets.find(item => item.id === project.preferredAssetId) || detail.assets.at(-1), jobs: detail.jobs, count: detail.assets.filter(item => item.source === "generation").length };
+      if (result.status === "rejected") { failed.push(project.id); return; }
+      const { detail, asset } = result.value;
+      loaded[project.id] = { asset, jobs: detail.jobs, count: detail.assets.filter(item => item.source === "generation").length };
     });
+    setProjects(current => current.map(project => {
+      const result = results[items.findIndex(item => item.id === project.id)];
+      return result?.status === "fulfilled" ? result.value.detail.project : project;
+    }));
     setPreviews(current => ({ ...current, ...loaded }));
     setPreviewFailures(current => [...current.filter(id => !items.some(item => item.id === id)), ...failed]);
   }, [expire]);
