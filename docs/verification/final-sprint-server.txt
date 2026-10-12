@@ -1,0 +1,44 @@
+✔ Origin is configured, mandatory, and checked before session creation; opaque cookie stores only its hash (22.718209ms)
+✔ Guest CRUD persists revisions and rejects foreign project/asset/reuse; same-owner cross-project reuse is allowed (23.848875ms)
+✔ Binary validation rejects MIME lies, missing EOI, compressed and oversize bodies before R2; raw chunk limit counts actual bytes (11.784125ms)
+✔ Upload idempotency, uncertain R2 write reconciliation, and immutable first-write preserve accounting (6.41525ms)
+✔ Range, HEAD, conditional requests, and disposition return retained bytes without foreign access (7.833083ms)
+✔ All zero/disabled policy combinations create no jobs, no reservations, and no provider calls (8.339958ms)
+✔ Concurrent identical requests submit once; ambiguous outcome remains held and never resubmits, even after lease expiry (7.512ms)
+✔ Concurrent admission at last budget unit allows one guest; held storage slots are atomic (3.681958ms)
+✔ Output and authenticated queue URLs reject host/path tricks (0.268875ms)
+✔ Mocked FLUX completion retains one immutable output; transfer retry reconciles a lost R2 acknowledgement without regeneration (6.25975ms)
+✔ An expired poll lease cannot overwrite the successor completed result (3.983417ms)
+✔ Unsafe result host fails transfer while retaining job identity and blocking a second active operation (3.889417ms)
+✔ A stale submitting lease becomes unknown; late acknowledgement cannot overwrite it or trigger another POST (2.950625ms)
+✔ PNG structural/CRC validation accepts the original fixture and rejects corrupted chunks and animation markers (3.506708ms)
+✔ Kling sample input comes only from the configured origin/catalog after enablement, with frozen five-second settings (3.710959ms)
+✔ Owner checks precede zero-budget response on a new foreign job request (2.22475ms)
+✔ Fixed rate buckets deny extra writes atomically and expire without deleting saved work (13.319291ms)
+✔ Unknown JSON keys, compressed JSON, unsafe revisions, and oversized bodies fail without changing the draft (2.972208ms)
+✔ Mocked creative loop retains generated-image bytes, cross-project lineage, old jobs and downloads through video reuse (93.396ms)
+✔ P4-01: confirmed failures without output must leave room to retry while preserving jobs and counted spend (9.373417ms)
+✔ Confirmed failure releases only its storage; history, owner boundaries, idempotency and spend caps survive (45.409667ms)
+✔ Unknown POST and unavailable status retain storage and monetary holds (7.218417ms)
+✔ result failure holds storage through retry, including contradictory provider status (7.340042ms)
+✔ transfer failure holds storage through retry, including contradictory provider status (5.919ms)
+✔ Stale confirmed failure cannot release storage after expired (5.501916ms)
+✔ Stale confirmed failure cannot release storage after queued (4.902167ms)
+✔ Stale confirmed failure cannot release storage after running (3.608ms)
+✔ Stale confirmed failure cannot release storage after submission_unknown (2.885917ms)
+✔ Stale confirmed failure cannot release storage after transfer_failed (6.955708ms)
+✔ Stale confirmed failure cannot release storage after succeeded (5.893083ms)
+✔ Stale failure cannot release storage while a successor still owns the active poll lease (4.932334ms)
+✔ A failed terminal write rolls back the storage release; later refresh can complete both (3.269125ms)
+✔ Streamed MP4 transfer counts bytes, validates container, and reconciles exactly one retained object (99.898042ms)
+✔ Transfer rejects oversized/unknown-size video and MIME mismatch without writing R2 (3.735125ms)
+✔ Bounded image transfer rejects excess actual bytes even when content-length is omitted (9.95525ms)
+✔ Image transfer rejects malformed bytes before any R2 write (4.187958ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 765.3025

@@ -1,0 +1,59 @@
+PASS sample inspection creates no private guest/project
+PASS save response does not overwrite later typing or announce Saved
+PASS subsequent acknowledged save marks current buffer saved
+PASS both task drafts persist in browser recovery
+PASS revision conflict retains current edits and blocks departure
+PASS failed save prevents navigation and retains current text
+PASS expired session clears stale persistent recovery but keeps in-memory text
+PASS failed reference upload retains prior reference and retry file
+PASS ambiguous submission replays same request key/revision even after edits and zero-cap change
+PASS server property reordering and trimming do not cause false unsaved state
+PASS ambiguous project creation replays original identity/content after reload then saves new edits
+PASS SN01: restored new shot, edited title/prompt and JPG save clear stale recovery notice
+PASS SN02: pending save preserves newer edits and unsaved recovery notice (new shot)
+PASS SN02: pending save preserves newer edits and unsaved recovery notice (existing shot)
+PASS SN03: storage warning arriving during save survives acknowledgement
+PASS SN04: result notice arriving during save survives acknowledgement
+PASS IR01: invalid inactive prompt and saved active prompt survive reload; API limits remain
+PASS IR02: lost acknowledgement then 429 and inconclusive errors retain identity across reload
+PASS IR02: conclusive admission rejection releases pending request without automatic retry
+PASS IR03: deferred refresh ignored after conflict-copy
+PASS IR03: deferred detail ignored after conflict-copy
+PASS IR03: deferred error ignored after conflict-copy
+PASS IR03: deferred refresh ignored after session-replacement
+PASS IR03: deferred detail ignored after session-replacement
+PASS IR03: deferred error ignored after session-replacement
+PASS IR03 adjacent: stale save success cannot alter replacement session
+PASS IR03 adjacent: stale save error cannot alter replacement session
+PASS IR03 adjacent: stale submit success cannot alter replacement session
+PASS IR03 adjacent: stale submit error cannot alter replacement session
+PASS IR03 adjacent: stale upload success cannot alter replacement session
+PASS IR03 adjacent: stale upload error cannot alter replacement session
+PASS IR03: late refresh cleanup cannot clear the replacement shot refresh indicator
+PASS P4-02: resolves immutable external source jobs and recursive parent without poll/list contamination or loops
+PASS P4-02: stale external asset success ignored after session replacement
+PASS P4-02: stale external asset expiry ignored after session replacement
+PASS P4-02: stale external job success ignored after session replacement
+PASS P4-02: stale external job expiry ignored after session replacement
+PASS P4-02: current metadata expiry clears private assets/jobs; late success cannot restore them
+PASS P4-02: unavailable metadata retains known assets, selection and edited draft without retry loop
+PASS P4-02: arbitrary recorded parent resolves independently of active start frame
+PASS P4-02: copy clears metadata and rejects old source-job response while same-owner references resolve again
+PASS P4-02: source-job response must match requested ID and owning asset project
+PASS P4-02: API job retrieval is an encoded owner-session GET with no-store
+PASS P4-02: refreshing own result retains resolved external provenance without changing edited text
+PASS SS01: explicit preference uses preference-only PATCH
+PASS SS02: preference acknowledgement preserves newer and inactive typing, restores preference and dirty drafts after reload
+PASS SS03: pending draft save precedes preference PATCH, later typing stays dirty
+PASS SS04: draft save waits for preference and captures latest typing; duplicate preference does not write
+PASS SS05: preference network failure retains selection/drafts/confirmed preference; explicit retry succeeds
+PASS SS06: preference REVISION_CONFLICT preserves text and uses existing recovery path
+PASS SS06: preference GUEST_REQUIRED preserves text and uses existing recovery path
+PASS SS07: stale preference success ignored after saveSeparate
+PASS SS07: stale preference expiry ignored after saveSeparate
+PASS SS07: stale preference success ignored after restartSession
+PASS SS07: stale preference expiry ignored after restartSession
+PASS SS08: samples, foreign assets and missing assets cannot become preferences; inspection makes no writes
+PASS SS09: wrong preference/revision acknowledgements never claim success
+PASS SS10: navigation awaits preference acknowledgement and failed acknowledgement blocks departure
+58 client-state checks passed; mocked API, no browser/provider calls.

@@ -159,6 +159,13 @@ a { color: inherit; text-underline-offset: .2em; text-decoration-thickness: 1px;
 .preset-action svg { inline-size: 1.125rem; block-size: 1.125rem; }
 .shot-card-meta { display: flex; flex-wrap: wrap; gap: .375rem .75rem; color: var(--text-secondary); font-size: .8125rem; line-height: 1.5385; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 
+.library-toolbar { display: grid; gap: .5rem; min-inline-size: 0; margin-block-end: 1rem; }
+.library-toolbar-fields { display: grid; grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr)); align-items: end; gap: .75rem; }
+.library-toolbar select { max-inline-size: 100%; }
+.library-summary { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem .75rem; }
+.library-summary > p { min-inline-size: 0; overflow-wrap: anywhere; }
+.library-pagination { display: grid; justify-items: start; gap: .75rem; margin-block-start: 1.25rem; }
+
 .studio-grid { display: grid; grid-template-columns: minmax(0, var(--composer-width)) minmax(0, 1fr); align-items: start; gap: var(--layout-gap); }
 .composer { display: flex; flex-direction: column; gap: 1.5rem; min-inline-size: 0; padding: 1.25rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--surface); }
 .composer-header { display: grid; gap: .75rem; }
@@ -266,6 +273,7 @@ dialog.asset-dialog::backdrop { background: var(--scrim); }
 }
 /* Also catches large text and embedding in narrow app panes. */
 @container page (max-width: 43rem) {
+  .library-toolbar-fields { grid-template-columns: minmax(0, 1fr); }
   .studio-grid { grid-template-columns: minmax(0, 1fr); }
   .explore-hero { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   .hero-copy { padding-block: 1rem .5rem; }
@@ -274,6 +282,7 @@ dialog.asset-dialog::backdrop { background: var(--scrim); }
   .hero-media > :is(img, video, a) { block-size: auto; aspect-ratio: 16 / 10; max-block-size: 28rem; }
 }
 @media (max-width: 47.999rem) {
+  .library-toolbar-fields { grid-template-columns: minmax(0, 1fr); }
   :root { --page-padding: 1rem; --layout-gap: 1.5rem; }
   html { scroll-padding-block-end: calc(6rem + env(safe-area-inset-bottom)); }
   .app-shell { display: block; }

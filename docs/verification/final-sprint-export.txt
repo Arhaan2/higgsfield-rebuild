@@ -1,0 +1,27 @@
+PASS confirmed saved motion exports current prompt, revision and complete video settings
+PASS prompt edits cannot claim a saved revision
+PASS whitespace-only edits cannot claim a saved revision
+PASS title whitespace cannot claim a saved revision
+PASS different reference cannot claim a saved revision
+PASS preset change cannot claim a saved revision
+PASS parent change cannot claim a saved revision
+PASS no confirmed project cannot claim a saved revision
+PASS unacknowledged state cannot claim a saved revision
+PASS save in flight cannot claim a saved revision
+PASS image task uses image settings and ignores inactive motion reference
+PASS multiline Unicode, CRLF, whitespace and embedded Markdown/code fences round-trip exactly
+PASS filename is bounded and portable; title stays exact in a safe fenced block
+PASS upload facts stay uploads; private media URLs and untrusted attribution links are absent
+PASS prepared start frame has its own attribution, not the inspected stock video provenance
+PASS unknown and absent start frames are explicit; mismatched video is not used as a frame
+PASS missing dimensions and attribution stay unavailable; generated provenance does not invent a prompt/job
+PASS zero-budget UI exposes export and primary Save with truthful disabled Generate
+PASS actual action creates one UTF-8 Markdown Blob without requests or draft/selection/preference mutations
+PASS Blob cleanup is deferred until after download dispatch
+PASS export during a real deferred hook save uses newer edits without waiting or requesting a second save
+PASS deferred save completes normally and leaves newer exported edits dirty
+PASS export after confirmed save reports actual revision and exact prompt
+PASS header preview link targets and focuses selected-output; absent selection hides it
+PASS prepared media preview link says sample; prepared draft reference says reference
+PASS download exception keeps edits and offers explicit retry feedback
+26 shot-brief checks passed. Controlled React/DOM/API harness; browser acceptance remains outstanding.

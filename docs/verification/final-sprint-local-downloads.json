@@ -1,0 +1,44 @@
+{
+  "verified_at": "2026-10-12T19:54:12.434222+00:00",
+  "checks": [
+    {
+      "file": "docs/verification/final-sprint-unsaved-no-reference.md",
+      "bytes": 1351,
+      "sha256": "64a8a50134a498465eb8891bb0523a175e73373f7f46211cc146ab7561a27192",
+      "prompt_exact": true,
+      "state_accurate": true,
+      "private_links_absent": true
+    },
+    {
+      "file": "docs/verification/final-sprint-saved-motion.md",
+      "bytes": 1746,
+      "sha256": "c3f83fc7e9d8bfbaf3679ad5889e1a4367c0ec18c0117b97a5706d17e679d8e3",
+      "prompt_exact": true,
+      "state_accurate": true,
+      "private_links_absent": true
+    },
+    {
+      "file": "docs/verification/final-sprint-saved-image.md",
+      "bytes": 1371,
+      "sha256": "b9f7a328b2653360d49957bca2bfb74ebef212f65f23b5fa2887515b9cbf7efc",
+      "prompt_exact": true,
+      "state_accurate": true,
+      "private_links_absent": true
+    },
+    {
+      "file": "docs/verification/final-sprint-unsaved-upload.md",
+      "bytes": 1850,
+      "sha256": "4af2710861ae117a8ab3ccc96052f62600a9f4550434bed16f060a691d65c3a5",
+      "prompt_exact": true,
+      "state_accurate": true,
+      "private_links_absent": true
+    },
+    {
+      "image_download": "/Users/arhaan/Downloads/dune-light.jpg",
+      "bytes": 187464,
+      "sha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a",
+      "matches_upload": true
+    }
+  ],
+  "limitation": "Chrome download event timed out but actual file was present and exact; IAB native download events completed."
+}
