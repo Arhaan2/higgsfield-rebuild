@@ -1,32 +1,27 @@
-# Submission preparation — recording outstanding
+# Submission package — recording outstanding
 
-The integrated zero-spend studio is public and its hosted data paths pass verification. The assignment remains incomplete because real provider acceptance, required research output chains and the actual camera-on recording are not complete. No external submission has been made.
+Frame Studio's final sprint is deployed. It supports saved creative drafts, retained references, Library organization, exact shot-brief export and media download with generation disabled. Real AI generation, required research output chains and the actual camera-on walkthrough remain incomplete. No external submission has been made.
 
-## Verified links and revisions
+## Copy into the links field
 
-- Live application: https://higgsfield-rebuild.arhaan2.workers.dev
-- Public repository: https://github.com/Arhaan2/higgsfield-rebuild
-- Walkthrough: **NOT RECORDED**
-- Deployed source: **f271258fd0d4fece10229dfd74c89dfd5bcf275f**; reviewed application: **b32b03e7f867fa78b4c075890b76a9d41d736287**.
-- Cloudflare Worker version: **cbe42062-203d-462c-949e-0d4bd380beac**, tag f271258, created 2026-10-12T18:51:42.950748Z. Current source can include later evidence/capture-only commits; product equality is checked separately.
-- The old chatgpt.site URL is a historical sample shell, not the submission's application link.
+Live application: https://higgsfield-rebuild.arhaan2.workers.dev
 
-## Observed checks
+Public repository: https://github.com/Arhaan2/higgsfield-rebuild
 
-Fresh anonymous homepage/Studio/Library return 200. Eleven hosted HTTP checks and 20 independent Reviewer checks pass, including persistence, ownership, origin/revision protection, disabled/zero policy and exact media bytes. Public browser upload/save/reload/Library reopening/preference, preset-only thumbnails, sample playback and ordinary downloads pass. The prior 138 controlled checks remain attributed to unchanged product source. See [current evidence](verification/INDEX.md).
+## Walkthrough field
 
-## Next user action
+**NOT RECORDED — replace only with Arhaan's actual reviewer-accessible recording URL.** The [4:25 script](WALKTHROUGH-SCRIPT.md) includes the new Library and export flows. Camera must remain visible; actual duration must be below five minutes. A script or screen-only recording does not fulfill this requirement.
 
-Record the prepared [4:30 walkthrough](WALKTHROUGH-SCRIPT.md) with your camera visible throughout, keep it below five minutes and provide a reviewer-accessible URL. The complete zero-spend demonstration has been rehearsed in the actual public app. Use public/samples/dune-light.jpg for the upload; the existing walkthrough draft is available only in the same browser session used to create it.
+## Release evidence
 
-Say explicitly that the clip is prepared stock footage and live generation remains disabled. A recording demonstrates the implemented studio; it does not satisfy the unverified real prompt→image→video acceptance. No paid allowance is requested and none is assumed.
+Product source **0899d59108b1e92d8f1760d328ee90c643343f33**; Worker version **58a7f60d-5b7b-4508-b1b3-da2fe9784766**, published 2026-10-12 at 19:56 UTC. Later evidence/capture commits preserve product equality. Fresh TypeScript/build and **180 controlled checks** pass; **11 hosted HTTP checks** pass on this release. Local browser exercised real saved shots, title/prompt search, task/sort/reset, upload/preference/reload/reopen, saved/unsaved downloaded briefs and byte-identical image download. Independent public review verified the new export/Library flows; root completed public uploaded-reference preference/reload/reopen and actual private image-download bytes. The rejected independent-clip inspection remains an explicitly unrun browser case. See [evidence index](verification/INDEX.md).
 
-After receiving the recording, the coordinator must verify its public access, actual duration and visible camera, then recheck application/repository access. Arhaan retains final submission responsibility unless separately authorized. Label the live application and source links separately; place the actual recording URL in the walkthrough field.
+The existing D1/private R2 and exact APP_ORIGIN were reused without schema/dependency changes or initial-migration replay. Generation stays false, budget 0, no provider key. No provider call or billing change was made.
 
-## Remaining limits and capture closure
+## Human handoff and retained limits
 
-R2 activation is resolved; the existing D1 was reused without migration replay. No infrastructure upgrade, billing authorization or provider call was made. R2's included usage is not an account-wide hard spending cap; no claim of zero billing is inferred from deployment success.
+Record with the licensed `public/samples/dune-light.jpg` ready, using the same browser throughout. State once that the clip is prepared stock footage and live generation is disabled and unverified. Original research/process exceptions remain in ACCEPTANCE; do not imply the employer has waived them. Keep private account/credential pages off screen.
 
-Required signed-in output chains remain unverified under the recorded research exception. Native accessibility preferences/physical-phone testing and the formal initial-guide first-message item remain disclosed in ACCEPTANCE.md. All completed production-specialist prompts/finals have been verified. Two automatic suggestion sessions have exact native-journal matches but unavailable full transcripts. The current coordinator's final response is captured only after emission; inspect, verify, commit and push that final append from the original workspace after the agent stops. Do not rewrite or squash raw capture.
+After receiving the URL, the coordinator should verify actual reviewer access, duration below five minutes and visible camera. Arhaan retains final submission responsibility unless he explicitly authorizes that final action.
 
-Final independent [package review](verification/final-release.md) passes the concrete public, generation-disabled package and confirms the recording script is ready. It does not complete full Q6/S7. Source5391fd6 was independently checked; subsequent report/capture commits preserve the same deployed application.
+All completed production-specialist prompts and finals are verified against full source transcripts; their raw records accompany this release evidence. Three automatic client-suggestion sessions have journal-only proof with unavailable full transcripts. The coordinator final can only be captured after emission; inspect, run the capture verifier, stage only its authentic append/provenance, commit, push main, fetch and verify the remote tip after the agent stops.

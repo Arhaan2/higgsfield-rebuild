@@ -1,0 +1,322 @@
+{
+  "task_id": "final-sprint-public-review",
+  "status": "partial",
+  "started_at_utc": "2026-10-12T19:56:46.747Z",
+  "recorded_at_utc": "2026-10-12T20:08:14.525897+00:00",
+  "origin": "https://higgsfield-rebuild.arhaan2.workers.dev",
+  "source_commit": "0899d59108b1e92d8f1760d328ee90c643343f33",
+  "worker_version": "58a7f60d-5b7b-4508-b1b3-da2fe9784766",
+  "worker_tag": "0899d59",
+  "worker_identity_source": [
+    "docs/verification/final-sprint-publish.txt",
+    "docs/verification/final-sprint-cloudflare.json"
+  ],
+  "verdict": "No release-blocking product defect found in exercised generation-disabled export/Library flows. Partial acceptance; public upload/private download/preference and reference-versus-inspection browser checks remain unresolved.",
+  "capture": {
+    "session_id": "01a131b0-62be-7890-9741-184488733f93",
+    "model": "gpt-6-astra",
+    "log_path": ".agent-logs/2026-10-12_19-56-46_01a131b0-62be-7890-9741-184488733f93.md",
+    "source": "/Users/arhaan/.codex/sessions/2026/10/12/rollout-2026-10-12T12-56-45-01a131b0-62be-7890-9741-184488733f93.jsonl",
+    "full_prompt_exact": true,
+    "prompt_sha256": "cd242c43e7955d497a1f93a12fc3aca7ec881b8fbe8c2a7680a94f68f28a6312",
+    "prompt_characters": 4798,
+    "final": "Pending automatic Stop capture and root verification; not yet emitted/committed"
+  },
+  "browser": {
+    "kind": "CUA Chrome extension",
+    "tab_id": "1801937834",
+    "fresh_tab": true,
+    "guest": "Fresh tab in existing Chrome profile; final Library has exactly the three review projects. IAB/recording guest not accessed.",
+    "iab_error": "Browser is not available: iab",
+    "upload_error": "Browser Use could not complete this action because a browser security check was unavailable. The permission request was dismissed before a decision was made.",
+    "viewport_override_restored": true,
+    "handoff": "Library, three saved projects; tab marked for handoff"
+  },
+  "projects": [
+    {
+      "id": "ef0ed94e-e482-41f7-b8f2-8e27a7bbbdb1",
+      "title": "Amber public review",
+      "operation": "text_to_image"
+    },
+    {
+      "id": "6802c2ef-5c87-4243-93fe-087e67b8e3a7",
+      "title": "Dune public review",
+      "operation": "image_to_video",
+      "reference": "none; upload blocked"
+    },
+    {
+      "id": "ee3674e2-4ff0-4bc5-9ecf-a36491869faf",
+      "title": "Zenith public review",
+      "operation": "image_to_video",
+      "reference": "sample-dune-light"
+    }
+  ],
+  "checks": [
+    {
+      "check": "capture_prompt",
+      "result": "pass",
+      "detail": "Full 4,798-character prompt found verbatim in automatic log and native rollout; SHA-256 cd242c43e7955d497a1f93a12fc3aca7ec881b8fbe8c2a7680a94f68f28a6312. Final awaits Stop/root verification."
+    },
+    {
+      "check": "release_identity",
+      "result": "pass",
+      "detail": "HEAD 0899d59108b1e92d8f1760d328ee90c643343f33; product files unchanged from HEAD; publish log successful; root Cloudflare artifact reports version 58a7f60d-5b7b-4508-b1b3-da2fe9784766 tag 0899d59. Five public assets byte-identical to root local build; both routes reference new entry/CSS."
+    },
+    {
+      "check": "zero_policy_before_mutations",
+      "result": "pass",
+      "detail": "Independent GET /api/capabilities before first save: enabled=false, reason=disabled, budgetLimitMicroUsd=0, remainingMicroUsd=0; requestId bbdfc37e-ecf3-45a1-abd4-009231a2a8df."
+    },
+    {
+      "check": "unsaved_unicode_export",
+      "result": "pass",
+      "detail": "Keyboard Enter downloaded real Markdown; exact title, 67-character prompt, leading/trailing spaces, Unicode, multiline and embedded triple fence retained inside a four-backtick fence. Safe filename. Working draft unsaved, FLUX settings, no start frame. UI stayed unsaved and at /studio."
+    },
+    {
+      "check": "saved_image_motion_exports",
+      "result": "pass",
+      "detail": "Actual downloaded Amber image and Dune motion files contain exact current prompts, Saved draft revision and matching requested FLUX/Kling settings. Edited Amber export is Working draft unsaved before saving. Private links absent."
+    },
+    {
+      "check": "prepared_reference_export",
+      "result": "pass",
+      "detail": "Actual Zenith download identifies dune-light.jpg as Prepared sample, 1600 x 2397, 187464 bytes, Jacob Castle / Unsplash public source; no result lineage invented. Current active motion prompt retained."
+    },
+    {
+      "check": "three_genuine_shots",
+      "result": "pass",
+      "detail": "Exactly three disposable projects acknowledged: Amber image, Dune frameless motion, Zenith prepared-reference motion. Preset created the third; subsequent actions edited existing shots. No fabricated jobs/provider requests."
+    },
+    {
+      "check": "search_filter_sort",
+      "result": "pass",
+      "detail": "DUNE returns Dune title and Zenith prompt containing dunes (2/3); COBALT LANTERN + Motion + Title A-Z returns Dune (1/3); Image gives 0/3 and No matching shots. PUBLIC REVIEW finds all three. A-Z is Amber,Dune,Zenith. Sample collection stays separate."
+    },
+    {
+      "check": "no_match_keyboard_reset",
+      "result": "pass",
+      "detail": "Impossible query and composed no-match both expose reset. Enter resets query, type=all and sort=updated; focus=library-search. Tab from search focuses library-filter. Enter on Amber result reopens saved Studio."
+    },
+    {
+      "check": "updated_order_reload",
+      "result": "pass",
+      "detail": "Initial order Zenith,Dune,Amber. Editing/saving Amber makes order Amber,Zenith,Dune. Zenith reopened from Library and reloaded: title, Copper horizon prompt, prepared reference retained."
+    },
+    {
+      "check": "responsive_keyboard",
+      "result": "pass",
+      "detail": "Public Library and Studio document widths equal viewport at 390; desktop Studio scrollWidth=1440 at width1440. Visible focus/native labeled controls. Enter on View sample focuses selected-output at top48.09375. Skip to content focuses main-content. Save draft primary and enabled for edit; Generate disabled with spending explanation. Screenshots recorded."
+    },
+    {
+      "check": "runtime_console",
+      "result": "pass",
+      "detail": "Review tab warn/error log returned empty array."
+    },
+    {
+      "check": "source_controlled_review",
+      "result": "pass",
+      "detail": "Independently read source/diff and focused tests; no blocking defect identified. Exact save equality, variable fences, draft-reference lookup, privacy allowlist, pure queries, newer-revision merge, epoch guards and loaded-only pagination covered. Existing 180 controlled checks attributed to root; not rerun."
+    },
+    {
+      "check": "uploaded_reference_private_download_preference",
+      "result": "not_run",
+      "detail": "IAB unavailable. Chrome chooser setFiles rejected because browser upload permission request dismissed before a decision. No security/access setting changed or workaround attempted. No actual upload/private-image download/preferred upload browser acceptance."
+    },
+    {
+      "check": "reference_vs_unrelated_inspection_public",
+      "result": "not_run",
+      "detail": "Automatic approval review rejected selecting independent prepared clip, interpreting user wording as prohibiting unrelated-media inspection. Did not retry or bypass. Focused controlled formatter/action checks remain evidence only."
+    },
+    {
+      "check": "pending_save_failure_expiry_pagination_public",
+      "result": "not_run",
+      "detail": "No deliberate pending-save export interval, failure/expiry/stale-response/pagination fixture exercised publicly. Existing controlled checks retain their limited scope."
+    },
+    {
+      "check": "native_accessibility_zoom_phone",
+      "result": "not_run",
+      "detail": "Native reduced-motion/transparency/contrast preferences, screen-reader speech, 200% zoom and physical phone were not run."
+    },
+    {
+      "check": "browser_network_side_effect_counts",
+      "result": "not_run",
+      "detail": "No independent network trace of export/search requests. Source and controlled harness cover no mutation/refetch; actual export retained unsaved UI and current URL. Do not promote this to browser request-count proof."
+    },
+    {
+      "check": "whitespace_only_export",
+      "result": "pass",
+      "detail": "Actual downloaded Amber (2) retains exact 54-character whitespace-only edit and says Working draft unsaved. Editor still says Draft saved because existing hook comparison trims whitespace; export correctly uses exact snapshot equality."
+    }
+  ],
+  "public_assets": {
+    "at": "2026-10-12T20:03:56.099998+00:00",
+    "checks": [
+      {
+        "path": "dist/client/_next/static/chunks/StudioView-C-7huyyY.js",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/StudioView-C-7huyyY.js",
+        "exit": 0,
+        "bytes": 50009,
+        "matches_local": true,
+        "sha256": "f5bf596b6c10f9b04267fb4d04f5ffa64cf634c99712e1144c42ccd893766996"
+      },
+      {
+        "path": "dist/client/_next/static/chunks/LibraryView-_UJAeUO-.js",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/LibraryView-_UJAeUO-.js",
+        "exit": 0,
+        "bytes": 10147,
+        "matches_local": true,
+        "sha256": "86d802ecf19a64c87b22982b9bf8ac3f1bfd7e64b1fa38a909dcea6d5aea69be"
+      },
+      {
+        "path": "dist/client/_next/static/css/index.CXpRhlX6.css",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/css/index.CXpRhlX6.css",
+        "exit": 0,
+        "bytes": 179250,
+        "matches_local": true,
+        "sha256": "7bc73e1a017a97afc8950cb98316abeb1100853567918c3dd3cb66f538a9c8e0"
+      },
+      {
+        "path": "dist/client/vinext-client-entry-manifest.json",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/vinext-client-entry-manifest.json",
+        "exit": 0,
+        "bytes": 65,
+        "matches_local": true,
+        "sha256": "f88023fdfb703d2b877d4e3077902410432ab45bd2ebee80ed032dcccb14d246"
+      },
+      {
+        "path": "dist/client/_next/static/chunks/index-BICqjI19.js",
+        "url": "https://higgsfield-rebuild.arhaan2.workers.dev/_next/static/chunks/index-BICqjI19.js",
+        "exit": 0,
+        "bytes": 194290,
+        "matches_local": true,
+        "sha256": "f41bf29a0887b34ee77d2639e851bd14a67cd46bec55a87ab1fc552e7ba7a5dc"
+      }
+    ],
+    "html_checks": [
+      {
+        "route": "/studio",
+        "exit": 0,
+        "current_css_referenced": true,
+        "current_entry_referenced": true
+      },
+      {
+        "route": "/library",
+        "exit": 0,
+        "current_css_referenced": true,
+        "current_entry_referenced": true
+      }
+    ]
+  },
+  "actual_downloads": [
+    {
+      "file": "/Users/arhaan/Downloads/shot-brief-review-cafe.md",
+      "bytes": 1455,
+      "sha256": "41515e27504f83c97a8b4d748ac4721abddf78db391d847fbf4d6ceed4686c93",
+      "prompt_exact": true,
+      "state_correct": true,
+      "model_correct": true,
+      "private_links_absent": true,
+      "prepared_labeled": null,
+      "markdown": "# Shot brief\n\nWorking draft — unsaved\n\nThis export preserves the current title and active draft, including unsaved edits and whitespace. No saved revision is claimed.\n\n## Shot title\n\n```text\nReview / Café: 夜空?\n```\n\n## Active task\n\nCreate image (text to image)\n\n## Current prompt\n\nExact current text is inside the fenced block. Its final separator newline belongs to the Markdown wrapper; all prompt whitespace and Unicode are retained.\n\n````text\n  Café 夜空 — cobalt lantern\n```text\nPreserve `literal` fences\n```\n  \n````\n\n## Requested generation settings\n\nThese are the active task’s configured settings for a future request. Exporting does not submit a generation request. They do not describe how an uploaded image or prepared sample was made.\n\n- Provider: fal\n- Model: fal-ai/flux/schnell\n\n```json\n{\n  \"image_size\": {\n    \"width\": 1280,\n    \"height\": 720\n  },\n  \"num_images\": 1,\n  \"num_inference_steps\": 4,\n  \"guidance_scale\": 3.5,\n  \"enable_safety_checker\": true,\n  \"output_format\": \"jpeg\",\n  \"acceleration\": \"none\",\n  \"sync_mode\": false\n}\n```\n\n### Draft preset\n\nNone selected.\n\nA preset is a starting point for editing, not evidence that it produced any media.\n\n## Draft start frame\n\nNot used by the current Create image task.\n\n## Media files\n\nMedia files are not embedded. Download available media separately from its preview in Studio. Private media and download links are omitted because they depend on the original browser session.\n"
+    },
+    {
+      "file": "/Users/arhaan/Downloads/shot-brief-amber-public-review.md",
+      "bytes": 1345,
+      "sha256": "e00d3166006616a96a5b3732eedbbf9ef885369918cfa00324c54e777b1ecd6a",
+      "prompt_exact": true,
+      "state_correct": true,
+      "model_correct": true,
+      "private_links_absent": true,
+      "prepared_labeled": null,
+      "markdown": "# Shot brief\n\nSaved draft — revision 1\n\nThe title and active draft exactly match the confirmed saved revision.\n\n## Shot title\n\n```text\nAmber public review\n```\n\n## Active task\n\nCreate image (text to image)\n\n## Current prompt\n\nExact current text is inside the fenced block. Its final separator newline belongs to the Markdown wrapper; all prompt whitespace and Unicode are retained.\n\n```text\nStill noon — café light\n```\n\n## Requested generation settings\n\nThese are the active task’s configured settings for a future request. Exporting does not submit a generation request. They do not describe how an uploaded image or prepared sample was made.\n\n- Provider: fal\n- Model: fal-ai/flux/schnell\n\n```json\n{\n  \"image_size\": {\n    \"width\": 1280,\n    \"height\": 720\n  },\n  \"num_images\": 1,\n  \"num_inference_steps\": 4,\n  \"guidance_scale\": 3.5,\n  \"enable_safety_checker\": true,\n  \"output_format\": \"jpeg\",\n  \"acceleration\": \"none\",\n  \"sync_mode\": false\n}\n```\n\n### Draft preset\n\nNone selected.\n\nA preset is a starting point for editing, not evidence that it produced any media.\n\n## Draft start frame\n\nNot used by the current Create image task.\n\n## Media files\n\nMedia files are not embedded. Download available media separately from its preview in Studio. Private media and download links are omitted because they depend on the original browser session.\n"
+    },
+    {
+      "file": "/Users/arhaan/Downloads/shot-brief-amber-public-review (1).md",
+      "bytes": 1428,
+      "sha256": "eaaa541d99da0f56c538bbf0b49f2303c14e3535e2e71fb220bacd1f8b60778c",
+      "prompt_exact": true,
+      "state_correct": true,
+      "model_correct": true,
+      "private_links_absent": true,
+      "prepared_labeled": null,
+      "markdown": "# Shot brief\n\nWorking draft — unsaved\n\nThis export preserves the current title and active draft, including unsaved edits and whitespace. No saved revision is claimed.\n\n## Shot title\n\n```text\nAmber public review\n```\n\n## Active task\n\nCreate image (text to image)\n\n## Current prompt\n\nExact current text is inside the fenced block. Its final separator newline belongs to the Markdown wrapper; all prompt whitespace and Unicode are retained.\n\n```text\nStill noon — café light. Edited for updated order.\n```\n\n## Requested generation settings\n\nThese are the active task’s configured settings for a future request. Exporting does not submit a generation request. They do not describe how an uploaded image or prepared sample was made.\n\n- Provider: fal\n- Model: fal-ai/flux/schnell\n\n```json\n{\n  \"image_size\": {\n    \"width\": 1280,\n    \"height\": 720\n  },\n  \"num_images\": 1,\n  \"num_inference_steps\": 4,\n  \"guidance_scale\": 3.5,\n  \"enable_safety_checker\": true,\n  \"output_format\": \"jpeg\",\n  \"acceleration\": \"none\",\n  \"sync_mode\": false\n}\n```\n\n### Draft preset\n\nNone selected.\n\nA preset is a starting point for editing, not evidence that it produced any media.\n\n## Draft start frame\n\nNot used by the current Create image task.\n\n## Media files\n\nMedia files are not embedded. Download available media separately from its preview in Studio. Private media and download links are omitted because they depend on the original browser session.\n"
+    },
+    {
+      "file": "/Users/arhaan/Downloads/shot-brief-dune-public-review.md",
+      "bytes": 1228,
+      "sha256": "5c6370efdb5b778a65fa32e83c29ab4d288ee6fd78b38ea860fdc1e00a9aa4b3",
+      "prompt_exact": true,
+      "state_correct": true,
+      "model_correct": true,
+      "private_links_absent": true,
+      "prepared_labeled": null,
+      "markdown": "# Shot brief\n\nSaved draft — revision 1\n\nThe title and active draft exactly match the confirmed saved revision.\n\n## Shot title\n\n```text\nDune public review\n```\n\n## Active task\n\nAnimate image (image to video)\n\n## Current prompt\n\nExact current text is inside the fenced block. Its final separator newline belongs to the Markdown wrapper; all prompt whitespace and Unicode are retained.\n\n```text\nSlow orbit around a cobalt lantern at dusk.\n```\n\n## Requested generation settings\n\nThese are the active task’s configured settings for a future request. Exporting does not submit a generation request. They do not describe how an uploaded image or prepared sample was made.\n\n- Provider: fal\n- Model: fal-ai/kling-video/v2.5-turbo/pro/image-to-video\n\n```json\n{\n  \"duration\": \"5\",\n  \"negative_prompt\": \"blur, distort, and low quality\",\n  \"cfg_scale\": 0.5\n}\n```\n\n### Draft preset\n\nNone selected.\n\nA preset is a starting point for editing, not evidence that it produced any media.\n\n## Draft start frame\n\nNo start frame selected.\n\n## Media files\n\nMedia files are not embedded. Download available media separately from its preview in Studio. Private media and download links are omitted because they depend on the original browser session.\n"
+    },
+    {
+      "file": "/Users/arhaan/Downloads/shot-brief-zenith-public-review.md",
+      "bytes": 1751,
+      "sha256": "f2a18c2e5c93b69a8cfc4c38a796bfbd876899faae75cbf744ef8b3befc60bb0",
+      "prompt_exact": true,
+      "state_correct": true,
+      "model_correct": true,
+      "private_links_absent": true,
+      "prepared_labeled": true,
+      "markdown": "# Shot brief\n\nSaved draft — revision 2\n\nThe title and active draft exactly match the confirmed saved revision.\n\n## Shot title\n\n```text\nZenith public review\n```\n\n## Active task\n\nAnimate image (image to video)\n\n## Current prompt\n\nExact current text is inside the fenced block. Its final separator newline belongs to the Markdown wrapper; all prompt whitespace and Unicode are retained.\n\n```text\nCopper horizon. Preserve the prepared dunes.\n```\n\n## Requested generation settings\n\nThese are the active task’s configured settings for a future request. Exporting does not submit a generation request. They do not describe how an uploaded image or prepared sample was made.\n\n- Provider: fal\n- Model: fal-ai/kling-video/v2.5-turbo/pro/image-to-video\n\n```json\n{\n  \"duration\": \"5\",\n  \"negative_prompt\": \"blur, distort, and low quality\",\n  \"cfg_scale\": 0.5\n}\n```\n\n### Draft preset\n\n```text\nslow-reveal\n```\n\nA preset is a starting point for editing, not evidence that it produced any media.\n\n## Draft start frame\n\nPrepared sample — not generated from this draft.\n\n### Start-frame title\n\n```text\nDune light\n```\n\n### Original filename\n\n```text\ndune-light.jpg\n```\n\n- Media type: image/jpeg\n- Dimensions: 1600 × 2397 px\n- File size: 187464 bytes\n\n### Source / attribution\n\n```text\nJacob Castle / Unsplash\n```\n\nPublic source page: <https://unsplash.com/photos/the-sun-is-setting-over-the-sand-dunes-ui_tS2Yd-i0>\n\nStart-frame facts describe the existing image, not the requested output. No generated result or result lineage is asserted by this export.\n\n## Media files\n\nMedia files are not embedded. Download available media separately from its preview in Studio. Private media and download links are omitted because they depend on the original browser session.\n"
+    },
+    {
+      "file": "/Users/arhaan/Downloads/shot-brief-amber-public-review (2).md",
+      "bytes": 1432,
+      "sha256": "bdc1d156c7c4239e102a5f36ecdc21a35c2dbf60403affba3df1a5ac87fc455b",
+      "prompt_exact": true,
+      "state_correct": true,
+      "model_correct": true,
+      "private_links_absent": true,
+      "markdown": "# Shot brief\n\nWorking draft — unsaved\n\nThis export preserves the current title and active draft, including unsaved edits and whitespace. No saved revision is claimed.\n\n## Shot title\n\n```text\nAmber public review\n```\n\n## Active task\n\nCreate image (text to image)\n\n## Current prompt\n\nExact current text is inside the fenced block. Its final separator newline belongs to the Markdown wrapper; all prompt whitespace and Unicode are retained.\n\n```text\n  Still noon — café light. Edited for updated order.\n \n```\n\n## Requested generation settings\n\nThese are the active task’s configured settings for a future request. Exporting does not submit a generation request. They do not describe how an uploaded image or prepared sample was made.\n\n- Provider: fal\n- Model: fal-ai/flux/schnell\n\n```json\n{\n  \"image_size\": {\n    \"width\": 1280,\n    \"height\": 720\n  },\n  \"num_images\": 1,\n  \"num_inference_steps\": 4,\n  \"guidance_scale\": 3.5,\n  \"enable_safety_checker\": true,\n  \"output_format\": \"jpeg\",\n  \"acceleration\": \"none\",\n  \"sync_mode\": false\n}\n```\n\n### Draft preset\n\nNone selected.\n\nA preset is a starting point for editing, not evidence that it produced any media.\n\n## Draft start frame\n\nNot used by the current Create image task.\n\n## Media files\n\nMedia files are not embedded. Download available media separately from its preview in Studio. Private media and download links are omitted because they depend on the original browser session.\n"
+    }
+  ],
+  "prior_evidence": {
+    "owner": "root; read/spot-reviewed, not rerun by this reviewer",
+    "controlled": {
+      "server": 36,
+      "Studio": 58,
+      "Library": 31,
+      "reference": 29,
+      "export": 26,
+      "total": 180
+    },
+    "hosted_http": "docs/verification/final-sprint-http.json: root 11 passing HTTP checks at 2026-10-12T19:56:49.973Z, including upload/private-byte checks; distinct from browser UI acceptance",
+    "local": "docs/verification/final-sprint-local.md, final-sprint-local-downloads.json and all three local screenshots read/viewed; local only"
+  },
+  "remaining_limits": [
+    "Live generation disabled and budget zero; actual provider/image-to-video/connected generation unverified",
+    "Original signed-in research advanced by explicit exception, not passed",
+    "Camera-on recording, duration and public access unverified",
+    "Final automatic response capture not yet emitted or committed"
+  ],
+  "integration_requests": [
+    "No product patch requested from this review. Root must complete supported public UI upload/private download/preference acceptance and compare actual bytes. Reuse an existing disposable shot if using this Chrome guest to preserve three-shot limit.",
+    "Reference-versus-inspection public case requires explicit clarification/approval before retrying rejected prepared-clip selection; retain controlled coverage if unrun.",
+    "Root verifies final capture after Stop; owns checkpoint, commits/pushes and release decision."
+  ],
+  "tool_limitations": [
+    "Sandbox curl initially could not resolve host; read-only escalated curl succeeded. Python urllib returned HTTP403; curl verified same endpoints successfully. These are not product failures.",
+    "No native child, delegation, worktree, install, deployment, provision, paid setting, provider request, source edit or commit."
+  ],
+  "screenshots": [
+    {
+      "path": "docs/verification/final-sprint-public-review-390.jpg",
+      "bytes": 74455,
+      "sha256": "1a651cbc7112de1179e84ce31914f9d54fdcd01cfce0758701ff51e780d30629",
+      "source": "Actual CUA Chrome full-page screenshot; fixed navigation remains at capture viewport position"
+    },
+    {
+      "path": "docs/verification/final-sprint-public-review-desktop.jpg",
+      "bytes": 149553,
+      "sha256": "ac3f677bd3019206f7dc383ac49e1cd16d1d1e1ac9dac13267556ee5f391e194",
+      "source": "Actual CUA Chrome full-page screenshot; fixed navigation remains at capture viewport position"
+    }
+  ],
+  "nonblocking_observations": [
+    "Existing Studio save-status normalizes outer whitespace: whitespace-only edit retains Draft saved UI while exact export correctly says Working draft unsaved. Known in review plan; no loss of text in export."
+  ]
+}

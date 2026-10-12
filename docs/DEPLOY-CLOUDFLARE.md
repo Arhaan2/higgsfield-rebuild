@@ -1,8 +1,10 @@
 # Direct Cloudflare deployment preparation
 
-**Published successfully on 2026-10-12 at 18:51 UTC.** Use https://higgsfield-rebuild.arhaan2.workers.dev. Exact source f271258fd0d4fece10229dfd74c89dfd5bcf275f (reviewed product b32b03e) is Worker version cbe42062-203d-462c-949e-0d4bd380beac, tag f271258. The user enabled R2; root verified availability, created the private assignment bucket, built, inspected a dry run and deployed with the existing verified D1. **No migration replay.**
+**Final sprint published successfully on 2026-10-12 at 19:56 UTC.** Use https://higgsfield-rebuild.arhaan2.workers.dev. Exact source **0899d59108b1e92d8f1760d328ee90c643343f33** is Worker version **58a7f60d-5b7b-4508-b1b3-da2fe9784766**, tag `0899d59`. Root reused the existing Worker, D1 and private R2; built and inspected a dry run before publishing. **No migration replay or provisioning.**
 
-Actual bindings: DB = 3eb2d881-1c6d-4d61-8ff8-de5c711c5562; BUCKET = higgsfield-rebuild; APP_ORIGIN = https://higgsfield-rebuild.arhaan2.workers.dev; LIVE_GENERATION_ENABLED=false; GENERATION_BUDGET_USD=0; no provider-secret binding. Metadata: [deployed-cloudflare.json](verification/deployed-cloudflare.json). Root's 11 hosted HTTP checks and Reviewer's 20 independent checks pass; [browser evidence](verification/deployed-browser.md) records the actual interaction path.
+Actual bindings: DB = 3eb2d881-1c6d-4d61-8ff8-de5c711c5562; BUCKET = higgsfield-rebuild; APP_ORIGIN = https://higgsfield-rebuild.arhaan2.workers.dev; LIVE_GENERATION_ENABLED=false; GENERATION_BUDGET_USD=0; no provider-secret binding. Current [version metadata](verification/final-sprint-cloudflare.json), [publish output](verification/final-sprint-publish.txt), [fresh 11 hosted checks](verification/final-sprint-http.json). Independent [public feature review](verification/final-sprint-public-review.md) and coordinator [upload completion](verification/final-sprint-public-upload.md) record actual browser acceptance and unrun cases.
+
+The previous release was source f271258 / version cbe42062-203d-462c-949e-0d4bd380beac; its attributed [browser evidence](verification/deployed-browser.md) and 20 independent checks remain historical. The following setup history is retained for reproducibility.
 
 No new resource or access action is required from Arhaan for the deployed studio. Billing activation/upgrades were not performed by the agent. R2 included usage is not a hard account-wide spending cap. The account's existing entitlement is used; no provider request or positive budget was authorized.
 

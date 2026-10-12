@@ -1,6 +1,20 @@
 # Current evidence index
 
-The integrated application is public at **https://higgsfield-rebuild.arhaan2.workers.dev**. Exact deployed source **f271258fd0d4fece10229dfd74c89dfd5bcf275f** / Worker version **cbe42062-203d-462c-949e-0d4bd380beac**. Reviewed product b32b03e remains unchanged in subsequent evidence/capture commits. Generation is disabled and all allowances are zero.
+Current public release: https://higgsfield-rebuild.arhaan2.workers.dev, source **0899d59108b1e92d8f1760d328ee90c643343f33**, Worker **58a7f60d-5b7b-4508-b1b3-da2fe9784766**. Generation disabled, all allowances zero.
+
+| Final sprint evidence | Actual result / boundary |
+| --- | --- |
+| [Version metadata](final-sprint-cloudflare.json), [publish](final-sprint-publish.txt), [dry run](final-sprint-dry-run.txt), [build](final-sprint-build.txt) | Exact product source, existing D1/private R2, correct origin and zero policy; no migrations. |
+| [Local acceptance](final-sprint-local.md), [download checks](final-sprint-local-downloads.json) | Real three-shot UI path, saved/unsaved downloaded Markdown, uploaded media bytes, query controls, keyboard and 390px/desktop layouts. |
+| [Server](final-sprint-server.txt), [Studio](final-sprint-studio.txt), [Library](final-sprint-library.txt), [reference](final-sprint-reference.txt), [export](final-sprint-export.txt) | 180 fresh controlled checks; no actual provider call. Fresh TypeScript exits 0. |
+| [Hosted HTTP](final-sprint-http.json) | 11 fresh checks pass on the new Worker. Dirty-tree flag refers to contemporaneous evidence/capture files; deployed product is committed source 0899d59. |
+| [Public review](final-sprint-public-review.md), [JSON](final-sprint-public-review.json), [upload completion](final-sprint-public-upload.md) | Independent export/Library/keyboard/390px review; root completed upload/preference/reload/reopen, actual brief and byte-identical private image download. Prepared-clip inspection remains unrun after automatic rejection. |
+| [Product equality](final-sprint-source-equality.json) | All 157 checked product/config/test/script files match deployed 0899d59; later evidence/capture commits do not change the application. |
+| [Capture revalidation](../capture/verification-final-sprint-start.json), [final specialist audit](../capture/verification-final-sprint-final.json) | Updated-client canaries and all completed specialist prompts/finals match source; 48 sessions, 45 source-verifiable and three journal-only suggestion sessions. Current root final awaits emission. |
+
+## Prior release evidence (unchanged historical scope)
+
+The previous source f271258 / Worker cbe42062-203d-462c-949e-0d4bd380beac remains identified in these reports. Its prior acceptance does not substitute for final-sprint feature checks.
 
 | Question | Evidence | Result and boundary |
 | --- | --- | --- |

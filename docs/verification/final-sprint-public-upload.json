@@ -1,0 +1,78 @@
+{
+  "verified_at_utc": "2026-10-12T20:11:37.467425+00:00",
+  "source_commit": "0899d59108b1e92d8f1760d328ee90c643343f33",
+  "worker_version": "58a7f60d-5b7b-4508-b1b3-da2fe9784766",
+  "browser": "Root CUA in-app browser, tab 2; one new disposable shot in existing IAB guest",
+  "capabilities_before_writes": {
+    "data": {
+      "liveGeneration": {
+        "enabled": false,
+        "reason": "disabled",
+        "budgetLimitMicroUsd": 0,
+        "remainingMicroUsd": 0
+      },
+      "operations": [
+        {
+          "id": "text_to_image",
+          "modelId": "fal-ai/flux/schnell",
+          "imageSize": {
+            "width": 1280,
+            "height": 720
+          },
+          "count": 1
+        },
+        {
+          "id": "image_to_video",
+          "modelId": "fal-ai/kling-video/v2.5-turbo/pro/image-to-video",
+          "durationSeconds": 5,
+          "referenceRole": "start_frame"
+        }
+      ],
+      "upload": {
+        "mimeTypes": [
+          "image/jpeg",
+          "image/png"
+        ],
+        "maxBytes": 5000000
+      },
+      "samplesAvailable": true
+    },
+    "requestId": "eb541315-b430-4191-bfd8-2576944325be"
+  },
+  "project_id": "d4b12b44-aeb0-4f5f-b203-90a4d2460f16",
+  "asset_id": "4cfb73d4-fdb9-4706-9f1c-c964a8d9b2fc",
+  "ui_observations": [
+    "Licensed reference chooser upload succeeded through supported IAB. Draft save acknowledged.",
+    "Make preferred version acknowledged; reload and Library Enter reopening retained saved title, prompt, uploaded start frame and Preferred version.",
+    "AMBER DUNES + Motion drafts + Title A–Z returned Public retained dune, 1 of 3, leaving prepared collection separate. Two prior IAB guest shots preserved.",
+    "Real unsaved multiline/Unicode/fence brief downloaded; UI remained unsaved and preferred selection retained. Edited draft then explicitly saved.",
+    "Header View reference Enter focused selected-output. Ordinary Download image completed to actual Downloads file.",
+    "Desktop viewport and document scroll width both 1440. Screenshot saved; viewport restored."
+  ],
+  "download_checks": {
+    "exact_prompt": true,
+    "unsaved_state": true,
+    "motion_settings": true,
+    "uploaded_provenance": true,
+    "private_links_absent": true,
+    "image_byte_equal": true
+  },
+  "downloads": [
+    {
+      "path": "/Users/arhaan/Downloads/shot-brief-public-retained-dune.md",
+      "bytes": 1835,
+      "sha256": "22edadee25300818ee37cbbb6359b0f79dac589b137ae2faae56f847a9699de2"
+    },
+    {
+      "path": "/Users/arhaan/Downloads/dune-light (1).jpg",
+      "bytes": 187464,
+      "sha256": "4d5d695a1fc7745268274c89663550be54a7416942e56f13f6675a625584442a"
+    }
+  ],
+  "verification_note": "Initial ad-hoc provenance assertion expected capitalized Uploaded, but actual correct label is User upload. Read actual file and corrected this assertion; no product change.",
+  "scope_limits": [
+    "Root completion complements independent reviewer; it is not independent specialist upload acceptance.",
+    "No generation/provider call, media-inspection retry, permission setting change or indirect upload workaround.",
+    "Actual new public prepared-clip selection was not retried after automatic rejection in independent review."
+  ]
+}

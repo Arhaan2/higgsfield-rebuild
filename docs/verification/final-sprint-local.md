@@ -1,6 +1,6 @@
 # Final sprint integrated local acceptance
 
-Root verified the integrated working source on 2026-10-12, before release commit, using Node24.18.0 and http://127.0.0.1:5173. Existing D1/local R2 were reused without migration. Local capabilities returned enabled=false, budgetLimitMicroUsd=0, remainingMicroUsd=0 before test saves. No provider request.
+Root verified the integrated working source on 2026-10-12, before release commit, using Node 24.18.0 and http://127.0.0.1:5173. Existing D1/local R2 were reused without migration. Local capabilities returned enabled=false, budgetLimitMicroUsd=0, remainingMicroUsd=0 before test saves. No provider request.
 
 ## Fresh controlled checks
 

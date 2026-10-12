@@ -67,7 +67,7 @@ D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit resea
 | Area | Actual result | Evidence / limit |
 | --- | --- | --- |
 | Draft handoff, Library/reload, same-reference editing | pass locally | Real browser, preserved saved/unsaved prompt and reference; phase456-browser.md. |
-| Failure quota, cross-project lineage/ownership | pass in controlled tests |36server tests; no real provider call. |
+| Failure quota, cross-project lineage/ownership | pass in controlled tests |36 server tests; no real provider call. |
 | Recovery, metadata, Library retry, draft actions | pass in controlled tests |44Studio,6Library,18action checks; includes delayed-save typing. |
 | Core layout and state rendering | pass for specified rendered contexts | 1440/390px state matrix, 320px details and 44px attribution. Initial 200% reference wrapping failed; the repaired 390px fixture is readable and ordinary 320/390/1440px widths were rechecked. Native preferences/physical phone unrun. |
 | Production build and TypeScript | pass | Root ran both after integration. |
@@ -90,3 +90,18 @@ Independent phase-5/phase-6 reports now record 104 passing controlled checks and
 Source f271258fd0d4fece10229dfd74c89dfd5bcf275f / Worker cbe42062-203d-462c-949e-0d4bd380beac is live at https://higgsfield-rebuild.arhaan2.workers.dev. [Deployment metadata](verification/deployed-cloudflare.json), [11 root HTTP checks](verification/deployed-http-integration.json), [20 independent HTTP/source checks](verification/deployed-review.md), and [actual browser evidence](verification/deployed-browser.md) support the narrowly checked criteria above. APP_ORIGIN matches; generation false/cap0; no provider secret; migration not replayed. No account-wide hard$0cap is inferred from R2 free allowances.
 
 Hosted browser acceptance includes explicit preferred-version persistence, preset-only thumbnail/reopening and complete prepared playback/download. Old generated-job selection→upload remains controlled-test evidence because no real provider job exists. Opening/closing asset details with Escape returns focus to its trigger; this is a bounded keyboard observation, not a full accessibility pass. The complete zero-spend demonstration is prepared and the actual camera-on recording has been requested. Recording/access/duration and future-final capture boxes remain unchecked.
+
+## Final sprint — source `0899d59`
+
+- [x] Exact current saved/unsaved shot briefs download as Markdown, preserve Unicode/multiline/fences and distinguish requested settings from reference provenance. Actual files inspected locally.
+- [x] Export triggers no save/job request and preserves a pending save, selection/preference and newer edits in 26 controlled checks. Genuine pending-save browser timing not claimed.
+- [x] Library searches title/prompt, composes task filter/sort/reset, uses current details, preserves pagination and failure/expiry boundaries. 31 controlled Library checks pass.
+- [x] Three real saved local shots found by title/prompt; editing moved recent order; sample collection remained separate.
+- [x] New 390px Studio/Library and desktop Studio checked, no horizontal overflow; search/reset/header-jump keyboard focus checked.
+- [x] Fresh TypeScript/build and 180 controlled checks; 11 hosted HTTP checks on the new Worker.
+- [x] Independent public export/Library cases: six real downloaded briefs, three saved shots, search/filter/sort/reset/update ordering, prepared-reference reload, keyboard and 390px/desktop layouts. [Review](verification/final-sprint-public-review.md).
+- [x] Coordinator public uploaded reference: save/preference/reload/Library reopen, exact unsaved brief and byte-identical ordinary image download. [Completion](verification/final-sprint-public-upload.md).
+- [ ] New public reference-versus-independent-clip inspection case: automatic approval review rejected selection; controlled checks and earlier playback remain separately attributed.
+- [ ] Actual camera-on recording and reviewer access/duration verification.
+
+Sources: verification/final-sprint-local.md, final-sprint-local-downloads.json, final-sprint-http.json and final-sprint-cloudflare.json. These checks do not change historical provider/research/process acceptance.
