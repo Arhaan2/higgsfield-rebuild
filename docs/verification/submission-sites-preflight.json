@@ -1,0 +1,36 @@
+{
+  "method": "Read-only Sites get_site, list_site_versions and get_deployment_status; anonymous HTTP separately recorded.",
+  "project_id": "appgprj_6acc37cbdaf081918ff0bfcc27e4020b",
+  "audience": "public",
+  "live_url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site",
+  "versions": [
+    {
+      "version_number": 3,
+      "source": "e9d66bb7d8f5c83e656afdbffc423779c4d9a9b7",
+      "deployment_id": "appgdep_6acc48eb93248191838f3d52a009d6fd",
+      "status": "failed",
+      "failure_message": "incomplete input: SQLITE_ERROR",
+      "url": null,
+      "updated_at": "2026-10-12T02:41:51.635401+00:00"
+    },
+    {
+      "version_number": 2,
+      "source": "88b273a4cadfb57d080df1d6f1fd915ed7b756ba",
+      "deployment_id": "appgdep_6acc469fd70c8191b78ef6dcaade2556",
+      "status": "failed",
+      "failure_message": "incomplete input: SQLITE_ERROR",
+      "url": null,
+      "updated_at": "2026-10-12T02:32:03.469131+00:00"
+    },
+    {
+      "version_number": 1,
+      "source": "6d5a576832f7704feade88d7f483ab402b924d0c",
+      "deployment_id": "appgdep_6acc3b777bf88191aed554b79b0d67e3",
+      "status": "succeeded",
+      "failure_message": null,
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site",
+      "updated_at": "2026-10-12T01:45:24.667255+00:00"
+    }
+  ],
+  "recorded_at": "2026-10-12T04:38:01.892590+00:00"
+}

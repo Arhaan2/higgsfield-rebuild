@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-12T04:36:20.751562+00:00",
+  "account_id": "5849e13c38030f858ae9a632a8bd23a6",
+  "database_id": "3eb2d881-1c6d-4d61-8ff8-de5c711c5562",
+  "schema_matches_previous_verified_schema": true,
+  "tables": 7,
+  "triggers": 10,
+  "foreign_key_violations": 0,
+  "budget_policy_rows": 0,
+  "initial_migration_replayed": false,
+  "r2_list_result": {
+    "api_error_code": 10042,
+    "message": "Please enable R2 through the Cloudflare Dashboard",
+    "billing_or_activation_changed": false
+  },
+  "worker_deployments_result": {
+    "worker": "higgsfield-rebuild",
+    "api_error_code": 10007,
+    "message": "This Worker does not exist on your account"
+  },
+  "early_cli_attempt": {
+    "result": "not_run",
+    "reason": "Wrangler treated a bare UUID as a database name; retry used explicit verified DB binding"
+  },
+  "remaining_dependency": "User-owned R2 activation; no authorization to accept billing or overages.",
+  "raw_schema_sha256": "583d31ed3e267ab96f8da1b2546f885a95794e3af0dea2175133c474da72889a"
+}

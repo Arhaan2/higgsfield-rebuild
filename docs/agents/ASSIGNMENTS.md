@@ -127,3 +127,9 @@ Root repaired the enlarged-text reference wrapping, rechecked actual 390px/200% 
 ## Final follow-up acceptance — 2026-10-12 04:03 UTC
 
 Reviewer p56-release-followup-001 completed. Root inspected its report, verified the complete prompt/final exactly in its automatic session log 01a12e44-170f-7233-a9ec-6f182111b977, and reran the source audit: all 33 sessions match. P5-R01 enlarged-text wrapping, P5-E01 screenshot labeling and R6-02 public-main alignment are accepted for the specified evidence/candidate. Full release remains blocked as recorded. All specialist ownership returns to root; no worker remains active. The isolated fixture server/tabs were closed, normal viewport restored, and local application retained for follow-up. Root's future final response remains outside this commit until automatically emitted and captured.
+
+## Submission continuation — 2026-10-12 04:34 UTC
+
+External user-supplied read-only audit reproduced all 104 checks on 5bd4a39; root rechecked local/remote main at that SHA and source audit for 33 sessions. Automatic capture is the only pre-existing working change and is preserved. R2 still returns 10042; root owns deployment/resource checks and all shared configuration.
+
+Frontend submission-studio-selection-001 owns only use-studio.ts, StudioView.tsx, studio-state.mjs, reference-action.mjs and its named report under handoff24. Frontend submission-library-startframe-001 owns only LibraryView.tsx, library-state.mjs and its named report under handoff25. Both full prompts are automatically captured in distinct original-workspace CLI logs and verified before acceptance. No overlapping product writers, native child production sessions or worktrees. Generation and total-spending cap remain zero.

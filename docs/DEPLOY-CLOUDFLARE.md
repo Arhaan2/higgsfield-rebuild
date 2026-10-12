@@ -27,3 +27,11 @@ The user subsequently reaffirmed **$0 total spending** while choosing R2. A fres
 6. Run `node scripts/verify-http.mjs ACTUAL_PUBLIC_ORIGIN docs/verification/deployed-http-integration.json`, then the browser upload/save/reload/library/sample/download checks. Update all public links and source/deployment evidence together. Real generated-video acceptance remains pending without private FAL_KEY configuration and an explicit bounded allowance.
 
 Remaining publication commands are a prepared sequence, not evidence of deployment. Use the repository's installed Wrangler through `node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js` when project-local runtime/log settings are needed. Source capture remains in this same repository; no worktree or capture destination change is required.
+
+## Submission continuation preflight — 2026-10-12 04:36 UTC
+
+Fresh authentication confirms the same account. R2 bucket listing still fails with 10042; the intended Worker deployment list fails with 10007 (Worker absent). Read-only D1 inspection finds the exact previously verified seven tables/ten guards, no foreign-key violations and zero budget-policy rows. The initial migration was not replayed. A first bare-UUID CLI lookup was rejected locally; the successful retry used an explicit verified DB binding. Evidence: verification/submission-resource-preflight.json.
+
+Anonymous entry remains the sample shell (200); Studio and Library each return 404. Fresh Sites metadata confirms only version 1 succeeded, at source 6d5a576; versions 2/3 remain failed. No later deployment is being overwritten. Evidence: verification/submission-public-preflight.json and submission-sites-preflight.json. Cloudflare's current R2 setup/pricing pages still require user-owned subscription checkout and distinguish included usage from billed overages. No activation, billing change or bucket creation was attempted.
+
+The prepared deployment config is generated after a fresh build with verified identifiers. Its absence on disk is not a deployment failure or missing source; scripts/prepare-cloudflare.mjs is authoritative. Wait for actual R2 availability before writing a config that claims a real bucket.

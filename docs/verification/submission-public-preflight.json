@@ -1,0 +1,30 @@
+{
+  "checked_at": "2026-10-12T04:35:34.006622+00:00",
+  "authentication": "none",
+  "checks": [
+    {
+      "name": "home",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/",
+      "status": 200,
+      "sha256": "be1389a5ecbd860cb97e4168da3428ac542b0115ee51a766ad49db888a861e6e",
+      "sample_shell_marker": true
+    },
+    {
+      "name": "studio",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/studio?sample=dune-study",
+      "status": 404
+    },
+    {
+      "name": "library",
+      "url": "https://higgsfield-rebuild.rich-bun-3830.chatgpt.site/library",
+      "status": 404
+    },
+    {
+      "name": "public_main",
+      "url": "https://api.github.com/repos/Arhaan2/higgsfield-rebuild/commits/main",
+      "status": 200,
+      "sha256": "b36cf7f1531b9cb706d6c955c94766a6970cfe261446bd7821efc2f16b295f76",
+      "revision": "5bd4a39e28f0fa1d582a3070b1cdd348e43401f8"
+    }
+  ]
+}
