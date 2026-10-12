@@ -1,5 +1,9 @@
 # Decision record
 
+## 2026-10-12 04:01 UTC — local review complete, release withheld
+
+Root accepts the independent 104-check result within its mocked/source/rendered limits. The public Studio remains unavailable and no application-generated result or camera-on recording exists; do not advance Q6 or S7. Product candidate aab567a is pushed to main. The final style repair makes reference metadata wrap beneath its thumbnail under enlarged text, preserving the existing identity and normal layouts. Original failed reviews remain historical evidence; a narrow independent follow-up records the repaired layout, corrected screenshot label and public source alignment. No new provider or hosting spending is authorized.
+
 ## 2026-10-12 03:25 UTC — independent Phase 4–6 work, zero spend
 
 Owner: coordinator. The user requested “lets run phase 4 to 6 in the meantime” while R2 activation and real generation remain unresolved. Run local connected-flow review, isolated visual states, Apple Design review, targeted repairs and independent release assessment now. This changes work sequencing, not acceptance requirements: V3/P4/Q6 cannot pass without their actual public/provider evidence. Keep the accepted three presets and existing architecture. Total spending authorization remains $0; no billing activation, upgrade, overage authorization or generation call is included.

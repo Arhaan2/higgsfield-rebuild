@@ -63,9 +63,9 @@ D2 accepted 2026-10-12 01:35 UTC. R1 remains incomplete under the explicit resea
 | Draft handoff, Library/reload, same-reference editing | pass locally | Real browser, preserved saved/unsaved prompt and reference; phase456-browser.md. |
 | Failure quota, cross-project lineage/ownership | pass in controlled tests |36server tests; no real provider call. |
 | Recovery, metadata, Library retry, draft actions | pass in controlled tests |44Studio,6Library,18action checks; includes delayed-save typing. |
-| Core layout and state rendering | pass for checked contexts |1440/390px state matrix,320px details,44px attribution and200%fixture text; native preferences/physical phone unrun. |
+| Core layout and state rendering | pass for specified rendered contexts | 1440/390px state matrix, 320px details and 44px attribution. Initial 200% reference wrapping failed; the repaired 390px fixture is readable and ordinary 320/390/1440px widths were rechecked. Native preferences/physical phone unrun. |
 | Production build and TypeScript | pass | Root ran both after integration. |
 | Public deep route/current source alignment | fail | Public Studio404; only the older sample shell is live. |
 | Real image/video loop and recording | not_run |$0generation allowance, no fullpublicdeployment, actual walkthrough absent. |
 
-Independent phase-5/phase-6 reports will determine the release verdict. Historical review failures remain in their original reports, with repairs tracked separately.
+Independent phase-5/phase-6 reports now record 104 passing controlled checks and a fail/blocked release verdict. The enlarged-text layout and public-source alignment follow-up is in verification/phase56-followup.md. Historical review failures remain in their original reports, with repairs tracked separately. The complete public Studio, actual provider outputs, native accessibility contexts and actual recording remain unresolved.

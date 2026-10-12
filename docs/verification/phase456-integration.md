@@ -13,7 +13,7 @@
 
 ## Root checks
 
-36server,44Studio-state,6Library and18reference-action checks pass (mock-controlled); TypeScript passes. Existing11 real local HTTP checks and prior ordinary-click download/reload/browser evidence remain valid for unchanged paths. `npm run build` passed with exit0 after integration. Final independent Phase5/6 review is still pending.
+36server,44Studio-state,6Library and18reference-action checks pass (mock-controlled); TypeScript passes. Existing11 real local HTTP checks and prior ordinary-click download/reload/browser evidence remain valid for unchanged paths. `npm run build` passed with exit0 after integration. Independent Phase 5/6 Reviewer reran all 104 controlled checks successfully against f46769f. Its release verdict is fail/blocked because the hosted integrated product, real-provider result and recording remain absent. Product candidate aab567a adds only the enlarged-text CSS repair and fixture disclosure adjustment, with actual rendered rechecks and a successful production rebuild recorded in phase456-final-build.txt. The narrow follow-up is phase56-followup.md.
 
 13isolated Studio scenarios were rendered at1440 and390px (26checks), with zero horizontal overflows and no enabled generation action. Additional Library partial failure/retry and external metadata available/unavailable were rendered after repair. Root200%text produces32px prompt text and reflows without horizontal overflow at1440/390. This is an explicit fixture setting, not native OS/browser preferences. Fixture-only API paths reject GET/POST with403 and CSP denies connections. No success fixture is real generation.
 
@@ -22,3 +22,5 @@ Artifacts: phase456-browser.md; states/rendered-matrix.json; states/text-200.jso
 ## Remaining gates
 
 Public version1 still serves only the sample shell; /studio?sample=dune-study returns404 in both a fresh browser tab and anonymous HTTP. Repository is public on main. R2 activation remains missing, fullpublicsource is not deployed, and realprompt→image→video acceptance remainsnot_run under$0spend. V3/P4/Q6cannotpass. Native reduced-motion/transparency/contrast toggles, physical mobile/software keyboard, liveprovider outcomes and actualcamera-on recording are not claimed. Phase7preparation is not a recording.
+
+The final review found that no horizontal overflow did not establish readable enlarged reference metadata. Candidate aab567a changes reference-preview to wrapping flex. The 390px/32px-root fixture now stacks readable 194px-wide metadata below the thumbnail; normal 320/390/1440px DOM checks remain within the viewport. Screenshot18 is 1280px wide despite its historical mobile filename and is not phone evidence. See phase456-browser.md and the independent follow-up.

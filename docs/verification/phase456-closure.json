@@ -1,0 +1,31 @@
+{
+  "checked_at": "2026-10-12 04:03 UTC",
+  "product_candidate": "aab567a9aa8da9c4d3658eb5e81ba2d5c0b37fe3",
+  "capture_sessions": 33,
+  "followup_prompt_and_final_exact": true,
+  "final_changed_text_scan": {
+    "files": 14,
+    "categories": [
+      "private_key",
+      "github",
+      "aws",
+      "openai",
+      "google",
+      "slack",
+      "jwt"
+    ],
+    "matches": [],
+    "limit": "Heuristic scan of changed UTF-8 text only; no proof of absence. Prior independent reachable-history audit remains recorded."
+  },
+  "build_log_sha256": "a25e390620dc094bc6a298cc8c0314431b032aabc5bfe6dee27440e25bfb0eef",
+  "release_verdict": "blocked; local bounded repairs accepted",
+  "remaining_root_final_capture": "not yet emitted",
+  "whitespace_check": {
+    "code_and_documentation": "pass",
+    "preserved_artifact_warnings": [
+      "automatic reviewer log: trailing blank line",
+      "saved build output: rendered route padding/trailing blank line"
+    ],
+    "handling": "Raw capture and saved diagnostic output are preserved; excluded only from whitespace lint."
+  }
+}

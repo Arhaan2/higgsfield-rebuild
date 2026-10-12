@@ -4,7 +4,7 @@ A focused creative studio for the 8x assignment. Explore a prompt direction, com
 
 **Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The full application works locally. The first public shell remains live because two integrated publishes failed in the hosting migration runner. Direct Cloudflare sign-in and the remote database migration now succeed; R2 enablement is the remaining hosting prerequisite. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
 
-- [Live application](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
+- [Live sample shell](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
 - [Public source](https://github.com/Arhaan2/higgsfield-rebuild)
 - [Current evidence and phase status](docs/STATUS.md)
 - Camera-on walkthrough: **not recorded**; [4:30 preparation script](docs/WALKTHROUGH-SCRIPT.md).
@@ -69,4 +69,4 @@ PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py
 
 [Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. Final public access, the actual creation-path gate, and Arhaan's camera-on walkthrough under five minutes remain delivery requirements.
 
-Phase 4–6 local review repaired failure-storage reservations, cross-shot metadata, Library preview recovery and movement-text preservation. [Integration evidence](docs/verification/phase456-integration.md) separates actual browser/HTTP checks from [isolated UI fixtures](docs/verification/state-fixture-guide.md). The public Studio deep link still returns404; release acceptance remains pending. All generation spending stays disabled.
+Phase 4–6 local review repaired failure-storage reservations, cross-shot metadata, Library preview recovery and movement-text preservation. [Integration evidence](docs/verification/phase456-integration.md) separates actual browser/HTTP checks from [isolated UI fixtures](docs/verification/state-fixture-guide.md). The public Studio deep link still returns404; release acceptance remains pending. The [independent release review](docs/verification/phase-6.md) passes all 104 controlled local checks but withholds release acceptance; its [narrow follow-up](docs/verification/phase56-followup.md) records the final layout and public-source rechecks. All generation spending stays disabled.

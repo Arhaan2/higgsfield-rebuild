@@ -117,3 +117,13 @@ P4-provenance Frontend finished; full final exact capture verified. Root read it
 ## Independent Phase 5/6 verification
 
 Candidate source f46769f is committed locally; push follows the credential/history check. Reviewer p56-independent-verification-001 owns only docs/verification/phase-5.md, phase-6.md, release-review-checks.json and release-capture-audit.json under handoff22. All product paths are root-owned/read-only during this review. Browser remains root-owned; reviewer may run bounded tests and anonymous public HTTP. No implementation specialist remains active.
+
+## Release review acceptance and narrow follow-up — 2026-10-12 04:01 UTC
+
+Reviewer p56-independent-verification-001 finished. Root verified its complete prompt/final exactly in the automatic log and all 32 source-audited sessions. Its 104 controlled passes and fail/blocked release verdict are accepted within the documented limits. The original reports remain unchanged. Ownership returns to root.
+
+Root repaired the enlarged-text reference wrapping, rechecked actual 390px/200% and normal 320/390/1440px DOM dimensions, and rebuilt successfully. Product candidate aab567a9aa8da9c4d3658eb5e81ba2d5c0b37fe3 is pushed to main. Reviewer p56-release-followup-001 exclusively owns docs/verification/phase56-followup.md under handoff23; all other paths and browser remain root-owned. It checks committed layout/evidence, corrected screenshot labeling and anonymous public-main alignment only. No provider, billing or deployment action is authorized.
+
+## Final follow-up acceptance — 2026-10-12 04:03 UTC
+
+Reviewer p56-release-followup-001 completed. Root inspected its report, verified the complete prompt/final exactly in its automatic session log 01a12e44-170f-7233-a9ec-6f182111b977, and reran the source audit: all 33 sessions match. P5-R01 enlarged-text wrapping, P5-E01 screenshot labeling and R6-02 public-main alignment are accepted for the specified evidence/candidate. Full release remains blocked as recorded. All specialist ownership returns to root; no worker remains active. The isolated fixture server/tabs were closed, normal viewport restored, and local application retained for follow-up. Root's future final response remains outside this commit until automatically emitted and captured.

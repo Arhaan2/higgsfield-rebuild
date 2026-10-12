@@ -2,7 +2,7 @@
 
 **Not all phases are complete.** The user requested independent Phase 4–6 work while deployment access remains unresolved. That work has produced reviewed local repairs and rendered evidence; it does not waive V3, P4 or Q6 acceptance. Total authorized spending remains **$0**, including hosting and generation.
 
-Checkpoint: 2026-10-12 03:45 UTC. Deadline: 2026-10-12 23:04 UTC / Monday 4:04 p.m. Pacific, approximately 19 hours 19 minutes away. Preserve time before the 2 p.m. readiness target for public checks and Arhaan's actual camera-on recording.
+Checkpoint: 2026-10-12 04:03 UTC. Deadline: 2026-10-12 23:04 UTC / Monday 4:04 p.m. Pacific, approximately 19 hours away. Preserve time before the 2 p.m. readiness target for public checks and Arhaan's actual camera-on recording.
 
 | Phase | State | Actual evidence / remaining requirement |
 | --- | --- | --- |
@@ -12,24 +12,24 @@ Checkpoint: 2026-10-12 03:45 UTC. Deadline: 2026-10-12 23:04 UTC / Monday 4:04 p
 | 3 | partial | Local integrated app and remote D1 schema verified. R2 activation and full public Worker publication pending. No real generated video; V3 unpassed. |
 | 4 | partial | Connected presets, upload/reference handoff, saved Library/reload, immutable cross-shot provenance and failure recovery reviewed/repaired. Real deployed prompt→image→video loop not run. |
 | 5 | partial | Apple Design review, targeted draft/action/touch repairs, core desktop/mobile screens and 13 isolated states at two widths checked. Native accessibility preferences/physical-phone checks remain unrun; public integrated UI absent. |
-| 6 | in_review | Root's 36 server, 44 Studio, 6 Library and 18 action checks plus TypeScript/build pass. Independent release verdict pending. Public Studio route is404 and real-provider gate remains not_run. |
+| 6 | review_complete_release_blocked | Independent Reviewer passed all 104 controlled checks and issued a fail/blocked release verdict. Root TypeScript/build pass. Public Studio is 404; real-provider acceptance and actual recording remain unrun. See verification/phase-6.md and its follow-up. |
 | 7 | preparation_only | Truthful4:30 script and public source/shell links exist. Actual camera-on recording and full release checks outstanding. |
 
 ## Source and current public deployment
 
-- Repository: https://github.com/Arhaan2/higgsfield-rebuild, public, main. This checkpoint accompanies the integrated repair commit; subsequent verification records its exact SHA. Historical base before this work:36cd60b88263fbf8fe12615c81a2a9eaaf1174fb.
+- Repository: https://github.com/Arhaan2/higgsfield-rebuild, public, main. Product candidate **aab567a9aa8da9c4d3658eb5e81ba2d5c0b37fe3** is committed and pushed directly to main. It adds the enlarged-text repair to f46769f, the candidate independently checked with 104 tests. Subsequent commits close documentation/capture; they do not publish the product. Historical base before this work: 36cd60b88263fbf8fe12615c81a2a9eaaf1174fb.
 - Public URL: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site . It remains Sites version1/source6d5a576, a labeled sample shell. Integrated versions2/3 failed with incomplete-input SQLite errors. Current source is ahead of the public product; no hidden deployment pass.
-- Fresh anonymous HTTP at03:28 UTC: homepage200, Studio deep route404, repository public=true/main at36cd60b. Fresh browser tab agrees. Artifacts: verification/phase6-public-access.json and screenshot15.
+- Anonymous HTTP at 03:28 UTC and the independent 03:47 UTC check: homepage 200, Studio deep route 404, repository public/main then at 36cd60b. Source alignment was repaired by pushing f46769f and then aab567a; the historical failed check is preserved. The final follow-up records a fresh public-main check. Artifacts: verification/phase6-public-access.json, release-review-checks.json, phase56-followup.md and screenshot15.
 - Direct Cloudflare CLI authentication is verified. Separate D1 database3eb2d881-1c6d-4d61-8ff8-de5c711c5562 has the unchanged initial schema applied once:7 tables,10 source-identical guards, clean foreign-key check, zero budget-policy rows. Do not replay the migration; baseline a ledger before any future schema change.
 - R2 API returned10042 (not enabled). No assignment bucket or Worker is published. The expected workers.dev URL is not a current deployment. See DEPLOY-CLOUDFLARE.md.
 
 ## Accepted local work
 
-Reviewer found P4-01 leaked storage after confirmed no-output failures, P4-02 missing cross-shot provenance, and P4-03 hidden Library preview errors. Designer found P5-D01 overwritten movement text and P5-D02 a small attribution target. Targeted specialists repaired their exclusive paths; root integrated metadata and a delayed-save race repair. Historical reports retain their original findings; integration.md and independent verification record rechecks rather than rewriting earlier failures.
+Reviewer found P4-01 leaked storage after confirmed no-output failures, P4-02 missing cross-shot provenance, and P4-03 hidden Library preview errors. Designer found P5-D01 overwritten movement text and P5-D02 a small attribution target. Targeted specialists repaired their exclusive paths; root integrated metadata and a delayed-save race repair. Historical reports retain their original findings; phase456-integration.md and independent verification record rechecks rather than rewriting earlier failures. Reviewer found P5-R01 enlarged-text metadata squeezed beside the thumbnail; root changed it to wrap below the thumbnail when constrained.
 
 Root ran36 isolated server checks and44 Studio/6 Library/18 action checks, TypeScript and production build successfully. Mock tests do not prove generation. Prior11 real local D1/R2 HTTP checks cover upload bytes/idempotency, ownership, revision conflict, ranges/download hashes and zero-budget denial. Local browser checks cover save/reload, actual private/sample download clicks, draft handoff and Library reopening. The repaired same-image action preserves saved/unsaved text and focuses the prompt, including details and task switching. Attribution is180.75×44px at320/390 widths with visible keyboard focus.
 
-The isolated localhost harness uses actual components with fixture state and a persistent disclosure. Thirteen states at1440/390 widths had no horizontal overflow and generation disabled; extra fixtures verify metadata and Library error/retry. A200%root-text test reflows at both widths. These are rendered fixtures, not generated results, real saves or native OS-preference tests. Evidence: verification/phase456-integration.md, phase456-browser.md and states/.
+The isolated localhost harness uses actual components with fixture state and a persistent disclosure. Thirteen states at1440/390 widths had no horizontal overflow and generation disabled; extra fixtures verify metadata and Library error/retry. The initial 200% root-text test had no horizontal overflow but exposed unreadable reference wrapping. The repaired 390px fixture now has readable 194px-wide metadata below its thumbnail; normal 320/390/1440px checks retain usable widths without horizontal overflow. These are rendered fixtures, not generated results, real saves or native OS-preference tests. Evidence: verification/phase456-integration.md, phase456-browser.md and states/.
 
 ## Exact remaining dependencies
 
@@ -43,7 +43,7 @@ The isolated localhost harness uses actual components with fixture state and a p
 
 ## Capture and research boundaries
 
-Capture source audit matches31 sessions at this checkpoint. Six new CLI worker prompts/finals were verified exactly in automatic logs before acceptance. Native children/worktrees remain unverified and unused for production. Root owns final verification, commits/pushes and deployment; no implementation specialist remains active. The next independent reviewer will receive exclusive report paths.
+Final capture source audit matches 33 sessions. All eight Phase 4–6 worker prompts/finals were verified exactly in their automatic logs before acceptance, including the independent release review and narrow follow-up. The follow-up independently accepts P5-R01, P5-E01 and public-main alignment R6-02 for candidate aab567a. Final audit and acceptance are recorded in agents/ASSIGNMENTS.md. Native children/worktrees remain unverified and unused for production. Root owns final verification, commits/pushes and deployment; no implementation specialist remains active.
 
 Research gaps remain recorded in RECON/recon/flows.md. The exception did not authorize spending or accept the original upload agreement. The original free-image run had a visible paid-fallback warning missed before submission; billing was not independently verified. Automatic approval review rejected the later video submission due to fallback spending risk; no alternate submission occurred.
 

@@ -8,7 +8,7 @@ The public source and sample shell exist. The full application is implemented an
 - Public repository: https://github.com/Arhaan2/higgsfield-rebuild
 - Walkthrough: **NOT RECORDED**
 - Current public revision:6d5a576832f7704feade88d7f483ab402b924d0c, Sites version1.
-- Integrated candidate revisions88b273a ande9d66bb are in Git history; Sites versions2/3 failed and are not live.
+- Current reviewed product candidate: aab567a9aa8da9c4d3658eb5e81ba2d5c0b37fe3 on public main. It is not the current public application. Earlier integrated revisions 88b273a and e9d66bb remain in history; Sites versions 2/3 failed and are not live.
 - Anonymous access at2026-10-12T02:46:05Z: shell HTTP200; public repository HTTP200. See verification/public-access.json.
 
 ## Remaining delivery work
