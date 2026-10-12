@@ -87,6 +87,50 @@ function harness(query='?sample=dune-study', overrides={}, existingStorage) {
   const live={liveGeneration:{enabled:true,remainingMicroUsd:100,budgetLimitMicroUsd:100,reason:null},upload:{maxBytes:5000000,mimeTypes:[]},operations:[],samplesAvailable:true};
   const job=(overrides={})=>({id:'old-job',projectId:project().id,requestKey:'old-key',status:'running',outputAssetIds:[],nextPollAfterMs:3000,createdAt:'2026-10-12T00:00:00Z',...overrides});
   const output={id:'old-output',projectId:project().id,createdAt:'2026-10-12T00:00:00Z'};
+  const restoreUnsaved = async (query='') => {
+    const initial=harness(query);let v=await initial.start();
+    v.switchMode('text_to_image');v.updatePrompt('inactive task kept');v.switchMode('image_to_video');v.updatePrompt('recovered video prompt');
+    const h=harness(query,{},initial.store);v=await h.start();assert.match(v.notice,/Unsaved browser buffer restored/);
+    return {h,v};
+  };
+  await regression('SN01: restored new shot, edited title/prompt and JPG save clear stale recovery notice',async()=>{
+    const {h,v}=await restoreUnsaved();
+    v.edit(current=>({...current,title:'Recovered shot'}));v.updatePrompt('edited before upload');
+    h.api.upload=async id=>({...output,id:'uploaded-frame',projectId:id});
+    await v.upload({name:'valid.jpg',type:'image/jpeg',size:2000});const saved=h.render();
+    assert.equal(saved.saved,true);assert.equal(saved.dirty,false);assert.equal(saved.notice,'');
+    assert.equal(saved.project.title,'Recovered shot');assert.equal(saved.project.draft.prompt,'edited before upload');assert.equal(saved.project.draft.startAssetId,'uploaded-frame');
+    assert.equal(saved.buffer.drafts.text_to_image.prompt,'inactive task kept');
+    const recovery=h.load('src/client/recovery.ts').readRecovery(saved.project.id);assert.equal(recovery.buffer.drafts.text_to_image.prompt,'inactive task kept');
+    assert.equal(saved.capabilities.liveGeneration.enabled,false);assert.equal(h.calls.filter(c=>c[0]==='submit').length,0);
+  });
+  for(const location of ['',query]) await regression(`SN02: pending save preserves newer edits and unsaved recovery notice (${location?'existing':'new'} shot)`,async()=>{
+    const {h,v}=await restoreUnsaved(location);const delayed=deferred();
+    if(location) h.api.saveProject=async(id,body)=>{await delayed.promise;return {...project(body.draft,body.expectedRevision+1),id,title:body.title};};
+    else h.api.createProject=async body=>{await delayed.promise;return {...project(body.draft),id:body.id,title:body.title};};
+    const saving=v.save();await tick();assert.equal(h.render().saving,true);
+    v.edit(current=>({...current,title:'Newer title'}));v.updatePrompt('newer pending-save edit');
+    delayed.resolve();await saving;let next=h.render();
+    assert.equal(next.saved,false);assert.equal(next.dirty,true);assert.match(next.notice,/Unsaved browser buffer restored/);
+    assert.equal(next.buffer.title,'Newer title');assert.equal(next.buffer.drafts.image_to_video.prompt,'newer pending-save edit');
+    assert.equal(next.buffer.drafts.text_to_image.prompt,'inactive task kept');
+    await next.save();next=h.render();assert.equal(next.saved,true);assert.equal(next.notice,'');
+  });
+  await regression('SN03: storage warning arriving during save survives acknowledgement',async()=>{
+    const {h,v}=await restoreUnsaved(query);const delayed=deferred();
+    h.api.saveProject=async(id,body)=>{await delayed.promise;return {...project(body.draft,body.expectedRevision+1),id,title:body.title};};
+    const saving=v.save();await tick();h.store.set=()=>{throw new Error('storage unavailable');};
+    v.edit(current=>({...current}));const warning=h.render().notice;assert.match(warning,/recovery storage is unavailable/);
+    delayed.resolve();await saving;const next=h.render();assert.equal(next.saved,true);assert.equal(next.notice,warning);
+  });
+  await regression('SN04: result notice arriving during save survives acknowledgement',async()=>{
+    const {h,v}=await restoreUnsaved(query);const delayed=deferred();
+    h.api.saveProject=async(id,body)=>{await delayed.promise;return {...project(body.draft,body.expectedRevision+1),id,title:body.title};};
+    const saving=v.save();await tick();h.api.refresh=async()=>job({status:'succeeded',outputAssetIds:[output.id]});
+    h.api.project=async()=>({project:project(),assets:[output],jobs:[job({status:'succeeded'})]});
+    await v.refreshJob(job());assert.equal(h.render().notice,'Your result is ready to inspect.');
+    delayed.resolve();await saving;assert.equal(h.render().saved,true);assert.equal(h.render().notice,'Your result is ready to inspect.');
+  });
   await regression('IR01: invalid inactive prompt and saved active prompt survive reload; API limits remain',async()=>{
     const h=harness(query);let v=await h.start();const invalid=' '+ 'x'.repeat(2501)+' ';
     v.switchMode('text_to_image');v.updatePrompt(invalid);v.switchMode('image_to_video');v.updatePrompt('new valid video draft');await v.save();v=h.render();assert.equal(v.saved,true);

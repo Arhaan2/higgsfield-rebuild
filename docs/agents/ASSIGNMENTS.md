@@ -1,5 +1,13 @@
 # Current ownership
 
+## Phase 3 continuation — 2026-10-12 02:57 UTC
+
+Backend task `p3-direct-deployment-review-002` exclusively owns `docs/verification/direct-deployment-review.md` under handoff14. Same verified CLI capture route and original CWD; root retains all source/configuration, browser, deployment and Git ownership. Review only the direct deployment path while Cloudflare login remains missing. Zero spend unchanged; no native children or worktrees. Previous tasks remain finished.
+
+Frontend task `p3-save-notice-repair-002` exclusively owns `src/client/use-studio.ts`, `src/client/checks/studio-state.mjs` and `docs/verification/save-notice-repair.md` under handoff15. Root observed a restored-unsaved banner remain after the active draft was saved; this task fixes that specific contradiction with focused checks. Root retains the browser and all other paths. Cloudflare authentication is now verified; R2 enablement is the remaining hosting prerequisite.
+
+Acceptance at03:06 UTC: both sessions exited0 and full prompt/final exact capture matches passed. Root read the backend report, followed remote schema preflight/hash/guard checks and applied the immutable migration once successfully. Root inspected frontend changes, ran32 client checks and TypeScript/build, and reproduced the repaired acknowledgement in the browser. All authored paths match ownership. Both tasks are complete; paths return to root. No public deployment or V3 pass is inferred.
+
 ## Phase 3 implementation — 2026-10-12 01:45 UTC
 
 D2 accepted and source pushed. Separate CLI capture remains verified. Three workers below are exclusive; root owns all other paths. No native children/worktrees. No live generation or spending.

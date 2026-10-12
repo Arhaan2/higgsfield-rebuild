@@ -8,6 +8,8 @@ import { UPLOAD_LIMIT, type Asset, type Capabilities, type Draft, type Job, type
 export const activeJob = (job: Job) => ["prepared", "submitting", "submission_unknown", "queued", "running", "storing", "transfer_failed"].includes(job.status);
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const acknowledgedSignature = (project: Project) => signature({ ...freshBuffer(), title: project.title, operation: project.draft.operation, drafts: { ...freshBuffer().drafts, [project.draft.operation]: project.draft } });
+const restoredNewNotice = "Unsaved browser buffer restored. It is not a confirmed server save.";
+const restoredDirtyNotice = "Unsaved browser buffer restored. Save it to keep your latest changes.";
 
 export function useStudio() {
   const [buffer, setBuffer] = useState<EditorBuffer>(freshBuffer);
@@ -115,7 +117,12 @@ export function useStudio() {
           if (!currentContext()) return null;
           acceptProject(saved);
         }
-        persist(); return saved;
+        persist();
+        // Only retire recovery feedback acknowledged by this save, never a newer warning or edit.
+        if (acknowledgedSignature(saved) === signature(bufferRef.current)) {
+          setNotice(current => current === restoredNewNotice || current === restoredDirtyNotice ? "" : current);
+        }
+        return saved;
       } catch (cause) { if (currentContext()) { handleError(cause); persist(); } return null; }
       finally { if (contextEpoch.current === epoch) setSaving(false); }
     };
@@ -164,7 +171,7 @@ export function useStudio() {
           else if (recovery.revision !== detail.project.revision) { conflictRef.current = true; setConflict(true); setError("The saved shot changed while this browser had unsaved edits. Your edits are preserved; save a separate shot to keep both."); }
           bufferRef.current = next; setBuffer(next);
           if (recovery?.pending && !detail.jobs.some(job => job.requestKey === recovery.pending?.requestKey)) { pendingRef.current = recovery.pending; setPending(recovery.pending); }
-          setNotice(localDirty ? "Unsaved browser buffer restored. Save it to keep your latest changes." : "Saved draft restored. The other task’s draft stays in this browser.");
+          setNotice(localDirty ? restoredDirtyNotice : "Saved draft restored. The other task’s draft stays in this browser.");
         } else {
           if (sampleId && sampleId !== "dune-study") throw new Error("That sample is not available. Open the Dune study from Explore.");
           const preset = presetId ? PRESETS.find(item => item.id === presetId) : null;
@@ -173,7 +180,7 @@ export function useStudio() {
           if (preset && !recovery) next = { ...next, title: preset.title, operation: preset.operation, drafts: { ...next.drafts, [preset.operation]: { ...preset.draft } } };
           if (!alive) return;
           bufferRef.current = next; setBuffer(next);
-          if (recovery) setNotice("Unsaved browser buffer restored. It is not a confirmed server save.");
+          if (recovery) setNotice(restoredNewNotice);
           if (sampleId) { setSampleCollection(true); setSelectedId(SAMPLE_ASSETS[0].id); }
         }
         if (!alive) return;

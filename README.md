@@ -2,7 +2,7 @@
 
 A focused creative studio for the 8x assignment. Explore a prompt direction, compose a shot, retain its inputs, and inspect related work.
 
-**Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The full application works locally. The first public shell remains live because two integrated publishes failed in the hosting migration runner; Cloudflare sign-in is the next deployment prerequisite. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
+**Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The full application works locally. The first public shell remains live because two integrated publishes failed in the hosting migration runner. Direct Cloudflare sign-in and the remote database migration now succeed; R2 enablement is the remaining hosting prerequisite. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
 
 - [Live application](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
 - [Public source](https://github.com/Arhaan2/higgsfield-rebuild)
@@ -45,7 +45,7 @@ node --import ./tests/server/register.mjs --test tests/server/*.test.mjs
 node src/client/checks/studio-state.mjs
 ```
 
-The 22 server checks use isolated SQLite and mocked R2/provider calls; 27 client-state checks use mocked APIs. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md). They do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
+The 22 server checks use isolated SQLite and mocked R2/provider calls; 32 client-state checks use mocked APIs. Eleven actual local HTTP checks and browser upload/save/reload checks also pass; see [local evidence](docs/verification/local-browser.md) and [Phase 3 continuation](docs/verification/phase3-continuation.md). The continuation verifies ordinary sample/private download clicks and repairs a stale save notice. These checks do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
 
 `APP_ORIGIN` must exactly match the browser origin. `LIVE_GENERATION_ENABLED=false` and `GENERATION_BUDGET_USD=0` are the defaults. `FAL_KEY` is optional and server-only; a key alone does not enable generation. D1's separate budget policy also defaults to no allowance. Do not put populated secrets in tracked files or chat.
 

@@ -2,17 +2,17 @@
 
 **Not all phases are complete.** Phase0 is verified, Phase1 advances by the user's research exception, and Phase2 is accepted. Phase3's integrated application works locally, but its full public deployment and real-generation gate remain unresolved. Spending is disabled with a zero allowance.
 
-Checkpoint:2026-10-12T02:47:00Z. Deadline:2026-10-12T23:04:00Z / Monday4:04p.m.Pacific; approximately20h17m remain. Target readiness remains2p.m.Pacific.
+Checkpoint:2026-10-12T03:06:00Z. Deadline:2026-10-12T23:04:00Z / Monday4:04p.m.Pacific; approximately19h58m remain. Target readiness remains2p.m.Pacific.
 
 | Phase | State | Actual evidence / remaining requirement |
 | --- | --- | --- |
 | 0 | complete | Public remote, independent capture canaries, captured CLI specialist route, installed skill and access preflight verified. |
 | 1 | advanced_by_exception | User “im allowing it” permits implementation with disclosed gaps. R1 is not an evidence pass. |
 | 2 | complete | Accepted scope, Apple Design direction, capabilities, contracts and exclusive ownership; full specialist captures verified. |
-| 3 | partial | Integrated Explore/Studio/Library, validated private uploads and saved drafts work locally. Full public releases2/3 failed in hosted migration. No real generated video; V3 pending. |
+| 3 | partial | Integrated app and recovery repair verified locally. Direct Cloudflare D1 migration now succeeds with all7 tables/10 guards; R2 enablement is pending before Worker publication. No real generated video; V3 pending. |
 | 4 | pending_V3 | Image task, reuse, presets and Library are implemented; real connected image→video acceptance not run. |
 | 5 | partial | Rendered desktop/mobile review and focused repairs verified. Complete interaction-state/reduced-preference acceptance remains pending. |
-| 6 | partial | 22 server and27 client mocked checks,11 real local HTTP checks, local browser flows, TypeScript/build and direct deployment dry run pass. Hosted data-path and real-provider acceptance remain pending. |
+| 6 | partial | 22 server and32 client mocked checks,11 real local HTTP checks, local browser flows, TypeScript/build and direct deployment dry run pass. Hosted data-path and real-provider acceptance remain pending. |
 | 7 | preparation_only | Public source/shell links and truthful4:30 script exist. Full release checks and actual camera-on recording are outstanding. |
 
 ## Product and deployment
@@ -20,7 +20,7 @@ Checkpoint:2026-10-12T02:47:00Z. Deadline:2026-10-12T23:04:00Z / Monday4:04p.m.P
 - Public source: https://github.com/Arhaan2/higgsfield-rebuild . Integrated source and authentic incremental logs pushed through e9d66bb7d8f5c83e656afdbffc423779c4d9a9b7 before this documentary checkpoint. Subsequent checkpoint commit contains these current notes.
 - Public URL: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site . **Still version1, source6d5a576**, a sample shell. Versions2/3 failed with `incomplete input: SQLITE_ERROR`. The official database overview returned zero user tables after each. Do not describe the full editor/data path as publicly deployed.
 - The formatting-only migration experiment preserved all guards in isolated checks but did not fix publication; current build code returns to the original packaging. Applied source migration and journal remain unchanged. Exact attempts and hashes: docs/verification/deployment.md.
-- Direct Cloudflare authentication check: not authenticated. No resources created. The current Worker build passed Wrangler's dry run (42 additional modules;906.78KiB upload,261.51KiB gzip). This is packaging evidence, not deployment. Prepared procedure: docs/DEPLOY-CLOUDFLARE.md.
+- Direct Cloudflare authentication is verified after the user's sign-in. The `higgsfield-rebuild` Worker name was absent; account subdomain is `arhaan2`. Created separate D1 database `3eb2d881-1c6d-4d61-8ff8-de5c711c5562` after collision checks. The unchanged migration applied once successfully; all7 tables/10 source-identical guards, clean foreign-key check and zero policy rows are verified. R2 API returned10042 (enable R2); the user has been asked to enable it. No Worker is published yet. Current procedure: docs/DEPLOY-CLOUDFLARE.md.
 - Anonymous access check at02:46 UTC: current public shell HTTP200; GitHub API HTTP200 and public=true. Evidence: docs/verification/public-access.json. Current source intentionally contains more functionality than the live shell.
 
 ## Accepted local evidence
@@ -31,9 +31,9 @@ Independent integration review found IR01–IR03. Root inspected repairs, indepe
 
 ## Exact next actions
 
-**Arhaan:** run `cd /Users/arhaan/Desktop/higgsfield-rebuild && npx wrangler login`, complete Cloudflare browser sign-in, then report “signed in.” The pending request is for missing deployment access, not routine phase approval or spending authorization. Keep credentials out of chat.
+**Arhaan:** enable R2 in the signed-in Cloudflare account's dashboard, completing any required billing details/terms personally, then report “R2 enabled.” The Cloudflare API explicitly returned10042 because R2 is not enabled. Cloudflare login is complete; no repeat login is needed. Generation spending remains disabled.
 
-**Coordinator after sign-in:** verify the actual account and resource collisions, configure the reviewed Worker with real DB/BUCKET IDs, apply the unchanged migration through Wrangler, publish and run hosted HTTP/browser checks. Do not replace guards or create runtime migration endpoints to work around the failed host.
+**Coordinator after R2 enablement:** inspect bucket collisions, create the private assignment bucket, configure the reviewed Worker with the existing verified D1 and bucket, publish and run hosted HTTP/browser checks. **Do not reapply the initial migration:** it is already applied. Before future schema changes, establish a migration ledger and baseline this application explicitly. Do not replace guards or create runtime migration endpoints.
 
 **Later:** privately configure FAL_KEY and explicitly authorize a bounded provider allowance before any real generation. Current zero-spend choice remains in force. Then complete V3 and subsequent connected-flow gates. Arhaan must make a camera-on recording under five minutes and supply an accessible link; docs/WALKTHROUGH-SCRIPT.md is preparation only.
 
@@ -41,4 +41,8 @@ Independent integration review found IR01–IR03. Root inspected repairs, indepe
 
 The research exception did not approve spending or accept the original Higgsfield upload agreement. The displayed-free Frog image completed, but the coordinator missed a pre-submit paid-fallback warning; billing was not independently verified. Automatic approval review rejected the later Genjutsu Free video submission because fallback could spend credits. No alternate submission followed. The original bottle fixture upload agreement remains unaccepted. Details and screenshots remain in RECON and recon/flows.md.
 
-C0 supports the coordinator and separate CLI specialists. Native children/worktrees remain unverified and unused for production. All completed specialists' full prompts/finals have exact automatic-log matches. The read-only source audit passes23 sessions. Current root session01a12d62-f5bc-7650-8eb5-7b04e1496548, actual modelgpt-6-astra: its current final response cannot be captured until emitted. Inspect, commit and push that genuine final log/provenance update after the agent stops.
+C0 supports the coordinator and separate CLI specialists. Native children/worktrees remain unverified and unused for production. All completed specialists' full prompts/finals have exact automatic-log matches. The Phase3 continuation adds two verified CLI sessions; the source audit is retained with this checkpoint. Current root session01a12d62-f5bc-7650-8eb5-7b04e1496548, actual modelgpt-6-astra: its current final response cannot be captured until emitted. Inspect, commit and push that genuine final log/provenance update after the agent stops.
+
+## Phase 3 continuation evidence
+
+Backend reviewed direct deployment packaging independently; no current blocking config defect found. Frontend repaired the browser-observed stale unsaved banner after a successful save. Root inspected both reports and exact full prompt/final capture, ran32 client checks plus TypeScript/build, and verified the repair in the real local browser. Invalid JPG replacement retains the previous reference/prompt; reload retains the saved draft; actual sample/private download clicks complete and match source hashes. Evidence: `docs/verification/phase3-continuation.md`, screenshots07/08 and Cloudflare JSON artifacts. Both specialists finished; ownership returns to root. This remains local/UI and remote-schema evidence, not a public creation-path pass.

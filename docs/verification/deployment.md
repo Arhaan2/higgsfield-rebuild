@@ -1,5 +1,13 @@
 # Deployment evidence
 
+## Direct Cloudflare continuation — 2026-10-12 03:06 UTC
+
+User completed Cloudflare login; root verified one account and absence of a Worker named `higgsfield-rebuild`. Official account subdomain read returned `arhaan2`. D1 collision check preserved the existing unrelated database. New assignment D1 UUID `3eb2d881-1c6d-4d61-8ff8-de5c711c5562` was empty apart from `_cf_KV`, then accepted all34 statements of the unchanged original migration once. Remote7 tables/10 source-identical guards, no foreign-key errors and zero budget rows are verified in cloudflare-initial-migration.json and cloudflare-schema.json. Direct execution has no standard migration ledger; baseline before any later migration and never replay this initial file.
+
+R2 API returned10042 requiring dashboard enablement. User action is pending; no private bucket or Worker publication yet. Intended future origin is `https://higgsfield-rebuild.arhaan2.workers.dev`, not a verified live URL. Sites version1 below remains current. Backend direct-config review found no current blocking packaging defect; frontend save-notice repair passed32 client checks, TypeScript/build and root's rendered recheck. See phase3-continuation.md. Live provider test remains unrun with zero allowance.
+
+## Earlier Sites attempts
+
 Project appgprj_6acc37cbdaf081918ff0bfcc27e4020b; public audience confirmed with get_site. Production URL: https://higgsfield-rebuild.rich-bun-3830.chatgpt.site . No provider key or positive generation allowance is configured.
 
 | Version | Source | Deployment | Observed result |
