@@ -1,6 +1,6 @@
 # Higgsfield Rebuild
 
-**Status: capture setup verified for the local coordinator; implementation has not begun.**
+**Status: setup and logged specialist delegation verified; signed-in research remains incomplete. No application or deployment exists yet.**
 
 A focused reconstruction of Higgsfield's creative workflow for the 8x software-engineering assignment. The intended experience connects a reference or generated image to a cinematic video, with understandable settings, progress, iteration, saved results, and download.
 
@@ -11,8 +11,8 @@ A focused reconstruction of Higgsfield's creative workflow for the 8x software-e
 | Item | Current status |
 | --- | --- |
 | Public GitHub repository | [Arhaan2/higgsfield-rebuild](https://github.com/Arhaan2/higgsfield-rebuild). |
-| Automatic capture and canaries | Desktop and CLI verified; see [actual evidence](CAPTURE-TEST.md). Native child/worktree coverage remains unresolved. |
-| Signed-in product investigation | Pending; preliminary signed-out evidence is included. |
+| Automatic capture and canaries | Desktop and independent CLI specialists verified; see [actual evidence](CAPTURE-TEST.md). Native children/worktrees remain unverified and unused for production. |
+| Signed-in product investigation | [Signed-in checkpoint](docs/RECON.md): one free image, persistence/reuse and playback verified; required paid/external flows unresolved. Spending disabled. |
 | Application | Not implemented. |
 | Live deployment | Not deployed. |
 | Camera-on walkthrough | Not recorded. |

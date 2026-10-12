@@ -1,45 +1,55 @@
 # Current status
 
-**Phase 0 setup verified; Phase 1 signed-in research in progress. Application implementation has not begun.**
+**Phase 0 setup is verified. Phase 1 research remains incomplete. There is no application or deployment.**
 
-Checkpoint UTC: 2026-10-12T00:46:00Z. Local date: 11 October 2026, America/Los_Angeles.
+Checkpoint UTC: 2026-10-12T01:14:37Z. Local date: 11 October 2026, America/Los_Angeles.
 
-- Deadline: 2026-10-12T23:04:00Z / 12 October 4:04 p.m. Pacific.
-- Repository: https://github.com/Arhaan2/higgsfield-rebuild — created as public after `gh api user` confirmed `Arhaan2` and the name lookup returned 404. This folder has its own Git root; the unrelated home-directory repository was left unchanged.
-- Verified source commit: `8269a3833cd322ab824e1eb8af7a2c560410f079`, pushed to `origin/main`. GitHub reports `private: false`; unauthenticated repository access returned HTTP 200. Deployment: not started.
-- Capture C0: **passed for coordinator text sessions**, with independently captured Desktop and CLI canaries; exact raw source comparisons passed. See root `CAPTURE-TEST.md` and `docs/capture/verification-2026-10-12.json`.
-- Delegated capture: separate CLI specialist sessions **verified** through capture-only canary `01a12d7a-fb56-7470-a463-9fbc5cab7353`. Backend and reviewer now run with separate logs and exclusive paths. Native collaboration children remain **unresolved/unused for production**; worktrees are unused/unverified.
-- Current coordinator session: prior final and current user prompts have been automatically captured. The active final response remains pending and must be captured and committed after this turn ends.
-- Apple Design: actual `apple-design` skill read at `/Users/arhaan/.codex/skills/apple-design/SKILL.md`; relevant guidance recorded in `docs/DESIGN-BRIEF.md`. No design implementation claimed.
-- Runtime observed: Node v24.18.0, npm 11.16.0, Homebrew Python 3.13.5. macOS `/usr/bin/python3` is broken; the capture setup uses Homebrew Python.
-- Provider/hosting/storage: read-only preflight reviewed. Vercel credential present but authenticated request returned HTTP403; provider/storage credentials absent in bounded checks. No services provisioned. User explicitly chose “Keep spending disabled for now”; approved credit/dollar cap is **zero**.
-- Signed-in research R1: **in progress, not passed**. User signed in; authenticated drafts and navigation now accessible. Credit-consuming generation/results remain blocked. Current observations are in `docs/recon/flows.md`.
-- Walkthrough: not recorded.
+- Deadline: 2026-10-12T23:04:00Z / 12 October 4:04 p.m. Pacific. Target readiness: 2 p.m. Pacific. Approximately 21h49m remain at this checkpoint.
+- Public repository: https://github.com/Arhaan2/higgsfield-rebuild. Previously verified public source baseline: `e1a116d`, unauthenticated commit access HTTP 200. This research checkpoint is identified by its accompanying Git commit; current push/public-access verification is reported by the coordinator after publication.
+- C0: coordinator and separate CLI specialists verified. Native children and worktrees remain unverified and unused for production. Root `CAPTURE-TEST.md` records actual canaries and limitations.
+- Reviewer and backend initial reports finished, with full prompt/final exact-match capture accepted. Follow-up reviewer session `01a12da8-61fa-73b1-a23f-a477de7cb6a4` finished. Root verified the full prompt/final, visually confirmed both findings, and corrected warning chronology and screenshot-error attribution. Acceptance is recorded in docs/agents/ASSIGNMENTS.md.
+- Current root session: `01a12d62-f5bc-7650-8eb5-7b04e1496548`, actual model `gpt-6-astra`. Its current final response cannot be captured until emitted.
+- Apple Design: coordinator and reviewer read `/Users/arhaan/.codex/skills/apple-design/SKILL.md`. Research-backed guidance recorded; no rendered implementation review claimed.
+- User signed in and explicitly kept spending disabled. Approved credit/dollar cap is **zero**. One displayed-free image completed; account balance remained 10 credits. Review found that a pre-submit fallback warning was already visible and missed by the coordinator; the request was not guaranteed free and the usage ledger was unverified. Further fallback-capable submissions are blocked.
+- Hosting/provider/storage: read-only Vercel identity request returned HTTP 403; no verified deploy access. Provider/storage credentials absent in bounded checks. No infrastructure provisioned.
+- Walkthrough: not recorded. Public deployment checks and real camera-on recording remain future requirements.
 
-| Phase | State | Evidence / remaining work |
+| Phase | State | Actual evidence / missing prerequisite |
 | --- | --- | --- |
-| 0 | complete | Capture, verified delegation, public repository, skill and access preflight complete. Missing deployment/provider/storage access is explicit; no service provisioning or spend performed. |
-| 1 | in_progress | Signed-in inventory underway. Backend/reviewer reports delivered and capture verified. Paid end-to-end flows remain blocked at zero budget. |
-| 2 | not_started | Choose stack, contracts and design after research; skill is now located/read. |
-| 3 | not_started | No application or public deployment. Provider and spending cap required for live generation. |
-| 4 | not_started | No generation workflow implemented. |
-| 5 | not_started | No rendered implementation reviewed. |
-| 6 | not_started | No application checks run. Capture has nine passing isolated tests and nine source/log comparisons. |
-| 7 | not_started | Public deployment and user camera-on walkthrough remain pending. |
+| 0 | complete | Public remote, C0, logged CLI delegation, installed skill and bounded access preflight verified. Missing service access remains explicit. |
+| 1 | in_progress | Broad signed-in inventory, one genuine image, draft/result/project reload and public playback. Required paid/external/output branches unresolved; R1 unpassed. |
+| 2 | not_started | No accepted stack, design or shared application contracts; depends on R1 or an explicit documented user exception. |
+| 3 | not_started | No application/deployment or real deployed image-to-video. |
+| 4 | not_started | Connected build generation loop absent. |
+| 5 | not_started | No implementation to polish/review. |
+| 6 | not_started | No application checks run. Capture had nine isolated tests pass earlier; final checkpoint source audit matched 13 sessions; all three specialist finals are captured. Current root final remains un-emitted. |
+| 7 | not_started | Deployment, final public-access checks and camera-on walkthrough remain pending. |
 
-## Changed paths and evidence
+## This checkpoint
 
-- Created local `.git/` and connected verified `origin`; no existing project history was overwritten.
-- Added `.codex/hooks.json`, `scripts/capture/`, real `.agent-logs/`, `CAPTURE-TEST.md`, and `docs/capture/` with the exact supplied guide, source provenance, and verification snapshot.
-- Updated `README.md`, `docs/DESIGN-BRIEF.md`, and this checkpoint. Preserved the starter's unexecuted templates and existing research provenance.
-- Outside-repository installation: reviewed hook trust in `~/.codex/config.toml` via Codex UI and `~/Library/LaunchAgents/com.arhaan.higgsfield-capture.plist` via the supported launchd service. Neither contains credentials.
-- Native hook script and configuration were unchanged between the two successful interactive CLI canaries. The final Desktop/CLI tests also used an unchanged installed configuration.
-- Failed attempts, interpreter repair, unsupported Desktop hooks, parser extension and detected exporter/CLI overlap are retained in `CAPTURE-TEST.md`; no raw entries were hand-edited.
+[Research synthesis](RECON.md) and [flow inventory](recon/flows.md) distinguish completed, observed and blocked states. Screenshots 04–36 supplement original signed-out 01–03; number 15 was not saved. The actual generated WebP is retained with its checksum and displayed-rendition limitation. There is no generated video.
 
-## Next action and owners
+Verified outcomes: user-operated sign-in; project/folder and Canvas prompt reload; free Frog image/result/library reload; image-to-motion draft handoff; reference-image draft reload; preset-to-form actions; existing film and Academy lesson playback. Native original-resolution Download was not verified.
 
-Coordinator: finish signed-in no-spend investigation; verify and reconcile specialist returns, commit/push the current evidence checkpoint. Use only verified separate CLI specialist sessions. Do not write application code before R1 passes. Current turn changes are not yet committed.
+Automatic approval review rejected the Genjutsu Free submission because free-queue exhaustion can fall back to paid credits. No video submission or alternate route followed. The original bottle fixture upload stopped at a new media agreement; no acceptance or completed upload is claimed.
 
-Arhaan: authentication is complete. Spending remains disabled per explicit choice. Future billable research/demo calls require an explicit provider/credit allowance and cap; credentials must be configured outside chat. Camera-on walkthrough remains required after a working deployment exists.
+New source changes are research documents, selected evidence, assigned reviewer contract/report, and automatically produced capture/provenance only. Root alone commits and pushes. No package manifest or application scaffold has been created to imply progress.
 
-Final capture closure: after the agent stops, inspect the new `.agent-logs/` and `docs/capture/provenance/` updates, run the read-only verifier, and commit/push the remaining final response. Do not claim an un-emitted response is already committed.
+## Exact next actions
+
+**Arhaan — pending decisions already requested:**
+
+1. Accept the Higgsfield media-upload agreement in the retained browser tab, or explicitly authorize acceptance for the original geometric bottle fixture. This concerns rights/likeness, Terms of Use and automated-screening acknowledgements; no generation or spending is included.
+2. Decide whether to retain the required research gate or explicitly allow implementation with the documented paid/external flow gaps unverified. The zero spending cap remains unchanged either way. No answer has arrived, so implementation remains gated. This is a material requirement decision under AGENTS.md / WORKFLOW R1, not routine phase approval.
+
+**Coordinator:** independent review and corrections are complete; capture audit passes. Commit/push this evidence checkpoint and verify public source access. Continue application phases only when their actual prerequisites pass or the user explicitly changes the affected requirement.
+
+**Later external dependencies:** restore hosting authentication and privately configure the selected durable storage/provider when chosen. Live demo generation additionally needs an explicit permitted allowance; current authorization remains zero. Never paste credentials in chat.
+
+## Time reserved for delivery
+
+Once work can advance, prioritize the first runnable deployment and real media path before catalog expansion. Freeze optional features with three hours remaining. Preserve the 2:00–4:04 p.m. Pacific buffer for current-deployment public access, final corrections, an actual camera-on walkthrough under five minutes, and submission links. A script or plan cannot satisfy the recording requirement.
+
+## Capture closure
+
+After this agent stops, inspect the automatically appended raw final response and provenance, run `PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py`, then commit/push those remaining files. Do not claim the repository includes a final response before it exists.
