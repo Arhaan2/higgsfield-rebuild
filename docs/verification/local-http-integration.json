@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-12T02:07:20.990Z",
+  "origin": "http://127.0.0.1:5173",
+  "sourceHead": "6d5a576832f7704feade88d7f483ab402b924d0c",
+  "workingTreeDirty": true,
+  "kind": "real HTTP zero-spend integration; no live generation",
+  "checks": [
+    {
+      "name": "Public server policy is disabled with zero cap",
+      "result": "pass"
+    },
+    {
+      "name": "Cross-origin writes rejected before session creation",
+      "result": "pass",
+      "ms": 3
+    },
+    {
+      "name": "Two separate guest sessions created",
+      "result": "pass",
+      "ms": 37
+    },
+    {
+      "name": "Draft saved and retrievable; stale revision rejected",
+      "result": "pass",
+      "ms": 49
+    },
+    {
+      "name": "Valid raw JPEG persists; retry returns same asset",
+      "result": "pass",
+      "ms": 102
+    },
+    {
+      "name": "Invalid image rejected without replacing valid media",
+      "result": "pass",
+      "ms": 18
+    },
+    {
+      "name": "Private range/HEAD/download return actual bytes",
+      "result": "pass",
+      "ms": 27
+    },
+    {
+      "name": "Other guest cannot read project, asset, media, or download",
+      "result": "pass",
+      "ms": 58
+    },
+    {
+      "name": "Reference and draft survive a fresh server read",
+      "result": "pass",
+      "ms": 15
+    },
+    {
+      "name": "Disabled generation returns 403 and creates no job",
+      "result": "pass",
+      "ms": 52
+    },
+    {
+      "name": "Prepared catalog remains separate from private work",
+      "result": "pass",
+      "ms": 6
+    }
+  ]
+}

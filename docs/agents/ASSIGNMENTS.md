@@ -1,3 +1,17 @@
+# Current ownership
+
+## Phase 3 implementation — 2026-10-12 01:45 UTC
+
+D2 accepted and source pushed. Separate CLI capture remains verified. Three workers below are exclusive; root owns all other paths. No native children/worktrees. No live generation or spending.
+
+| Task | Role | Exclusive writable paths | Contract |
+| --- | --- | --- | --- |
+| p3-frontend-001 | Frontend | components/studio/**, src/client/**, app/page.tsx, app/studio/**, app/library/** | handoffs/07-frontend-studio.txt |
+| p3-backend-001 | Backend | src/server/**, app/api/**, tests/server/**, db/schema.ts | handoffs/08-backend-studio.txt |
+| p3-styles-001 | Designer | app/globals.css, styles/** | handoffs/09-studio-styles.txt |
+
+Root retains migration generation/application, db/index.ts, shared contracts/catalog, component contract, layout, assets, all configuration/dependencies/capture/Git/deployment. These declarations supersede earlier proposed paths.
+
 # Active Phase 0/1 assignments
 
 ## Phase 2 — accepted, user research exception approved
@@ -42,3 +56,11 @@ Accepted deliverable: documentary reconciliation and evidence corrections, **not
 ## Coordinator acceptance — 2026-10-12 01:35 UTC
 
 All three Phase 2 CLI specialists returned complete documentary deliverables. Root read the outputs, confirmed exclusive authored paths, verified full prompt/final exact matches and the 16-session source audit in `docs/capture/verification-design-2026-10-12.json`. Accepted direction/tokens, bounded scope and architecture with explicit TECH-SPEC amendments. No runtime or rendered review is inferred. Ownership returned to root; all Phase 2 workers finished.
+
+## Coordinator integration — 2026-10-12 02:13 UTC
+
+All three Phase 3 specialists finished and their full prompts/finals exactly match automatically created logs; all 19 sessions pass source audit. Authored paths were inspected. Ownership returns to root for integration repairs. Root accepted the CSS implementation pending rendered review, and frontend/backend source pending deployed acceptance. Root independently ran 22 server mock/SQLite checks and 11 client mock checks; all pass. The generated initial migration has 7 tables and 10 triggers, was reviewed in disposable SQLite, and applied successfully to local D1. Eleven real local zero-spend HTTP checks pass. No V3 success is claimed.
+
+Active Reviewer p3-integration-review-001 exclusively owns docs/verification/integration-review.md under handoff10. All app/source paths are root-owned for integration; reviewer is read-only on them.
+
+Designer p3-rendered-design-review-001 exclusively owns docs/verification/design-review.md under handoff11. Source/CSS and browser remain root-owned.

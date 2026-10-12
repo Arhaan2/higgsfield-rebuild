@@ -1,32 +1,68 @@
-# Higgsfield Rebuild
+# Frame Studio · Higgsfield rebuild
 
-**Status: setup and logged specialist delegation verified; signed-in research remains incomplete. No application or deployment exists yet.**
+A focused creative studio for the 8x assignment. Explore a prompt direction, compose a shot, retain its inputs, and inspect related work.
 
-A focused reconstruction of Higgsfield's creative workflow for the 8x software-engineering assignment. The intended experience connects a reference or generated image to a cinematic video, with understandable settings, progress, iteration, saved results, and download.
+**Current checkpoint:** Explore, Studio, Library, private uploads, and saved guest drafts are implemented. The first public shell remains live while the integrated deployment is prepared. Live generation is disabled with a zero spending allowance; no deployed generation is claimed.
 
-[Start the build](START-HERE.md) · [Project brief](docs/PROJECT-BRIEF.md) · [Phase prompts](docs/WORKFLOW.md) · [Current status](docs/STATUS.md)
+- [Live application](https://higgsfield-rebuild.rich-bun-3830.chatgpt.site)
+- [Public source](https://github.com/Arhaan2/higgsfield-rebuild)
+- [Current evidence and phase status](docs/STATUS.md)
+- Camera-on walkthrough: **not recorded**.
 
-## Submission status
+## Product choices
 
-| Item | Current status |
-| --- | --- |
-| Public GitHub repository | [Arhaan2/higgsfield-rebuild](https://github.com/Arhaan2/higgsfield-rebuild). |
-| Automatic capture and canaries | Desktop and independent CLI specialists verified; see [actual evidence](CAPTURE-TEST.md). Native children/worktrees remain unverified and unused for production. |
-| Signed-in product investigation | [Signed-in checkpoint](docs/RECON.md): one free image, persistence/reuse and playback verified; required paid/external flows unresolved. Spending disabled. |
-| Application | Not implemented. |
-| Live deployment | Not deployed. |
-| Camera-on walkthrough | Not recorded. |
+[Signed-in research](docs/RECON.md) found useful prompt reuse and draft continuity, as well as a displayed-free flow with a paid fallback warning. The rebuild focuses on consistent task/model/action labels, visible start-frame semantics, retained inputs, and a server-enforced spending boundary. History and reuse already exist in Higgsfield; our proposed improvement is clearer local context, not invention of those features.
 
-## Planned product
+The user explicitly allowed implementation with the documented research gaps unverified. [Design decisions](docs/DESIGN-BRIEF.md) apply the installed Apple Design skill to a charcoal, ivory and brass cinematic workspace.
 
-Explore a small set of useful presets, create/upload a starting image, animate it with a supported generation model, inspect the output, make a variation, and download the preferred result. A sample project should be clearly labeled and immediately useful to a reviewer.
+## Current verification
 
-## Development
+The first public shell is source `6d5a576832f7704feade88d7f483ab402b924d0c`, Sites version 1. Build and TypeScript checks pass. An unauthenticated HTTP request and browser navigation reach the labeled sample. Its actual 14.996667-second clip plays. Direct browser retrieval downloads an 11,342,355-byte MP4 with the source checksum; the ordinary click's download event timed out and remains unverified. No real AI generation or full editor/data-flow verification is included in this checkpoint.
 
-Runtime, package manager, providers, and hosting are selected and documented by Codex in Phase 2 using available access and current documentation. This starter does not provide a pretend package manifest or executable application.
+## Run locally
 
-The root `CAPTURE-TEST.md` and `.agent-logs/` now contain real evidence. See [capture operation](docs/capture/README.md) for the installed mechanisms and read-only checks. The template under docs/templates remains explicitly unexecuted.
+Use Node 24.18 or newer for the included isolated test tooling, and npm. The app uses the supplied Sites Vinext starter, React/TypeScript, D1 and private R2. Exact dependency versions are in package-lock.json.
 
-## Before delivery
+```sh
+npm run install:ci
+cp .env.example .env.local
+npm run dev
+```
 
-Replace this starter README with factual run instructions, working links, implementation scope, tested behavior, justified tradeoffs, and the actual integration/sample distinction. Use [the delivery checklist](docs/SUBMISSION.md). Keep the planning provenance and actual development evidence intact.
+Preview: http://127.0.0.1:5173 . On a new checkout, build once and apply the initial local migration once before saving drafts:
+
+```sh
+npm run build
+node --import ./scripts/sites-env.mjs ./node_modules/wrangler/bin/wrangler.js d1 execute DB --local --config dist/server/wrangler.json --persist-to .wrangler/state --file drizzle/0000_cute_daredevil.sql
+```
+
+Do not replay an applied migration or alter migration history. D1 has seven tables and ten guards; no positive budget policy is seeded. Local and hosted state are separate. Sites applies hosted migrations during publication.
+
+```sh
+npx tsc --noEmit
+npm run build
+node --import ./tests/server/register.mjs --test tests/server/*.test.mjs
+node src/client/checks/studio-state.mjs
+```
+
+The 22 server checks use isolated SQLite and mocked R2/provider calls; 11 client-state checks use mocked APIs. They do not prove real generation. `node scripts/verify-http.mjs http://127.0.0.1:5173` runs the actual zero-spend HTTP checks and creates isolated guest test records. This script refuses to continue if public live policy is enabled or has a nonzero cap.
+
+`APP_ORIGIN` must exactly match the browser origin. `LIVE_GENERATION_ENABLED=false` and `GENERATION_BUDGET_USD=0` are the defaults. `FAL_KEY` is optional and server-only; a key alone does not enable generation. D1's separate budget policy also defaults to no allowance. Do not put populated secrets in tracked files or chat.
+
+## Scope and limitations
+
+The implementation target includes validated JPEG/PNG start frames, same-browser guest drafts, immutable media, connected reuse and two fixed fal models: FLUX schnell images and Kling 2.5 Turbo Pro five-second videos. Provider submission/retrieval, billing, and real deployed generation remain unverified and require private provider configuration plus explicit bounded authorization. Unknown submission outcomes must not auto-resubmit. Request-driven reconciliation pauses when every browser tab closes.
+
+Guests are private per browser cookie, with access for up to 30 days; this is not cross-device account synchronization. There is no billing UI, collaboration suite, node editor, or broad Higgsfield feature/model parity.
+
+[Dune study media](docs/design/sample-provenance.md) is licensed prepared photography and independent stock footage. It was not created from the example prompt or generated by this application. Samples never stand in for a live result.
+
+## Capture and delivery
+
+[CAPTURE-TEST.md](CAPTURE-TEST.md) records actual independent canaries. Desktop and separate CLI specialist sessions are automatically captured in tracked `.agent-logs/`; native children and worktrees remain unverified and unused for production. [Capture operation](docs/capture/README.md) explains provenance and the read-only audit.
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 scripts/capture/verify.py
+```
+
+[Workflow](docs/WORKFLOW.md), [decisions](docs/DECISIONS.md), [acceptance](docs/ACCEPTANCE.md) and [specialist contracts](docs/agents/ASSIGNMENTS.md) preserve the incremental evidence. Final public access, the actual creation-path gate, and Arhaan's camera-on walkthrough under five minutes remain delivery requirements.

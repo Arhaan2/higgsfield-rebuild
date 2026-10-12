@@ -1,0 +1,946 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "ffdcf8eb-246e-4171-8e7a-ffa6943d5da6",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "assets": {
+      "name": "assets",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "guest_id": {
+          "name": "guest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "project_id": {
+          "name": "project_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "source": {
+          "name": "source",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "object_key": {
+          "name": "object_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "file_name": {
+          "name": "file_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "mime_type": {
+          "name": "mime_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "byte_size": {
+          "name": "byte_size",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "width": {
+          "name": "width",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "height": {
+          "name": "height",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "duration_ms": {
+          "name": "duration_ms",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "sha256": {
+          "name": "sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "source_job_id": {
+          "name": "source_job_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "assets_object_key_unique": {
+          "name": "assets_object_key_unique",
+          "columns": [
+            "object_key"
+          ],
+          "isUnique": true
+        },
+        "assets_source_job_id_unique": {
+          "name": "assets_source_job_id_unique",
+          "columns": [
+            "source_job_id"
+          ],
+          "isUnique": true
+        },
+        "assets_project_date": {
+          "name": "assets_project_date",
+          "columns": [
+            "project_id",
+            "created_at"
+          ],
+          "isUnique": false
+        },
+        "assets_guest": {
+          "name": "assets_guest",
+          "columns": [
+            "guest_id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "assets_guest_id_guests_id_fk": {
+          "name": "assets_guest_id_guests_id_fk",
+          "tableFrom": "assets",
+          "tableTo": "guests",
+          "columnsFrom": [
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "assets_source_job_id_jobs_id_fk": {
+          "name": "assets_source_job_id_jobs_id_fk",
+          "tableFrom": "assets",
+          "tableTo": "jobs",
+          "columnsFrom": [
+            "source_job_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "assets_project_id_guest_id_projects_id_guest_id_fk": {
+          "name": "assets_project_id_guest_id_projects_id_guest_id_fk",
+          "tableFrom": "assets",
+          "tableTo": "projects",
+          "columnsFrom": [
+            "project_id",
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id",
+            "guest_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "asset_source": {
+          "name": "asset_source",
+          "value": "\"assets\".\"source\" IN ('upload','generation')"
+        },
+        "asset_media": {
+          "name": "asset_media",
+          "value": "(\"assets\".\"kind\" = 'image' AND \"assets\".\"mime_type\" IN ('image/jpeg','image/png')) OR (\"assets\".\"kind\" = 'video' AND \"assets\".\"mime_type\" = 'video/mp4')"
+        },
+        "asset_size": {
+          "name": "asset_size",
+          "value": "\"assets\".\"byte_size\" > 0 AND \"assets\".\"byte_size\" <= 20000000"
+        },
+        "asset_hash": {
+          "name": "asset_hash",
+          "value": "length(\"assets\".\"sha256\") = 64"
+        }
+      }
+    },
+    "budget_policy": {
+      "name": "budget_policy",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "cap_micro_usd": {
+          "name": "cap_micro_usd",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "policy_singleton": {
+          "name": "policy_singleton",
+          "value": "\"budget_policy\".\"id\" = 1"
+        },
+        "policy_cap": {
+          "name": "policy_cap",
+          "value": "\"budget_policy\".\"cap_micro_usd\" >= 0"
+        }
+      }
+    },
+    "guests": {
+      "name": "guests",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "token_hash": {
+          "name": "token_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "expires_at": {
+          "name": "expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "guests_token_hash_unique": {
+          "name": "guests_token_hash_unique",
+          "columns": [
+            "token_hash"
+          ],
+          "isUnique": true
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "guest_hash": {
+          "name": "guest_hash",
+          "value": "length(\"guests\".\"token_hash\") = 64"
+        },
+        "guest_expiry": {
+          "name": "guest_expiry",
+          "value": "\"guests\".\"expires_at\" > \"guests\".\"created_at\""
+        }
+      }
+    },
+    "jobs": {
+      "name": "jobs",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "guest_id": {
+          "name": "guest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "project_id": {
+          "name": "project_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "request_key": {
+          "name": "request_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "requested_revision": {
+          "name": "requested_revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "submit_hash": {
+          "name": "submit_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "snapshot_json": {
+          "name": "snapshot_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "provider_request_id": {
+          "name": "provider_request_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "provider_status_url": {
+          "name": "provider_status_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "provider_result_url": {
+          "name": "provider_result_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "provider_output_json": {
+          "name": "provider_output_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "actual_metadata_json": {
+          "name": "actual_metadata_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "output_asset_id": {
+          "name": "output_asset_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "error_code": {
+          "name": "error_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "error_message": {
+          "name": "error_message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "reserve_micro_usd": {
+          "name": "reserve_micro_usd",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "accounting_state": {
+          "name": "accounting_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "lease_token": {
+          "name": "lease_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lease_expires_at": {
+          "name": "lease_expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "next_poll_at": {
+          "name": "next_poll_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "last_checked_at": {
+          "name": "last_checked_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "jobs_provider_request_id_unique": {
+          "name": "jobs_provider_request_id_unique",
+          "columns": [
+            "provider_request_id"
+          ],
+          "isUnique": true
+        },
+        "jobs_output_asset_id_unique": {
+          "name": "jobs_output_asset_id_unique",
+          "columns": [
+            "output_asset_id"
+          ],
+          "isUnique": true
+        },
+        "jobs_request_key": {
+          "name": "jobs_request_key",
+          "columns": [
+            "guest_id",
+            "request_key"
+          ],
+          "isUnique": true
+        },
+        "jobs_guest_status": {
+          "name": "jobs_guest_status",
+          "columns": [
+            "guest_id",
+            "status"
+          ],
+          "isUnique": false
+        },
+        "jobs_accounting": {
+          "name": "jobs_accounting",
+          "columns": [
+            "accounting_state"
+          ],
+          "isUnique": false
+        },
+        "jobs_project_date": {
+          "name": "jobs_project_date",
+          "columns": [
+            "project_id",
+            "created_at"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "jobs_guest_id_guests_id_fk": {
+          "name": "jobs_guest_id_guests_id_fk",
+          "tableFrom": "jobs",
+          "tableTo": "guests",
+          "columnsFrom": [
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "jobs_project_id_guest_id_projects_id_guest_id_fk": {
+          "name": "jobs_project_id_guest_id_projects_id_guest_id_fk",
+          "tableFrom": "jobs",
+          "tableTo": "projects",
+          "columnsFrom": [
+            "project_id",
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id",
+            "guest_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "job_status": {
+          "name": "job_status",
+          "value": "\"jobs\".\"status\" IN ('prepared','submitting','submission_unknown','queued','running','storing','succeeded','failed','transfer_failed')"
+        },
+        "job_accounting": {
+          "name": "job_accounting",
+          "value": "\"jobs\".\"accounting_state\" IN ('held','committed','released')"
+        },
+        "job_cost": {
+          "name": "job_cost",
+          "value": "\"jobs\".\"reserve_micro_usd\" > 0"
+        },
+        "job_revision": {
+          "name": "job_revision",
+          "value": "\"jobs\".\"requested_revision\" > 0"
+        },
+        "job_snapshot": {
+          "name": "job_snapshot",
+          "value": "json_valid(\"jobs\".\"snapshot_json\")"
+        },
+        "job_output": {
+          "name": "job_output",
+          "value": "\"jobs\".\"provider_output_json\" IS NULL OR json_valid(\"jobs\".\"provider_output_json\")"
+        },
+        "job_metadata": {
+          "name": "job_metadata",
+          "value": "\"jobs\".\"actual_metadata_json\" IS NULL OR json_valid(\"jobs\".\"actual_metadata_json\")"
+        }
+      }
+    },
+    "projects": {
+      "name": "projects",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "guest_id": {
+          "name": "guest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "draft_json": {
+          "name": "draft_json",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "revision": {
+          "name": "revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": 1
+        },
+        "preferred_asset_id": {
+          "name": "preferred_asset_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "project_owner": {
+          "name": "project_owner",
+          "columns": [
+            "id",
+            "guest_id"
+          ],
+          "isUnique": true
+        },
+        "projects_guest_date": {
+          "name": "projects_guest_date",
+          "columns": [
+            "guest_id",
+            "created_at",
+            "id"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "projects_guest_id_guests_id_fk": {
+          "name": "projects_guest_id_guests_id_fk",
+          "tableFrom": "projects",
+          "tableTo": "guests",
+          "columnsFrom": [
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "project_title": {
+          "name": "project_title",
+          "value": "length(\"projects\".\"title\") BETWEEN 1 AND 80"
+        },
+        "project_draft": {
+          "name": "project_draft",
+          "value": "json_valid(\"projects\".\"draft_json\")"
+        },
+        "project_revision": {
+          "name": "project_revision",
+          "value": "\"projects\".\"revision\" > 0"
+        }
+      }
+    },
+    "rate_buckets": {
+      "name": "rate_buckets",
+      "columns": {
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "subject": {
+          "name": "subject",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "window_start": {
+          "name": "window_start",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "count": {
+          "name": "count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "rate_buckets_scope_subject_window_start_pk": {
+          "columns": [
+            "scope",
+            "subject",
+            "window_start"
+          ],
+          "name": "rate_buckets_scope_subject_window_start_pk"
+        }
+      },
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "rate_count": {
+          "name": "rate_count",
+          "value": "\"rate_buckets\".\"count\" > 0"
+        }
+      }
+    },
+    "storage_reservations": {
+      "name": "storage_reservations",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "guest_id": {
+          "name": "guest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "project_id": {
+          "name": "project_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "asset_id": {
+          "name": "asset_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "job_id": {
+          "name": "job_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "bytes": {
+          "name": "bytes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "state": {
+          "name": "state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "content_sha256": {
+          "name": "content_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "content_mime_type": {
+          "name": "content_mime_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lease_token": {
+          "name": "lease_token",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "lease_expires_at": {
+          "name": "lease_expires_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        }
+      },
+      "indexes": {
+        "storage_reservations_asset_id_unique": {
+          "name": "storage_reservations_asset_id_unique",
+          "columns": [
+            "asset_id"
+          ],
+          "isUnique": true
+        },
+        "storage_reservations_job_id_unique": {
+          "name": "storage_reservations_job_id_unique",
+          "columns": [
+            "job_id"
+          ],
+          "isUnique": true
+        },
+        "storage_guest_state": {
+          "name": "storage_guest_state",
+          "columns": [
+            "guest_id",
+            "state"
+          ],
+          "isUnique": false
+        },
+        "storage_state": {
+          "name": "storage_state",
+          "columns": [
+            "state"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {
+        "storage_reservations_guest_id_guests_id_fk": {
+          "name": "storage_reservations_guest_id_guests_id_fk",
+          "tableFrom": "storage_reservations",
+          "tableTo": "guests",
+          "columnsFrom": [
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "storage_reservations_job_id_jobs_id_fk": {
+          "name": "storage_reservations_job_id_jobs_id_fk",
+          "tableFrom": "storage_reservations",
+          "tableTo": "jobs",
+          "columnsFrom": [
+            "job_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "storage_reservations_project_id_guest_id_projects_id_guest_id_fk": {
+          "name": "storage_reservations_project_id_guest_id_projects_id_guest_id_fk",
+          "tableFrom": "storage_reservations",
+          "tableTo": "projects",
+          "columnsFrom": [
+            "project_id",
+            "guest_id"
+          ],
+          "columnsTo": [
+            "id",
+            "guest_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "checkConstraints": {
+        "reservation_bytes": {
+          "name": "reservation_bytes",
+          "value": "\"storage_reservations\".\"bytes\" > 0 AND \"storage_reservations\".\"bytes\" <= 20000000"
+        },
+        "reservation_state": {
+          "name": "reservation_state",
+          "value": "\"storage_reservations\".\"state\" IN ('held','stored','released')"
+        }
+      }
+    }
+  },
+  "views": {},
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}
