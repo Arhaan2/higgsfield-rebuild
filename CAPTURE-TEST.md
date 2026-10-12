@@ -1,6 +1,6 @@
 # Capture verification — actual evidence
 
-**PASS for local coordinator text capture in Codex Desktop and CLI. Native collaboration children and worktrees remain UNVERIFIED and must not do production work.**
+**PASS for coordinator text capture in Codex Desktop/CLI and separate CLI specialist sessions. Native collaboration children and worktrees remain UNVERIFIED and must not do production work.**
 
 Verified at 2026-10-12T00:09:31.624Z (11 October 2026, Pacific). No application code has been written. The current coordinator response is still pending and cannot yet be claimed as captured or committed.
 
@@ -76,6 +76,12 @@ Final installed file hashes:
 3. A new Desktop chat and a native child did not invoke the CLI hooks. A persistent source-transcript exporter was installed for Desktop; new post-installation canaries passed.
 4. The first exporter version did not recognize the app's cross-chat input envelope. The parser was extended for that exact observed format and tested; no prompt was reconstructed from memory.
 5. Initial exporter scope overlapped native CLI capture. Its immutable-prefix check detected the different event timestamps and refused overwrites. Every native log still matched its native journal exactly. Exporter scope was restricted to Desktop, then independent canaries were repeated with unchanged configuration.
+
+## Separate CLI specialist delegation — verified 2026-10-12
+
+The coordinator launched a minimal capture-only specialist with `codex exec` in this exact repository, using the existing trusted hooks without reinstalling. Session `01a12d7a-fb56-7470-a463-9fbc5cab7353` wrote `.agent-logs/2026-10-12_00-19-58_01a12d7a-fb56-7470-a463-9fbc5cab7353.md`. Root compared the full task file (`docs/agents/handoffs/00-cli-capture-canary.txt`) and actual final output against the automatically created log; both matched exactly. The read-only source verifier also passed. This verifies a **separate logged CLI-session route**, not native collaboration children.
+
+After that verification, two bounded Phase 1 specialists started with exclusive file ownership in `docs/agents/ASSIGNMENTS.md`. Their complete task prompts appeared automatically in distinct submitted-repository logs: backend `01a12d7c-4187-7c51-b9d4-6531b1052c84`, reviewer `01a12d7c-4adb-7581-9f20-15cd84960115`. Root checked exact task-file text and destination at launch. Both specialist sessions completed; root compared their entire final responses with the automatic logs exactly, then ran the source verifier successfully. See `docs/capture/verification-delegation-2026-10-12.json` and `docs/agents/ASSIGNMENTS.md`. No application code is assigned.
 
 ## Scope and provenance limits
 

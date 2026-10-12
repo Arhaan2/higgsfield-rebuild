@@ -23,8 +23,15 @@ Three public screenshots were taken during preliminary research on 11 October 20
 
 ## User's design skill
 
-Apple Design: installed in the user's local Codex according to the user. It was not available in this preparation environment's skill catalog or local skill files. Phase 0 resolves the actual local locator; Phase 2 reads and applies it. Do not cite this kit as evidence of that skill's contents.
+Apple Design was unavailable in the earlier preparation environment. Local Codex subsequently read the actual installed `apple-design` skill at `/Users/arhaan/.codex/skills/apple-design/SKILL.md`; its use is recorded in `docs/DESIGN-BRIEF.md` and the independent coverage review. Final tokens and implementation review remain Phase 2+ work.
 
 ## Starter provenance
 
 This is pre-build preparation produced in ChatGPT. It contains plans, plain agent briefs, templates, and public research evidence. It contains no installed logger, canary output, product implementation, or verified live deployment. Do not relabel this material as automatically captured local build history.
+
+## Local execution added 2026-10-12 UTC
+
+- `docs/recon/flows.md` records current signed-in interactions; screenshots 04 onward are new local evidence. User completed sign-in and explicitly kept spending disabled.
+- `docs/recon/coverage-review.md` contains the reviewer’s dated primary-source links and unresolved major branches. These are documentation evidence unless paired with an actual flow result.
+- `docs/recon/integration-preflight.md` contains the backend’s dated official fal, Supabase and Vercel sources; capabilities/pricing are documentation, not live generation/deployment verification.
+- `docs/agents/ASSIGNMENTS.md` records root’s acceptance and additional Vercel HTTP403 result.

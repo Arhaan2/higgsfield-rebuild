@@ -1,0 +1,161 @@
+{
+  "verified_at": "2026-10-12T00:45:40.967Z",
+  "sessions": [
+    {
+      "session_id": "01a12d62-f5bc-7650-8eb5-7b04e1496548",
+      "log": ".agent-logs/2026-10-11_23-53-44_01a12d62-f5bc-7650-8eb5-7b04e1496548.md",
+      "mechanism": "automatic source transcript extraction",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T16-53-42-01a12d62-f5bc-7650-8eb5-7b04e1496548.jsonl",
+      "prompts": 4,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "cf85564d00b07ef4e1c285bd97909975b0a2bbaa608094e29ed221a553c861b7"
+    },
+    {
+      "session_id": "01a12d66-ff84-72b0-878b-53559426c703",
+      "log": ".agent-logs/2026-10-11_23-58-08_01a12d66-ff84-72b0-878b-53559426c703.md",
+      "mechanism": "automatic source transcript extraction",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T16-58-07-01a12d66-ff84-72b0-878b-53559426c703.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "76602b91552e170e9ad3dfa9cdf4330a61bb09424f5ff11f00a5f57e1060e2b6"
+    },
+    {
+      "session_id": "01a12d67-866d-78a3-b239-0ee92a6dca61",
+      "log": ".agent-logs/2026-10-11_23-58-43_01a12d67-866d-78a3-b239-0ee92a6dca61.md",
+      "mechanism": "automatic source transcript extraction",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T16-58-41-01a12d67-866d-78a3-b239-0ee92a6dca61.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "d4e4415a8c78413bac836b17514def5aeae80c7f162d595d7ce3137c83f6cf87"
+    },
+    {
+      "session_id": "01a12d69-5b61-7063-a8b1-541362c118b4",
+      "log": ".agent-logs/2026-10-12_00-00-55_01a12d69-5b61-7063-a8b1-541362c118b4.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-00-41-01a12d69-5b61-7063-a8b1-541362c118b4.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "6e7b3dc57c980552cd1480ff8d54b969f2898fc8a52aac9e860005fc37de0667"
+    },
+    {
+      "session_id": "01a12d6a-0143-7a32-911c-895060a1202a",
+      "log": ".agent-logs/2026-10-12_00-01-38_01a12d6a-0143-7a32-911c-895060a1202a.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-01-24-01a12d6a-0143-7a32-911c-895060a1202a.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "99c58c645822f41f206f26e2a3ca16c10528ad4c1c0b83b41d66ceb58516084c"
+    },
+    {
+      "session_id": "01a12d6c-2d28-70a2-b4cc-6093d93c13aa",
+      "log": ".agent-logs/2026-10-12_00-03-48_01a12d6c-2d28-70a2-b4cc-6093d93c13aa.md",
+      "mechanism": "automatic source transcript extraction",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-03-46-01a12d6c-2d28-70a2-b4cc-6093d93c13aa.jsonl",
+      "prompts": 4,
+      "responses": 4,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "bb0749d5afc09de6d04b9353a6d4c140979159f04b0f15c71afcb62ad04a8edc"
+    },
+    {
+      "session_id": "01a12d6e-8ed0-7ff1-b947-864c9b2805ca",
+      "log": ".agent-logs/2026-10-12_00-06-24_01a12d6e-8ed0-7ff1-b947-864c9b2805ca.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-06-22-01a12d6e-8ed0-7ff1-b947-864c9b2805ca.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "600aa4360b282ac7f91d05fe1acde40f2084a9158ff5c0c012f3b3e4dd6c2492"
+    },
+    {
+      "session_id": "01a12d6f-a836-75f0-bda0-9a03eb50e750",
+      "log": ".agent-logs/2026-10-12_00-07-35_01a12d6f-a836-75f0-bda0-9a03eb50e750.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-07-34-01a12d6f-a836-75f0-bda0-9a03eb50e750.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "a6ed84c96355d46c15b96868c8b545a524f3c1d6b59a15704346b7ed73f8722e"
+    },
+    {
+      "session_id": "01a12d70-6574-7c93-97b5-f1638802cf53",
+      "log": ".agent-logs/2026-10-12_00-08-24_01a12d70-6574-7c93-97b5-f1638802cf53.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-08-23-01a12d70-6574-7c93-97b5-f1638802cf53.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "d4057cbeab90fe019a975184756291c05fce9f5207a7a05e9922786d4c16be9b"
+    },
+    {
+      "session_id": "01a12d7a-fb56-7470-a463-9fbc5cab7353",
+      "log": ".agent-logs/2026-10-12_00-19-58_01a12d7a-fb56-7470-a463-9fbc5cab7353.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-19-56-01a12d7a-fb56-7470-a463-9fbc5cab7353.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "9629eed716e1d54715eb5e856f5eb7c78c2c233ca022a490fe4bd55ef3e7fc9d"
+    },
+    {
+      "session_id": "01a12d7c-4187-7c51-b9d4-6531b1052c84",
+      "log": ".agent-logs/2026-10-12_00-21-21_01a12d7c-4187-7c51-b9d4-6531b1052c84.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-21-20-01a12d7c-4187-7c51-b9d4-6531b1052c84.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "8053e06b8c7e415902d0a541f8ac6c4006035834f0b6fda7a0d972175e871a2d"
+    },
+    {
+      "session_id": "01a12d7c-4adb-7581-9f20-15cd84960115",
+      "log": ".agent-logs/2026-10-12_00-21-23_01a12d7c-4adb-7581-9f20-15cd84960115.md",
+      "mechanism": "native lifecycle hooks",
+      "source": "/Users/arhaan/.codex/sessions/2026/10/11/rollout-2026-10-11T17-21-22-01a12d7c-4adb-7581-9f20-15cd84960115.jsonl",
+      "prompts": 1,
+      "responses": 1,
+      "source_text_exact_match": true,
+      "models": [
+        "gpt-6-astra"
+      ],
+      "sha256": "2308fe1dd28608cac7d6718c8648dc38cf49b9a103eec81111e0aff1bb5459e0"
+    }
+  ]
+}

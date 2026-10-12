@@ -7,6 +7,7 @@ The installed setup is specific to `/Users/arhaan/Desktop/higgsfield-rebuild`, C
 - Raw message bodies are preserved. Only generated frontmatter counters/timestamps are refreshed as the session grows. Existing entry bodies must remain an exact prefix; conflicting history raises an error instead of being overwritten.
 - Source extraction metadata lives in `docs/capture/provenance/`. Source JSONL files remain in the user's local Codex store and are not copied into the public repository because they contain excluded tool and reasoning traffic.
 - Initial setup-source extraction and the two originally failed exec attempts are labeled in the report. Their actual on-disk text was extracted automatically; no historical prompt or answer was invented.
+- Separate CLI specialist sessions launched with `codex exec` in this project are verified by capture-only canary `01a12d7a-fb56-7470-a463-9fbc5cab7353`. Each gets an explicit handoff file and exclusive output paths. Check the full prompt at launch and full final/source record on return; root alone commits. Do not use worktrees or alter the capture destination without a new canary.
 - Native collaboration children have encrypted prompts in the observed store and remain unsupported. Do not use them for production yet. Worktrees and moved project roots are also unverified.
 - Text shapes outside the observed format and new Codex versions require revalidation. No provider spending is configured or authorized by capture setup.
 

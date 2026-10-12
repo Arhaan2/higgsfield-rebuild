@@ -1,0 +1,14 @@
+CAPTURE TEST — 8x assignment, Arhaan Aggarwal
+
+Role / accountable coordinator: capture-only specialist / main Desktop coordinator.
+Task ID: cli-delegation-canary-001. Phase: 0.
+Verified prerequisites: the coordinator and independent CLI session captures passed; native collaboration children remain unverified. This is a separate CLI-session canary, not production delegation.
+Goal: produce a real response so the coordinator can verify automatic capture of this entire delegated prompt and your full final response in the submitted repository.
+Context: /Users/arhaan/Desktop/higgsfield-rebuild. Native project UserPromptSubmit/Stop hooks are installed and trusted. Do not invoke the logger manually.
+Owned file paths: none. Inputs: this prompt only. No tool calls or file reads are needed.
+Exclusions: no research, implementation, further delegation, messaging, edits, commits, pushes, or deployment.
+Interface contract: final acknowledgement in the canonical TEAM YAML fields.
+Acceptance: real final response; the coordinator independently compares source and .agent-logs. Do not claim capture verified yourself.
+Verification: coordinator checks actual session identity, actual model, complete prompt and response, timestamps, and destination.
+Time allowance: one short final response, under 30 seconds.
+Return YAML with task_id, role, status, summary, changed_files, capture {session_id, log_path, coverage_status}, evidence, verification, decisions_and_tradeoffs, unverified_claims, blockers, next_dependency. Set status to complete for the acknowledgement only, summary to 'CLI DELEGATION CANARY ACKNOWLEDGED', capture coverage_status to unresolved, unknown session_id/log_path to empty strings, and unused lists to [].
